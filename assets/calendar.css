@@ -289,8 +289,17 @@ button { font: inherit; color: inherit; }
 }
 .st a { color: var(--focus); font-weight: 600; font-size: 13.5px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; width: fit-content; }
 .st a:hover { text-decoration: underline; }
+.trip-opt { display: grid; gap: 10px; min-width: 0; }
+.trip-opt + .trip-opt { border-top: 1px dashed var(--line); padding-top: 14px; }
+.trip-opt-head { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-size: 14px; font-weight: 600; }
+.trip-tag {
+  font: 700 11.5px/1 var(--f-display); letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--line-soft); color: var(--ink); padding: 4px 6px 3px; border-radius: 4px;
+}
+.trip-tag.alt { background: var(--sign); color: var(--sign-ink); }
+.trip-total .save { color: var(--social-ink); font-weight: 700; }
+.trip-total .dearer { color: var(--ink); font-weight: 700; }
 .trip-note { margin: 0; color: var(--muted); font-size: 13px; }
-.trip-extras { margin: 0; padding-left: 18px; display: grid; gap: 4px; color: var(--muted); font-size: 13.5px; }
 .trip-more summary { cursor: pointer; width: fit-content; color: var(--focus); font-weight: 600; font-size: 14px; }
 .trip-alt { display: grid; gap: 12px; border-top: 1px solid var(--line-soft); margin-top: 12px; padding-top: 12px; }
 .trip-foot { margin: 0; color: var(--muted); font-size: 12.5px; }

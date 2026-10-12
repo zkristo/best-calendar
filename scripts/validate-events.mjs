@@ -182,6 +182,10 @@ if (flightsFile && existsSync(flightsFile)) {
         if (!ids.has(id)) warnings.push(`${at}: no event with this id (it is dropped on the next price refresh)`);
         if (!entry || typeof entry !== "object" || !Array.isArray(entry.best)) fail(at, "best must be a list of trips");
         else if (!entry.best.every((t) => t && typeof t.total === "number" && t.out && t.back)) fail(at, "every trip needs a numeric total, out and back");
+        const alt = entry?.alternative;
+        if (alt != null && !(typeof alt.total === "number" && alt.out && alt.back && Number.isInteger(alt.arriveShift) && Number.isInteger(alt.leaveShift))) {
+          fail(at, "alternative needs a numeric total, out, back, arriveShift and leaveShift");
+        }
       }
       checkStrings(flightsFile, fl);
     }
