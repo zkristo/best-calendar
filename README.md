@@ -1,31 +1,55 @@
-# best-calendar
+# BEST Calendar
 
-A personal calendar website for travel bookings. Booking emails (flights, hotels, trains, car rentals, restaurants, tours) will be turned into events and shown on a big calendar.
+A public month calendar of BEST group events. When a group email announces an event, the event shows up on the site automatically.
 
-## Design options
+## How it works
 
-`designs/index.html` is a self-contained preview of three layouts. They all use the same sample bookings, so you can compare them side by side:
+1. **Emails arrive** in Gmail from the BEST group.
+2. **Once an hour, a Claude routine** reads the new group emails through the Gmail connector. It pulls out each event's dates, place, type and a short description, and saves them in `data/events.json`. The full instructions are in `.claude/skills/sync-events/SKILL.md`.
+3. **GitHub Pages** republishes the site. `index.html` loads `data/events.json` and draws the month grid. An open page also reloads the data every 10 minutes.
 
-- **A · Agenda**: an itinerary-style list grouped by day. Best on a phone.
-- **B · Month**: a Google-Calendar-style month grid. Hotel stays and rentals show as bars across the days they cover.
-- **C · Timeline**: a Gantt-style view grouped by trip, so long bookings appear as long bars.
+| Path | What it is |
+| --- | --- |
+| `index.html`, `assets/` | The site: month grid, type filters, list of the selected day's events, event details |
+| `data/events.json` | All events, in the shape described below |
+| `data/sync-state.json` | Which emails have already been read, so none is processed twice |
+| `scripts/validate-events.mjs` | Checks the data files; the routine runs it before every push |
+| `.claude/skills/sync-events/` | The steps the hourly routine follows |
+| `designs/` | The first design round, with three layout options and sample data |
 
-All three share tag colour filters and an event detail panel. The panel shows when, where, the booking reference, the description and which email the booking came from.
+## Turning the site on
 
-To view it, open `designs/index.html` in a browser. It needs no build step and no server.
+1. Merge this work into `main`.
+2. In the repo on GitHub, go to **Settings → Pages**, choose **Deploy from a branch**, then select **main** and **/ (root)**, and save.
+3. After a minute the site is live at `https://zkristo.github.io/best-calendar/`.
 
-### Event shape
+To try it locally, run `python3 -m http.server` in the repo folder and open http://localhost:8000. Opening `index.html` directly from disk won't work, because the browser blocks loading the data file.
 
-The page already uses the data shape that the email parser will produce:
+## Fixing an event by hand
 
-```js
+Edit `data/events.json` on GitHub using the pencil icon, then check it:
+
+```sh
+node scripts/validate-events.mjs --fix
+```
+
+The sync never re-adds an event from an email it has already read, so you can safely delete or correct any event.
+
+## Event shape
+
+```jsonc
 {
-  id, trip, tag,            // tag: flight | hotel | train | car | dining | activity
-  title, meta,
-  start, end,               // local time with UTC offset, e.g. "2026-10-16T07:05+02:00"
-  route,                    // optional: { from, fromSub, to, toSub } for flights and trains
-  location: { name, address, city },
-  ref, description,
-  source: { from, subject, receivedAt }
+  "id": "g-<gmailMessageId>-1",
+  "title": "EBEC Challenge Zagreb – final round",
+  "tag": "competition",            // meeting | course | competition | social | deadline | other
+  "start": "2026-11-03T18:00+01:00",  // local time with offset, or a plain date "2026-11-03" for all-day
+  "end": "2026-11-03T21:00+01:00",    // same formats, or null; for plain dates it is the last day (inclusive)
+  "location": { "name": "FER", "address": "Unska 3", "city": "Zagreb" },  // or { "name": "Online" } or null
+  "url": "https://…",              // optional, public registration or info page only
+  "description": "One or two sentences.",
+  "status": "confirmed",           // or "cancelled"
+  "source": { "from": "Sender name", "subject": "…", "receivedAt": "2026-10-12T09:05+02:00", "messageId": "…" }
 }
 ```
+
+The site and this repo are public, so the data never contains email addresses or other personal contact details.
