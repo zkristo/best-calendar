@@ -1,0 +1,933 @@
+{
+  "updatedAt": "2026-10-12T13:27+02:00",
+  "events": [
+    {
+      "id": "g-1a05749f727dd5d2-1",
+      "title": "Order closes: LBG Ankara course T-shirts",
+      "tag": "deadline",
+      "start": "2026-09-01T23:59+02:00",
+      "end": null,
+      "location": null,
+      "description": "Extended deadline to order the LBG Ankara course T-shirt (10 €) and bag (5 €).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [BEST Ankara][Merch] Order an LBG Ankara Course T-shirt! <3",
+        "receivedAt": "2026-08-31T12:07+02:00",
+        "messageId": "1a05749f727dd5d2"
+      }
+    },
+    {
+      "id": "g-1a0445b7ee3333aa-2",
+      "title": "Co-organiser applications close: joint aRM Aveiro",
+      "tag": "deadline",
+      "start": "2026-09-02T23:59+02:00",
+      "end": null,
+      "location": null,
+      "description": "LBG Lisbon looked for 2 co-organisers (fee 20 €). Apply with a motivational letter, video or presentation.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][Coorgs][aRM26] Autumn Regional Meeting is looking for co-organisers!",
+        "receivedAt": "2026-08-27T19:53+02:00",
+        "messageId": "1a0445b7ee3333aa"
+      }
+    },
+    {
+      "id": "g-1a02e15a1231358e-1",
+      "title": "Early-bird applications close: SCARLET Vol. XVI",
+      "tag": "deadline",
+      "start": "2026-09-05",
+      "end": null,
+      "location": null,
+      "description": "Early-bird call for the New Year's Eve event in Istanbul (29–31 December).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Early Bird Call][SCARLET Vol. XVI] Let’s Celebrate New Year’s Eve on the Bosphorus!",
+        "receivedAt": "2026-08-23T12:05+02:00",
+        "messageId": "1a02e15a1231358e"
+      }
+    },
+    {
+      "id": "g-1a0449497bcbe475-1",
+      "title": "Co-organiser applications close: aRM Region Pear",
+      "tag": "deadline",
+      "start": "2026-09-05",
+      "end": null,
+      "location": null,
+      "description": "LBG Ghent looked for 2–4 co-organisers for the Region Pear meeting (22–25 October). No fee.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][Co-orgs][aRM26 Pear] LBG Ghent needs help organising the PEARfect RM",
+        "receivedAt": "2026-08-27T20:55+02:00",
+        "messageId": "1a0449497bcbe475"
+      }
+    },
+    {
+      "id": "g-1a058dbd9ce1522b-1",
+      "title": "Announce LBG events for Winter26",
+      "tag": "deadline",
+      "start": "2026-09-06T23:00+02:00",
+      "end": null,
+      "location": null,
+      "description": "Deadline for LBGs to announce their BEST events for the Winter26 season.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Announcement][Winter26] Announce your events in Winter26 | DL: Sunday, September 6th @23:00 CEST",
+        "receivedAt": "2026-08-31T18:57+02:00",
+        "messageId": "1a058dbd9ce1522b"
+      }
+    },
+    {
+      "id": "g-1a04bfea9e65f705-1",
+      "title": "Apply to the BCC Team 2026/27",
+      "tag": "deadline",
+      "start": "2026-09-07T23:59+02:00",
+      "end": null,
+      "location": null,
+      "description": "Call for members of the BCC Team. Send a motivational letter by email.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board] [BCC] Apply to join the BCC Team for 2026/27! | DL: September 7th, 23:59 CET",
+        "receivedAt": "2026-08-28T21:13+02:00",
+        "messageId": "1a04bfea9e65f705"
+      }
+    },
+    {
+      "id": "g-1a06c4d086ea1142-1",
+      "title": "Apply: Advocacy Officers for the Position Paper",
+      "tag": "deadline",
+      "start": "2026-09-12T23:00+02:00",
+      "end": null,
+      "location": null,
+      "description": "Two people to coordinate the dissemination and implementation of BEST's Position Paper.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board] [AOs][Call] Help BEST make its voice heard! DL 12/09 23:00 CEST",
+        "receivedAt": "2026-09-04T14:02+02:00",
+        "messageId": "1a06c4d086ea1142"
+      }
+    },
+    {
+      "id": "g-1a07b5481fe8ac52-2",
+      "title": "Crasher applications close: joint aRM Gdańsk",
+      "tag": "deadline",
+      "start": "2026-09-13T23:59+02:00",
+      "end": null,
+      "location": null,
+      "description": "Crashers for the Regions Plum & Apple meeting. The call closed on 14 September.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][Crashers][joint aRM’26 Gdansk] Crash Camp Wawanakwa!",
+        "receivedAt": "2026-09-07T12:05+02:00",
+        "messageId": "1a07b5481fe8ac52"
+      }
+    },
+    {
+      "id": "g-1a059568f97a5a84-2",
+      "title": "Registration closes: RoJAM 2026",
+      "tag": "deadline",
+      "start": "2026-09-14T23:59+03:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/9jJWJ9Mr9WwwoRJY7",
+      "description": "Sign-up form for RoJAM 2026 in Bran, Romania (27–30 November).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][JAM] Zoinks!? Apply to RoJAM 2026",
+        "receivedAt": "2026-08-31T21:40+02:00",
+        "messageId": "1a059568f97a5a84"
+      }
+    },
+    {
+      "id": "g-1a099d64a07d07e3-1",
+      "title": "Co-organiser applications close: aRM Region Peach",
+      "tag": "deadline",
+      "start": "2026-09-14T23:00+02:00",
+      "end": null,
+      "location": null,
+      "description": "Extended deadline for co-organisers of the Region Peach meeting in Patras (29 Oct – 1 Nov).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [Call][Co-orgs][aRM'26 Peach] LBG Patras is looking for awesome co-organisers",
+        "receivedAt": "2026-09-13T10:15+02:00",
+        "messageId": "1a099d64a07d07e3"
+      }
+    },
+    {
+      "id": "g-1a0a4f34087eaf5f-1",
+      "title": "Co-organiser applications close: aRM Athens",
+      "tag": "deadline",
+      "start": "2026-09-22",
+      "end": null,
+      "location": null,
+      "description": "LBG Athens looked for 2 co-organisers for the Region Tomato meeting (6–9 November).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][aRM26][Coorgs] LBG Athens is searching for Co-organisers!! 🏛️",
+        "receivedAt": "2026-09-15T14:02+02:00",
+        "messageId": "1a0a4f34087eaf5f"
+      }
+    },
+    {
+      "id": "g-1a08632865255b95-1",
+      "title": "Apply to host the LTSP Drafting SIM",
+      "tag": "deadline",
+      "start": "2026-09-23",
+      "end": null,
+      "location": null,
+      "description": "Extended deadline for LBGs to host the LTSP 2027–2030 drafting meeting (December to early January).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [Call][IE][LTSPCP SIM] Host one of the LTSP Creation Project SIMs this year! | DL: 17/08",
+        "receivedAt": "2026-09-09T14:24+02:00",
+        "messageId": "1a08632865255b95"
+      }
+    },
+    {
+      "id": "g-1a0c85d83d053d43-1",
+      "title": "Crasher applications close: CE Ljubljana",
+      "tag": "deadline",
+      "start": "2026-09-25",
+      "end": null,
+      "location": null,
+      "description": "Crashers for the Ljubljana × Prague × Budapest cultural exchange (4–8 November).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [CALL] [CE] [Crashers] Ljubljana is waiting for crashers!!!!!!!!!!!!!!!!!",
+        "receivedAt": "2026-09-22T11:05+02:00",
+        "messageId": "1a0c85d83d053d43"
+      }
+    },
+    {
+      "id": "g-1a0c84c51ce0decf-1",
+      "title": "Apply: LAB project team",
+      "tag": "deadline",
+      "start": "2026-09-25T23:59+02:00",
+      "end": null,
+      "location": null,
+      "description": "Extended deadline for the LAB project (Understand, Build, Upscale), which combines learning with hands-on project development.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [Extended][Call][Project] LAB: Understand, Build, Upscale Project Applications are Open! | DL: 25/09 @ 23:59 CEST",
+        "receivedAt": "2026-09-22T10:46+02:00",
+        "messageId": "1a0c84c51ce0decf"
+      }
+    },
+    {
+      "id": "g-1a09fd99107ddf5c-2",
+      "title": "Registration and payment close: MW Copenhagen",
+      "tag": "deadline",
+      "start": "2026-09-26T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/msrm7mGLLsPcXUdd7",
+      "description": "Motivational weekend in Denmark (2–4 October). Cancellation after 29 September costs 50 %.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [LBG Copenhagen][Call][aMW] Join us for our Motivational Weekend This Autumn!",
+        "receivedAt": "2026-09-14T14:16+02:00",
+        "messageId": "1a09fd99107ddf5c"
+      }
+    },
+    {
+      "id": "g-1a0863284103f910-1",
+      "title": "Apply to host wIPF27",
+      "tag": "deadline",
+      "start": "2026-09-30T23:59+02:00",
+      "end": null,
+      "location": null,
+      "description": "Extended deadline for LBGs to apply to host the Winter International Projects Forum 2027.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [Call][IE][IPF] Apply to host the wIPF27! | DL: 31/08 @ 23:59 CEST",
+        "receivedAt": "2026-09-09T14:20+02:00",
+        "messageId": "1a0863284103f910"
+      }
+    },
+    {
+      "id": "g-1a0abb65bf52e940-1",
+      "title": "Apply to host sGA27 or aGA27",
+      "tag": "deadline",
+      "start": "2026-09-30T23:59+02:00",
+      "end": null,
+      "location": null,
+      "description": "Extended deadline for LBGs to apply to host the Spring or Autumn General Assembly 2027.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [Call][IE][sGA27][aGA27] Host a GA, and help BEST with its biggest event! | DL: 01/09",
+        "receivedAt": "2026-09-16T18:00+02:00",
+        "messageId": "1a0abb65bf52e940"
+      }
+    },
+    {
+      "id": "g-1a0e66444087aab1-1",
+      "title": "Apply: HEART-MP project team",
+      "tag": "deadline",
+      "start": "2026-10-01T23:59+02:00",
+      "end": null,
+      "location": null,
+      "description": "Extended deadline for the project reviewing BEST's membership system (admission, regulations and transitions).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [Extended][Call][HEART-MP] Holistic Evaluation of Admission, Regulations and Transitions in Membership Project Applications are Open! | DL: 01/10 @ 23:59 CEST",
+        "receivedAt": "2026-09-28T07:00+02:00",
+        "messageId": "1a0e66444087aab1"
+      }
+    },
+    {
+      "id": "g-1a0ce2c4b1195860-1",
+      "title": "Crasher applications close: joint aRM Aveiro",
+      "tag": "deadline",
+      "start": "2026-10-02",
+      "end": null,
+      "location": null,
+      "description": "Crashers for the Regions Orange & Pineapple meeting (30 Oct – 2 Nov). Fee 85 € + optional 10 € alcohol fee.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][aRM26 Lisbon][Crashers] Crashers Call is now open!!!",
+        "receivedAt": "2026-09-23T14:09+02:00",
+        "messageId": "1a0ce2c4b1195860"
+      }
+    },
+    {
+      "id": "g-1a09fd99107ddf5c-1",
+      "title": "Autumn Motivational Weekend Copenhagen",
+      "tag": "course",
+      "start": "2026-10-02",
+      "end": "2026-10-04",
+      "location": {
+        "name": "Kettingehøj",
+        "address": "Bjerget 2",
+        "city": "Hørsholm, Denmark"
+      },
+      "url": "https://forms.gle/msrm7mGLLsPcXUdd7",
+      "description": "Training sessions, an international evening, cantus and team building with LBG Copenhagen. Fee 300 kr (about 40 €); everyone who applies is accepted.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [LBG Copenhagen][Call][aMW] Join us for our Motivational Weekend This Autumn!",
+        "receivedAt": "2026-09-14T14:16+02:00",
+        "messageId": "1a09fd99107ddf5c"
+      }
+    },
+    {
+      "id": "g-1a0ea0e662212068-2",
+      "title": "Co-organiser applications close: CE Tallinn",
+      "tag": "deadline",
+      "start": "2026-10-04",
+      "end": null,
+      "location": null,
+      "description": "LBG Tallinn looked for 5 co-organisers for its cultural exchange (28 Oct – 2 Nov).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][CE26][Co-org] Cultural Exchange Tallinn is awaiting 5 co-orgs! DL: 4nd of October 2026, 23:59 CEST",
+        "receivedAt": "2026-09-29T00:06+02:00",
+        "messageId": "1a0ea0e662212068"
+      }
+    },
+    {
+      "id": "g-1a0ce0969bdc7ccb-2",
+      "title": "Applications close: MW Budapest",
+      "tag": "deadline",
+      "start": "2026-10-04T23:00+02:00",
+      "end": null,
+      "location": null,
+      "description": "Motivational weekend in the Hungarian countryside (20–22 November).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][jMW] LBG Budapest looking for a partner LBG for a jMW👀",
+        "receivedAt": "2026-09-23T13:31+02:00",
+        "messageId": "1a0ce0969bdc7ccb"
+      }
+    },
+    {
+      "id": "g-1a0d978d973d2037-2",
+      "title": "Applications close: MW Fort Boyard Edition",
+      "tag": "deadline",
+      "start": "2026-10-04T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdtAfU3fokBv-Ncft0fRNPFaLSFokQCupeVSIjeLOpkKJTVhw/viewform",
+      "description": "Motivational weekend by LBG Lyon in Chamrousse (16–18 October). 6 member spots and 3 alumni spots.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW][Lyon] Motivational Weekend – Fort Boyard Edition 🗝️",
+        "receivedAt": "2026-09-25T18:48+02:00",
+        "messageId": "1a0d978d973d2037"
+      }
+    },
+    {
+      "id": "g-1a10c842529f15d0-1",
+      "title": "Apply: Prototype Power content team",
+      "tag": "deadline",
+      "start": "2026-10-09T23:00+02:00",
+      "end": null,
+      "location": null,
+      "description": "Five roles (coordinator, advocacy expert, youth work trainer, external relations expert, technical expert) to run a 6-day advocacy and prototyping event for 25 STEM students in Vienna in July 2027. Selection results on 21 October.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [Extended x 2][Prototype Power][Call][Content Team] Create Tech-Advocacy Prototypes Event with BEST! DL [09/10] 23:00 CEST",
+        "receivedAt": "2026-10-05T16:41+02:00",
+        "messageId": "1a10c842529f15d0"
+      }
+    },
+    {
+      "id": "g-1a0fbe3bb246d825-2",
+      "title": "Crasher applications close: aRM Region Pear",
+      "tag": "deadline",
+      "start": "2026-10-10",
+      "end": null,
+      "location": null,
+      "description": "Crashers for the Region Pear meeting in Leisele, Belgium (22–25 October).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][aRM26 Pear][Crashers] Join our PEARfect RM as Crasher 🍐",
+        "receivedAt": "2026-10-02T11:12+02:00",
+        "messageId": "1a0fbe3bb246d825"
+      }
+    },
+    {
+      "id": "g-1a116a49dbf51ff9-2",
+      "title": "Crasher applications close: aRM Athens",
+      "tag": "deadline",
+      "start": "2026-10-10T23:00+03:00",
+      "end": null,
+      "location": null,
+      "description": "Crashers for the Region Tomato meeting in Athens (6–9 November).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] *[Call][aRM26][Crashers] LBG ATHENS is looking for Crashers",
+        "receivedAt": "2026-10-07T15:53+02:00",
+        "messageId": "1a116a49dbf51ff9"
+      }
+    },
+    {
+      "id": "g-1a12075525cc803d-1",
+      "title": "Partner LBG search closes: CE Coimbra, Patras & Istanbul Yildiz",
+      "tag": "deadline",
+      "start": "2026-10-11",
+      "end": null,
+      "location": null,
+      "description": "A 4th LBG to send 5–7 people to their exchanges in December, February and April, and host them in summer.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [CALL][CE] 3 LBGs are looking for a 4th partner!!",
+        "receivedAt": "2026-10-09T13:38+02:00",
+        "messageId": "1a12075525cc803d"
+      }
+    },
+    {
+      "id": "g-1a1252212c544a4c-1",
+      "title": "Crasher applications close: aRM Region Peach",
+      "tag": "deadline",
+      "start": "2026-10-13T23:00+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/PynMFd2kC2ChZWDP7",
+      "description": "Extended deadline for crashers at the Region Peach meeting in Patras (29 Oct – 1 Nov). Fee 70 €, limited spots, 20 € deposit if accepted.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [Call][Crashers][aRM'26 Peach] Crashers' Disclaimer Policy",
+        "receivedAt": "2026-10-10T11:25+02:00",
+        "messageId": "1a1252212c544a4c"
+      }
+    },
+    {
+      "id": "g-1a10dd361d1f3877-2",
+      "title": "Applications close: YEHS – BEST Engineering Sprint",
+      "tag": "deadline",
+      "start": "2026-10-14T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/tnydGRZsUmQfo44g8",
+      "description": "Apply individually; teams are put together by the organisers.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][Hackathon] YEHS - BEST Engineering Sprint",
+        "receivedAt": "2026-10-05T22:50+02:00",
+        "messageId": "1a10dd361d1f3877"
+      }
+    },
+    {
+      "id": "g-1a07b5481fe8ac52-1",
+      "title": "Joint aRM 2026 – Regions Plum & Apple",
+      "tag": "meeting",
+      "start": "2026-10-15",
+      "end": "2026-10-18",
+      "location": {
+        "name": "Gdańsk, Poland"
+      },
+      "description": "Autumn Regional Meeting in Gdańsk, themed Camp Wawanakwa.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][Crashers][joint aRM’26 Gdansk] Crash Camp Wawanakwa!",
+        "receivedAt": "2026-09-07T12:05+02:00",
+        "messageId": "1a07b5481fe8ac52"
+      }
+    },
+    {
+      "id": "g-1a0d2e315ff17d31-1",
+      "title": "Partner LBG applications close: CE Athens 2027",
+      "tag": "deadline",
+      "start": "2026-10-15T23:00+02:00",
+      "end": null,
+      "location": null,
+      "description": "LBG Athens looks for 2–3 partner LBGs to send 6–8 people to Athens on 18–25 April 2027 and host them in return. Fee 85 €. Apply with a motivational letter, presentation or video by email.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][CE] LBG Athens is looking for partners",
+        "receivedAt": "2026-09-24T12:07+02:00",
+        "messageId": "1a0d2e315ff17d31"
+      }
+    },
+    {
+      "id": "g-1a11a3ca22359c0d-1",
+      "title": "Propose topics for aGA26",
+      "tag": "deadline",
+      "start": "2026-10-15T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/BGqxGLxfLD42NCf8A",
+      "description": "Suggest discussion groups, BESTathons, sharing sessions, LBG shows or presentations for the online General Assembly.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [aGA26][Topics] Propose your Topics! | DL: 15/10 @ 23:59 CET",
+        "receivedAt": "2026-10-08T07:00+02:00",
+        "messageId": "1a11a3ca22359c0d"
+      }
+    },
+    {
+      "id": "g-1a0d978d973d2037-1",
+      "title": "Motivational Weekend – Fort Boyard Edition",
+      "tag": "course",
+      "start": "2026-10-16",
+      "end": "2026-10-18",
+      "location": {
+        "name": "Chamrousse",
+        "city": "near Grenoble, France"
+      },
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdtAfU3fokBv-Ncft0fRNPFaLSFokQCupeVSIjeLOpkKJTVhw/viewform",
+      "description": "Motivational weekend by LBG Lyon. Fee 65 € + 5 € alcohol fee (alumni 80 € + 5 €). The call's header says 2027, but the text gives 16–18 October with applications closing 4 October 2026.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW][Lyon] Motivational Weekend – Fort Boyard Edition 🗝️",
+        "receivedAt": "2026-09-25T18:48+02:00",
+        "messageId": "1a0d978d973d2037"
+      }
+    },
+    {
+      "id": "g-1a1128468832bb21-1",
+      "title": "Apply as Extra Delegate for aGA26",
+      "tag": "deadline",
+      "start": "2026-10-16T23:00+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/ET54ARPtLGSi9odj7",
+      "description": "Extra delegates support the plenary (minutes, attendance, statistics, photos) during the online GA, 27 November – 6 December.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [Call][aGA26] Time to get involved as an Extra Delegate in aGA26! | DL: 16.10",
+        "receivedAt": "2026-10-06T20:39+02:00",
+        "messageId": "1a1128468832bb21"
+      }
+    },
+    {
+      "id": "g-1a0d3071ca38f137-2",
+      "title": "Applications close: Alpine Jam 2026",
+      "tag": "deadline",
+      "start": "2026-10-16T23:36+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSe3ngVgvXk98xhC116xmhvlgHCFLOu0hLvX-nQ1GhlTm7e9-Q/viewform",
+      "description": "Fill in the form and add a motivational video (up to 4 people per video).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][ALPINE JAM] Torino is calling upon YOU!!!",
+        "receivedAt": "2026-09-24T12:47+02:00",
+        "messageId": "1a0d3071ca38f137"
+      }
+    },
+    {
+      "id": "g-1a12c621bef67c63-2",
+      "title": "Co-organiser applications close: Nordic JBT",
+      "tag": "deadline",
+      "start": "2026-10-16T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeSp6TTqj9Gr0z-wGPgR-qQhMyOGm4K031o8upWDJ1nBXafow/viewform",
+      "description": "Help organise the Nordic Joint Board Training in Warsaw (23–25 October).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][COORGS][Nordic JBT] Come to the first JBT in Warsaw!",
+        "receivedAt": "2026-10-11T21:12+02:00",
+        "messageId": "1a12c621bef67c63"
+      }
+    },
+    {
+      "id": "g-1a1029406d87e7fc-2",
+      "title": "Applications close: SCARLET Vol. XVI",
+      "tag": "deadline",
+      "start": "2026-10-22",
+      "end": null,
+      "location": null,
+      "description": "Main call for the New Year's Eve event in Istanbul (29–31 December). Early-bird applications can be moved to the main call.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Main Call][SCARLET VOL XVI] Are You Ready for a New Year’s Eve Party on the Bosphorus!",
+        "receivedAt": "2026-10-03T18:23+02:00",
+        "messageId": "1a1029406d87e7fc"
+      }
+    },
+    {
+      "id": "g-1a0fbe3bb246d825-1",
+      "title": "aRM 2026 – Region Pear",
+      "tag": "meeting",
+      "start": "2026-10-22",
+      "end": "2026-10-25",
+      "location": {
+        "name": "De Ruischaard",
+        "city": "Leisele, Belgium"
+      },
+      "description": "Autumn Regional Meeting hosted by LBG Ghent. Fee 80 € for the full event plus an optional 15 € alcohol fee.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][aRM26 Pear][Crashers] Join our PEARfect RM as Crasher 🍐",
+        "receivedAt": "2026-10-02T11:12+02:00",
+        "messageId": "1a0fbe3bb246d825"
+      }
+    },
+    {
+      "id": "g-1a12c621bef67c63-1",
+      "title": "Nordic Joint Board Training",
+      "tag": "course",
+      "start": "2026-10-23",
+      "end": "2026-10-25",
+      "location": {
+        "name": "Dresso",
+        "city": "Warsaw, Poland"
+      },
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeSp6TTqj9Gr0z-wGPgR-qQhMyOGm4K031o8upWDJ1nBXafow/viewform",
+      "description": "First Nordic JBT hosted in Warsaw. LBG Warsaw looks for co-organisers to help run it; transport and hot meals covered. Fee 0 € plus an optional 20 €.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][COORGS][Nordic JBT] Come to the first JBT in Warsaw!",
+        "receivedAt": "2026-10-11T21:12+02:00",
+        "messageId": "1a12c621bef67c63"
+      }
+    },
+    {
+      "id": "g-1a0f8d194235decc-1",
+      "title": "aGA26 proposals due",
+      "tag": "deadline",
+      "start": "2026-10-25T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Deadline for LBGs to submit proposals for the Autumn General Assembly. Contact the speakers early for feedback.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [aGA26][Announcement] How to Submit a proposal",
+        "receivedAt": "2026-10-01T20:51+02:00",
+        "messageId": "1a0f8d194235decc"
+      }
+    },
+    {
+      "id": "g-1a125f268f25cd0c-1",
+      "title": "Announce LBG events for Spring27",
+      "tag": "deadline",
+      "start": "2026-10-25T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Deadline for LBGs to announce their BEST events for the Spring27 season.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Announcement][Spring27] Announce your events in Spring27| DL: Sunday, October 25th @23:00 CEST",
+        "receivedAt": "2026-10-10T15:05+02:00",
+        "messageId": "1a125f268f25cd0c"
+      }
+    },
+    {
+      "id": "g-1a0ea0e662212068-1",
+      "title": "Cultural Exchange Tallinn",
+      "tag": "social",
+      "start": "2026-10-28",
+      "end": "2026-11-02",
+      "location": {
+        "name": "Tallinn, Estonia"
+      },
+      "description": "Halloween-themed cultural exchange hosted by LBG Tallinn.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][CE26][Co-org] Cultural Exchange Tallinn is awaiting 5 co-orgs! DL: 4nd of October 2026, 23:59 CEST",
+        "receivedAt": "2026-09-29T00:06+02:00",
+        "messageId": "1a0ea0e662212068"
+      }
+    },
+    {
+      "id": "g-1a10065cad0cb8cf-1",
+      "title": "aRM 2026 – Region Peach",
+      "tag": "meeting",
+      "start": "2026-10-29",
+      "end": "2026-11-01",
+      "location": {
+        "name": "Camping Golden Sunset",
+        "city": "Patras, Greece"
+      },
+      "description": "Autumn Regional Meeting hosted by LBG Patras. Crasher fee 70 € plus an optional 15 € alcohol fee; crashers stay in tents on site.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][Crashers][aRM'26 Peach] Crashers' Disclaimer Policy",
+        "receivedAt": "2026-10-03T08:12+02:00",
+        "messageId": "1a10065cad0cb8cf"
+      }
+    },
+    {
+      "id": "g-1a0445b7ee3333aa-1",
+      "title": "Joint aRM 2026 – Regions Orange & Pineapple",
+      "tag": "meeting",
+      "start": "2026-10-30",
+      "end": "2026-11-02",
+      "location": {
+        "name": "Palhaça",
+        "city": "Aveiro, Portugal"
+      },
+      "description": "Autumn Regional Meeting hosted by LBG Lisbon. Crasher fee 85 € plus an optional 10 € alcohol fee.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][Coorgs][aRM26] Autumn Regional Meeting is looking for co-organisers!",
+        "receivedAt": "2026-08-27T19:53+02:00",
+        "messageId": "1a0445b7ee3333aa"
+      }
+    },
+    {
+      "id": "g-1a10dd361d1f3877-1",
+      "title": "YEHS – BEST Engineering Sprint",
+      "tag": "competition",
+      "start": "2026-11-01",
+      "end": "2026-12-05",
+      "location": {
+        "name": "Online"
+      },
+      "url": "https://forms.gle/tnydGRZsUmQfo44g8",
+      "description": "Online hackathon in mixed teams with Korean YEHS students on Green City: Engineering Sustainable Urban Systems. Mandatory sessions on 1 Nov, 21 Nov and 5 Dec. Free.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][Hackathon] YEHS - BEST Engineering Sprint",
+        "receivedAt": "2026-10-05T22:50+02:00",
+        "messageId": "1a10dd361d1f3877"
+      }
+    },
+    {
+      "id": "g-1a095e33a7e10242-1",
+      "title": "Cultural Exchange Ljubljana × Prague × Budapest",
+      "tag": "social",
+      "start": "2026-11-04",
+      "end": "2026-11-08",
+      "location": {
+        "name": "LBG Ljubljana",
+        "city": "Ljubljana, Slovenia"
+      },
+      "description": "Cultural exchange hosted by LBG Ljubljana, open to crashers. Fee 130 €.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL] [CE] [Crashers] Ljubljana is waiting for crashers!!!!!!!!!!!!!!!!!",
+        "receivedAt": "2026-09-12T15:51+02:00",
+        "messageId": "1a095e33a7e10242"
+      }
+    },
+    {
+      "id": "g-1a0c2eedd87e39ba-2",
+      "title": "Delegate applications close: aGA26",
+      "tag": "deadline",
+      "start": "2026-11-05T23:00+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/jGsU4W46g4XKBpHGA",
+      "description": "LBG delegates apply for the online General Assembly (one submission per LBG).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [aGA26] Announcement of the Autumn General Assembly 2026",
+        "receivedAt": "2026-09-21T09:45+02:00",
+        "messageId": "1a0c2eedd87e39ba"
+      }
+    },
+    {
+      "id": "g-1a116a49dbf51ff9-1",
+      "title": "aRM 2026 – Region Tomato (The Redfather)",
+      "tag": "meeting",
+      "start": "2026-11-06",
+      "end": "2026-11-09",
+      "location": {
+        "name": "Athens, Greece"
+      },
+      "description": "Autumn Regional Meeting hosted by LBG Athens.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] *[Call][aRM26][Crashers] LBG ATHENS is looking for Crashers",
+        "receivedAt": "2026-10-07T15:53+02:00",
+        "messageId": "1a116a49dbf51ff9"
+      }
+    },
+    {
+      "id": "g-1a0ce0969bdc7ccb-1",
+      "title": "Autumn Motivational Weekend Budapest",
+      "tag": "course",
+      "start": "2026-11-20",
+      "end": "2026-11-22",
+      "location": {
+        "name": "Hungarian countryside",
+        "city": "Hungary"
+      },
+      "description": "Motivational weekend by LBG Budapest. Fee to be announced.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][jMW] LBG Budapest looking for a partner LBG for a jMW👀",
+        "receivedAt": "2026-09-23T13:31+02:00",
+        "messageId": "1a0ce0969bdc7ccb"
+      }
+    },
+    {
+      "id": "g-1a11d18b85ee747c-1",
+      "title": "BEST Design Week Warsaw (6th BDW)",
+      "tag": "course",
+      "start": "2026-11-20",
+      "end": "2026-11-22",
+      "location": {
+        "name": "Warsaw University of Technology",
+        "city": "Warsaw, Poland"
+      },
+      "url": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=nCJQO3jNiEWbz5e3Yp4vD0CGj6qPOYBLrV8bO7YJfJlUMDFFSzNCMVJKNEtSN0QwUFJUR081M1hZMy4u&route=shorturl",
+      "description": "Three days of design workshops, panel discussions and exhibitions with industry professionals. Fee 50 €.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][Project] BEST Design Week in Warsaw",
+        "receivedAt": "2026-10-08T21:58+02:00",
+        "messageId": "1a11d18b85ee747c"
+      }
+    },
+    {
+      "id": "g-1a059568f97a5a84-1",
+      "title": "RoJAM 2026 – The Mystery Jam",
+      "tag": "social",
+      "start": "2026-11-27",
+      "end": "2026-11-30",
+      "location": {
+        "name": "La Vâltoare Guesthouse",
+        "city": "Bran, Romania"
+      },
+      "url": "https://forms.gle/9jJWJ9Mr9WwwoRJY7",
+      "description": "Romanian JAM with a limited number of spots for international BESTies. 18 € per night plus a 2 € deposit per night.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][JAM] Zoinks!? Apply to RoJAM 2026",
+        "receivedAt": "2026-08-31T21:40+02:00",
+        "messageId": "1a059568f97a5a84"
+      }
+    },
+    {
+      "id": "g-1a0c2eedd87e39ba-1",
+      "title": "Autumn General Assembly 2026 (aGA26)",
+      "tag": "meeting",
+      "start": "2026-11-27",
+      "end": "2026-12-06",
+      "location": {
+        "name": "Online"
+      },
+      "description": "51st General Assembly of BEST, fully online. Opening session Friday 27 November, plenaries at weekends and some weekday evenings, final sessions and voting 4–6 December.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [aGA26] Announcement of the Autumn General Assembly 2026",
+        "receivedAt": "2026-09-21T09:45+02:00",
+        "messageId": "1a0c2eedd87e39ba"
+      }
+    },
+    {
+      "id": "g-1a0d3071ca38f137-1",
+      "title": "Alpine Jam 2026 – Tied Up to the Middle Ages",
+      "tag": "social",
+      "start": "2026-12-03",
+      "end": "2026-12-06",
+      "location": {
+        "name": "In the Alps near Torino",
+        "city": "Italy"
+      },
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSe3ngVgvXk98xhC116xmhvlgHCFLOu0hLvX-nQ1GhlTm7e9-Q/viewform",
+      "description": "20th Alpine Jam by LBG Torino, with a medieval theme. Fee 150 € (members) or 180 € (alumni and guests), bus from Turin included.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][ALPINE JAM] Torino is calling upon YOU!!!",
+        "receivedAt": "2026-09-24T12:47+02:00",
+        "messageId": "1a0d3071ca38f137"
+      }
+    },
+    {
+      "id": "g-1a1029406d87e7fc-1",
+      "title": "SCARLET Vol. XVI – Nightrunners (New Year's Eve)",
+      "tag": "social",
+      "start": "2026-12-29",
+      "end": "2026-12-31",
+      "location": {
+        "name": "Sanat Hostel (Taksim)",
+        "city": "Istanbul, Türkiye"
+      },
+      "description": "Three-day New Year's Eve event for 200 BESTies, ending with a boat party on the Bosphorus. Fee 170 € (alumni 240 €), shared bed 150 €. Apply by sending a motivational video or presentation by email.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Main Call][SCARLET VOL XVI] Are You Ready for a New Year’s Eve Party on the Bosphorus!",
+        "receivedAt": "2026-10-03T18:23+02:00",
+        "messageId": "1a1029406d87e7fc"
+      }
+    }
+  ]
+}

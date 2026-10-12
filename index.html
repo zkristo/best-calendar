@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BEST Calendar</title>
+<meta name="description" content="BEST International events and application deadlines, updated automatically from the group emails.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/calendar.css">
+<script src="assets/calendar.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><small id="mark-mon"></small><b id="mark-day"></b></span>
+      <div>
+        <h1>BEST Calendar</h1>
+        <p>BEST International events and deadlines, added automatically when the emails arrive.</p>
+      </div>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+  </header>
+
+  <div class="filters" id="filters" role="group" aria-label="Show events by type"></div>
+
+  <main id="view">
+    <div class="state"><p>Loading events…</p></div>
+  </main>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="tk-title" hidden>
+  <div class="dr-bar"><button class="iconbtn" id="dr-close" type="button" aria-label="Close"></button></div>
+  <div id="dr-body"></div>
+</aside>
+</body>
+</html>
