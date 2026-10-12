@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-12T13:27+02:00",
+  "updatedAt": "2026-10-12T23:00+02:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -572,6 +572,23 @@
       }
     },
     {
+      "id": "g-1a131cc15985ef38-1",
+      "title": "Participant applications close: aRM Region Peach",
+      "tag": "deadline",
+      "start": "2026-10-16T23:00+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScdSi95e2tAo_sI0TxBfpopdp690thtnrZo4A0iSiOVxh1h9w/viewform?usp=dialog",
+      "description": "A few participant spots opened up for the Region Peach meeting in Patras (29 Oct – 1 Nov); open to any BESTie. Fee 70 € plus 10 € alcohol fee.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][aRM26 Patras][Pax] One More Swing to Patras 🇬🇷",
+        "receivedAt": "2026-10-12T22:25+02:00",
+        "messageId": "1a131cc15985ef38"
+      }
+    },
+    {
       "id": "g-1a0d3071ca38f137-2",
       "title": "Applications close: Alpine Jam 2026",
       "tag": "deadline",
@@ -844,6 +861,23 @@
       }
     },
     {
+      "id": "g-1a1308ca02c8a9bb-2",
+      "title": "Applications close: Motivational Weekend Ekaterinburg",
+      "tag": "deadline",
+      "start": "2026-11-19T23:59+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/ss4RK1NGao8w6Pcq6",
+      "description": "Apply by form for the LBG Eka UrFU motivational weekend (20–22 Nov).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][aMW'26][LBG Eka UrFU] Motivational Weekend",
+        "receivedAt": "2026-10-12T16:37+02:00",
+        "messageId": "1a1308ca02c8a9bb"
+      }
+    },
+    {
       "id": "g-1a0ce0969bdc7ccb-1",
       "title": "Autumn Motivational Weekend Budapest",
       "tag": "course",
@@ -884,6 +918,29 @@
         "subject": "[BEST International] [CALL][Project] BEST Design Week in Warsaw",
         "receivedAt": "2026-10-08T21:58+02:00",
         "messageId": "1a11d18b85ee747c"
+      }
+    },
+    {
+      "id": "g-1a1308ca02c8a9bb-1",
+      "title": "Autumn Motivational Weekend Ekaterinburg",
+      "tag": "course",
+      "start": "2026-11-20",
+      "end": "2026-11-22",
+      "location": {
+        "name": "Cottage near Ekaterinburg",
+        "city": "Ekaterinburg, Russia"
+      },
+      "airports": [
+        "SVX"
+      ],
+      "url": "https://forms.gle/ss4RK1NGao8w6Pcq6",
+      "description": "Motivational weekend by LBG Eka UrFU for any BESTie. Fee 40 € (alcohol included).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][aMW'26][LBG Eka UrFU] Motivational Weekend",
+        "receivedAt": "2026-10-12T16:37+02:00",
+        "messageId": "1a1308ca02c8a9bb"
       }
     },
     {
