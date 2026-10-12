@@ -102,10 +102,9 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
    - In `data/sync-state.json`, set `lastCheckedAt` to now and append every message ID you read, including ones with no events. Keep only the newest 2000 IDs.
 
 7. **Refresh travel prices.** `data/flights.json` holds the cheapest bus + flight trip from Zagreb for each upcoming event that has `airports`. The site shows it in the event's details. Run this step on every run, even with no new emails.
-   - Make the finder available: add the `zkristo/google-flights` repository to the session (read access), then
+   - Install the finder from its public repo:
      ```sh
-     git clone --depth 1 https://github.com/zkristo/google-flights /tmp/google-flights
-     pip install --quiet /tmp/google-flights
+     pip install --quiet git+https://github.com/zkristo/google-flights
      ```
    - Run it from this repo's folder:
      ```sh

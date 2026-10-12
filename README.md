@@ -61,7 +61,7 @@ The site and this repo are public, so the data never contains email addresses or
 
 Each upcoming event abroad shows the cheapest way to get there from Zagreb and back. The event list shows a "Round trip from Zagreb" price (plus the ±1 day price when it's cheaper), and the event's details show every bus and flight with times and booking links.
 
-- **Where the prices come from:** the routine installs [zagflights](https://github.com/zkristo/google-flights) and runs `zagflights events data/events.json --out data/flights.json`. It combines:
+- **Where the prices come from:** the routine installs [zagflights](https://github.com/zkristo/google-flights) (public) and runs `zagflights events data/events.json --out data/flights.json`. It combines:
   - live FlixBus buses to nearby airports (Zagreb, Ljubljana, Graz, Venice, Treviso, Trieste, Vienna, Bratislava, Budapest, Belgrade and others);
   - Kiwi.com flights, with Ryanair and Wizz Air fares taken from the airlines themselves;
   - cheap first flights out of Zagreb.
