@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Checks data/events.json (and data/sync-state.json) before they are pushed.
+// Checks data/events.json (and data/sync-state.json, data/flights.json) before they are pushed.
 //
 //   node scripts/validate-events.mjs                 validate the default files
 //   node scripts/validate-events.mjs path/to.json    validate another events file
@@ -7,19 +7,21 @@
 //
 // Exits with code 1 and lists every problem when something is wrong.
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 
 const TAGS = ["meeting", "course", "competition", "social", "deadline", "other"];
 const STATUS = ["confirmed", "cancelled"];
 const DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 const TIME_RE = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::\d{2}(?:\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/;
 const EMAIL_RE = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i;
+const IATA_RE = /^[A-Z]{3}$/;
 
 const args = process.argv.slice(2);
 const fix = args.includes("--fix");
 const files = args.filter((a) => a !== "--fix");
 const eventsFile = files[0] || "data/events.json";
 const stateFile = files[0] ? null : "data/sync-state.json";
+const flightsFile = files[0] ? null : "data/flights.json";
 
 const problems = [];
 const fail = (where, msg) => problems.push(`${where}: ${msg}`);
@@ -96,6 +98,13 @@ function checkEvent(e, i, seen) {
     }
   }
 
+  if (e.airports !== undefined) {
+    const A = e.airports;
+    if (!Array.isArray(A) || A.length < 1 || A.length > 4 || !A.every((a) => typeof a === "string" && IATA_RE.test(a))) {
+      fail(at, 'airports must be a list of 1–4 airport codes, e.g. ["ATH"] or ["BRU", "CRL"]');
+    }
+  }
+
   if (e.url !== undefined && e.url !== null) {
     let ok = false;
     try { ok = ["https:", "http:"].includes(new URL(e.url).protocol); } catch {}
@@ -159,6 +168,27 @@ if (stateFile) {
   }
 }
 
+// Travel prices written by the routine (zagflights events). Optional.
+const warnings = [];
+if (flightsFile && existsSync(flightsFile)) {
+  const fl = readJson(flightsFile);
+  if (fl) {
+    if (typeof fl !== "object" || Array.isArray(fl) || !fl.events || typeof fl.events !== "object" || Array.isArray(fl.events)) {
+      fail(flightsFile, "must be an object with an events object keyed by event id");
+    } else {
+      const ids = new Set((data?.events || []).map((e) => e?.id));
+      for (const [id, entry] of Object.entries(fl.events)) {
+        const at = `${flightsFile} events.${id}`;
+        if (!ids.has(id)) warnings.push(`${at}: no event with this id (it is dropped on the next price refresh)`);
+        if (!entry || typeof entry !== "object" || !Array.isArray(entry.best)) fail(at, "best must be a list of trips");
+        else if (!entry.best.every((t) => t && typeof t.total === "number" && t.out && t.back)) fail(at, "every trip needs a numeric total, out and back");
+      }
+      checkStrings(flightsFile, fl);
+    }
+  }
+}
+
+for (const w of warnings) console.warn(`Warning: ${w}`);
 if (problems.length) {
   console.error(`Found ${problems.length} problem${problems.length === 1 ? "" : "s"}:`);
   for (const p of problems) console.error(`  - ${p}`);
