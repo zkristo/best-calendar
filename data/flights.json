@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-12T22:36+02:00",
+ "updatedAt": "2026-10-12T23:08+02:00",
  "origin": "Zagreb",
  "events": {
   "g-1a0445b7ee3333aa-1": {
@@ -1243,6 +1243,546 @@
      "out": "2026-10-16",
      "back": "2026-10-19",
      "total": 93.04
+    }
+   ],
+   "warnings": []
+  },
+  "g-1a095e33a7e10242-1": {
+   "title": "Cultural Exchange Ljubljana × Prague × Budapest",
+   "destination": "bus:Ljubljana",
+   "out": "2026-11-04",
+   "back": "2026-11-08",
+   "format": 2,
+   "mode": "bus",
+   "searchedAt": "2026-10-12T23:08+02:00",
+   "best": [
+    {
+     "total": 22.96,
+     "nights": 4,
+     "out": {
+      "airport": "Ljubljana",
+      "airportName": "Ljubljana",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 10.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Ljubljana",
+        "dep": "2026-11-04T18:00",
+        "arr": "2026-11-04T20:35",
+        "price": 10.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=04.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     },
+     "back": {
+      "airport": "Ljubljana",
+      "airportName": "Ljubljana",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 11.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Ljubljana",
+        "to": "Zagreb",
+        "dep": "2026-11-08T17:25",
+        "arr": "2026-11-08T20:05",
+        "price": 11.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=08.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     }
+    },
+    {
+     "total": 22.96,
+     "nights": 4,
+     "out": {
+      "airport": "Ljubljana",
+      "airportName": "Ljubljana",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 10.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Ljubljana",
+        "dep": "2026-11-04T18:30",
+        "arr": "2026-11-04T21:10",
+        "price": 10.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=04.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     },
+     "back": {
+      "airport": "Ljubljana",
+      "airportName": "Ljubljana",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 11.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Ljubljana",
+        "to": "Zagreb",
+        "dep": "2026-11-08T17:25",
+        "arr": "2026-11-08T20:05",
+        "price": 11.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=08.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     }
+    },
+    {
+     "total": 22.96,
+     "nights": 4,
+     "out": {
+      "airport": "Ljubljana",
+      "airportName": "Ljubljana",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 10.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Ljubljana",
+        "dep": "2026-11-04T20:45",
+        "arr": "2026-11-04T23:20",
+        "price": 10.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=04.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     },
+     "back": {
+      "airport": "Ljubljana",
+      "airportName": "Ljubljana",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 11.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Ljubljana",
+        "to": "Zagreb",
+        "dep": "2026-11-08T17:25",
+        "arr": "2026-11-08T20:05",
+        "price": 11.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=08.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     }
+    }
+   ],
+   "alternative": {
+    "total": 21.96,
+    "nights": 6,
+    "out": {
+     "airport": "Ljubljana",
+     "airportName": "Ljubljana",
+     "viaFlight": false,
+     "mode": "bus",
+     "total": 10.98,
+     "wait": null,
+     "overnight": false,
+     "steps": [
+      {
+       "kind": "bus",
+       "from": "Zagreb",
+       "to": "Ljubljana",
+       "dep": "2026-11-03T18:00",
+       "arr": "2026-11-03T20:35",
+       "price": 10.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=03.11.2026&adult=1&_locale=en",
+       "transfer": null
+      }
+     ]
+    },
+    "back": {
+     "airport": "Ljubljana",
+     "airportName": "Ljubljana",
+     "viaFlight": false,
+     "mode": "bus",
+     "total": 10.98,
+     "wait": null,
+     "overnight": false,
+     "steps": [
+      {
+       "kind": "bus",
+       "from": "Ljubljana",
+       "to": "Zagreb",
+       "dep": "2026-11-09T17:25",
+       "arr": "2026-11-09T20:05",
+       "price": 10.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=09.11.2026&adult=1&_locale=en",
+       "transfer": null
+      }
+     ]
+    },
+    "arriveShift": -1,
+    "leaveShift": 1,
+    "saving": 1.0
+   },
+   "baseline": null,
+   "grid": [
+    {
+     "out": "2026-11-02",
+     "back": "2026-11-07",
+     "total": 23.46
+    },
+    {
+     "out": "2026-11-02",
+     "back": "2026-11-08",
+     "total": 23.46
+    },
+    {
+     "out": "2026-11-02",
+     "back": "2026-11-09",
+     "total": 22.96
+    },
+    {
+     "out": "2026-11-03",
+     "back": "2026-11-07",
+     "total": 22.46
+    },
+    {
+     "out": "2026-11-03",
+     "back": "2026-11-08",
+     "total": 22.46
+    },
+    {
+     "out": "2026-11-03",
+     "back": "2026-11-09",
+     "total": 21.96
+    },
+    {
+     "out": "2026-11-04",
+     "back": "2026-11-07",
+     "total": 22.46
+    },
+    {
+     "out": "2026-11-04",
+     "back": "2026-11-08",
+     "total": 22.46
+    },
+    {
+     "out": "2026-11-04",
+     "back": "2026-11-09",
+     "total": 21.96
+    },
+    {
+     "out": "2026-11-05",
+     "back": "2026-11-07",
+     "total": 22.46
+    },
+    {
+     "out": "2026-11-05",
+     "back": "2026-11-08",
+     "total": 22.46
+    },
+    {
+     "out": "2026-11-05",
+     "back": "2026-11-09",
+     "total": 21.96
+    }
+   ],
+   "warnings": []
+  },
+  "g-1a0ce0969bdc7ccb-1": {
+   "title": "Autumn Motivational Weekend Budapest",
+   "destination": "bus:Budapest",
+   "out": "2026-11-20",
+   "back": "2026-11-22",
+   "format": 2,
+   "mode": "bus",
+   "searchedAt": "2026-10-12T23:08+02:00",
+   "best": [
+    {
+     "total": 48.46,
+     "nights": 2,
+     "out": {
+      "airport": "Budapest",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 25.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Budapest Kelenföld",
+        "dep": "2026-11-20T08:30",
+        "arr": "2026-11-20T14:00",
+        "price": 25.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=20.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     },
+     "back": {
+      "airport": "Budapest",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 22.48,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Budapest Kelenföld",
+        "to": "Zagreb",
+        "dep": "2026-11-22T15:50",
+        "arr": "2026-11-22T21:20",
+        "price": 22.48,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     }
+    },
+    {
+     "total": 48.46,
+     "nights": 2,
+     "out": {
+      "airport": "Budapest",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 25.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Budapest Kelenföld",
+        "dep": "2026-11-20T11:05",
+        "arr": "2026-11-20T15:00",
+        "price": 25.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=20.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     },
+     "back": {
+      "airport": "Budapest",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 22.48,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Budapest Kelenföld",
+        "to": "Zagreb",
+        "dep": "2026-11-22T15:50",
+        "arr": "2026-11-22T21:20",
+        "price": 22.48,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     }
+    },
+    {
+     "total": 48.46,
+     "nights": 2,
+     "out": {
+      "airport": "Budapest",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 25.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Budapest Kelenföld",
+        "dep": "2026-11-20T14:10",
+        "arr": "2026-11-20T18:05",
+        "price": 25.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=20.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     },
+     "back": {
+      "airport": "Budapest",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 22.48,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Budapest Kelenföld",
+        "to": "Zagreb",
+        "dep": "2026-11-22T15:50",
+        "arr": "2026-11-22T21:20",
+        "price": 22.48,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     }
+    }
+   ],
+   "alternative": {
+    "total": 42.96,
+    "nights": 2,
+    "out": {
+     "airport": "Budapest",
+     "airportName": "Budapest",
+     "viaFlight": false,
+     "mode": "bus",
+     "total": 22.98,
+     "wait": null,
+     "overnight": false,
+     "steps": [
+      {
+       "kind": "bus",
+       "from": "Zagreb",
+       "to": "Budapest Kelenföld",
+       "dep": "2026-11-21T08:30",
+       "arr": "2026-11-21T14:00",
+       "price": 22.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=21.11.2026&adult=1&_locale=en",
+       "transfer": null
+      }
+     ]
+    },
+    "back": {
+     "airport": "Budapest",
+     "airportName": "Budapest",
+     "viaFlight": false,
+     "mode": "bus",
+     "total": 19.98,
+     "wait": null,
+     "overnight": false,
+     "steps": [
+      {
+       "kind": "bus",
+       "from": "Budapest Kelenföld",
+       "to": "Zagreb",
+       "dep": "2026-11-23T15:50",
+       "arr": "2026-11-23T21:20",
+       "price": 19.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=23.11.2026&adult=1&_locale=en",
+       "transfer": null
+      }
+     ]
+    },
+    "arriveShift": 1,
+    "leaveShift": 1,
+    "saving": 5.5
+   },
+   "baseline": null,
+   "grid": [
+    {
+     "out": "2026-11-18",
+     "back": "2026-11-21",
+     "total": 47.46
+    },
+    {
+     "out": "2026-11-18",
+     "back": "2026-11-22",
+     "total": 46.96
+    },
+    {
+     "out": "2026-11-18",
+     "back": "2026-11-23",
+     "total": 44.46
+    },
+    {
+     "out": "2026-11-19",
+     "back": "2026-11-21",
+     "total": 46.46
+    },
+    {
+     "out": "2026-11-19",
+     "back": "2026-11-22",
+     "total": 45.96
+    },
+    {
+     "out": "2026-11-19",
+     "back": "2026-11-23",
+     "total": 43.46
+    },
+    {
+     "out": "2026-11-20",
+     "back": "2026-11-21",
+     "total": 48.96
+    },
+    {
+     "out": "2026-11-20",
+     "back": "2026-11-22",
+     "total": 48.46
+    },
+    {
+     "out": "2026-11-20",
+     "back": "2026-11-23",
+     "total": 45.96
+    },
+    {
+     "out": "2026-11-21",
+     "back": "2026-11-21",
+     "total": 45.96
+    },
+    {
+     "out": "2026-11-21",
+     "back": "2026-11-22",
+     "total": 45.46
+    },
+    {
+     "out": "2026-11-21",
+     "back": "2026-11-23",
+     "total": 42.96
     }
    ],
    "warnings": []

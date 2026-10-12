@@ -48,6 +48,7 @@ The sync never re-adds an event from an email it has already read, so you can sa
   "end": "2026-11-01",              // same formats, or null; for plain dates it is the last day (inclusive)
   "location": { "name": "Camping Golden Sunset", "city": "Patras, Greece" },  // or { "name": "Online" } or null
   "airports": ["ATH", "GPA"],       // optional, nearest airports for travel prices (events abroad only)
+  "bus": "Ljubljana",               // optional, instead of airports: FlixBus city for events a bus ride away
   "url": "https://forms.gle/…",     // optional, the public application form only
   "description": "One or two sentences.",
   "status": "confirmed",           // or "cancelled"
@@ -67,7 +68,7 @@ Each upcoming event abroad shows the cheapest way to get there from Zagreb and b
   - cheap first flights out of Zagreb.
   The way out and the way back are priced separately, so you can fly into one airport and out of another.
 - **Which dates:** option 1 arrives on the event's first day and leaves on its last day. Option 2 is always shown: the cheapest trip that is a day off, e.g. "Arrive a day late (Sat 7 Nov) · €50 cheaper", or "€12 more" when the event dates are already the cheapest.
-- **Which events:** in-person events with an `airports` list. The routine fills it in for events abroad and leaves it out for places an easy bus ride from Zagreb (Croatia, Slovenia, Hungary, Graz, Trieste).
+- **Which events:** in-person events with an `airports` list (bus + flight) or a `bus` city (FlixBus alone, for places an easy bus ride from Zagreb such as Ljubljana, Budapest, Graz, Vienna, Trieste or Belgrade). The routine fills in one of the two when it adds an event.
 - **How fresh:** each run re-prices up to 4 events whose prices are older than 20 hours, so every event is re-checked about once a day. The site shows when each price was checked.
 
 Prices are snapshots for one person with a small bag. Every bus and flight is a separate ticket, so check the booking page before you buy, and leave time between connections.

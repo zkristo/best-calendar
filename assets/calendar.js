@@ -162,7 +162,7 @@ function evRow(e, day) {
   const place = placeLine(e);
   const fl = !e.cancelled ? FLIGHTS[e.id] : null; // shown on every day of the event, not just the first
   const fare = fl?.best?.[0]?.total ?? null;
-  const altFare = fl?.alternative && fl.alternative.saving >= 1 ? fl.alternative.total : null;
+  const altFare = fl?.alternative && fl.alternative.saving >= 5 ? fl.alternative.total : null; // only when worth a day's shift
   const cls = `ev-row tag-${e.tag}${cont ? " is-cont" : ""}${e.cancelled ? " is-cancelled" : ""}`;
   return `<button class="${cls}" type="button" data-id="${esc(e.id)}">
     <span class="ev-time"><b class="${t.word ? "word" : ""}">${t.big}</b>${t.small ? `<small>${t.small}</small>` : ""}</span>
@@ -170,7 +170,7 @@ function evRow(e, day) {
       <span class="ev-eyebrow">${esc(eyebrow)}</span>
       <span class="ev-title">${esc(e.title)}${e.isNew && !cont ? " " + NEW : ""}</span>
       ${place ? `<span class="ev-loc">${svg("pin", 14)}<span>${esc(place)}</span></span>` : ""}
-      ${fare != null ? `<span class="ev-fly">${svg("plane", 14)}<span>From ${esc(flightsOrigin)}: <b>${euro(fare)}</b>${altFare != null ? ` · ±1 day <b>${euro(altFare)}</b>` : ""}</span></span>` : ""}
+      ${fare != null ? `<span class="ev-fly">${svg(fl.mode === "bus" ? "bus" : "plane", 14)}<span>From ${esc(flightsOrigin)}: <b>${euro(fare)}</b>${altFare != null ? ` · ±1 day <b>${euro(altFare)}</b>` : ""}</span></span>` : ""}
       ${e.description ? `<span class="ev-desc">${esc(e.description)}</span>` : ""}
     </span>
   </button>`;
@@ -354,10 +354,10 @@ function stepHtml(st, refDay) {
     <span>${hop}${esc((st.carriers || []).join(", "))}${via} · ${euro(st.price)}</span>${bookLink(st.url, `Book on ${BOOK[st.source] || "Kiwi.com"}`)}</div></li>`;
 }
 function legHtml(label, leg) {
-  const main = leg.steps.find((s) => s.kind === "flight" && !s.hop) || leg.steps.find((s) => s.kind === "flight");
-  const refDay = main ? parseWhen(main.dep)?.day : null;
+  const main = mainStep(leg);
+  const refDay = main.dep ? parseWhen(main.dep)?.day : null;
   if (refDay == null) return "";
-  const via = leg.viaFlight ? `fly via ${leg.airport}` : `via ${leg.airportName}`;
+  const via = leg.mode === "bus" ? "by FlixBus" : leg.viaFlight ? `fly via ${leg.airport}` : `via ${leg.airportName}`;
   return `<div class="trip-leg">
     <p class="trip-leg-head"><span><b>${label}</b> · ${fmtDay(refDay)} · ${esc(via)}</span><span>${euro(leg.total)}</span></p>
     <ol class="steps">${leg.steps.map((s) => stepHtml(s, refDay)).join("")}</ol>
@@ -372,7 +372,9 @@ function routeLine(t) {
   };
   return `${part(t.out, "out")} · ${part(t.back, "back")}`;
 }
-const mainFlight = (leg) => leg.steps.find((s) => s.kind === "flight" && !s.hop) || {};
+const mainStep = (leg) =>
+  leg.steps.find((s) => s.kind === "flight" && !s.hop) || leg.steps.find((s) => s.kind === "flight")
+  || leg.steps.find((s) => s.kind === "bus") || {};
 function shiftText(n, verb, when) {
   const d = Math.abs(n) === 1 ? "a day" : `${Math.abs(n)} days`;
   return `${verb} ${d} ${n < 0 ? "early" : "late"}${when ? ` (${fmtDay(when.day)})` : ""}`;
@@ -385,12 +387,12 @@ function tripHtml(t, tag, title, sub, cls = "") {
     ${legHtml("Back", t.back)}
   </div>`;
 }
-function altHtml(alt, hasBest, e) {
-  const dep = parseWhen(mainFlight(alt.out).dep);
+function altHtml(alt, hasBest, e, bus) {
+  const dep = parseWhen(mainStep(alt.out).dep);
   const changes = [
-    alt.arriveShift ? shiftText(alt.arriveShift, "arrive", parseWhen(mainFlight(alt.out).arr))
-      : dep && dep.day < e.sDay ? `fly out the day before (${fmtDay(dep.day)})` : "",
-    alt.leaveShift ? shiftText(alt.leaveShift, "leave", parseWhen(mainFlight(alt.back).dep)) : "",
+    alt.arriveShift ? shiftText(alt.arriveShift, "arrive", parseWhen(mainStep(alt.out).arr))
+      : dep && dep.day < e.sDay ? `${bus ? "leave" : "fly out"} the day before (${fmtDay(dep.day)})` : "",
+    alt.leaveShift ? shiftText(alt.leaveShift, "leave", parseWhen(mainStep(alt.back).dep)) : "",
   ].filter(Boolean).join(", ");
   const title = changes ? changes[0].toUpperCase() + changes.slice(1) : "Other dates";
   const s = alt.saving;
@@ -402,24 +404,25 @@ function flightsHtml(e) {
   if (!f || e.cancelled) return "";
   const checked = parseWhen(f.searchedAt);
   const when = checked && checked.min !== null ? `Prices checked ${ago(checked.abs)}. ` : "";
-  const head = `<p class="trip-head">${svg("plane", 16)} Getting there from ${esc(flightsOrigin)}</p>`;
+  const bus = f.mode === "bus";
+  const head = `<p class="trip-head">${svg(bus ? "bus" : "plane", 16)} Getting there from ${esc(flightsOrigin)}${bus ? " by bus" : ""}</p>`;
   const best = f.best && f.best[0];
   const alt = f.alternative;
   if (!best && !alt) {
-    return `<section class="trip">${head}<p class="trip-note">No bus + flight combination found for these dates yet. ${esc(when)}</p></section>`;
+    return `<section class="trip">${head}<p class="trip-note">${bus ? "No FlixBus rides found for these dates yet." : "No bus + flight combination found for these dates yet."} ${esc(when)}</p></section>`;
   }
   const baseline = best && f.baseline && f.baseline > best.total + 0.5
     ? `<p class="trip-note">Flying from ${esc(flightsOrigin)} both ways on these dates: ${euro(f.baseline)}</p>` : "";
   const more = (f.best || []).slice(1);
   return `<section class="trip">
     ${head}
-    ${best ? tripHtml(best, "Option 1 · event dates", `Arrive ${fmtDay(e.sDay)}, leave ${fmtDay(e.eDay)}`, "cheapest door to door · 1 person, small bag") : `<p class="trip-note">Nothing fits the event's dates exactly; here is the closest.</p>`}
-    ${alt ? altHtml(alt, !!best, e) : ""}
+    ${best ? tripHtml(best, "Option 1 · event dates", `Arrive ${fmtDay(e.sDay)}, leave ${fmtDay(e.eDay)}`, bus ? "cheapest FlixBus there and back · 1 person" : "cheapest door to door · 1 person, small bag") : `<p class="trip-note">Nothing fits the event's dates exactly; here is the closest.</p>`}
+    ${alt ? altHtml(alt, !!best, e, bus) : ""}
     ${baseline}
     ${more.length ? `<details class="trip-more"><summary>${more.length} more option${more.length > 1 ? "s" : ""} on the event dates</summary>
       ${more.map((t) => `<div class="trip-alt"><p class="trip-total sm"><b>${euro(t.total)}</b><span>${esc(routeLine(t))}</span></p>${legHtml("Out", t.out)}${legHtml("Back", t.back)}</div>`).join("")}
     </details>` : ""}
-    <p class="trip-foot">${esc(when)}Live fares from Ryanair, Wizz Air, Kiwi.com and FlixBus change quickly. Every leg is a separate ticket, so a late bus or flight won't be waited for.</p>
+    <p class="trip-foot">${esc(when)}${bus ? "Live FlixBus fares change quickly; check the booking page before you buy." : "Live fares from Ryanair, Wizz Air, Kiwi.com and FlixBus change quickly. Every leg is a separate ticket, so a late bus or flight won't be waited for."}</p>
   </section>`;
 }
 
