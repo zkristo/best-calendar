@@ -160,7 +160,7 @@ function evRow(e, day) {
   const cont = t.kind === "middle" || t.kind === "last";
   const eyebrow = [TAGS[e.tag].label, e.cancelled ? "Cancelled" : t.progress].filter(Boolean).join(" · ");
   const place = placeLine(e);
-  const fl = !cont && !e.cancelled ? FLIGHTS[e.id] : null;
+  const fl = !e.cancelled ? FLIGHTS[e.id] : null; // shown on every day of the event, not just the first
   const fare = fl?.best?.[0]?.total ?? null;
   const altFare = fl?.alternative && fl.alternative.saving >= 1 ? fl.alternative.total : null;
   const cls = `ev-row tag-${e.tag}${cont ? " is-cont" : ""}${e.cancelled ? " is-cancelled" : ""}`;
@@ -170,7 +170,7 @@ function evRow(e, day) {
       <span class="ev-eyebrow">${esc(eyebrow)}</span>
       <span class="ev-title">${esc(e.title)}${e.isNew && !cont ? " " + NEW : ""}</span>
       ${place ? `<span class="ev-loc">${svg("pin", 14)}<span>${esc(place)}</span></span>` : ""}
-      ${fare != null ? `<span class="ev-fly">${svg("plane", 14)}<span>Round trip from ${esc(flightsOrigin)}: <b>${euro(fare)}</b>${altFare != null ? ` · ±1 day <b>${euro(altFare)}</b>` : ""}</span></span>` : ""}
+      ${fare != null ? `<span class="ev-fly">${svg("plane", 14)}<span>From ${esc(flightsOrigin)}: <b>${euro(fare)}</b>${altFare != null ? ` · ±1 day <b>${euro(altFare)}</b>` : ""}</span></span>` : ""}
       ${e.description ? `<span class="ev-desc">${esc(e.description)}</span>` : ""}
     </span>
   </button>`;
@@ -257,20 +257,23 @@ function sideList(evs) {
   return `<p class="m-legend">Nothing on this day. Next up, ${fmtDay(next.sDay)}:</p>
     <div class="ev-list">${onDay(evs, next.sDay).map((e) => evRow(e, next.sDay)).join("")}</div>`;
 }
+const tripFare = (e) => (e.cancelled ? null : FLIGHTS[e.id]?.best?.[0]?.total ?? null);
 function monthItem(it, lane, w0) {
   const e = it.e;
+  const fare = tripFare(e);
+  const price = fare != null ? `<span class="mi-p">€${Math.round(fare)}</span>` : "";
   const contL = e.sDay < w0 + it.a, contR = e.eDay > w0 + it.b;
   const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${lane + 1}`;
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
-  const label = `${TAGS[e.tag].label}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}`;
+  const label = `${TAGS[e.tag].label}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${fare != null ? `, trip from ${flightsOrigin} ${euro(fare)}` : ""}`;
   const cx = e.cancelled ? " is-cancelled" : "";
   if (e.multi) {
     const cls = `mi multi tag-${e.tag}${cx}${contL ? " cont-l" : ""}${contR ? " cont-r" : ""}`;
     const lead = contL || e.allDay ? "" : `${fmtTime(e.s.min)} `;
-    return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-n">${lead}${esc(e.title)}</span></button>`;
+    return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-n">${lead}${esc(e.title)}</span>${price}</button>`;
   }
   const time = e.allDay ? "" : `<span class="mi-t">${fmtTime(e.s.min)}</span>`;
-  return `<button class="mi single tag-${e.tag}${cx}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><i class="mi-dot"></i>${time}<span class="mi-n">${esc(e.title)}</span></button>`;
+  return `<button class="mi single tag-${e.tag}${cx}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><i class="mi-dot"></i>${time}<span class="mi-n">${esc(e.title)}</span>${price}</button>`;
 }
 
 /* ---------- Detail drawer ---------- */
