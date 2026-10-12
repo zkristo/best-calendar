@@ -173,7 +173,13 @@ button { font: inherit; color: inherit; }
   font-size: 12.5px; line-height: 21px; height: 21px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   border-radius: 5px; padding: 0 6px;
 }
-.mi.multi { background: var(--c); color: var(--on-solid); font-weight: 600; }
+.mi.multi { background: var(--c); color: var(--on-solid); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.mi-n { flex: 1 1 auto; min-width: 0; }
+.mi-p {
+  flex: none; margin-left: auto; font: 600 11px/1 var(--f-mono); font-variant-numeric: tabular-nums;
+  padding: 2px 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.22);
+}
+.mi.single .mi-p { background: var(--c-soft); color: var(--c-ink); }
 .mi.multi.cont-l { margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }
 .mi.multi.cont-r { margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
 .mi.multi.is-cancelled { opacity: 0.55; }
@@ -208,7 +214,7 @@ button { font: inherit; color: inherit; }
   .mw-items { top: 27px; grid-template-rows: repeat(3, 6px) 12px; row-gap: 3px; }
   .mi { height: 6px; line-height: 6px; font-size: 0; padding: 0; margin-inline: 3px; border-radius: 3px; }
   .mi.single { background: var(--c); }
-  .mi.single .mi-dot, .mi.single .mi-t { display: none; }
+  .mi.single .mi-dot, .mi.single .mi-t, .mi-p { display: none; }
   .mi.single.is-cancelled { opacity: 0.45; }
   .mi-more { font-size: 10px; line-height: 12px; text-align: center; padding: 0; margin-inline: 1px; }
   .more-word { display: none; }
@@ -263,7 +269,8 @@ button { font: inherit; color: inherit; }
 /* ---------- Getting there from Zagreb (data/flights.json) ---------- */
 .ev-fly { display: flex; gap: 5px; align-items: center; color: var(--muted); font-size: 14px; min-width: 0; }
 .ev-fly svg { flex: none; }
-.ev-fly span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ev-fly { align-items: flex-start; }
+.ev-fly svg { margin-top: 2px; }
 .ev-fly b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .trip { display: grid; gap: 14px; border-top: 1px solid var(--line-soft); padding-top: 16px; min-width: 0; }
 .trip-head { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
