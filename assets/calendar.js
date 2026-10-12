@@ -232,7 +232,7 @@ function renderMonth() {
 }
 function sideList(evs) {
   if (!EVENTS.length) {
-    return `<p class="m-legend">No events yet. They appear here when group emails arrive.</p>`;
+    return `<p class="m-legend">No events yet. They appear here when BEST International emails arrive.</p>`;
   }
   if (!evs.length) {
     return `<p class="m-legend">No events match these filters. <button class="linkbtn" type="button" data-showall>Show all types</button></p>`;
