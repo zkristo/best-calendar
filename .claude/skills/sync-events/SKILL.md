@@ -73,9 +73,10 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
      - Online: `{ "name": "Online" }`.
      - Not stated: `null`.
    - `airports`: for in-person events only (not deadlines, not online), the IATA codes of the 1–3 nearest airports with regular flights, nearest first, e.g. `["ATH"]`, `["BRU", "CRL"]` or `["TRN", "MXP"]`.
-     - Leave it out when the place is an easy bus ride from Zagreb: anywhere in Croatia or Slovenia, Budapest and the rest of Hungary, Graz, Trieste.
+     - Leave it out when the place is an easy bus ride from Zagreb: anywhere in Croatia or Slovenia, Budapest and the rest of Hungary, Graz, Vienna, Trieste, Belgrade. Give those events a `bus` field instead (below).
      - Leave it out when the place is not stated or you can't tell which airports serve it.
      - When an event moves to another city, update `airports` too.
+   - `bus`: for in-person events within easy bus reach of Zagreb (see above), the FlixBus city nearest to the event, as FlixBus names it, e.g. `"Ljubljana"`, `"Budapest"`, `"Graz"`, `"Vienna"`, `"Belgrade"`, `"Trieste"`, `"Split"`. For a venue outside town (e.g. "Hungarian countryside"), use the city the organisers name or the region's main city. Never give an event both `airports` and `bus`, and give neither to events in Zagreb itself.
    - `url`: only the call's **application form** (Google Forms or Microsoft Forms) or a public information page. Never:
      - a Zoom, Meet or Teams link
      - a Google Doc, Sheet or Drive file
@@ -101,7 +102,7 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
    - In `data/events.json`, add or update the events and set `updatedAt` to now (Europe/Zagreb, with offset).
    - In `data/sync-state.json`, set `lastCheckedAt` to now and append every message ID you read, including ones with no events. Keep only the newest 2000 IDs.
 
-7. **Refresh travel prices.** `data/flights.json` holds the cheapest bus + flight trip from Zagreb for each upcoming event that has `airports`. The site shows it in the event's details. Run this step on every run, even with no new emails.
+7. **Refresh travel prices.** `data/flights.json` holds the cheapest trip from Zagreb for each upcoming event: bus + flight for events with `airports`, FlixBus alone for events with `bus`. The site shows it in the event's details. Run this step on every run, even with no new emails.
    - Install the finder from its public repo:
      ```sh
      pip install --quiet git+https://github.com/zkristo/google-flights

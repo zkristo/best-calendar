@@ -105,6 +105,10 @@ function checkEvent(e, i, seen) {
     }
   }
 
+  if (e.bus !== undefined && (typeof e.bus !== "string" || e.bus.trim().length < 2 || e.bus.length > 60)) {
+    fail(at, 'bus must be the name of a FlixBus city, e.g. "Ljubljana"');
+  }
+
   if (e.url !== undefined && e.url !== null) {
     let ok = false;
     try { ok = ["https:", "http:"].includes(new URL(e.url).protocol); } catch {}

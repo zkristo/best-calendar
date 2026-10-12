@@ -813,6 +813,7 @@
         "name": "LBG Ljubljana",
         "city": "Ljubljana, Slovenia"
       },
+      "bus": "Ljubljana",
       "description": "Cultural exchange hosted by LBG Ljubljana, open to crashers. Fee 130 €.",
       "status": "confirmed",
       "source": {
@@ -887,6 +888,7 @@
         "name": "Hungarian countryside",
         "city": "Hungary"
       },
+      "bus": "Budapest",
       "description": "Motivational weekend by LBG Budapest. Fee to be announced.",
       "status": "confirmed",
       "source": {
