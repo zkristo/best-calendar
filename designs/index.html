@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- page -->
+<title>Best Calendar Designs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: wayfinding-sign look. Cool paper ground, white surfaces, one signage-yellow accent for "today" and "new".
+   Tag colours carry meaning everywhere; everything else stays neutral. */
+:root {
+  --bg: #F2F4F7;
+  --surface: #FFFFFF;
+  --weekend: #F5F7FA;
+  --ink: #142030;
+  --muted: #5A6778;
+  --line: #D9DFE7;
+  --line-soft: #E8ECF1;
+  --past: rgba(20, 32, 48, 0.045);
+  --scrim: rgba(12, 18, 28, 0.42);
+  --sign: #FFC629;
+  --sign-ink: #1B1A12;
+  --focus: #2563C9;
+  --on-solid: #FFFFFF;
+  --shadow: 0 18px 50px rgba(15, 25, 40, 0.18);
+
+  --flight: #2563C9; --flight-soft: #E3ECFB; --flight-ink: #1B4C9C;
+  --hotel: #6B44C2;  --hotel-soft: #EEE8FA;  --hotel-ink: #52339A;
+  --train: #18794A;  --train-soft: #DFF1E7;  --train-ink: #135E3A;
+  --car: #B95A0D;    --car-soft: #FBEBDD;    --car-ink: #8A4309;
+  --dining: #C0355E; --dining-soft: #FAE4EB; --dining-ink: #982A4A;
+  --activity: #0F7480; --activity-soft: #DCF0F2; --activity-ink: #0B5A63;
+
+  --f-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-body: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1218; --surface: #151C25; --weekend: #18202A; --ink: #E6EBF1; --muted: #95A2B3;
+    --line: #29333F; --line-soft: #202934; --past: rgba(0, 0, 0, 0.22); --scrim: rgba(0, 0, 0, 0.6);
+    --focus: #6EA0F2; --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+    --flight-soft: #18263D; --flight-ink: #A3C1F4;
+    --hotel-soft: #251E3B;  --hotel-ink: #C8B5F2;
+    --train-soft: #132B1E;  --train-ink: #8FD3AE;
+    --car-soft: #352213;    --car-ink: #F1B785;
+    --dining-soft: #361824; --dining-ink: #F2A3BA;
+    --activity-soft: #102C2E; --activity-ink: #88D2DA;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1218; --surface: #151C25; --weekend: #18202A; --ink: #E6EBF1; --muted: #95A2B3;
+  --line: #29333F; --line-soft: #202934; --past: rgba(0, 0, 0, 0.22); --scrim: rgba(0, 0, 0, 0.6);
+  --focus: #6EA0F2; --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  --flight-soft: #18263D; --flight-ink: #A3C1F4;
+  --hotel-soft: #251E3B;  --hotel-ink: #C8B5F2;
+  --train-soft: #132B1E;  --train-ink: #8FD3AE;
+  --car-soft: #352213;    --car-ink: #F1B785;
+  --dining-soft: #361824; --dining-ink: #F2A3BA;
+  --activity-soft: #102C2E; --activity-ink: #88D2DA;
+  color-scheme: dark;
+}
+
+.tag-flight   { --c: var(--flight);   --c-soft: var(--flight-soft);   --c-ink: var(--flight-ink); }
+.tag-hotel    { --c: var(--hotel);    --c-soft: var(--hotel-soft);    --c-ink: var(--hotel-ink); }
+.tag-train    { --c: var(--train);    --c-soft: var(--train-soft);    --c-ink: var(--train-ink); }
+.tag-car      { --c: var(--car);      --c-soft: var(--car-soft);      --c-ink: var(--car-ink); }
+.tag-dining   { --c: var(--dining);   --c-soft: var(--dining-soft);   --c-ink: var(--dining-ink); }
+.tag-activity { --c: var(--activity); --c-soft: var(--activity-soft); --c-ink: var(--activity-ink); }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.45 var(--f-body);
+  padding-inline: 16px;
+  padding-block: 20px 56px;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 760px) { body { padding-inline: 28px; } }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1280px; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.wrap > * { min-width: 0; }
+
+/* ---------- Header ---------- */
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.mark {
+  flex: none; width: 48px; height: 52px; border-radius: 9px; background: var(--sign); color: var(--sign-ink);
+  display: grid; place-items: center; align-content: center; gap: 0; font-family: var(--f-display); line-height: 1;
+}
+.mark small { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
+.mark b { font-size: 26px; font-weight: 700; }
+.brand h1 { margin: 0; font: 700 28px/1 var(--f-display); letter-spacing: 0.01em; text-wrap: balance; }
+.brand p { margin: 4px 0 0; color: var(--muted); }
+.status { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; }
+.status strong { color: var(--ink); font-weight: 600; }
+.sample { border: 1px dashed var(--line); border-radius: 999px; padding: 2px 10px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+.new {
+  display: inline-block; vertical-align: 2px; background: var(--sign); color: var(--sign-ink);
+  font: 700 11px/1 var(--f-display); letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 6px 2px; border-radius: 4px;
+}
+
+/* ---------- Tabs, toolbar, filters ---------- */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tab {
+  display: flex; align-items: center; gap: 10px; padding: 7px 14px 7px 7px; border-radius: 10px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); font-weight: 600; font-size: 15px;
+}
+.tab .key {
+  width: 28px; height: 28px; border-radius: 6px; display: grid; place-items: center;
+  font: 700 17px/1 var(--f-display); background: var(--line-soft); color: var(--muted);
+}
+.tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tab[aria-selected="true"] .key { background: var(--sign); color: var(--sign-ink); }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; }
+.caption { margin: 0; color: var(--muted); max-width: 70ch; }
+.caption b { color: var(--ink); font-weight: 600; }
+.btn {
+  border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 6px 14px; cursor: pointer; font-weight: 600;
+}
+.btn:hover { border-color: var(--muted); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.fchip {
+  display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--line); background: var(--surface);
+  border-radius: 999px; padding: 5px 12px 5px 9px; cursor: pointer; font-size: 14px; font-weight: 500;
+}
+.fchip .sw { width: 12px; height: 12px; border-radius: 3px; background: var(--c); }
+.fchip .n { color: var(--muted); font-family: var(--f-mono); font-size: 12px; }
+.fchip[aria-pressed="false"] { color: var(--muted); background: transparent; border-style: dashed; }
+.fchip[aria-pressed="false"] .sw { background: transparent; box-shadow: inset 0 0 0 2px var(--c); }
+.linkbtn { border: 0; background: none; color: var(--focus); cursor: pointer; padding: 4px; font-size: 14px; font-weight: 600; }
+
+/* ---------- Shared event row (agenda + month side list) ---------- */
+.ev-list { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.ev-row {
+  display: grid; grid-template-columns: 70px 40px minmax(0, 1fr); gap: 14px; align-items: start; width: 100%;
+  text-align: left; background: transparent; border: 0; border-top: 1px solid var(--line-soft); padding: 14px 16px; cursor: pointer;
+}
+.ev-row:first-child { border-top: 0; }
+.ev-row:hover { background: var(--c-soft); }
+.ev-time { display: grid; gap: 2px; padding-top: 1px; }
+.ev-time b { font: 500 15px/1.2 var(--f-mono); font-variant-numeric: tabular-nums; }
+.ev-time b.word { font-family: var(--f-body); font-weight: 600; font-size: 14px; }
+.ev-time small { color: var(--muted); font-size: 12.5px; line-height: 1.25; }
+.ev-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--c-soft); color: var(--c-ink); display: grid; place-items: center; }
+.ev-main { min-width: 0; display: grid; gap: 2px; }
+.ev-eyebrow { font: 600 12px/1.3 var(--f-body); text-transform: uppercase; letter-spacing: 0.07em; color: var(--c-ink); }
+.ev-title { font: 600 17px/1.25 var(--f-body); }
+.ev-loc { display: flex; gap: 5px; align-items: center; color: var(--muted); font-size: 14px; min-width: 0; }
+.ev-loc span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ev-loc svg { flex: none; }
+.ev-desc { color: var(--muted); font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ev-row.is-cont .ev-title { color: var(--muted); }
+.ev-row.is-cont .ev-desc { display: none; }
+@media (max-width: 640px) {
+  .ev-row { grid-template-columns: 56px minmax(0, 1fr); gap: 12px; padding: 12px 14px; }
+  .ev-icon { display: none; }
+  .ev-title { font-size: 16px; }
+}
+
+/* ---------- A: Agenda ---------- */
+.agenda { max-width: 780px; width: 100%; margin-inline: auto; display: grid; gap: 6px; }
+.ag-day { display: grid; gap: 10px; padding-bottom: 14px; }
+.ag-date {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; margin: 0; background: var(--bg);
+  display: flex; align-items: center; gap: 12px; padding-block: 10px 8px; border-bottom: 1px solid var(--line);
+}
+.ag-dnum { font: 600 34px/0.9 var(--f-display); min-width: 2.1ch; font-variant-numeric: tabular-nums; }
+.ag-dtxt { display: grid; min-width: 0; }
+.ag-dtxt b { font-size: 16px; font-weight: 600; }
+.ag-dtxt small { color: var(--muted); font-size: 13px; font-weight: 400; }
+.ag-trip { margin-left: auto; font-size: 13px; color: var(--muted); text-align: right; font-weight: 500; }
+.ag-day.is-today .ag-dnum { background: var(--sign); color: var(--sign-ink); border-radius: 8px; padding: 4px 6px 2px; }
+.ag-empty { margin: 0; padding: 14px 16px; color: var(--muted); }
+.ag-gap {
+  display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; padding: 2px 0 16px;
+}
+.ag-gap::before, .ag-gap::after { content: ""; flex: 1; border-top: 1px dashed var(--line); }
+
+/* ---------- B: Month ---------- */
+.month { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 20px; align-items: start; }
+.m-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.m-head h2 { margin: 0; font: 600 28px/1 var(--f-display); }
+.m-nav { display: flex; gap: 6px; }
+.iconbtn {
+  width: 36px; height: 36px; display: grid; place-items: center; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--surface); cursor: pointer;
+}
+.iconbtn:hover { border-color: var(--muted); }
+.mgrid { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.m-wd { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
+.m-wd span { padding: 8px 10px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.m-wd .short { display: none; }
+.mw { position: relative; border-top: 1px solid var(--line); }
+.m-wd + .mw { border-top: 0; }
+.mw-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.md {
+  min-height: 124px; border: 0; border-left: 1px solid var(--line-soft); background: transparent; cursor: pointer;
+  text-align: left; padding: 6px 8px; min-width: 0;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+}
+.md:first-child { border-left: 0; }
+.md.wkend { background: var(--weekend); }
+.md:hover { background: var(--line-soft); }
+.md-num { display: inline-block; font: 600 15px/1 var(--f-display); padding: 3px 5px 2px; border-radius: 5px; font-variant-numeric: tabular-nums; }
+.md.out .md-num { color: var(--muted); font-weight: 500; }
+.md.today .md-num { background: var(--sign); color: var(--sign-ink); }
+.md.sel { box-shadow: inset 0 0 0 2px var(--focus); }
+.mw-items {
+  position: absolute; top: 28px; left: 0; right: 0; bottom: 4px; pointer-events: none;
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-template-rows: repeat(3, 21px) 19px; row-gap: 3px;
+}
+.mi {
+  pointer-events: auto; min-width: 0; margin-inline: 4px; border: 0; cursor: pointer; text-align: left;
+  font-size: 12.5px; line-height: 21px; height: 21px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  border-radius: 5px; padding: 0 6px;
+}
+.mi.multi { background: var(--c); color: var(--on-solid); font-weight: 600; }
+.mi.multi.cont-l { margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.mi.multi.cont-r { margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.mi.single { background: transparent; display: flex; align-items: center; gap: 5px; padding-left: 4px; }
+.mi.single:hover { background: var(--c-soft); }
+.mi-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.mi-t { flex: none; font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); }
+.mi-n { overflow: hidden; text-overflow: ellipsis; }
+.mi.single .mi-n { font-weight: 500; }
+.mi-more {
+  pointer-events: auto; grid-row: 4; margin-inline: 4px; border: 0; background: none; text-align: left; padding: 0 4px;
+  font-size: 12px; font-weight: 600; color: var(--muted); cursor: pointer; border-radius: 4px; white-space: nowrap; overflow: hidden;
+}
+.mi-more:hover { color: var(--ink); background: var(--line-soft); }
+.m-side { display: grid; gap: 10px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+.m-side h3 { margin: 0; display: flex; align-items: baseline; gap: 10px; font: 600 22px/1.1 var(--f-display); }
+.m-side h3 small { font: 400 14px var(--f-body); color: var(--muted); }
+.m-side .ev-row { grid-template-columns: 60px minmax(0, 1fr); gap: 12px; padding: 12px 14px; }
+.m-side .ev-icon { display: none; }
+.m-side .ev-title { font-size: 15.5px; }
+.m-legend { color: var(--muted); font-size: 13px; margin: 0; }
+@media (max-width: 960px) {
+  .month { grid-template-columns: minmax(0, 1fr); }
+  .m-side { position: static; }
+}
+@media (max-width: 640px) {
+  .m-wd span { padding: 6px 0; text-align: center; }
+  .m-wd .long { display: none; }
+  .m-wd .short { display: inline; }
+  .md { min-height: 66px; padding: 4px 2px; align-items: center; }
+  .md-num { font-size: 14px; }
+  .mw-items { top: 27px; grid-template-rows: repeat(3, 6px) 12px; row-gap: 3px; }
+  .mi { height: 6px; line-height: 6px; font-size: 0; padding: 0; margin-inline: 3px; border-radius: 3px; }
+  .mi.single { background: var(--c); }
+  .mi.single .mi-dot, .mi.single .mi-t { display: none; }
+  .mi-more { font-size: 10px; line-height: 12px; text-align: center; padding: 0; margin-inline: 1px; }
+  .more-word { display: none; }
+}
+
+/* ---------- C: Timeline ---------- */
+.tl { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.tl-scroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.tl-inner { position: relative; }
+.tl-row { display: flex; height: 32px; border-top: 1px solid var(--line-soft); }
+.tl-row.grp { height: 42px; border-top: 1px solid var(--line); }
+.tl-row.head { height: 64px; border-top: 0; border-bottom: 1px solid var(--line); }
+.tl-label {
+  position: sticky; left: 0; z-index: 4; flex: none; width: var(--lw); background: var(--surface);
+  border-right: 1px solid var(--line); display: flex; align-items: center; min-width: 0; padding-inline: 12px;
+}
+.tl-row.grp .tl-label { display: grid; align-content: center; gap: 1px; }
+.tl-row.grp .tl-label b { font: 600 17px/1.1 var(--f-display); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tl-row.grp .tl-label small { color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-row.head .tl-label { align-items: end; padding-bottom: 8px; color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+.tl-ev {
+  display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%; border: 0; background: none; cursor: pointer;
+  padding: 0; text-align: left; font-size: 14px;
+}
+.tl-ev:hover .tl-lt { text-decoration: underline; }
+.tl-ic { flex: none; width: 22px; height: 22px; border-radius: 6px; background: var(--c-soft); color: var(--c-ink); display: grid; place-items: center; }
+.tl-lt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tl-track {
+  position: relative; flex: none;
+  background-image:
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, transparent calc(var(--dw) * 5), var(--weekend) calc(var(--dw) * 5));
+  background-size: var(--dw) 100%, calc(var(--dw) * 7) 100%;
+}
+.tl-row.head .tl-track { background: none; }
+.tl-mon {
+  position: absolute; top: 0; height: 26px; padding: 6px 8px 0; border-left: 1px solid var(--line);
+  font: 600 13px/1 var(--f-display); text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); white-space: nowrap; overflow: hidden;
+}
+.tl-days { position: absolute; top: 26px; left: 0; display: flex; }
+.tl-d {
+  flex: none; width: var(--dw); height: 38px; display: grid; justify-items: center; align-content: center; gap: 1px;
+  font-size: 11px; color: var(--muted); line-height: 1;
+}
+.tl-d b { font: 600 15px/1 var(--f-display); color: var(--ink); padding: 2px 4px 1px; border-radius: 4px; font-variant-numeric: tabular-nums; }
+.tl-d.wkend b { color: var(--muted); }
+.tl-d.today b { background: var(--sign); color: var(--sign-ink); }
+.tl-past { position: absolute; top: 64px; bottom: 0; background: var(--past); pointer-events: none; z-index: 1; }
+.tl-now { position: absolute; top: 56px; bottom: 0; width: 2px; margin-left: -1px; background: var(--sign); z-index: 2; pointer-events: none; }
+.tl-span { position: absolute; top: 50%; height: 0; border-top: 2px solid var(--muted); z-index: 2; }
+.tl-span::before, .tl-span::after { content: ""; position: absolute; top: -7px; width: 2px; height: 12px; background: var(--muted); }
+.tl-span::before { left: 0; }
+.tl-span::after { right: 0; }
+.tl-span.narrow span { left: calc(100% + 8px); transform: none; padding: 0; background: none; }
+.tl-span span {
+  position: absolute; left: 50%; top: -11px; transform: translateX(-50%); background: var(--surface); padding: 0 6px;
+  font-size: 12px; color: var(--muted); white-space: nowrap; line-height: 20px;
+}
+.tb {
+  position: absolute; top: 6px; height: 20px; z-index: 3; border: 0; cursor: pointer; border-radius: 5px;
+  background: var(--c); color: var(--on-solid); font-size: 12px; font-weight: 600; line-height: 20px; padding: 0 7px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left;
+}
+.tb.short { padding: 0; min-width: 9px; }
+.tb:hover { filter: brightness(1.08); }
+.tb-out { position: absolute; top: 6px; line-height: 20px; font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); white-space: nowrap; pointer-events: none; z-index: 3; }
+.tl-foot { margin: 0; padding: 10px 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+
+.empty { padding: 40px 16px; text-align: center; color: var(--muted); background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; }
+
+/* ---------- Event detail: a ticket in a drawer ---------- */
+.scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 40; opacity: 0; transition: opacity 0.18s ease; }
+.drawer {
+  position: fixed; z-index: 41; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: var(--bg);
+  box-shadow: var(--shadow); overflow-y: auto; padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px calc(env(safe-area-inset-bottom, 0px) + 24px);
+  transform: translateX(24px); opacity: 0; transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.drawer.open, .scrim.open { opacity: 1; transform: none; }
+@media (max-width: 640px) {
+  .drawer {
+    top: auto; left: 0; width: 100%; max-height: 88%; border-radius: 16px 16px 0 0; transform: translateY(24px);
+    padding-top: 10px;
+  }
+  .drawer::before { content: ""; display: block; width: 40px; height: 4px; border-radius: 4px; background: var(--line); margin: 0 auto 10px; }
+}
+.dr-bar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+.ticket { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.tk-band { background: var(--c-soft); color: var(--c-ink); display: flex; align-items: center; gap: 10px; padding: 12px 18px; }
+.tk-band span { font: 600 13px/1 var(--f-body); text-transform: uppercase; letter-spacing: 0.08em; }
+.tk-body { padding: 16px 18px 18px; display: grid; gap: 16px; }
+.tk-title { margin: 0; font: 700 26px/1.1 var(--f-display); text-wrap: balance; }
+.tk-title .new { margin-left: 6px; }
+.route { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: end; gap: 12px; }
+.rt-end { display: grid; gap: 1px; }
+.rt-end.r { text-align: right; }
+.rt-code { font: 700 36px/0.95 var(--f-display); letter-spacing: 0.02em; text-transform: uppercase; }
+.rt-sub { font-size: 13px; color: var(--muted); }
+.rt-time { font: 500 18px/1.2 var(--f-mono); font-variant-numeric: tabular-nums; }
+.rt-mid { display: grid; justify-items: center; gap: 4px; color: var(--c-ink); padding-bottom: 6px; min-width: 0; }
+.rt-line { width: 100%; display: flex; align-items: center; gap: 6px; }
+.rt-line::before, .rt-line::after { content: ""; flex: 1; border-top: 2px dotted var(--line); }
+.rt-dur { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.when { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: start; gap: 12px; }
+.when > div { display: grid; gap: 2px; }
+.when .r { text-align: right; }
+.when .arrow { color: var(--muted); padding-top: 20px; }
+.lbl { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.when b { font-size: 16px; font-weight: 600; }
+.when .mono { font-size: 18px; }
+.note { margin: -6px 0 0; color: var(--muted); font-size: 13.5px; }
+.fields { margin: 0; display: grid; gap: 12px; }
+.fields > div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; }
+.fields dt { padding-top: 2px; }
+.fields dd { margin: 0; display: grid; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
+.fields dd .muted { color: var(--muted); font-size: 14px; }
+.fields a { color: var(--focus); font-weight: 600; font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; width: fit-content; }
+.fields a:hover { text-decoration: underline; }
+.ref { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.ref code { font: 500 16px var(--f-mono); letter-spacing: 0.06em; }
+.mini { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 2px 10px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.desc { margin: 0; max-width: 65ch; }
+.perf { position: relative; height: 22px; }
+.perf::before { content: ""; position: absolute; left: 16px; right: 16px; top: 50%; border-top: 2px dashed var(--line); }
+.perf i { position: absolute; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bg); border: 1px solid var(--line); }
+.perf i:first-child { left: -12px; }
+.perf i:last-child { right: -12px; }
+.src { padding: 6px 18px 18px; display: grid; gap: 10px; }
+.src-head { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0; }
+.src .fields > div { grid-template-columns: 76px minmax(0, 1fr); }
+.src .fields { font-size: 14px; gap: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><small>OCT</small><b>12</b></span>
+      <div>
+        <h1>best-calendar</h1>
+        <p>Three ways to show your bookings. Same sample data in each, so you can compare.</p>
+      </div>
+    </div>
+    <div class="status">
+      <span class="new">New</span>
+      <span><strong id="new-count">3 bookings</strong> arrived by email today</span>
+      <span class="sample">Sample data</span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Design options">
+    <button class="tab" role="tab" id="tab-agenda" data-view="agenda" aria-controls="view-agenda"><span class="key">A</span>Agenda</button>
+    <button class="tab" role="tab" id="tab-month" data-view="month" aria-controls="view-month"><span class="key">B</span>Month</button>
+    <button class="tab" role="tab" id="tab-timeline" data-view="timeline" aria-controls="view-timeline"><span class="key">C</span>Timeline</button>
+  </nav>
+
+  <div class="toolbar">
+    <p class="caption" id="caption"></p>
+    <button class="btn" id="today-btn" type="button">Today</button>
+  </div>
+
+  <div class="filters" id="filters" role="group" aria-label="Show bookings by type"></div>
+
+  <main>
+    <section id="view-agenda" role="tabpanel" aria-labelledby="tab-agenda"></section>
+    <section id="view-month" role="tabpanel" aria-labelledby="tab-month" hidden></section>
+    <section id="view-timeline" role="tabpanel" aria-labelledby="tab-timeline" hidden></section>
+  </main>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="tk-title" hidden>
+  <div class="dr-bar"><button class="iconbtn" id="dr-close" type="button" aria-label="Close"></button></div>
+  <div id="dr-body"></div>
+</aside>
+
+<script>
+/* Sample bookings. The email parser will produce objects in exactly this shape.
+   Times are local to the place, with the UTC offset, the way booking emails state them. */
+const EVENTS = [
+  { id: "e01", trip: "Zagreb", tag: "dining", title: "Dinner at Konoba Lanterna", meta: "Table for 4",
+    start: "2026-10-13T19:30+02:00", end: "2026-10-13T21:30+02:00",
+    location: { name: "Konoba Lanterna", address: "Tkalčićeva 34", city: "Zagreb" }, ref: "LNT-2291",
+    description: "Birthday dinner, table on the terrace. Free cancellation until 12:00 on the day.",
+    source: { from: "Konoba Lanterna <reservations@lanterna.example>", subject: "Your table is confirmed – Tue 13 Oct", receivedAt: "2026-10-09T13:22+02:00" } },
+
+  { id: "e02", trip: "Lisbon & Porto", tag: "flight", title: "Zagreb → Lisbon", meta: "IA 482",
+    start: "2026-10-16T07:05+02:00", end: "2026-10-16T09:45+01:00",
+    route: { from: "ZAG", fromSub: "Zagreb", to: "LIS", toSub: "Lisbon" },
+    location: { name: "Zagreb Airport (ZAG)", address: "Ulica Rudolfa Fizira 1, Velika Gorica", city: "Zagreb" }, ref: "K7XQ2M",
+    description: "Ibera Air, economy. Seat 14A, one cabin bag. Online check-in opens 24 hours before departure.",
+    source: { from: "Ibera Air <noreply@iberaair.example>", subject: "Booking confirmed: Zagreb → Lisbon, 16 Oct (K7XQ2M)", receivedAt: "2026-09-02T21:47+02:00" } },
+
+  { id: "e03", trip: "Lisbon & Porto", tag: "hotel", title: "Alfama Courtyard Hotel", meta: "Double room",
+    start: "2026-10-16T15:00+01:00", end: "2026-10-20T11:00+01:00",
+    location: { name: "Alfama Courtyard Hotel", address: "Rua de São Miguel 12", city: "Lisbon" }, ref: "4471 9902 15",
+    description: "Double room with breakfast. Free cancellation until 14 Oct. Pay at the property.",
+    source: { from: "Stayfinder <confirmations@stayfinder.example>", subject: "Your stay at Alfama Courtyard Hotel is confirmed", receivedAt: "2026-09-03T09:12+02:00" } },
+
+  { id: "e04", trip: "Lisbon & Porto", tag: "dining", title: "Dinner at Taberna do Largo", meta: "Table for 2",
+    start: "2026-10-17T20:30+01:00", end: "2026-10-17T22:30+01:00",
+    location: { name: "Taberna do Largo", address: "Largo do Chafariz de Dentro 4", city: "Lisbon" }, ref: "TDL-0817",
+    description: "Fado night menu. They hold the table for 15 minutes.",
+    source: { from: "Taberna do Largo <mesa@tabernadolargo.example>", subject: "Reserva confirmada – 17 Out, 20:30", receivedAt: "2026-10-05T11:40+02:00" } },
+
+  { id: "e05", trip: "Lisbon & Porto", tag: "activity", title: "Sintra palaces day tour", meta: "2 tickets",
+    start: "2026-10-18T09:00+01:00", end: "2026-10-18T17:30+01:00",
+    location: { name: "Meeting point: Praça dos Restauradores", address: "Praça dos Restauradores", city: "Lisbon" }, ref: "GT-58213",
+    description: "Small-group tour of Pena Palace and Quinta da Regaleira. Entry tickets included, lunch not included. Show the QR code from the email.",
+    source: { from: "Guided Days <tickets@guideddays.example>", subject: "Your tickets: Sintra palaces day tour, 18 Oct", receivedAt: "2026-09-20T16:05+02:00" } },
+
+  { id: "e06", trip: "Lisbon & Porto", tag: "train", title: "Lisbon → Porto", meta: "IC 523",
+    start: "2026-10-20T11:39+01:00", end: "2026-10-20T14:28+01:00",
+    route: { from: "Lisboa", fromSub: "Santa Apolónia", to: "Porto", toSub: "Campanhã" },
+    location: { name: "Santa Apolónia station", address: "Av. Infante Dom Henrique", city: "Lisbon" }, ref: "PT-77310-A",
+    description: "Intercity, 2nd class. Coach 21, seats 45 and 46.",
+    source: { from: "Rail Portugal Tickets <bilhetes@railpt.example>", subject: "E-ticket: Lisboa → Porto, 20/10 11:39", receivedAt: "2026-09-28T19:31+02:00" } },
+
+  { id: "e07", trip: "Lisbon & Porto", tag: "hotel", title: "Ribeira Riverside Rooms", meta: "River-view room",
+    start: "2026-10-20T15:00+01:00", end: "2026-10-23T11:00+01:00",
+    location: { name: "Ribeira Riverside Rooms", address: "Cais da Ribeira 22", city: "Porto" }, ref: "4471 9902 88",
+    description: "River-view double, no breakfast. Self check-in: the door code arrives by email on the day.",
+    source: { from: "Stayfinder <confirmations@stayfinder.example>", subject: "Your stay at Ribeira Riverside Rooms is confirmed", receivedAt: "2026-09-03T09:20+02:00" } },
+
+  { id: "e08", trip: "Lisbon & Porto", tag: "activity", title: "Port wine cellar tasting", meta: "2 tickets",
+    start: "2026-10-20T17:00+01:00", end: "2026-10-20T18:30+01:00",
+    location: { name: "Caves Velhas cellar", address: "Avenida de Diogo Leite 70", city: "Vila Nova de Gaia" }, ref: "CV-11204",
+    description: "Cellar tour with three tastings. Arrive 10 minutes early.",
+    source: { from: "Caves Velhas <visits@cavesvelhas.example>", subject: "Booking confirmed – Tasting tour 20 Oct 17:00", receivedAt: "2026-10-08T08:55+02:00" } },
+
+  { id: "e09", trip: "Lisbon & Porto", tag: "car", title: "Car rental, compact", meta: "VW Polo or similar",
+    start: "2026-10-21T09:00+01:00", end: "2026-10-23T09:30+01:00",
+    location: { name: "Pick-up: Porto Campanhã station", address: "Largo da Estação", city: "Porto" }, ref: "RC-3390-PT",
+    description: "Pick up at Campanhã, return at Porto Airport. Full-to-full fuel, basic insurance included. Bring your driving licence and a credit card.",
+    source: { from: "RoadCo Rentals <bookings@roadco.example>", subject: "Rental confirmed: Porto, 21–23 Oct", receivedAt: "2026-09-30T22:10+02:00" } },
+
+  { id: "e10", trip: "Lisbon & Porto", tag: "dining", title: "Dinner at Cantinho da Ribeira", meta: "Table for 2",
+    start: "2026-10-21T20:00+01:00", end: "2026-10-21T22:00+01:00",
+    location: { name: "Cantinho da Ribeira", address: "Rua da Fonte Taurina 9", city: "Porto" }, ref: "CR-2110",
+    description: "Window table requested.",
+    source: { from: "Cantinho da Ribeira <reservas@cantinho.example>", subject: "Reservation confirmed for 21 October", receivedAt: "2026-10-10T12:30+02:00" } },
+
+  { id: "e11", trip: "Lisbon & Porto", tag: "activity", title: "Douro Valley wine tour", meta: "2 tickets",
+    start: "2026-10-22T08:30+01:00", end: "2026-10-22T18:00+01:00",
+    location: { name: "Pick-up: Ribeira Riverside Rooms", address: "Cais da Ribeira 22", city: "Porto" }, ref: "GT-60477",
+    description: "Two wine estates with tastings, lunch and a short river cruise. Hotel pick-up at 08:30.",
+    source: { from: "Guided Days <tickets@guideddays.example>", subject: "Your tickets: Douro Valley wine tour, 22 Oct", receivedAt: "2026-10-12T07:48+02:00" } },
+
+  { id: "e12", trip: "Lisbon & Porto", tag: "flight", title: "Porto → Zagreb", meta: "IA 483",
+    start: "2026-10-23T12:10+01:00", end: "2026-10-23T16:25+02:00",
+    route: { from: "OPO", fromSub: "Porto", to: "ZAG", toSub: "Zagreb" },
+    location: { name: "Porto Airport (OPO)", address: "4470-558 Maia", city: "Porto" }, ref: "K7XQ2M",
+    description: "Ibera Air, economy. Seat 15C. Same booking as the outbound flight.",
+    source: { from: "Ibera Air <noreply@iberaair.example>", subject: "Booking confirmed: Porto → Zagreb, 23 Oct (K7XQ2M)", receivedAt: "2026-09-02T21:47+02:00" } },
+
+  { id: "e13", trip: "Munich day trip", tag: "flight", title: "Zagreb → Munich", meta: "IA 210",
+    start: "2026-10-29T06:40+01:00", end: "2026-10-29T07:55+01:00",
+    route: { from: "ZAG", fromSub: "Zagreb", to: "MUC", toSub: "Munich" },
+    location: { name: "Zagreb Airport (ZAG)", address: "Ulica Rudolfa Fizira 1, Velika Gorica", city: "Zagreb" }, ref: "M2PW8R",
+    description: "Work trip. Seat 3C, no checked bag.",
+    source: { from: "Ibera Air <noreply@iberaair.example>", subject: "Booking confirmed: Zagreb → Munich, 29 Oct (M2PW8R)", receivedAt: "2026-10-07T10:02+02:00" } },
+
+  { id: "e14", trip: "Munich day trip", tag: "dining", title: "Team lunch at Gasthaus Lindwurm", meta: "Table for 6",
+    start: "2026-10-29T12:30+01:00", end: "2026-10-29T14:00+01:00",
+    location: { name: "Gasthaus Lindwurm", address: "Lindwurmstraße 30", city: "Munich" }, ref: "GL-2910",
+    description: "Booked under the company name.",
+    source: { from: "Gasthaus Lindwurm <tisch@lindwurm.example>", subject: "Tischreservierung bestätigt – 29.10., 12:30", receivedAt: "2026-10-08T15:16+02:00" } },
+
+  { id: "e15", trip: "Munich day trip", tag: "flight", title: "Munich → Zagreb", meta: "IA 211",
+    start: "2026-10-29T19:15+01:00", end: "2026-10-29T20:25+01:00",
+    route: { from: "MUC", fromSub: "Munich", to: "ZAG", toSub: "Zagreb" },
+    location: { name: "Munich Airport (MUC)", address: "Nordallee 25", city: "Munich" }, ref: "M2PW8R",
+    description: "Seat 4A.",
+    source: { from: "Ibera Air <noreply@iberaair.example>", subject: "Booking confirmed: Munich → Zagreb, 29 Oct (M2PW8R)", receivedAt: "2026-10-07T10:02+02:00" } },
+
+  { id: "e16", trip: "Vienna weekend", tag: "train", title: "Zagreb → Vienna", meta: "EC 158",
+    start: "2026-11-06T08:55+01:00", end: "2026-11-06T15:05+01:00",
+    route: { from: "Zagreb", fromSub: "Glavni kolodvor", to: "Wien", toSub: "Hauptbahnhof" },
+    location: { name: "Zagreb Glavni kolodvor", address: "Trg kralja Tomislava 12", city: "Zagreb" }, ref: "AT-9921-406",
+    description: "EuroCity, 2nd class. Coach 255, seat 61. Dining car on board.",
+    source: { from: "Railtix <tickets@railtix.example>", subject: "Your e-ticket Zagreb → Wien Hbf, 06.11.", receivedAt: "2026-10-01T20:44+02:00" } },
+
+  { id: "e17", trip: "Vienna weekend", tag: "hotel", title: "Hotel Naschmarkt Loft", meta: "Loft double",
+    start: "2026-11-06T15:00+01:00", end: "2026-11-08T11:00+01:00",
+    location: { name: "Hotel Naschmarkt Loft", address: "Linke Wienzeile 18", city: "Vienna" }, ref: "4471 9931 02",
+    description: "Loft double with kitchenette. City tax is paid at check-in.",
+    source: { from: "Stayfinder <confirmations@stayfinder.example>", subject: "Your stay at Hotel Naschmarkt Loft is confirmed", receivedAt: "2026-10-01T20:58+02:00" } },
+
+  { id: "e18", trip: "Vienna weekend", tag: "activity", title: "Concert at the Musikverein", meta: "2 tickets",
+    start: "2026-11-07T19:30+01:00", end: "2026-11-07T21:45+01:00",
+    location: { name: "Musikverein, Golden Hall", address: "Musikvereinsplatz 1", city: "Vienna" }, ref: "MV-447-1189",
+    description: "Brahms and Dvořák. Row 12, seats 7 and 8. Doors open at 18:45.",
+    source: { from: "Concert Box Office <boxoffice@concerttix.example>", subject: "Your tickets for Saturday 7 November", receivedAt: "2026-10-12T08:31+02:00" } },
+
+  { id: "e19", trip: "Vienna weekend", tag: "dining", title: "Brunch at Café Wienzeile", meta: "Table for 2",
+    start: "2026-11-08T10:00+01:00", end: "2026-11-08T11:30+01:00",
+    location: { name: "Café Wienzeile", address: "Rechte Wienzeile 9", city: "Vienna" }, ref: "CW-0811",
+    description: "Late checkout is not possible, so leave the bags at the hotel desk first.",
+    source: { from: "Café Wienzeile <tisch@cafewienzeile.example>", subject: "Reservierung: Sonntag 8.11., 10:00", receivedAt: "2026-10-11T18:20+02:00" } },
+
+  { id: "e20", trip: "Vienna weekend", tag: "train", title: "Vienna → Zagreb", meta: "EC 151",
+    start: "2026-11-08T15:58+01:00", end: "2026-11-08T22:05+01:00",
+    route: { from: "Wien", fromSub: "Hauptbahnhof", to: "Zagreb", toSub: "Glavni kolodvor" },
+    location: { name: "Wien Hauptbahnhof", address: "Am Hauptbahnhof 1", city: "Vienna" }, ref: "AT-9921-407",
+    description: "EuroCity, 2nd class. Coach 254, seat 33.",
+    source: { from: "Railtix <tickets@railtix.example>", subject: "Your e-ticket Wien Hbf → Zagreb, 08.11.", receivedAt: "2026-10-01T20:44+02:00" } },
+
+  { id: "e21", trip: "Istria weekend", tag: "car", title: "Car rental, compact SUV", meta: "Škoda Karoq or similar",
+    start: "2026-11-20T16:00+01:00", end: "2026-11-22T19:00+01:00",
+    location: { name: "Pick-up: Zagreb city office", address: "Ulica kneza Borne 2", city: "Zagreb" }, ref: "RC-5124-HR",
+    description: "Unlimited kilometres, motorway toll transponder included. Return to the same office.",
+    source: { from: "RoadCo Rentals <bookings@roadco.example>", subject: "Rental confirmed: Zagreb, 20–22 Nov", receivedAt: "2026-10-04T09:41+02:00" } },
+
+  { id: "e22", trip: "Istria weekend", tag: "hotel", title: "Rovinj Old Town Apartments", meta: "Sea-view apartment",
+    start: "2026-11-20T19:00+01:00", end: "2026-11-22T10:00+01:00",
+    location: { name: "Rovinj Old Town Apartments", address: "Ulica Grisia 5", city: "Rovinj" }, ref: "4471 9958 37",
+    description: "Late check-in arranged for 19:00. Parking is 300 m away and free in November.",
+    source: { from: "Stayfinder <confirmations@stayfinder.example>", subject: "Your stay at Rovinj Old Town Apartments is confirmed", receivedAt: "2026-10-12T09:05+02:00" } },
+
+  { id: "e23", trip: "Istria weekend", tag: "activity", title: "Kayak tour, Lim Fjord", meta: "2 places",
+    start: "2026-11-21T10:00+01:00", end: "2026-11-21T13:00+01:00",
+    location: { name: "Lim Fjord kayak base", address: "Limski kanal", city: "Vrsar" }, ref: "LK-2111",
+    description: "Guided paddle with a cave stop. Wetsuits provided in November.",
+    source: { from: "Istra Outdoors <hello@istraoutdoors.example>", subject: "Booking confirmed: Lim Fjord kayak, 21 Nov", receivedAt: "2026-10-06T17:12+02:00" } },
+
+  { id: "e24", trip: "Istria weekend", tag: "dining", title: "Truffle dinner at Konoba Tartufo", meta: "Table for 2",
+    start: "2026-11-21T19:30+01:00", end: "2026-11-21T22:00+01:00",
+    location: { name: "Konoba Tartufo", address: "Trg Svetog Antuna 3", city: "Motovun" }, ref: "KT-2111",
+    description: "Tasting menu with white truffle. 45-minute drive from Rovinj.",
+    source: { from: "Konoba Tartufo <rezervacije@tartufo.example>", subject: "Potvrda rezervacije – 21.11. u 19:30", receivedAt: "2026-10-06T21:03+02:00" } },
+];
+
+const TAGS = {
+  flight:   { label: "Flight" },
+  hotel:    { label: "Hotel" },
+  train:    { label: "Train" },
+  car:      { label: "Car rental" },
+  dining:   { label: "Dining" },
+  activity: { label: "Activity" },
+};
+
+const ICON = {
+  flight: '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+  hotel: '<path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 17h20"/>',
+  train: '<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><path d="M8.5 21l1.5-4"/><path d="M15.5 21l-1.5-4"/><path d="M9 13.5h.01"/><path d="M15 13.5h.01"/>',
+  car: '<path d="M5 17H3v-4l2-5.2A2 2 0 0 1 6.9 6.5h10.2a2 2 0 0 1 1.9 1.3L21 13v4h-2"/><path d="M3 13h18"/><path d="M9 17h6"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+  dining: '<path d="M7 3v18"/><path d="M4 3v5a3 3 0 0 0 6 0V3"/><path d="M17 21V3c-2.2 1-3.5 3.6-3.5 7.5 0 1.6 1 2.5 2.2 2.5H17"/>',
+  activity: '<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/>',
+  pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+  close: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  left: '<path d="m15 18-6-6 6-6"/>',
+  right: '<path d="m9 18 6-6-6-6"/>',
+  ext: '<path d="M7 17 17 7"/><path d="M8 7h9v9"/>',
+};
+const svg = (name, size = 18) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[name]}</svg>`;
+
+/* ---------- Dates ----------
+   A "day" is an integer count of days since 1970-01-01 for the local calendar date.
+   Minutes-of-day stay local; `abs` (minutes, UTC) is only used for durations. */
+const WD = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const WD_LONG = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MON_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+function parseT(s) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?:([+-])(\d{2}):(\d{2}))?$/.exec(s);
+  const off = m[6] ? (m[6] === "-" ? -1 : 1) * (+m[7] * 60 + +m[8]) : 0;
+  const day = Date.UTC(+m[1], +m[2] - 1, +m[3]) / 864e5;
+  const min = +m[4] * 60 + +m[5];
+  return { day, min, off, abs: day * 1440 + min - off };
+}
+const dayOf = (y, m, d) => Date.UTC(y, m, d) / 864e5;
+function info(day) {
+  const dt = new Date(day * 864e5);
+  return { y: dt.getUTCFullYear(), m: dt.getUTCMonth(), d: dt.getUTCDate(), wd: (dt.getUTCDay() + 6) % 7 };
+}
+const pad = (n) => String(n).padStart(2, "0");
+const fmtTime = (min) => `${pad(Math.floor(min / 60))}:${pad(min % 60)}`;
+const fmtDay = (day) => { const i = info(day); return `${WD[i.wd]} ${i.d} ${MON[i.m]}`; };
+function fmtRange(a, b) {
+  const x = info(a), y = info(b);
+  if (a === b) return `${x.d} ${MON[x.m]}`;
+  return x.m === y.m ? `${x.d}–${y.d} ${MON[y.m]}` : `${x.d} ${MON[x.m]} – ${y.d} ${MON[y.m]}`;
+}
+
+/* Demo clock: Monday 12 October 2026, 10:00 in Zagreb. */
+const NOW = parseT("2026-10-12T10:00+02:00");
+const TODAY = NOW.day;
+
+for (const e of EVENTS) {
+  e.s = parseT(e.start);
+  e.e = parseT(e.end);
+  e.sDay = e.s.day;
+  e.eDay = e.e.min === 0 && e.e.day > e.s.day ? e.e.day - 1 : e.e.day;
+  e.multi = e.eDay > e.sDay;
+  const rec = parseT(e.source.receivedAt);
+  e.rec = rec;
+  e.isNew = rec.day === TODAY && rec.abs <= NOW.abs;
+}
+EVENTS.sort((a, b) => a.s.abs - b.s.abs);
+const BY_ID = Object.fromEntries(EVENTS.map((e) => [e.id, e]));
+
+const TRIPS = [];
+for (const e of EVENTS) {
+  let t = TRIPS.find((x) => x.name === e.trip);
+  if (!t) TRIPS.push((t = { name: e.trip, home: e.trip === "Zagreb", events: [] }));
+  t.events.push(e);
+}
+for (const t of TRIPS) {
+  t.sDay = Math.min(...t.events.map((e) => e.sDay));
+  t.eDay = Math.max(...t.events.map((e) => e.eDay));
+}
+
+function lengthOf(e) {
+  if (e.tag === "hotel") { const n = e.e.day - e.s.day; return `${n} ${n === 1 ? "night" : "nights"}`; }
+  const mins = e.e.abs - e.s.abs;
+  if (mins >= 1440) {
+    const d = Math.floor(mins / 1440), h = Math.floor((mins % 1440) / 60);
+    return `${d} ${d === 1 ? "day" : "days"}${h ? ` ${h} h` : ""}`;
+  }
+  const h = Math.floor(mins / 60), m = mins % 60;
+  return [h ? `${h}h` : "", m ? `${m}m` : ""].filter(Boolean).join(" ");
+}
+
+const PHASE = { hotel: ["Check-in", "Check-out", "Night"], car: ["Pick-up", "Drop-off", "Day"] };
+function partOn(e, day) {
+  const [inL, outL, unit] = PHASE[e.tag] || ["Starts", "Ends", "Day"];
+  if (!e.multi) return { kind: "single", inL, outL };
+  const total = e.tag === "hotel" ? e.e.day - e.s.day : e.eDay - e.sDay + 1;
+  const n = day - e.sDay + 1;
+  const kind = day === e.sDay ? "first" : day === e.eDay ? "last" : "middle";
+  const progress = kind === "last" && e.tag === "hotel" ? outL : `${unit} ${n} of ${total}`;
+  return { kind, inL, outL, progress };
+}
+const sortKeyOn = (e, day) => {
+  const p = partOn(e, day);
+  return p.kind === "middle" ? -1 : p.kind === "last" ? e.e.min : e.s.min;
+};
+
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const NEW = '<span class="new">New</span>';
+
+/* ---------- State ---------- */
+const VIEWS = {
+  agenda: "<b>Agenda.</b> Reads like an itinerary, one day after another. Best on a phone.",
+  month: "<b>Month.</b> The classic calendar. Hotel stays and rentals run across the days they cover.",
+  timeline: "<b>Timeline.</b> Every trip at a glance. Long bookings are long bars; scroll sideways for more weeks.",
+};
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
+const fromHash = location.hash.replace("#", "");
+let view = VIEWS[fromHash] ? fromHash : VIEWS[store.get("bc-view")] ? store.get("bc-view") : "agenda";
+const active = new Set(Object.keys(TAGS));
+const info0 = info(TODAY);
+let monthCur = { y: info0.y, m: info0.m };
+let selDay = TODAY;
+const mqPhone = matchMedia("(max-width: 640px)");
+const visible = () => EVENTS.filter((e) => active.has(e.tag));
+
+/* ---------- Shared row ---------- */
+function evRow(e, day) {
+  const p = partOn(e, day);
+  let big, small = "", word = false;
+  if (p.kind === "single") { big = fmtTime(e.s.min); small = `to ${fmtTime(e.e.min)}`; }
+  else if (p.kind === "first") { big = fmtTime(e.s.min); small = p.inL; }
+  else if (p.kind === "last") { big = fmtTime(e.e.min); small = p.outL; }
+  else { big = "All day"; word = true; }
+  const eyebrow = [TAGS[e.tag].label, p.kind === "single" ? e.meta : p.progress].filter(Boolean).join(" · ");
+  const cont = p.kind === "middle" || p.kind === "last";
+  return `<button class="ev-row tag-${e.tag}${cont ? " is-cont" : ""}" type="button" data-id="${e.id}">
+    <span class="ev-time"><b class="${word ? "word" : ""}">${big}</b>${small ? `<small>${small}</small>` : ""}</span>
+    <span class="ev-icon">${svg(e.tag, 20)}</span>
+    <span class="ev-main">
+      <span class="ev-eyebrow">${esc(eyebrow)}</span>
+      <span class="ev-title">${esc(e.title)}${e.isNew && !cont ? " " + NEW : ""}</span>
+      <span class="ev-loc">${svg("pin", 14)}<span>${esc(e.location.name)}, ${esc(e.location.city)}</span></span>
+      <span class="ev-desc">${esc(e.description)}</span>
+    </span>
+  </button>`;
+}
+
+/* ---------- A: Agenda ---------- */
+function renderAgenda() {
+  const el = document.getElementById("view-agenda");
+  const evs = visible();
+  if (!evs.length) { el.innerHTML = emptyState(); return; }
+  const last = Math.max(...EVENTS.map((e) => e.eDay));
+  let html = "", gap = null;
+  const flushGap = (to) => {
+    if (gap === null) return;
+    const n = to - gap + 1;
+    html += `<p class="ag-gap">Nothing booked · ${n === 1 ? fmtDay(gap) : `${fmtDay(gap)} – ${fmtDay(to)}`}</p>`;
+    gap = null;
+  };
+  for (let d = TODAY; d <= last; d++) {
+    const items = evs.filter((e) => e.sDay <= d && e.eDay >= d).sort((a, b) => sortKeyOn(a, d) - sortKeyOn(b, d));
+    if (!items.length && d !== TODAY) { if (gap === null) gap = d; continue; }
+    flushGap(d - 1);
+    const i = info(d), diff = d - TODAY;
+    const rel = diff === 0 ? "Today" : diff === 1 ? "Tomorrow" : `in ${diff} days`;
+    const trip = TRIPS.find((t) => !t.home && t.sDay <= d && t.eDay >= d);
+    html += `<section class="ag-day${d === TODAY ? " is-today" : ""}" data-day="${d}">
+      <h3 class="ag-date">
+        <span class="ag-dnum">${i.d}</span>
+        <span class="ag-dtxt"><b>${WD_LONG[i.wd]}</b><small>${MON_LONG[i.m]} ${i.y} · ${rel}</small></span>
+        ${trip ? `<span class="ag-trip">${esc(trip.name)}<br>day ${d - trip.sDay + 1} of ${trip.eDay - trip.sDay + 1}</span>` : ""}
+      </h3>
+      <div class="ev-list">${items.length ? items.map((e) => evRow(e, d)).join("") : `<p class="ag-empty">Nothing booked today.</p>`}</div>
+    </section>`;
+  }
+  flushGap(last);
+  el.innerHTML = `<div class="agenda">${html}</div>`;
+}
+
+/* ---------- B: Month ---------- */
+const MAX_LANES = 3;
+function renderMonth() {
+  const el = document.getElementById("view-month");
+  const { y, m } = monthCur;
+  const first = dayOf(y, m, 1);
+  const g0 = first - info(first).wd;
+  const evs = visible();
+  let weeks = "";
+  for (let w = 0; w < 6; w++) {
+    const w0 = g0 + w * 7, w1 = w0 + 6;
+    const items = evs
+      .filter((e) => e.sDay <= w1 && e.eDay >= w0)
+      .map((e) => ({ e, a: Math.max(e.sDay, w0) - w0, b: Math.min(e.eDay, w1) - w0 }))
+      .sort((p, q) => p.a - q.a || (q.b - q.a) - (p.b - p.a) || q.e.multi - p.e.multi || p.e.s.min - q.e.s.min);
+    const occ = [];
+    const hidden = Array(7).fill(0);
+    let bars = "";
+    for (const it of items) {
+      let lane = 0;
+      for (;;) {
+        occ[lane] ??= Array(7).fill(false);
+        let free = true;
+        for (let c = it.a; c <= it.b; c++) if (occ[lane][c]) { free = false; break; }
+        if (free) break;
+        lane++;
+      }
+      for (let c = it.a; c <= it.b; c++) occ[lane][c] = true;
+      if (lane >= MAX_LANES) { for (let c = it.a; c <= it.b; c++) hidden[c]++; continue; }
+      bars += monthItem(it, lane, w0);
+    }
+    hidden.forEach((n, c) => {
+      if (n) bars += `<button class="mi-more" type="button" style="grid-column:${c + 1}" data-day="${w0 + c}" aria-label="${n} more on ${fmtDay(w0 + c)}">+${n}<span class="more-word"> more</span></button>`;
+    });
+    let days = "";
+    for (let c = 0; c < 7; c++) {
+      const d = w0 + c, i = info(d);
+      const cls = ["md", i.m !== m && "out", c >= 5 && "wkend", d === TODAY && "today", d === selDay && "sel"].filter(Boolean).join(" ");
+      days += `<button class="${cls}" type="button" data-day="${d}" aria-label="${fmtDay(d)}"><span class="md-num">${i.d}</span></button>`;
+    }
+    weeks += `<div class="mw"><div class="mw-days">${days}</div><div class="mw-items">${bars}</div></div>`;
+  }
+  const wd = WD.map((n) => `<span><span class="long">${n}</span><span class="short">${n[0]}</span></span>`).join("");
+  const dayItems = evs.filter((e) => e.sDay <= selDay && e.eDay >= selDay).sort((a, b) => sortKeyOn(a, selDay) - sortKeyOn(b, selDay));
+  const si = info(selDay);
+  el.innerHTML = `<div class="month">
+    <div>
+      <div class="m-head">
+        <h2>${MON_LONG[m]} ${y}</h2>
+        <div class="m-nav">
+          <button class="iconbtn" type="button" data-nav="-1" aria-label="Previous month">${svg("left")}</button>
+          <button class="iconbtn" type="button" data-nav="1" aria-label="Next month">${svg("right")}</button>
+        </div>
+      </div>
+      <div class="mgrid"><div class="m-wd">${wd}</div>${weeks}</div>
+    </div>
+    <aside class="m-side" id="m-side" aria-live="polite">
+      <h3>${WD_LONG[si.wd]}, ${si.d} ${MON[si.m]}<small>${selDay === TODAY ? "Today" : ""}</small></h3>
+      ${dayItems.length ? `<div class="ev-list">${dayItems.map((e) => evRow(e, selDay)).join("")}</div>` : nextUp(evs)}
+      <p class="m-legend">Pick any day in the grid to list its bookings here.</p>
+    </aside>
+  </div>`;
+}
+function nextUp(evs) {
+  const next = evs.filter((e) => e.sDay > selDay).sort((a, b) => a.s.abs - b.s.abs)[0];
+  if (!next) return `<p class="m-legend">Nothing booked on this day.</p>`;
+  const items = evs.filter((e) => e.sDay <= next.sDay && e.eDay >= next.sDay).sort((a, b) => sortKeyOn(a, next.sDay) - sortKeyOn(b, next.sDay));
+  return `<p class="m-legend">Nothing booked on this day. Next up, ${fmtDay(next.sDay)}:</p>
+    <div class="ev-list">${items.map((e) => evRow(e, next.sDay)).join("")}</div>`;
+}
+function monthItem(it, lane, w0) {
+  const e = it.e;
+  const contL = e.sDay < w0 + it.a, contR = e.eDay > w0 + it.b;
+  const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${lane + 1}`;
+  const label = `${TAGS[e.tag].label}: ${e.title}, ${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
+  if (e.multi) {
+    const cls = `mi multi tag-${e.tag}${contL ? " cont-l" : ""}${contR ? " cont-r" : ""}`;
+    const lead = contL ? "" : `${fmtTime(e.s.min)} `;
+    return `<button class="${cls}" type="button" style="${pos}" data-id="${e.id}" aria-label="${esc(label)}"><span class="mi-n">${lead}${esc(e.title)}</span></button>`;
+  }
+  return `<button class="mi single tag-${e.tag}" type="button" style="${pos}" data-id="${e.id}" aria-label="${esc(label)}"><i class="mi-dot"></i><span class="mi-t">${fmtTime(e.s.min)}</span><span class="mi-n">${esc(e.title)}</span></button>`;
+}
+
+/* ---------- C: Timeline ---------- */
+const TL_START = TODAY - 7, TL_END = dayOf(2026, 10, 29);
+let tlScrolled = false;
+const TL_DW = 30;
+function renderTimeline() {
+  const el = document.getElementById("view-timeline");
+  const evs = visible();
+  if (!evs.length) { el.innerHTML = emptyState(); return; }
+  const phone = mqPhone.matches;
+  const DW = TL_DW, LW = phone ? 150 : 248;
+  const r0 = TL_START, r1 = TL_END, W = (r1 - r0 + 1) * DW;
+  const x = (day, min) => (day - r0 + min / 1440) * DW;
+
+  let months = "";
+  for (let d = r0; d <= r1;) {
+    const i = info(d);
+    const last = Math.min(r1, dayOf(i.y, i.m + 1, 0));
+    months += `<div class="tl-mon" style="left:${(d - r0) * DW}px;width:${(last - d + 1) * DW}px">${MON_LONG[i.m]} ${i.y}</div>`;
+    d = last + 1;
+  }
+  let daysHtml = "";
+  for (let d = r0; d <= r1; d++) {
+    const i = info(d);
+    daysHtml += `<div class="tl-d${i.wd >= 5 ? " wkend" : ""}${d === TODAY ? " today" : ""}"><span>${WD[i.wd][0]}</span><b>${i.d}</b></div>`;
+  }
+  let rows = `<div class="tl-row head"><div class="tl-label">Bookings</div><div class="tl-track" style="width:${W}px">${months}<div class="tl-days">${daysHtml}</div></div></div>`;
+
+  for (const t of TRIPS) {
+    const list = t.events.filter((e) => active.has(e.tag));
+    if (!list.length) continue;
+    const a = Math.min(...list.map((e) => x(e.s.day, e.s.min)));
+    const b = Math.max(...list.map((e) => x(e.e.day, e.e.min)));
+    const span = t.eDay - t.sDay + 1;
+    rows += `<div class="tl-row grp"><div class="tl-label"><b>${esc(t.name)}</b><small>${fmtRange(t.sDay, t.eDay)} · ${list.length} ${list.length === 1 ? "booking" : "bookings"}</small></div>
+      <div class="tl-track" style="width:${W}px">${t.home ? "" : `<div class="tl-span${b - a < 70 ? " narrow" : ""}" style="left:${a}px;width:${Math.max(b - a, 12)}px"><span>${span} ${span === 1 ? "day" : "days"}</span></div>`}</div></div>`;
+    for (const e of list) {
+      const x0 = x(e.s.day, e.s.min), x1 = x(e.e.day, e.e.min), w = x1 - x0;
+      const label = `${TAGS[e.tag].label}: ${e.title}, ${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
+      let bar;
+      if (w >= 60) {
+        bar = `<button class="tb tag-${e.tag}" type="button" style="left:${x0}px;width:${w}px" data-id="${e.id}" aria-label="${esc(label)}">${esc(lengthOf(e))}</button>`;
+      } else {
+        const bw = Math.max(w, 9);
+        bar = `<button class="tb short tag-${e.tag}" type="button" style="left:${x0}px;width:${bw}px" data-id="${e.id}" aria-label="${esc(label)}"></button>
+               <span class="tb-out" style="left:${x0 + bw + 6}px">${e.multi ? esc(lengthOf(e)) : `${fmtTime(e.s.min)}–${fmtTime(e.e.min)}`}</span>`;
+      }
+      rows += `<div class="tl-row"><div class="tl-label"><button class="tl-ev tag-${e.tag}" type="button" data-id="${e.id}"><span class="tl-ic">${svg(e.tag, 14)}</span><span class="tl-lt">${esc(e.title)}</span></button></div>
+        <div class="tl-track" style="width:${W}px">${bar}</div></div>`;
+    }
+  }
+  const nowX = LW + x(TODAY, NOW.min);
+  el.innerHTML = `<div class="tl" style="--dw:${DW}px;--lw:${LW}px">
+    <div class="tl-scroll" id="tl-scroll">
+      <div class="tl-inner" style="width:${LW + W}px">
+        ${rows}
+        <div class="tl-past" style="left:${LW}px;width:${nowX - LW}px"></div>
+        <div class="tl-now" style="left:${nowX}px"></div>
+      </div>
+    </div>
+    <p class="tl-foot">Scroll sideways to see more weeks. The shaded area is in the past; the yellow line is now.</p>
+  </div>`;
+  if (!tlScrolled && view === "timeline") { scrollTimelineToToday(); tlScrolled = true; }
+}
+function scrollTimelineToToday() {
+  const sc = document.getElementById("tl-scroll");
+  if (!sc) return;
+  const DW = TL_DW;
+  sc.scrollLeft = Math.max(0, (TODAY - TL_START - 1) * DW);
+}
+
+function emptyState() {
+  return `<div class="empty">No bookings match these filters. <button class="linkbtn" type="button" data-showall>Show all types</button></div>`;
+}
+
+/* ---------- Detail drawer ---------- */
+const drawer = document.getElementById("drawer");
+const scrim = document.getElementById("scrim");
+document.getElementById("dr-close").innerHTML = svg("close");
+let lastFocus = null;
+
+function fmtReceived(r) {
+  const when = r.day === TODAY ? "Today" : r.day === TODAY - 1 ? "Yesterday" : fmtDay(r.day);
+  return `${when}, ${fmtTime(r.min)}`;
+}
+
+function openEvent(id) {
+  const e = BY_ID[id];
+  if (!e) return;
+  lastFocus = document.activeElement;
+  const [inL, outL] = PHASE[e.tag] || ["Starts", "Ends"];
+  let when;
+  if (e.route) {
+    const diff = (e.s.off - e.e.off) / 60;
+    const tz = diff ? ` ${e.route.toSub} is ${Math.abs(diff)} hour${Math.abs(diff) === 1 ? "" : "s"} ${diff > 0 ? "behind" : "ahead of"} ${e.route.fromSub}.` : "";
+    when = `<div class="route">
+        <div class="rt-end"><span class="rt-code">${esc(e.route.from)}</span><span class="rt-sub">${esc(e.route.fromSub)}</span><span class="rt-time">${fmtTime(e.s.min)}</span></div>
+        <div class="rt-mid"><span class="rt-line">${svg(e.tag, 20)}</span><span class="rt-dur">${lengthOf(e)}</span></div>
+        <div class="rt-end r"><span class="rt-code">${esc(e.route.to)}</span><span class="rt-sub">${esc(e.route.toSub)}</span><span class="rt-time">${fmtTime(e.e.min)}</span></div>
+      </div>
+      <p class="note">${WD_LONG[info(e.sDay).wd]} ${info(e.sDay).d} ${MON_LONG[info(e.sDay).m]} ${info(e.sDay).y}. Local times.${tz}</p>`;
+  } else {
+    const same = e.s.day === e.e.day;
+    when = `<div class="when">
+        <div><span class="lbl">${inL}</span><b>${fmtDay(e.s.day)}</b><span class="mono">${fmtTime(e.s.min)}</span></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="r"><span class="lbl">${outL}</span><b>${same ? "Same day" : fmtDay(e.e.day)}</b><span class="mono">${fmtTime(e.e.min)}</span></div>
+      </div>
+      <p class="note">${lengthOf(e)}</p>`;
+  }
+  const L = e.location;
+  const maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(`${L.name}, ${L.address}, ${L.city}`);
+  document.getElementById("dr-body").innerHTML = `<article class="ticket tag-${e.tag}">
+    <div class="tk-band">${svg(e.tag, 18)}<span>${esc(TAGS[e.tag].label)} · ${esc(e.meta)}</span></div>
+    <div class="tk-body">
+      <h2 class="tk-title" id="tk-title">${esc(e.title)}${e.isNew ? NEW : ""}</h2>
+      ${when}
+      <dl class="fields">
+        <div><dt class="lbl">Where</dt><dd><span>${esc(L.name)}</span><span class="muted">${esc(L.address)}, ${esc(L.city)}</span><a href="${maps}" target="_blank" rel="noopener">Open in Maps ${svg("ext", 14)}</a></dd></div>
+        <div><dt class="lbl">Booking ref</dt><dd><span class="ref"><code id="ref-code">${esc(e.ref)}</code><button class="mini" type="button" id="copy-ref">Copy</button></span></dd></div>
+      </dl>
+      <p class="desc">${esc(e.description)}</p>
+    </div>
+    <div class="perf" aria-hidden="true"><i></i><i></i></div>
+    <div class="src">
+      <p class="src-head">${svg("mail", 16)} Added from email</p>
+      <dl class="fields">
+        <div><dt class="lbl">From</dt><dd>${esc(e.source.from)}</dd></div>
+        <div><dt class="lbl">Subject</dt><dd>${esc(e.source.subject)}</dd></div>
+        <div><dt class="lbl">Received</dt><dd>${fmtReceived(e.rec)}</dd></div>
+      </dl>
+    </div>
+  </article>`;
+  drawer.hidden = false;
+  scrim.hidden = false;
+  drawer.scrollTop = 0;
+  requestAnimationFrame(() => { drawer.classList.add("open"); scrim.classList.add("open"); });
+  document.getElementById("dr-close").focus();
+}
+function closeDrawer() {
+  if (drawer.hidden) return;
+  drawer.classList.remove("open");
+  scrim.classList.remove("open");
+  drawer.hidden = true;
+  scrim.hidden = true;
+  if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+}
+document.getElementById("dr-close").addEventListener("click", closeDrawer);
+scrim.addEventListener("click", closeDrawer);
+document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") closeDrawer(); });
+drawer.addEventListener("click", async (ev) => {
+  const btn = ev.target.closest("#copy-ref");
+  if (!btn) return;
+  const code = document.getElementById("ref-code");
+  try {
+    await navigator.clipboard.writeText(code.textContent);
+    btn.textContent = "Copied";
+  } catch {
+    const r = document.createRange();
+    r.selectNodeContents(code);
+    const sel = getSelection();
+    sel.removeAllRanges();
+    sel.addRange(r);
+    btn.textContent = "Selected";
+  }
+});
+
+/* ---------- Chrome: tabs, filters, today ---------- */
+function renderFilters() {
+  const counts = {};
+  for (const e of EVENTS) counts[e.tag] = (counts[e.tag] || 0) + 1;
+  const allOn = active.size === Object.keys(TAGS).length;
+  document.getElementById("filters").innerHTML =
+    Object.entries(TAGS).map(([k, t]) =>
+      `<button class="fchip tag-${k}" type="button" data-tag="${k}" aria-pressed="${active.has(k)}"><i class="sw"></i>${t.label}<span class="n">${counts[k] || 0}</span></button>`
+    ).join("") + (allOn ? "" : `<button class="linkbtn" type="button" data-showall>Show all</button>`);
+}
+function render() {
+  for (const v of Object.keys(VIEWS)) {
+    const on = v === view;
+    document.getElementById(`tab-${v}`).setAttribute("aria-selected", on);
+    document.getElementById(`tab-${v}`).tabIndex = on ? 0 : -1;
+    document.getElementById(`view-${v}`).hidden = !on;
+  }
+  document.getElementById("caption").innerHTML = VIEWS[view];
+  renderFilters();
+  if (view === "agenda") renderAgenda();
+  if (view === "month") renderMonth();
+  if (view === "timeline") renderTimeline();
+}
+
+document.querySelector(".tabs").addEventListener("click", (ev) => {
+  const t = ev.target.closest("[data-view]");
+  if (!t) return;
+  view = t.dataset.view;
+  store.set("bc-view", view);
+  try { history.replaceState(null, "", "#" + view); } catch {}
+  render();
+});
+document.querySelector(".tabs").addEventListener("keydown", (ev) => {
+  if (ev.key !== "ArrowRight" && ev.key !== "ArrowLeft") return;
+  const keys = Object.keys(VIEWS);
+  const i = (keys.indexOf(view) + (ev.key === "ArrowRight" ? 1 : keys.length - 1)) % keys.length;
+  view = keys[i];
+  store.set("bc-view", view);
+  render();
+  document.getElementById(`tab-${view}`).focus();
+});
+
+document.addEventListener("click", (ev) => {
+  const chip = ev.target.closest("[data-tag]");
+  if (chip) {
+    const k = chip.dataset.tag;
+    active.has(k) ? active.delete(k) : active.add(k);
+    render();
+    return;
+  }
+  if (ev.target.closest("[data-showall]")) {
+    Object.keys(TAGS).forEach((k) => active.add(k));
+    render();
+    return;
+  }
+  const evBtn = ev.target.closest("main [data-id]");
+  if (evBtn) { openEvent(evBtn.dataset.id); return; }
+  const nav = ev.target.closest("[data-nav]");
+  if (nav) {
+    const d = new Date(Date.UTC(monthCur.y, monthCur.m + +nav.dataset.nav, 1));
+    monthCur = { y: d.getUTCFullYear(), m: d.getUTCMonth() };
+    renderMonth();
+    return;
+  }
+  const dayBtn = ev.target.closest("#view-month [data-day]");
+  if (dayBtn) {
+    selDay = +dayBtn.dataset.day;
+    const i = info(selDay);
+    monthCur = { y: i.y, m: i.m };
+    renderMonth();
+    if (mqPhone.matches || ev.target.closest(".mi-more")) {
+      document.getElementById("m-side").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+});
+
+document.getElementById("today-btn").addEventListener("click", () => {
+  if (view === "agenda") {
+    document.querySelector(".ag-day.is-today")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else if (view === "month") {
+    monthCur = { y: info0.y, m: info0.m };
+    selDay = TODAY;
+    renderMonth();
+  } else {
+    scrollTimelineToToday();
+  }
+});
+
+const newCount = EVENTS.filter((e) => e.isNew).length;
+document.getElementById("new-count").textContent = `${newCount} ${newCount === 1 ? "booking" : "bookings"}`;
+mqPhone.addEventListener("change", render);
+render();
+</script>
