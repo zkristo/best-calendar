@@ -5,6 +5,7 @@
    Event times are local to the event, with their UTC offset, the way the emails state them. */
 
 const DATA_URL = "data/events.json";
+const FLIGHTS_URL = "data/flights.json"; // cheapest trips from Zagreb, written by the sync routine (optional)
 const REFRESH_MS = 10 * 60 * 1000;
 
 const TAGS = {
@@ -29,6 +30,9 @@ const ICON = {
   left: '<path d="m15 18-6-6 6-6"/>',
   right: '<path d="m9 18 6-6-6-6"/>',
   ext: '<path d="M7 17 17 7"/><path d="M8 7h9v9"/>',
+  plane: '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+  bus: '<path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/>',
+  car: '<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>',
 };
 const svg = (name, size = 18) =>
   `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[name]}</svg>`;
@@ -85,6 +89,8 @@ function ago(absMin) {
 /* ---------- Data ---------- */
 let EVENTS = [];
 let BY_ID = {};
+let FLIGHTS = {};          // event id → cheapest trips from Zagreb (data/flights.json)
+let flightsOrigin = "Zagreb";
 let updatedAt = null;
 let loaded = false;
 
@@ -154,6 +160,9 @@ function evRow(e, day) {
   const cont = t.kind === "middle" || t.kind === "last";
   const eyebrow = [TAGS[e.tag].label, e.cancelled ? "Cancelled" : t.progress].filter(Boolean).join(" · ");
   const place = placeLine(e);
+  const fl = !cont && !e.cancelled ? FLIGHTS[e.id] : null;
+  const fare = fl?.best?.[0]?.total ?? null;
+  const altFare = fl?.alternative && fl.alternative.saving >= 1 ? fl.alternative.total : null;
   const cls = `ev-row tag-${e.tag}${cont ? " is-cont" : ""}${e.cancelled ? " is-cancelled" : ""}`;
   return `<button class="${cls}" type="button" data-id="${esc(e.id)}">
     <span class="ev-time"><b class="${t.word ? "word" : ""}">${t.big}</b>${t.small ? `<small>${t.small}</small>` : ""}</span>
@@ -161,6 +170,7 @@ function evRow(e, day) {
       <span class="ev-eyebrow">${esc(eyebrow)}</span>
       <span class="ev-title">${esc(e.title)}${e.isNew && !cont ? " " + NEW : ""}</span>
       ${place ? `<span class="ev-loc">${svg("pin", 14)}<span>${esc(place)}</span></span>` : ""}
+      ${fare != null ? `<span class="ev-fly">${svg("plane", 14)}<span>Round trip from ${esc(flightsOrigin)}: <b>${euro(fare)}</b>${altFare != null ? ` · ±1 day <b>${euro(altFare)}</b>` : ""}</span></span>` : ""}
       ${e.description ? `<span class="ev-desc">${esc(e.description)}</span>` : ""}
     </span>
   </button>`;
@@ -311,6 +321,105 @@ function fmtReceived(r) {
   return `${when}, ${fmtTime(r.min)}`;
 }
 
+/* ---------- Getting there (data/flights.json) ---------- */
+const euro = (n) => "€" + (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, "");
+const BOOK = { ryanair: "Ryanair", wizz: "Wizz Air", kiwi: "Kiwi.com" };
+
+function clock(w, refDay) {
+  const shift = w.day - refDay;
+  return fmtTime(w.min) + (shift ? `<small>${shift > 0 ? "+" : ""}${shift}</small>` : "");
+}
+function bookLink(url, label) {
+  const u = url ? safeUrl(url) : null;
+  return u ? `<a href="${esc(u.href)}" target="_blank" rel="noopener">${esc(label)} ${svg("ext", 13)}</a>` : "";
+}
+function stepHtml(st, refDay) {
+  if (st.kind === "transfer") {
+    return `<li class="st">${svg("car", 16)}<div><b>${esc(st.text)}</b><span>${st.minutes} min · ${euro(st.price)}</span></div></li>`;
+  }
+  const a = parseWhen(st.dep), b = parseWhen(st.arr);
+  if (!a || !b) return "";
+  if (st.kind === "bus") {
+    const extra = [st.changes ? `${st.changes} change${st.changes > 1 ? "s" : ""}` : "",
+      st.transfer ? `then ${st.transfer.minutes} min to the terminal${st.transfer.price ? ` (${euro(st.transfer.price)})` : ""}` : ""].filter(Boolean);
+    return `<li class="st">${svg("bus", 16)}<div><b>${esc(st.from)} ${clock(a, refDay)} → ${esc(st.to)} ${clock(b, refDay)}</b>
+      <span>FlixBus · ${euro(st.price)}${extra.length ? " · " + esc(extra.join(", ")) : ""}</span>${bookLink(st.url, "Book bus")}</div></li>`;
+  }
+  const via = st.via && st.via.length ? ` · via ${esc(st.via.join(", "))}` : "";
+  const hop = st.hop ? `<em>Separate first flight</em> · ` : "";
+  return `<li class="st">${svg("plane", 16)}<div><b>${esc(st.from)} ${clock(a, refDay)} → ${esc(st.to)} ${st.approxArrival ? "≈" : ""}${clock(b, refDay)}</b>
+    <span>${hop}${esc((st.carriers || []).join(", "))}${via} · ${euro(st.price)}</span>${bookLink(st.url, `Book on ${BOOK[st.source] || "Kiwi.com"}`)}</div></li>`;
+}
+function legHtml(label, leg) {
+  const main = leg.steps.find((s) => s.kind === "flight" && !s.hop) || leg.steps.find((s) => s.kind === "flight");
+  const refDay = main ? parseWhen(main.dep)?.day : null;
+  if (refDay == null) return "";
+  const via = leg.viaFlight ? `fly via ${leg.airport}` : `via ${leg.airportName}`;
+  return `<div class="trip-leg">
+    <p class="trip-leg-head"><span><b>${label}</b> · ${fmtDay(refDay)} · ${esc(via)}</span><span>${euro(leg.total)}</span></p>
+    <ol class="steps">${leg.steps.map((s) => stepHtml(s, refDay)).join("")}</ol>
+    ${leg.wait ? `<p class="trip-note">${esc(leg.wait)}</p>` : ""}
+  </div>`;
+}
+function routeLine(t) {
+  const part = (leg, dir) => {
+    const fl = leg.steps.filter((s) => s.kind === "flight").map((s) => `${s.from}→${s.to}`).join(", ");
+    const bus = leg.steps.some((s) => s.kind === "bus");
+    return (dir === "out" ? [bus && `bus to ${leg.airport}`, fl] : [fl, bus && "bus home"]).filter(Boolean).join(", ");
+  };
+  return `${part(t.out, "out")} · ${part(t.back, "back")}`;
+}
+const mainFlight = (leg) => leg.steps.find((s) => s.kind === "flight" && !s.hop) || {};
+function shiftText(n, verb, when) {
+  const d = Math.abs(n) === 1 ? "a day" : `${Math.abs(n)} days`;
+  return `${verb} ${d} ${n < 0 ? "early" : "late"}${when ? ` (${fmtDay(when.day)})` : ""}`;
+}
+function tripHtml(t, tag, title, sub, cls = "") {
+  return `<div class="trip-opt">
+    <p class="trip-opt-head"><span class="trip-tag${cls}">${tag}</span><span>${title}</span></p>
+    <div class="trip-total"><b>${euro(t.total)}</b><span>${sub}</span></div>
+    ${legHtml("Out", t.out)}
+    ${legHtml("Back", t.back)}
+  </div>`;
+}
+function altHtml(alt, hasBest, e) {
+  const dep = parseWhen(mainFlight(alt.out).dep);
+  const changes = [
+    alt.arriveShift ? shiftText(alt.arriveShift, "arrive", parseWhen(mainFlight(alt.out).arr))
+      : dep && dep.day < e.sDay ? `fly out the day before (${fmtDay(dep.day)})` : "",
+    alt.leaveShift ? shiftText(alt.leaveShift, "leave", parseWhen(mainFlight(alt.back).dep)) : "",
+  ].filter(Boolean).join(", ");
+  const title = changes ? changes[0].toUpperCase() + changes.slice(1) : "Other dates";
+  const s = alt.saving;
+  const diff = s == null ? "" : s >= 0.5 ? `<strong class="save">${euro(s)} cheaper</strong> · ` : s <= -0.5 ? `<strong class="dearer">${euro(-s)} more</strong> · ` : "same price · ";
+  return tripHtml(alt, hasBest ? "Option 2 · ±1 day" : "Closest dates", esc(title), `${diff}${esc(routeLine(alt))}`, " alt");
+}
+function flightsHtml(e) {
+  const f = FLIGHTS[e.id];
+  if (!f || e.cancelled) return "";
+  const checked = parseWhen(f.searchedAt);
+  const when = checked && checked.min !== null ? `Prices checked ${ago(checked.abs)}. ` : "";
+  const head = `<p class="trip-head">${svg("plane", 16)} Getting there from ${esc(flightsOrigin)}</p>`;
+  const best = f.best && f.best[0];
+  const alt = f.alternative;
+  if (!best && !alt) {
+    return `<section class="trip">${head}<p class="trip-note">No bus + flight combination found for these dates yet. ${esc(when)}</p></section>`;
+  }
+  const baseline = best && f.baseline && f.baseline > best.total + 0.5
+    ? `<p class="trip-note">Flying from ${esc(flightsOrigin)} both ways on these dates: ${euro(f.baseline)}</p>` : "";
+  const more = (f.best || []).slice(1);
+  return `<section class="trip">
+    ${head}
+    ${best ? tripHtml(best, "Option 1 · event dates", `Arrive ${fmtDay(e.sDay)}, leave ${fmtDay(e.eDay)}`, "cheapest door to door · 1 person, small bag") : `<p class="trip-note">Nothing fits the event's dates exactly; here is the closest.</p>`}
+    ${alt ? altHtml(alt, !!best, e) : ""}
+    ${baseline}
+    ${more.length ? `<details class="trip-more"><summary>${more.length} more option${more.length > 1 ? "s" : ""} on the event dates</summary>
+      ${more.map((t) => `<div class="trip-alt"><p class="trip-total sm"><b>${euro(t.total)}</b><span>${esc(routeLine(t))}</span></p>${legHtml("Out", t.out)}${legHtml("Back", t.back)}</div>`).join("")}
+    </details>` : ""}
+    <p class="trip-foot">${esc(when)}Live fares from Ryanair, Wizz Air, Kiwi.com and FlixBus change quickly. Every leg is a separate ticket, so a late bus or flight won't be waited for.</p>
+  </section>`;
+}
+
 function openEvent(id) {
   const e = BY_ID[id];
   if (!e) return;
@@ -338,6 +447,7 @@ function openEvent(id) {
       ${whenHtml(e)}
       ${where || link ? `<dl class="fields">${where}${link}</dl>` : ""}
       ${e.description ? `<p class="desc">${esc(e.description)}</p>` : ""}
+      ${flightsHtml(e)}
     </div>
     ${srcRows ? `<div class="perf" aria-hidden="true"><i></i><i></i></div>
     <div class="src">
@@ -444,11 +554,25 @@ document.addEventListener("keydown", (ev) => {
   if (ev.key === "ArrowRight") goMonth(1);
 });
 
+async function loadFlights() {
+  try {
+    const res = await fetch(FLIGHTS_URL, { cache: "no-store" });
+    if (!res.ok) return;
+    const data = await res.json();
+    FLIGHTS = data && typeof data.events === "object" && data.events ? data.events : {};
+    flightsOrigin = (data && data.origin) || "Zagreb";
+  } catch {
+    // travel prices are optional; the calendar works without them
+  }
+}
+
 async function load() {
   try {
+    const flights = loadFlights();
     const res = await fetch(DATA_URL, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+    await flights;
     EVENTS = prepare(Array.isArray(data.events) ? data.events : []);
     BY_ID = Object.fromEntries(EVENTS.map((e) => [e.id, e]));
     updatedAt = data.updatedAt || null;

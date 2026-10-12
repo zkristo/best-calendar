@@ -484,6 +484,9 @@
       "location": {
         "name": "Gdańsk, Poland"
       },
+      "airports": [
+        "GDN"
+      ],
       "description": "Autumn Regional Meeting in Gdańsk, themed Camp Wawanakwa.",
       "status": "confirmed",
       "source": {
@@ -536,6 +539,11 @@
         "name": "Chamrousse",
         "city": "near Grenoble, France"
       },
+      "airports": [
+        "GNB",
+        "LYS",
+        "GVA"
+      ],
       "url": "https://docs.google.com/forms/d/e/1FAIpQLSdtAfU3fokBv-Ncft0fRNPFaLSFokQCupeVSIjeLOpkKJTVhw/viewform",
       "description": "Motivational weekend by LBG Lyon. Fee 65 € + 5 € alcohol fee (alumni 80 € + 5 €). The call's header says 2027, but the text gives 16–18 October with applications closing 4 October 2026.",
       "status": "confirmed",
@@ -623,6 +631,11 @@
         "name": "De Ruischaard",
         "city": "Leisele, Belgium"
       },
+      "airports": [
+        "BRU",
+        "CRL",
+        "LIL"
+      ],
       "description": "Autumn Regional Meeting hosted by LBG Ghent. Fee 80 € for the full event plus an optional 15 € alcohol fee.",
       "status": "confirmed",
       "source": {
@@ -642,6 +655,10 @@
         "name": "Dresso",
         "city": "Warsaw, Poland"
       },
+      "airports": [
+        "WAW",
+        "WMI"
+      ],
       "url": "https://docs.google.com/forms/d/e/1FAIpQLSeSp6TTqj9Gr0z-wGPgR-qQhMyOGm4K031o8upWDJ1nBXafow/viewform",
       "description": "First Nordic JBT hosted in Warsaw. LBG Warsaw looks for co-organisers to help run it; transport and hot meals covered. Fee 0 € plus an optional 20 €.",
       "status": "confirmed",
@@ -693,6 +710,9 @@
       "location": {
         "name": "Tallinn, Estonia"
       },
+      "airports": [
+        "TLL"
+      ],
       "description": "Halloween-themed cultural exchange hosted by LBG Tallinn.",
       "status": "confirmed",
       "source": {
@@ -712,6 +732,10 @@
         "name": "Camping Golden Sunset",
         "city": "Patras, Greece"
       },
+      "airports": [
+        "ATH",
+        "GPA"
+      ],
       "description": "Autumn Regional Meeting hosted by LBG Patras. Crasher fee 70 € plus an optional 15 € alcohol fee; crashers stay in tents on site.",
       "status": "confirmed",
       "source": {
@@ -731,6 +755,9 @@
         "name": "Palhaça",
         "city": "Aveiro, Portugal"
       },
+      "airports": [
+        "OPO"
+      ],
       "description": "Autumn Regional Meeting hosted by LBG Lisbon. Crasher fee 85 € plus an optional 10 € alcohol fee.",
       "status": "confirmed",
       "source": {
@@ -804,6 +831,9 @@
       "location": {
         "name": "Athens, Greece"
       },
+      "airports": [
+        "ATH"
+      ],
       "description": "Autumn Regional Meeting hosted by LBG Athens.",
       "status": "confirmed",
       "source": {
@@ -842,6 +872,10 @@
         "name": "Warsaw University of Technology",
         "city": "Warsaw, Poland"
       },
+      "airports": [
+        "WAW",
+        "WMI"
+      ],
       "url": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=nCJQO3jNiEWbz5e3Yp4vD0CGj6qPOYBLrV8bO7YJfJlUMDFFSzNCMVJKNEtSN0QwUFJUR081M1hZMy4u&route=shorturl",
       "description": "Three days of design workshops, panel discussions and exhibitions with industry professionals. Fee 50 €.",
       "status": "confirmed",
@@ -862,6 +896,10 @@
         "name": "La Vâltoare Guesthouse",
         "city": "Bran, Romania"
       },
+      "airports": [
+        "OTP",
+        "SBZ"
+      ],
       "url": "https://forms.gle/9jJWJ9Mr9WwwoRJY7",
       "description": "Romanian JAM with a limited number of spots for international BESTies. 18 € per night plus a 2 € deposit per night.",
       "status": "confirmed",
@@ -900,6 +938,10 @@
         "name": "In the Alps near Torino",
         "city": "Italy"
       },
+      "airports": [
+        "TRN",
+        "MXP"
+      ],
       "url": "https://docs.google.com/forms/d/e/1FAIpQLSe3ngVgvXk98xhC116xmhvlgHCFLOu0hLvX-nQ1GhlTm7e9-Q/viewform",
       "description": "20th Alpine Jam by LBG Torino, with a medieval theme. Fee 150 € (members) or 180 € (alumni and guests), bus from Turin included.",
       "status": "confirmed",
@@ -920,6 +962,10 @@
         "name": "Sanat Hostel (Taksim)",
         "city": "Istanbul, Türkiye"
       },
+      "airports": [
+        "IST",
+        "SAW"
+      ],
       "description": "Three-day New Year's Eve event for 200 BESTies, ending with a boat party on the Bosphorus. Fee 170 € (alumni 240 €), shared bed 150 €. Apply by sending a motivational video or presentation by email.",
       "status": "confirmed",
       "source": {

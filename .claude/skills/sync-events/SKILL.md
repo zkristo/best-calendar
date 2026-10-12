@@ -1,6 +1,6 @@
 ---
 name: sync-events
-description: Read new BEST International emails from Gmail, turn the events and application deadlines in them into entries in data/events.json, validate, and push to main so the public calendar site updates. Used by the hourly routine; also run it by hand for a backfill.
+description: Read new BEST International emails from Gmail, turn the events and application deadlines in them into entries in data/events.json, refresh the cheapest trips from Zagreb in data/flights.json, validate, and push to main so the public calendar site updates. Used by the hourly routine; also run it by hand for a backfill.
 ---
 
 # Sync events from Gmail
@@ -43,7 +43,7 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
 2. **Search Gmail.**
    - Run the query above. Set the date 2 days before `lastCheckedAt`, so nothing at the boundary is missed.
    - Skip every message whose ID is already in `processed`.
-   - If nothing is left, stop here. Make no commit and report "No new emails".
+   - If nothing is left, skip to step 7 (travel prices). Don't change `events.json` or `sync-state.json`.
 
 3. **Read each new email**, oldest first, and pull out **zero or more entries**:
    - A typical call gives two: **the event itself** (dates and place) and **its application deadline**. An event with several calls (co-organisers, crashers, participants) gets one event entry and one deadline per call.
@@ -72,6 +72,10 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
      - In person: `{ "name", "address", "city" }`, including only what the email says.
      - Online: `{ "name": "Online" }`.
      - Not stated: `null`.
+   - `airports`: for in-person events only (not deadlines, not online), the IATA codes of the 1–3 nearest airports with regular flights, nearest first, e.g. `["ATH"]`, `["BRU", "CRL"]` or `["TRN", "MXP"]`.
+     - Leave it out when the place is an easy bus ride from Zagreb: anywhere in Croatia or Slovenia, Budapest and the rest of Hungary, Graz, Trieste.
+     - Leave it out when the place is not stated or you can't tell which airports serve it.
+     - When an event moves to another city, update `airports` too.
    - `url`: only the call's **application form** (Google Forms or Microsoft Forms) or a public information page. Never:
      - a Zoom, Meet or Teams link
      - a Google Doc, Sheet or Drive file
@@ -97,13 +101,26 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
    - In `data/events.json`, add or update the events and set `updatedAt` to now (Europe/Zagreb, with offset).
    - In `data/sync-state.json`, set `lastCheckedAt` to now and append every message ID you read, including ones with no events. Keep only the newest 2000 IDs.
 
-7. **Validate.** Run `node scripts/validate-events.mjs --fix`. It sorts the events and reports any problems. Fix every problem it lists and run it again until it prints `OK`. If you cannot get it to pass, do not push; report what is wrong.
+7. **Refresh travel prices.** `data/flights.json` holds the cheapest bus + flight trip from Zagreb for each upcoming event that has `airports`. The site shows it in the event's details. Run this step on every run, even with no new emails.
+   - Install the finder from its public repo:
+     ```sh
+     pip install --quiet git+https://github.com/zkristo/google-flights
+     ```
+   - Run it from this repo's folder:
+     ```sh
+     zagflights events data/events.json --out data/flights.json --limit 4 --max-age-hours 20
+     ```
+     It re-prices at most 4 events per run, stalest first, and only events whose prices are older than 20 hours or whose dates or airports changed. Each search takes about 30 seconds. It drops entries for past events.
+   - If the clone, install or run fails, leave `data/flights.json` as it was, carry on with the other steps, and mention the error in the report. Never edit `flights.json` by hand.
 
-8. **Commit and push to `main`.**
-   - Commit message: `Sync events from Gmail (N new, M updated)`, or `Sync events from Gmail (no events in K emails)` when only the state changed.
+8. **Validate.** Run `node scripts/validate-events.mjs --fix`. It sorts the events, checks `flights.json`, and reports any problems. Fix every problem it lists and run it again until it prints `OK`. If you cannot get it to pass, do not push; report what is wrong.
+
+9. **Commit and push to `main`.**
+   - If `git status` shows no changes, make no commit and report "No new emails, prices up to date".
+   - Commit message: `Sync events from Gmail (N new, M updated)`, or `Sync events from Gmail (no events in K emails)` when only the state changed. When only `data/flights.json` changed, use `Update travel prices (N events)`.
    - Push with `git push origin HEAD:main`. On a network error, retry up to 4 times with waits of 2, 4, 8 and 16 seconds. If the push is rejected because `main` moved, run `git pull --rebase origin main`, validate again, then push.
 
-9. **Report.** List the emails read and the events added, updated or cancelled, each with title, date and tag. Mention anything you were unsure about.
+10. **Report.** List the emails read and the events added, updated or cancelled, each with title, date and tag. Mention anything you were unsure about, and which events got new travel prices (with the cheapest total).
 
 ## Privacy rules (the site is public)
 
@@ -111,3 +128,4 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
 - Don't name individual members unless they are the public speaker or host of the event.
 - No private meeting links and no links to internal documents.
 - If an email is clearly private or personal (not a group announcement), skip it. It still goes into `processed`.
+- `data/flights.json` only holds public fares, timetables and booking links. Don't add anything else to it.
