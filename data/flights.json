@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-12T23:08+02:00",
+ "updatedAt": "2026-10-13T07:20+02:00",
  "origin": "Zagreb",
  "events": {
   "g-1a0445b7ee3333aa-1": {
@@ -5538,6 +5538,431 @@
     "No outbound flights found from the nearby airports to SVX around 2026-11-20.",
     "No return flights found from SVX to the nearby airports around 2026-11-22."
    ]
+  },
+  "g-1a132419ac4eb0a9-1": {
+   "title": "Motivational Weekend Barcelona – BEST High (Monster High Edition)",
+   "destination": "GRO,BCN",
+   "out": "2026-11-27",
+   "back": "2026-11-29",
+   "format": 2,
+   "mode": "flight",
+   "searchedAt": "2026-10-13T07:20+02:00",
+   "best": [
+    {
+     "total": 92.74,
+     "nights": 2,
+     "out": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 47.27,
+      "wait": "5h25 at the airport before take-off",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Venice (Airport VCE)",
+        "dep": "2026-11-27T07:30",
+        "arr": "2026-11-27T13:45",
+        "price": 22.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=27.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "VCE",
+        "to": "BCN",
+        "fromName": "Venice Marco Polo",
+        "toName": "Barcelona–El Prat",
+        "dep": "2026-11-27T19:15",
+        "arr": "2026-11-27T21:10",
+        "approxArrival": false,
+        "price": 24.29,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=VCE&destinationIata=BCN"
+       }
+      ]
+     },
+     "back": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 45.47,
+      "wait": "bus leaves 4h15 after landing",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BCN",
+        "to": "VCE",
+        "fromName": "Barcelona–El Prat",
+        "toName": "Venice Marco Polo",
+        "dep": "2026-11-29T08:30",
+        "arr": "2026-11-29T10:25",
+        "approxArrival": false,
+        "price": 19.99,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-29&isReturn=false&originIata=BCN&destinationIata=VCE"
+       },
+       {
+        "kind": "bus",
+        "from": "Venice (Airport VCE)",
+        "to": "Zagreb",
+        "dep": "2026-11-29T14:40",
+        "arr": "2026-11-29T21:00",
+        "price": 25.48,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=29.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       }
+      ]
+     }
+    },
+    {
+     "total": 94.75,
+     "nights": 2,
+     "out": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 47.27,
+      "wait": "5h25 at the airport before take-off",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Venice (Airport VCE)",
+        "dep": "2026-11-27T07:30",
+        "arr": "2026-11-27T13:45",
+        "price": 22.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=27.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "VCE",
+        "to": "BCN",
+        "fromName": "Venice Marco Polo",
+        "toName": "Barcelona–El Prat",
+        "dep": "2026-11-27T19:15",
+        "arr": "2026-11-27T21:10",
+        "approxArrival": false,
+        "price": 24.29,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=VCE&destinationIata=BCN"
+       }
+      ]
+     },
+     "back": {
+      "airport": "BGY",
+      "airportName": "Milan Bergamo International Airport",
+      "viaFlight": true,
+      "total": 47.48,
+      "wait": "5h connection in BGY (separate tickets)",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BCN",
+        "to": "BGY",
+        "fromName": "Barcelona–El Prat",
+        "toName": "Milan Bergamo International Airport",
+        "dep": "2026-11-29T06:00",
+        "arr": "2026-11-29T07:45",
+        "approxArrival": false,
+        "price": 21.99,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-29&isReturn=false&originIata=BCN&destinationIata=BGY"
+       },
+       {
+        "kind": "flight",
+        "hop": true,
+        "from": "BGY",
+        "to": "ZAG",
+        "fromName": "Milan Bergamo International Airport",
+        "toName": "Zagreb",
+        "dep": "2026-11-29T12:45",
+        "arr": "2026-11-29T14:00",
+        "approxArrival": false,
+        "price": 17.49,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-29&isReturn=false&originIata=BGY&destinationIata=ZAG"
+       },
+       {
+        "kind": "transfer",
+        "text": "Zagreb airport → home",
+        "minutes": 45,
+        "price": 8
+       }
+      ]
+     }
+    },
+    {
+     "total": 98.24,
+     "nights": 2,
+     "out": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 47.27,
+      "wait": "5h25 at the airport before take-off",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Venice (Airport VCE)",
+        "dep": "2026-11-27T07:30",
+        "arr": "2026-11-27T13:45",
+        "price": 22.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=27.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "VCE",
+        "to": "BCN",
+        "fromName": "Venice Marco Polo",
+        "toName": "Barcelona–El Prat",
+        "dep": "2026-11-27T19:15",
+        "arr": "2026-11-27T21:10",
+        "approxArrival": false,
+        "price": 24.29,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=VCE&destinationIata=BCN"
+       }
+      ]
+     },
+     "back": {
+      "airport": "BEG",
+      "airportName": "Belgrade",
+      "viaFlight": false,
+      "total": 50.97,
+      "wait": "bus leaves 6h20 after landing · 🌙 overnight wait",
+      "overnight": true,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BCN",
+        "to": "BEG",
+        "fromName": "Barcelona–El Prat",
+        "toName": "Belgrade Nikola Tesla",
+        "dep": "2026-11-29T22:35",
+        "arr": "2026-11-30T01:10",
+        "approxArrival": false,
+        "price": 24.99,
+        "carriers": [
+         "Wizz Air"
+        ],
+        "via": [],
+        "source": "wizz",
+        "url": "https://wizzair.com/en-gb/booking/select-flight/BCN/BEG/2026-11-29/null/1/0/0/null"
+       },
+       {
+        "kind": "bus",
+        "from": "Belgrade AS",
+        "to": "Zagreb",
+        "dep": "2026-11-30T07:30",
+        "arr": "2026-11-30T13:00",
+        "price": 22.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=340bdce6-7eb1-4c50-bd1e-fd43485cdfef&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=30.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 45,
+         "price": 3
+        }
+       }
+      ]
+     }
+    }
+   ],
+   "alternative": {
+    "total": 77.44,
+    "nights": 2,
+    "out": {
+     "airport": "VCE",
+     "airportName": "Venice Marco Polo",
+     "viaFlight": false,
+     "total": 37.97,
+     "wait": "2h50 at the airport before take-off",
+     "overnight": false,
+     "steps": [
+      {
+       "kind": "bus",
+       "from": "Zagreb",
+       "to": "Venice (Airport VCE)",
+       "dep": "2026-11-28T07:30",
+       "arr": "2026-11-28T13:45",
+       "price": 22.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=28.11.2026&adult=1&_locale=en",
+       "transfer": {
+        "minutes": 5,
+        "price": 0
+       }
+      },
+      {
+       "kind": "flight",
+       "hop": false,
+       "from": "VCE",
+       "to": "BCN",
+       "fromName": "Venice Marco Polo",
+       "toName": "Barcelona–El Prat",
+       "dep": "2026-11-28T16:40",
+       "arr": "2026-11-28T18:35",
+       "approxArrival": false,
+       "price": 14.99,
+       "carriers": [
+        "Ryanair"
+       ],
+       "via": [],
+       "source": "ryanair",
+       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-28&isReturn=false&originIata=VCE&destinationIata=BCN"
+      }
+     ]
+    },
+    "back": {
+     "airport": "TRS",
+     "airportName": "Trieste",
+     "viaFlight": false,
+     "total": 39.47,
+     "wait": "bus leaves 3h05 after landing",
+     "overnight": false,
+     "steps": [
+      {
+       "kind": "flight",
+       "hop": false,
+       "from": "BCN",
+       "to": "TRS",
+       "fromName": "Barcelona–El Prat",
+       "toName": "Trieste – Friuli Venezia Giulia",
+       "dep": "2026-11-30T06:30",
+       "arr": "2026-11-30T08:30",
+       "approxArrival": false,
+       "price": 23.99,
+       "carriers": [
+        "Ryanair"
+       ],
+       "via": [],
+       "source": "ryanair",
+       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-30&isReturn=false&originIata=BCN&destinationIata=TRS"
+      },
+      {
+       "kind": "bus",
+       "from": "Trieste Airport (Ronchi dei Legionari)",
+       "to": "Zagreb",
+       "dep": "2026-11-30T11:35",
+       "arr": "2026-11-30T15:50",
+       "price": 15.48,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=74fc3496-db2d-4884-89f1-ace2d36469f1&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=30.11.2026&adult=1&_locale=en",
+       "transfer": {
+        "minutes": 5,
+        "price": 0
+       }
+      }
+     ]
+    },
+    "arriveShift": 1,
+    "leaveShift": 1,
+    "saving": 15.3
+   },
+   "baseline": null,
+   "grid": [
+    {
+     "out": "2026-11-26",
+     "back": "2026-11-28",
+     "total": 90.45
+    },
+    {
+     "out": "2026-11-26",
+     "back": "2026-11-29",
+     "total": 86.44
+    },
+    {
+     "out": "2026-11-26",
+     "back": "2026-11-30",
+     "total": 80.44
+    },
+    {
+     "out": "2026-11-27",
+     "back": "2026-11-28",
+     "total": 96.75
+    },
+    {
+     "out": "2026-11-27",
+     "back": "2026-11-29",
+     "total": 92.74
+    },
+    {
+     "out": "2026-11-27",
+     "back": "2026-11-30",
+     "total": 86.74
+    },
+    {
+     "out": "2026-11-28",
+     "back": "2026-11-28",
+     "total": 94.94
+    },
+    {
+     "out": "2026-11-28",
+     "back": "2026-11-29",
+     "total": 83.44
+    },
+    {
+     "out": "2026-11-28",
+     "back": "2026-11-30",
+     "total": 77.44
+    }
+   ],
+   "warnings": []
   }
  }
 }

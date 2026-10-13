@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-12T23:00+02:00",
+  "updatedAt": "2026-10-13T07:18+02:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -862,6 +862,23 @@
       }
     },
     {
+      "id": "g-1a132419ac4eb0a9-2",
+      "title": "Applications close: Motivational Weekend Barcelona",
+      "tag": "deadline",
+      "start": "2026-11-08T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Last day to apply as a guest for the Motivational Weekend in Olot (27–29 November). Spots are limited by venue capacity; apply via the online form.",
+      "url": "https://forms.gle/oJVMqXAdEcQ2Z8rS8",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW] LBG Barcelona is inviting you to BEST High: Motivation Weekend 2026! 🖤",
+        "receivedAt": "2026-10-13T00:34+02:00",
+        "messageId": "1a132419ac4eb0a9"
+      }
+    },
+    {
       "id": "g-1a1308ca02c8a9bb-2",
       "title": "Applications close: Motivational Weekend Ekaterinburg",
       "tag": "deadline",
@@ -985,6 +1002,31 @@
         "subject": "[BEST International] [aGA26] Announcement of the Autumn General Assembly 2026",
         "receivedAt": "2026-09-21T09:45+02:00",
         "messageId": "1a0c2eedd87e39ba"
+      }
+    },
+    {
+      "id": "g-1a132419ac4eb0a9-1",
+      "title": "Motivational Weekend Barcelona – BEST High (Monster High Edition)",
+      "tag": "course",
+      "start": "2026-11-27",
+      "end": "2026-11-29",
+      "location": {
+        "name": "Mas la Cànova d'en Solà",
+        "address": "1, 17810 Olot, Girona",
+        "city": "Olot, Spain"
+      },
+      "airports": [
+        "GRO",
+        "BCN"
+      ],
+      "description": "Motivational Weekend by LBG Barcelona with a Monster High theme. Guest fee 60 €, covering 2 nights of accommodation, all meals, drinks at the parties and activities. Apply via the online form.",
+      "url": "https://forms.gle/oJVMqXAdEcQ2Z8rS8",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW] LBG Barcelona is inviting you to BEST High: Motivation Weekend 2026! 🖤",
+        "receivedAt": "2026-10-13T00:34+02:00",
+        "messageId": "1a132419ac4eb0a9"
       }
     },
     {
