@@ -161,8 +161,11 @@ function evRow(e, day) {
   const eyebrow = [TAGS[e.tag].label, e.cancelled ? "Cancelled" : t.progress].filter(Boolean).join(" · ");
   const place = placeLine(e);
   const fl = !e.cancelled ? FLIGHTS[e.id] : null; // shown on every day of the event, not just the first
-  const fare = fl?.best?.[0]?.total ?? null;
+  const best = fl?.best?.[0];
+  const fare = best?.total ?? null;
   const altFare = fl?.alternative && fl.alternative.saving >= 5 ? fl.alternative.total : null; // only when worth a day's shift
+  const arrive = best ? lastTimed(best.out)?.b : null, leave = best ? firstTimed(best.back)?.a : null;
+  const times = [arrive && `arrive ${fmtTime(arrive.min)}`, leave && `leave ${fmtTime(leave.min)}`].filter(Boolean).join(" · ");
   const cls = `ev-row tag-${e.tag}${cont ? " is-cont" : ""}${e.cancelled ? " is-cancelled" : ""}`;
   return `<button class="${cls}" type="button" data-id="${esc(e.id)}">
     <span class="ev-time"><b class="${t.word ? "word" : ""}">${t.big}</b>${t.small ? `<small>${t.small}</small>` : ""}</span>
@@ -170,7 +173,7 @@ function evRow(e, day) {
       <span class="ev-eyebrow">${esc(eyebrow)}</span>
       <span class="ev-title">${esc(e.title)}${e.isNew && !cont ? " " + NEW : ""}</span>
       ${place ? `<span class="ev-loc">${svg("pin", 14)}<span>${esc(place)}</span></span>` : ""}
-      ${fare != null ? `<span class="ev-fly">${svg(fl.mode === "bus" ? "bus" : "plane", 14)}<span>From ${esc(flightsOrigin)}: <b>${euro(fare)}</b>${altFare != null ? ` · ±1 day <b>${euro(altFare)}</b>` : ""}</span></span>` : ""}
+      ${fare != null ? `<span class="ev-fly">${svg(fl.mode === "bus" ? "bus" : "plane", 14)}<span>From ${esc(flightsOrigin)}: ${priceTag(fare)}${times ? ` · ${times}` : ""}${altFare != null ? ` · ±1 day ${priceTag(altFare)}` : ""}</span></span>` : ""}
       ${e.description ? `<span class="ev-desc">${esc(e.description)}</span>` : ""}
     </span>
   </button>`;
@@ -237,6 +240,7 @@ function renderMonth() {
     <aside class="m-side" id="m-side" aria-live="polite">
       <h3>${WD_LONG[si.wd]}, ${si.d} ${MON[si.m]}<small>${selDay === TODAY ? "Today" : ""}</small></h3>
       ${sideList(evs)}
+      ${TIER_CUTS ? `<p class="m-legend price-key">Trip prices from ${esc(flightsOrigin)}: <span class="key tier-cheap">cheap</span><span class="key tier-mid">mid</span><span class="key tier-dear">pricey</span></p>` : ""}
     </aside>
   </div>`;
 }
@@ -261,11 +265,12 @@ const tripFare = (e) => (e.cancelled ? null : FLIGHTS[e.id]?.best?.[0]?.total ??
 function monthItem(it, lane, w0) {
   const e = it.e;
   const fare = tripFare(e);
-  const price = fare != null ? `<span class="mi-p">€${Math.round(fare)}</span>` : "";
+  const tier = tierOf(fare);
+  const price = fare != null ? `<span class="mi-p${tier ? " tier-" + tier : ""}">€${Math.round(fare)}</span>` : "";
   const contL = e.sDay < w0 + it.a, contR = e.eDay > w0 + it.b;
   const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${lane + 1}`;
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
-  const label = `${TAGS[e.tag].label}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${fare != null ? `, trip from ${flightsOrigin} ${euro(fare)}` : ""}`;
+  const label = `${TAGS[e.tag].label}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${fare != null ? `, trip from ${flightsOrigin} ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
   const cx = e.cancelled ? " is-cancelled" : "";
   if (e.multi) {
     const cls = `mi multi tag-${e.tag}${cx}${contL ? " cont-l" : ""}${contR ? " cont-r" : ""}`;
@@ -328,6 +333,102 @@ function fmtReceived(r) {
 const euro = (n) => "€" + (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, "");
 const BOOK = { ryanair: "Ryanair", wizz: "Wizz Air", kiwi: "Kiwi.com" };
 
+/* Price colours: every trip price is compared with the other events' trips.
+   Cheapest third green, middle third yellow, priciest third red. */
+const TIER_WORD = { cheap: "cheap", mid: "mid-priced", dear: "pricey" };
+let TIER_CUTS = null; // [top of the cheap third, top of the middle third], or null when too few prices
+function computeTiers() {
+  const ref = Object.entries(FLIGHTS)
+    .filter(([id]) => BY_ID[id] && !BY_ID[id].cancelled)
+    .map(([, f]) => f?.best?.[0]?.total ?? f?.alternative?.total)
+    .filter((n) => typeof n === "number")
+    .sort((a, b) => a - b);
+  const n = ref.length;
+  TIER_CUTS = n >= 3 ? [ref[Math.ceil(n / 3) - 1], ref[Math.ceil((2 * n) / 3) - 1]] : null;
+}
+const tierOf = (n) => (!TIER_CUTS || typeof n !== "number" ? "" : n <= TIER_CUTS[0] ? "cheap" : n <= TIER_CUTS[1] ? "mid" : "dear");
+function priceTag(n) {
+  const t = tierOf(n);
+  if (!t) return `<b class="price">${euro(n)}</b>`;
+  return `<b class="price tier-${t}" title="${TIER_WORD[t]} compared with the other events' trips">${euro(n)}<span class="vh"> (${TIER_WORD[t]})</span></b>`;
+}
+
+/* ---------- Travel line: riding, waiting, riding, drawn to scale ----------
+   dep/arr are local clock times where each step happens. Waits are always measured in one place, so
+   they are exact; flights use their real air time ("minutes") because their two ends can be in different
+   time zones. */
+const fmtDur = (min) => {
+  const h = Math.floor(min / 60), m = Math.round(min % 60);
+  return h ? (m ? `${h}h ${pad(m)}m` : `${h}h`) : `${m}m`;
+};
+const wall = (w) => w.day * 1440 + w.min;
+const timedSteps = (leg) =>
+  (leg?.steps || []).filter((s) => s.kind !== "transfer")
+    .map((s) => ({ s, a: parseWhen(s.dep), b: parseWhen(s.arr) }))
+    .filter((x) => x.a && x.b && x.a.min !== null && x.b.min !== null);
+const firstTimed = (leg) => timedSteps(leg)[0];
+const lastTimed = (leg) => timedSteps(leg).at(-1);
+function overnight(a, b) { // does the local span a..b touch 00:00–06:00?
+  for (let d = Math.floor(a / 1440); d <= Math.floor(b / 1440); d++) if (d * 1440 < b && d * 1440 + 360 > a) return true;
+  return false;
+}
+function legSegments(leg) {
+  const timed = timedSteps(leg);
+  const segs = [];
+  timed.forEach((x, i) => {
+    if (i) {
+      const prev = timed[i - 1];
+      const from = wall(prev.b), to = wall(x.a);
+      const tr = (prev.s.kind === "bus" && prev.s.transfer) || (x.s.kind === "bus" && x.s.transfer) || null;
+      if (to > from) segs.push({ kind: overnight(from, to) ? "night" : "wait", min: to - from, a: prev.b, b: x.a, transfer: tr?.minutes || 0 });
+    }
+    const real = x.s.kind === "flight" && typeof x.s.minutes === "number" ? x.s.minutes : null;
+    const approx = x.s.kind === "flight" && (real === null || x.s.approxArrival);
+    segs.push({ kind: x.s.kind === "flight" ? "flight" : "bus", min: Math.max(real ?? wall(x.b) - wall(x.a), 0), a: x.a, b: x.b, approx, step: x.s });
+  });
+  return { timed, segs };
+}
+const placeFrom = (s) => (s.kind === "flight" ? s.fromName || s.from : s.from);
+const placeTo = (s) => (s.kind === "flight" ? s.toName || s.to : s.to);
+function segText(g) {
+  if (g.kind === "wait" || g.kind === "night") {
+    return `wait ${fmtDur(g.min)}${g.kind === "night" ? " overnight" : ""}${g.transfer ? ` (incl. ${g.transfer} min transfer)` : ""}`;
+  }
+  return `${g.kind === "bus" ? "bus" : "flight"} ${g.approx ? "≈" : ""}${fmtDur(g.min)}`;
+}
+function legTimeline(label, leg) {
+  const { timed, segs } = legSegments(leg);
+  if (!timed.length) return legHtml(label, leg);
+  const first = timed[0], last = timed.at(-1);
+  const refDay = first.a.day;
+  const total = segs.reduce((n, g) => n + g.min, 0);
+  const home = (leg.steps || []).find((s) => s.kind === "transfer");
+  const words = segs.map(segText);
+  if (home && home.minutes) words[label === "Out" ? "unshift" : "push"](`${home.text} ${fmtDur(home.minutes)}`);
+  const note = words.join(" · ");
+  const bar = segs.map((g) => {
+    const what = g.kind === "night" ? "Overnight wait" : g.kind === "wait" ? "Wait" : g.kind === "bus" ? "Bus" : "Flight";
+    const tip = `${what} ${fmtTime(g.a.min)}–${fmtTime(g.b.min)} (${g.approx ? "≈" : ""}${fmtDur(g.min)})`;
+    const icon = (g.kind === "bus" || g.kind === "flight") && g.min / total >= 0.14 ? svg(g.kind === "bus" ? "bus" : "plane", 12) : "";
+    return `<i class="seg ${g.kind}" style="flex-grow:${Math.max(g.min, 1)}" title="${esc(tip)}">${icon}</i>`;
+  }).join("");
+  return `<div class="tl">
+    <p class="tl-head"><span><b>${label}</b> · ${fmtDay(refDay)}</span><span class="tl-dur">${fmtDur(total)} total</span></p>
+    <div class="tl-ends">
+      <span class="tl-end"><b>${clock(first.a, refDay)}</b><span>${esc(placeFrom(first.s))}</span></span>
+      <span class="tl-end r"><b>${clock(last.b, refDay)}</b><span>${esc(placeTo(last.s))}</span></span>
+    </div>
+    <div class="tl-bar" aria-hidden="true">${bar}</div>
+    <p class="tl-note">${esc(note[0].toUpperCase() + note.slice(1))}</p>
+  </div>`;
+}
+function bookHtml(t) {
+  const n = [...t.out.steps, ...t.back.steps].filter((s) => s.kind !== "transfer").length;
+  return `<details class="trip-book"><summary>Tickets and booking links (${n})</summary>
+    <div class="trip-book-body">${legHtml("Out", t.out)}${legHtml("Back", t.back)}</div>
+  </details>`;
+}
+
 function clock(w, refDay) {
   const shift = w.day - refDay;
   return fmtTime(w.min) + (shift ? `<small>${shift > 0 ? "+" : ""}${shift}</small>` : "");
@@ -382,9 +483,10 @@ function shiftText(n, verb, when) {
 function tripHtml(t, tag, title, sub, cls = "") {
   return `<div class="trip-opt">
     <p class="trip-opt-head"><span class="trip-tag${cls}">${tag}</span><span>${title}</span></p>
-    <div class="trip-total"><b>${euro(t.total)}</b><span>${sub}</span></div>
-    ${legHtml("Out", t.out)}
-    ${legHtml("Back", t.back)}
+    <div class="trip-total">${priceTag(t.total)}<span>${sub}</span></div>
+    ${legTimeline("Out", t.out)}
+    ${legTimeline("Back", t.back)}
+    ${bookHtml(t)}
   </div>`;
 }
 function altHtml(alt, hasBest, e, bus) {
@@ -420,8 +522,9 @@ function flightsHtml(e) {
     ${alt ? altHtml(alt, !!best, e, bus) : ""}
     ${baseline}
     ${more.length ? `<details class="trip-more"><summary>${more.length} more option${more.length > 1 ? "s" : ""} on the event dates</summary>
-      ${more.map((t) => `<div class="trip-alt"><p class="trip-total sm"><b>${euro(t.total)}</b><span>${esc(routeLine(t))}</span></p>${legHtml("Out", t.out)}${legHtml("Back", t.back)}</div>`).join("")}
+      ${more.map((t) => `<div class="trip-alt"><p class="trip-total sm">${priceTag(t.total)}<span>${esc(routeLine(t))}</span></p>${legTimeline("Out", t.out)}${legTimeline("Back", t.back)}${bookHtml(t)}</div>`).join("")}
     </details>` : ""}
+    ${TIER_CUTS ? `<p class="trip-foot">Price colours compare with the other events' trips: green is the cheapest third, yellow the middle, red the priciest.</p>` : ""}
     <p class="trip-foot">${esc(when)}${bus ? "Live FlixBus fares change quickly; check the booking page before you buy." : "Live fares from Ryanair, Wizz Air, Kiwi.com and FlixBus change quickly. Every leg is a separate ticket, so a late bus or flight won't be waited for."}</p>
   </section>`;
 }
@@ -581,6 +684,7 @@ async function load() {
     await flights;
     EVENTS = prepare(Array.isArray(data.events) ? data.events : []);
     BY_ID = Object.fromEntries(EVENTS.map((e) => [e.id, e]));
+    computeTiers();
     updatedAt = data.updatedAt || null;
     loaded = true;
     render();
