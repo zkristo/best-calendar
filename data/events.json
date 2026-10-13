@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T09:00+02:00",
+  "updatedAt": "2026-10-13T20:30+02:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -459,6 +459,23 @@
       }
     },
     {
+      "id": "g-1a1366f10d653a10-2",
+      "title": "Crasher applications close: aRM Region Fig",
+      "tag": "deadline",
+      "start": "2026-10-14",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScdzsVPVeQOC19lrotNV17vIQU29R_j-GHxSGnhs6HXUrYL3Q/viewform?usp=header",
+      "description": "Late call for crashers to the Region Fig aRM in Skopje; apply with the crashers form.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [aRM26 Fig][Call][Crashers] LBG Skopje is looking for crashers!!",
+        "receivedAt": "2026-10-13T20:03+02:00",
+        "messageId": "1a1366f10d653a10"
+      }
+    },
+    {
       "id": "g-1a10dd361d1f3877-2",
       "title": "Applications close: YEHS – BEST Engineering Sprint",
       "tag": "deadline",
@@ -494,6 +511,29 @@
         "subject": "[BEST International] [Call][Crashers][joint aRM’26 Gdansk] Crash Camp Wawanakwa!",
         "receivedAt": "2026-09-07T12:05+02:00",
         "messageId": "1a07b5481fe8ac52"
+      }
+    },
+    {
+      "id": "g-1a1366f10d653a10-1",
+      "title": "aRM 2026 – Region Fig",
+      "tag": "meeting",
+      "start": "2026-10-15",
+      "end": "2026-10-17",
+      "location": {
+        "name": "Skopje",
+        "city": "Skopje, North Macedonia"
+      },
+      "airports": [
+        "SKP"
+      ],
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScdzsVPVeQOC19lrotNV17vIQU29R_j-GHxSGnhs6HXUrYL3Q/viewform?usp=header",
+      "description": "Autumn Regional Meeting for Region Fig, hosted by LBG Skopje. Crashers pay for drinks on the spot; accommodation and food are not provided, so crashers arrange their own stay.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [aRM26 Fig][Call][Crashers] LBG Skopje is looking for crashers!!",
+        "receivedAt": "2026-10-13T20:03+02:00",
+        "messageId": "1a1366f10d653a10"
       }
     },
     {
