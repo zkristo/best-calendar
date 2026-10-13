@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T07:18+02:00",
+  "updatedAt": "2026-10-13T09:00+02:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -620,6 +620,24 @@
         "subject": "[BEST International] [CALL][COORGS][Nordic JBT] Come to the first JBT in Warsaw!",
         "receivedAt": "2026-10-11T21:12+02:00",
         "messageId": "1a12c621bef67c63"
+      }
+    },
+    {
+      "id": "g-1a1346885f84cf49-1",
+      "title": "aGA26: How to write a proposal (info call)",
+      "tag": "other",
+      "start": "2026-10-18T11:00+02:00",
+      "end": null,
+      "location": {
+        "name": "Online"
+      },
+      "description": "Online call for anyone who wants to learn how to write a good proposal for the Autumn General Assembly; questions answered. Open to all BESTies, even if undecided about writing one.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Announcement][aGA26] How to write a proposal",
+        "receivedAt": "2026-10-12T23:31+02:00",
+        "messageId": "1a1346885f84cf49"
       }
     },
     {
