@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-14T16:20+02:00",
+ "updatedAt": "2026-10-14T17:19+02:00",
  "origin": "Zagreb",
  "events": {
   "g-1a0445b7ee3333aa-1": {
@@ -6107,26 +6107,26 @@
    "back": "2026-10-17",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-10-13T20:19+02:00",
+   "searchedAt": "2026-10-14T17:19+02:00",
    "best": [
     {
-     "total": 228.46,
+     "total": 244.46,
      "nights": 2,
      "out": {
       "airport": "LJU",
       "airportName": "Ljubljana",
       "viaFlight": false,
-      "total": 115.98,
-      "wait": "3h25 at the airport before take-off",
+      "total": 131.98,
+      "wait": "3h29 at the airport before take-off",
       "overnight": false,
       "steps": [
        {
         "kind": "bus",
         "from": "Zagreb",
         "to": "Ljubljana",
-        "dep": "2026-10-15T07:30",
-        "arr": "2026-10-15T09:40",
-        "price": 13.98,
+        "dep": "2026-10-15T07:15",
+        "arr": "2026-10-15T09:36",
+        "price": 14.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=15.10.2026&adult=1&_locale=en",
         "transfer": {
@@ -6145,13 +6145,13 @@
         "arr": "2026-10-15T15:25",
         "approxArrival": false,
         "minutes": 90,
-        "price": 97.0,
+        "price": 112.0,
         "carriers": [
          "Wizz Air"
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/n7yb69"
+        "url": "https://kiwi.com/u/pstqg9"
        }
       ]
      },
@@ -6160,7 +6160,7 @@
       "airportName": "Ljubljana",
       "viaFlight": false,
       "total": 112.48,
-      "wait": "bus leaves 2h45 after landing",
+      "wait": "bus leaves 4h05 after landing",
       "overnight": false,
       "steps": [
        {
@@ -6174,21 +6174,21 @@
         "arr": "2026-10-17T13:20",
         "approxArrival": false,
         "minutes": 90,
-        "price": 93.0,
+        "price": 94.0,
         "carriers": [
          "Wizz Air"
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/ydyfyp"
+        "url": "https://kiwi.com/u/sb3u8w"
        },
        {
         "kind": "bus",
         "from": "Ljubljana",
         "to": "Zagreb",
-        "dep": "2026-10-17T16:05",
-        "arr": "2026-10-17T18:30",
-        "price": 14.48,
+        "dep": "2026-10-17T17:25",
+        "arr": "2026-10-17T20:05",
+        "price": 13.48,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=17.10.2026&adult=1&_locale=en",
         "transfer": {
@@ -6200,51 +6200,52 @@
      }
     },
     {
-     "total": 232.46,
+     "total": 248.46,
      "nights": 2,
      "out": {
-      "airport": "VCE",
-      "airportName": "Venice Marco Polo",
+      "airport": "ZAD",
+      "airportName": "Zadar",
       "viaFlight": false,
-      "total": 119.98,
-      "wait": "4h35 at the airport before take-off · 🌙 overnight wait",
-      "overnight": true,
+      "total": 135.98,
+      "wait": "4h20 at the airport before take-off",
+      "overnight": false,
       "steps": [
        {
         "kind": "bus",
         "from": "Zagreb",
-        "to": "Venice Mestre (Stazione FS)",
-        "dep": "2026-10-14T20:45",
-        "arr": "2026-10-15T02:25",
-        "price": 25.98,
+        "to": "Zadar",
+        "dep": "2026-10-15T08:30",
+        "arr": "2026-10-15T12:00",
+        "price": 15.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea03b-8646-11e6-9066-549f350fcb0c&rideDate=14.10.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40e12563-8646-11e6-9066-549f350fcb0c&rideDate=15.10.2026&adult=1&_locale=en",
         "transfer": {
          "minutes": 30,
-         "price": 10
+         "price": 5
         }
        },
        {
         "kind": "flight",
         "hop": false,
-        "from": "VCE",
+        "from": "ZAD",
         "to": "SKP",
-        "fromName": "Venice Marco Polo",
+        "fromName": "Zadar",
         "toName": "Skopje Alexander the Great",
-        "dep": "2026-10-15T07:30",
+        "dep": "2026-10-15T16:50",
         "arr": "2026-10-15T23:50",
         "approxArrival": false,
-        "minutes": 980,
-        "price": 84.0,
+        "minutes": 420,
+        "price": 115.0,
         "carriers": [
          "Ryanair",
          "Wizz Air"
         ],
         "via": [
+         "KRK",
          "BRI"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/3kjwzg"
+        "url": "https://kiwi.com/u/f8bc6q"
        }
       ]
      },
@@ -6253,7 +6254,7 @@
       "airportName": "Ljubljana",
       "viaFlight": false,
       "total": 112.48,
-      "wait": "bus leaves 2h45 after landing",
+      "wait": "bus leaves 4h05 after landing",
       "overnight": false,
       "steps": [
        {
@@ -6267,21 +6268,21 @@
         "arr": "2026-10-17T13:20",
         "approxArrival": false,
         "minutes": 90,
-        "price": 93.0,
+        "price": 94.0,
         "carriers": [
          "Wizz Air"
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/ydyfyp"
+        "url": "https://kiwi.com/u/sb3u8w"
        },
        {
         "kind": "bus",
         "from": "Ljubljana",
         "to": "Zagreb",
-        "dep": "2026-10-17T16:05",
-        "arr": "2026-10-17T18:30",
-        "price": 14.48,
+        "dep": "2026-10-17T17:25",
+        "arr": "2026-10-17T20:05",
+        "price": 13.48,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=17.10.2026&adult=1&_locale=en",
         "transfer": {
@@ -6293,23 +6294,23 @@
      }
     },
     {
-     "total": 232.96,
+     "total": 251.46,
      "nights": 2,
      "out": {
       "airport": "LJU",
       "airportName": "Ljubljana",
       "viaFlight": false,
-      "total": 115.98,
-      "wait": "3h25 at the airport before take-off",
+      "total": 131.98,
+      "wait": "3h29 at the airport before take-off",
       "overnight": false,
       "steps": [
        {
         "kind": "bus",
         "from": "Zagreb",
         "to": "Ljubljana",
-        "dep": "2026-10-15T07:30",
-        "arr": "2026-10-15T09:40",
-        "price": 13.98,
+        "dep": "2026-10-15T07:15",
+        "arr": "2026-10-15T09:36",
+        "price": 14.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=15.10.2026&adult=1&_locale=en",
         "transfer": {
@@ -6328,55 +6329,57 @@
         "arr": "2026-10-15T15:25",
         "approxArrival": false,
         "minutes": 90,
-        "price": 97.0,
+        "price": 112.0,
         "carriers": [
          "Wizz Air"
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/n7yb69"
+        "url": "https://kiwi.com/u/pstqg9"
        }
       ]
      },
      "back": {
-      "airport": "BEG",
-      "airportName": "Belgrade",
+      "airport": "SPU",
+      "airportName": "Split",
       "viaFlight": false,
-      "total": 116.98,
-      "wait": "bus leaves 2h30 after landing · 🌙 overnight wait",
-      "overnight": true,
+      "total": 119.48,
+      "wait": "bus leaves 4h25 after landing",
+      "overnight": false,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
         "from": "SKP",
-        "to": "BEG",
+        "to": "SPU",
         "fromName": "Skopje Alexander the Great",
-        "toName": "Belgrade Nikola Tesla",
-        "dep": "2026-10-17T03:50",
-        "arr": "2026-10-17T05:00",
+        "toName": "Split",
+        "dep": "2026-10-17T15:10",
+        "arr": "2026-10-18T14:35",
         "approxArrival": false,
-        "minutes": 70,
-        "price": 81.0,
+        "minutes": 1405,
+        "price": 93.0,
         "carriers": [
          "Air Serbia"
         ],
-        "via": [],
+        "via": [
+         "BEG"
+        ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/nqz9cx"
+        "url": "https://kiwi.com/u/kccwfm"
        },
        {
         "kind": "bus",
-        "from": "Belgrade AS",
+        "from": "Split",
         "to": "Zagreb",
-        "dep": "2026-10-17T07:30",
-        "arr": "2026-10-17T13:00",
-        "price": 32.98,
+        "dep": "2026-10-18T19:00",
+        "arr": "2026-10-19T01:45",
+        "price": 18.48,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=340bdce6-7eb1-4c50-bd1e-fd43485cdfef&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=17.10.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40e128e9-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=18.10.2026&adult=1&_locale=en",
         "transfer": {
-         "minutes": 45,
-         "price": 3
+         "minutes": 40,
+         "price": 8
         }
        }
       ]
@@ -6384,7 +6387,7 @@
     }
    ],
    "alternative": {
-    "total": 147.94,
+    "total": 148.44,
     "nights": 0,
     "out": {
      "airport": "BTS",
@@ -6433,8 +6436,8 @@
      "airport": "BUD",
      "airportName": "Budapest",
      "viaFlight": false,
-     "total": 69.48,
-     "wait": "bus leaves 2h10 after landing",
+     "total": 69.98,
+     "wait": "bus leaves 2h after landing",
      "overnight": false,
      "steps": [
       {
@@ -6454,15 +6457,15 @@
        ],
        "via": [],
        "source": "kiwi",
-       "url": "https://kiwi.com/u/3qh7br"
+       "url": "https://kiwi.com/u/w5yv9y"
       },
       {
        "kind": "bus",
-       "from": "Budapest Népliget",
+       "from": "Budapest Kelenföld",
        "to": "Zagreb",
-       "dep": "2026-10-16T15:30",
-       "arr": "2026-10-16T21:20",
-       "price": 28.48,
+       "dep": "2026-10-16T15:20",
+       "arr": "2026-10-16T20:00",
+       "price": 28.98,
        "changes": 0,
        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=16.10.2026&adult=1&_locale=en",
        "transfer": {
@@ -6474,44 +6477,44 @@
     },
     "arriveShift": 1,
     "leaveShift": -1,
-    "saving": 80.52
+    "saving": 96.02
    },
-   "baseline": null,
+   "baseline": 281.0,
    "grid": [
     {
      "out": "2026-10-14",
      "back": "2026-10-16",
-     "total": 150.94
+     "total": 252.98
     },
     {
      "out": "2026-10-14",
      "back": "2026-10-17",
-     "total": 193.94
+     "total": 295.48
     },
     {
      "out": "2026-10-14",
      "back": "2026-10-18",
-     "total": 189.43
+     "total": 281.47
     },
     {
      "out": "2026-10-15",
      "back": "2026-10-16",
-     "total": 185.46
+     "total": 195.98
     },
     {
      "out": "2026-10-15",
      "back": "2026-10-17",
-     "total": 228.46
+     "total": 238.48
     },
     {
      "out": "2026-10-15",
      "back": "2026-10-18",
-     "total": 223.95
+     "total": 224.47
     },
     {
      "out": "2026-10-16",
      "back": "2026-10-16",
-     "total": 147.94
+     "total": 148.44
     },
     {
      "out": "2026-10-16",
@@ -6521,10 +6524,14 @@
     {
      "out": "2026-10-16",
      "back": "2026-10-18",
-     "total": 186.43
+     "total": 176.93
     }
    ],
-   "warnings": []
+   "warnings": [
+    "Bus search Zagreb → Venice Airport on 2026-10-13 failed: FlixBus /search/service/v4/search → HTTP 400",
+    "Bus search Zagreb → Zadar on 2026-10-13 failed: FlixBus /search/service/v4/search → HTTP 400",
+    "Bus search Zagreb → Venice on 2026-10-13 failed: FlixBus /search/service/v4/search → HTTP 400"
+   ]
   }
  }
 }
