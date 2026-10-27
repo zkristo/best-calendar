@@ -1,0 +1,59 @@
+name: Travel prices
+
+# Prices the cheapest trip from Zagreb to every upcoming event (data/flights.json) with
+# zagflights, the standalone finder at https://github.com/zkristo/google-flights.
+# Runs every night after the email sync, and right after the sync adds or changes events.
+on:
+  schedule:
+    - cron: "30 23 * * *" # GitHub's clock is UTC: 00:30 in Zagreb in winter, 01:30 in summer
+  push:
+    branches: [main]
+    paths: [data/events.json]
+  workflow_dispatch:
+  pull_request: # a dry run when this file changes: searches and validates, but doesn't commit
+    paths: [.github/workflows/prices.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: travel-prices
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install zagflights
+        run: pip install --quiet git+https://github.com/zkristo/google-flights
+
+      - name: Refresh prices
+        # Every event whose prices are older than 20 hours, or whose dates or airports changed.
+        run: zagflights events data/events.json --out data/flights.json --limit 60 --max-age-hours 20 | tee "$RUNNER_TEMP/prices.log"
+
+      - name: Validate
+        run: node scripts/validate-events.mjs
+
+      - name: Commit to main
+        if: github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet -- data/flights.json; then echo "Prices unchanged."; exit 0; fi
+          n=$(grep -oE 'Searched [0-9]+' "$RUNNER_TEMP/prices.log" | grep -oE '[0-9]+' || true)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add data/flights.json
+          git commit -m "Update travel prices${n:+ ($n events)}"
+          for i in 1 2 3 4; do
+            git pull --rebase -q origin main && git push origin HEAD:main && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
