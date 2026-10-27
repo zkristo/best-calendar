@@ -15,14 +15,17 @@
   --on-solid: #FFFFFF;
   --shadow: 0 18px 50px rgba(15, 25, 40, 0.18);
 
-  --meeting: #2563C9;     --meeting-soft: #E3ECFB;     --meeting-ink: #1B4C9C;
-  --course: #6B44C2;      --course-soft: #EEE8FA;      --course-ink: #52339A;
-  --competition: #B95A0D; --competition-soft: #FBEBDD; --competition-ink: #8A4309;
-  --social: #18794A;      --social-soft: #DFF1E7;      --social-ink: #135E3A;
-  --deadline: #C0355E;    --deadline-soft: #FAE4EB;    --deadline-ink: #982A4A;
-  --other: #0F7480;       --other-soft: #DCF0F2;       --other-ink: #0B5A63;
+  /* categories: the three main ones in primaries, Cultural Exchange green, the rest quiet slate.
+     --x-on is the text colour on a solid --x bar */
+  --rm: #1F5FD1;     --rm-soft: #E2EBFC;     --rm-ink: #174A9E;     --rm-on: #FFFFFF;
+  --course: #D23A2E; --course-soft: #FBE4E1; --course-ink: #9C2A21; --course-on: #FFFFFF;
+  --mw: #F2B200;     --mw-soft: #FFF3CC;     --mw-ink: #765300;     --mw-on: #261C00;
+  --ce: #1B8150;     --ce-soft: #DDF1E6;     --ce-ink: #135E3A;     --ce-on: #FFFFFF;
+  --other: #6A7585;  --other-soft: #E8EBF0;  --other-ink: #414B59;  --other-on: #FFFFFF;
+  --night: #5B4BC4;
 
   /* trip price colours: cheap → mid → pricey */
+  --cheap: #1E9E5A; --mid: #E0A800; --dear: #D6453A;
   --cheap-soft: #DBF2E3; --cheap-ink: #0F5C34;
   --mid-soft: #FCEFC7;   --mid-ink: #6B4A00;
   --dear-soft: #FBE0DD;  --dear-ink: #9A2219;
@@ -36,12 +39,12 @@
     --bg: #0D1218; --surface: #151C25; --weekend: #18202A; --ink: #E6EBF1; --muted: #95A2B3;
     --line: #29333F; --line-soft: #202934; --scrim: rgba(0, 0, 0, 0.6);
     --focus: #6EA0F2; --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
-    --meeting-soft: #18263D;     --meeting-ink: #A3C1F4;
-    --course-soft: #251E3B;      --course-ink: #C8B5F2;
-    --competition-soft: #352213; --competition-ink: #F1B785;
-    --social-soft: #132B1E;      --social-ink: #8FD3AE;
-    --deadline-soft: #361824;    --deadline-ink: #F2A3BA;
-    --other-soft: #102C2E;       --other-ink: #88D2DA;
+    --rm-soft: #172741;     --rm-ink: #A8C4F5;
+    --course: #DB4A3E; --course-soft: #3A1A17; --course-ink: #F4AAA2;
+    --mw: #E5A800;     --mw-soft: #3A2F0A;     --mw-ink: #F5D27A;
+    --ce: #1F8A56;     --ce-soft: #12301F;     --ce-ink: #8FD8AF;
+    --other: #7C8796;  --other-soft: #222A35;  --other-ink: #B5BFCC;
+    --night: #8D7FE8;
     --cheap-soft: #133524; --cheap-ink: #8EE0B1;
     --mid-soft: #3A2E0C;   --mid-ink: #F3CF73;
     --dear-soft: #401B18;  --dear-ink: #F5A59C;
@@ -52,24 +55,23 @@
   --bg: #0D1218; --surface: #151C25; --weekend: #18202A; --ink: #E6EBF1; --muted: #95A2B3;
   --line: #29333F; --line-soft: #202934; --scrim: rgba(0, 0, 0, 0.6);
   --focus: #6EA0F2; --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
-  --meeting-soft: #18263D;     --meeting-ink: #A3C1F4;
-  --course-soft: #251E3B;      --course-ink: #C8B5F2;
-  --competition-soft: #352213; --competition-ink: #F1B785;
-  --social-soft: #132B1E;      --social-ink: #8FD3AE;
-  --deadline-soft: #361824;    --deadline-ink: #F2A3BA;
-  --other-soft: #102C2E;       --other-ink: #88D2DA;
+  --rm-soft: #172741;     --rm-ink: #A8C4F5;
+  --course: #DB4A3E; --course-soft: #3A1A17; --course-ink: #F4AAA2;
+  --mw: #E5A800;     --mw-soft: #3A2F0A;     --mw-ink: #F5D27A;
+  --ce: #1F8A56;     --ce-soft: #12301F;     --ce-ink: #8FD8AF;
+  --other: #7C8796;  --other-soft: #222A35;  --other-ink: #B5BFCC;
+  --night: #8D7FE8;
   --cheap-soft: #133524; --cheap-ink: #8EE0B1;
   --mid-soft: #3A2E0C;   --mid-ink: #F3CF73;
   --dear-soft: #401B18;  --dear-ink: #F5A59C;
   color-scheme: dark;
 }
 
-.tag-meeting     { --c: var(--meeting);     --c-soft: var(--meeting-soft);     --c-ink: var(--meeting-ink); }
-.tag-course      { --c: var(--course);      --c-soft: var(--course-soft);      --c-ink: var(--course-ink); }
-.tag-competition { --c: var(--competition); --c-soft: var(--competition-soft); --c-ink: var(--competition-ink); }
-.tag-social      { --c: var(--social);      --c-soft: var(--social-soft);      --c-ink: var(--social-ink); }
-.tag-deadline    { --c: var(--deadline);    --c-soft: var(--deadline-soft);    --c-ink: var(--deadline-ink); }
-.tag-other       { --c: var(--other);       --c-soft: var(--other-soft);       --c-ink: var(--other-ink); }
+.tag-rm     { --c: var(--rm);     --c-soft: var(--rm-soft);     --c-ink: var(--rm-ink);     --c-on: var(--rm-on); }
+.tag-course { --c: var(--course); --c-soft: var(--course-soft); --c-ink: var(--course-ink); --c-on: var(--course-on); }
+.tag-mw     { --c: var(--mw);     --c-soft: var(--mw-soft);     --c-ink: var(--mw-ink);     --c-on: var(--mw-on); }
+.tag-ce     { --c: var(--ce);     --c-soft: var(--ce-soft);     --c-ink: var(--ce-ink);     --c-on: var(--ce-on); }
+.tag-other  { --c: var(--other);  --c-soft: var(--other-soft);  --c-ink: var(--other-ink);  --c-on: var(--other-on); }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -118,6 +120,7 @@ button { font: inherit; color: inherit; }
 .fchip .n { color: var(--muted); font-family: var(--f-mono); font-size: 12px; }
 .fchip[aria-pressed="false"] { color: var(--muted); background: transparent; border-style: dashed; }
 .fchip[aria-pressed="false"] .sw { background: transparent; box-shadow: inset 0 0 0 2px var(--c); }
+.fchip.dl-chip svg { color: var(--muted); }
 .linkbtn { border: 0; background: none; color: var(--focus); cursor: pointer; padding: 4px; font-size: 14px; font-weight: 600; }
 .btn { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 6px 14px; cursor: pointer; font-weight: 600; }
 .btn:hover { border-color: var(--muted); }
@@ -173,7 +176,7 @@ button { font: inherit; color: inherit; }
 .md:hover { background: var(--line-soft); }
 .md-num { display: inline-block; font: 600 15px/1 var(--f-display); padding: 3px 5px 2px; border-radius: 5px; font-variant-numeric: tabular-nums; }
 .md.out .md-num { color: var(--muted); font-weight: 500; }
-.md.today .md-num { background: var(--sign); color: var(--sign-ink); }
+.md.today .md-num { background: var(--ink); color: var(--surface); }
 .md.sel { box-shadow: inset 0 0 0 2px var(--focus); }
 .mw-items {
   position: absolute; top: 28px; left: 0; right: 0; bottom: 4px; pointer-events: none;
@@ -184,14 +187,17 @@ button { font: inherit; color: inherit; }
   font-size: 12.5px; line-height: 21px; height: 21px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   border-radius: 5px; padding: 0 6px;
 }
-.mi.multi { background: var(--c); color: var(--on-solid); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.mi.multi { background: var(--c); color: var(--c-on); font-weight: 600; display: flex; align-items: center; gap: 6px; }
 .mi-n { flex: 1 1 auto; min-width: 0; }
 .mi-p {
   flex: none; margin-left: auto; font: 600 11px/1 var(--f-mono); font-variant-numeric: tabular-nums;
-  padding: 2px 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.22);
+  padding: 2px 5px; border-radius: 4px; background: var(--surface); color: var(--ink);
+  display: inline-flex; align-items: center; gap: 4px;
 }
-.mi.single .mi-p { background: var(--c-soft); color: var(--c-ink); }
-.mi .mi-p[class*="tier-"] { background: var(--t-soft); color: var(--t-ink); }
+.mi.single .mi-p { box-shadow: inset 0 0 0 1px var(--line); }
+.mi-p[class*="tier-"]::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--t); }
+.mi.single.dl { color: var(--ink); font-weight: 500; }
+.mi.single.dl svg { flex: none; color: var(--c); }
 .mi.multi.cont-l { margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }
 .mi.multi.cont-r { margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
 .mi.multi.is-cancelled { opacity: 0.55; }
@@ -226,7 +232,8 @@ button { font: inherit; color: inherit; }
   .mw-items { top: 27px; grid-template-rows: repeat(3, 6px) 12px; row-gap: 3px; }
   .mi { height: 6px; line-height: 6px; font-size: 0; padding: 0; margin-inline: 3px; border-radius: 3px; }
   .mi.single { background: var(--c); }
-  .mi.single .mi-dot, .mi.single .mi-t, .mi-p { display: none; }
+  .mi.single .mi-dot, .mi.single .mi-t, .mi.single svg, .mi-p { display: none; }
+  .mi.single.dl { width: 6px; justify-self: start; margin-left: 6px; border-radius: 50%; } /* deadlines: a dot, events: a bar */
   .mi.single.is-cancelled { opacity: 0.45; }
   .mi-more { font-size: 10px; line-height: 12px; text-align: center; padding: 0; margin-inline: 1px; }
   .more-word { display: none; }
@@ -316,7 +323,7 @@ button { font: inherit; color: inherit; }
   background: var(--line-soft); color: var(--ink); padding: 4px 6px 3px; border-radius: 4px;
 }
 .trip-tag.alt { background: var(--sign); color: var(--sign-ink); }
-.trip-total .save { color: var(--social-ink); font-weight: 700; }
+.trip-total .save { color: var(--cheap-ink); font-weight: 700; }
 .trip-total .dearer { color: var(--ink); font-weight: 700; }
 .trip-note { margin: 0; color: var(--muted); font-size: 13px; }
 .trip-more summary, .trip-book summary { cursor: pointer; width: fit-content; color: var(--focus); font-weight: 600; font-size: 14px; }
@@ -325,9 +332,9 @@ button { font: inherit; color: inherit; }
 .trip-book-body { display: grid; gap: 14px; margin-top: 10px; }
 
 /* Trip prices coloured against the other events' trips */
-.tier-cheap { --t-soft: var(--cheap-soft); --t-ink: var(--cheap-ink); }
-.tier-mid   { --t-soft: var(--mid-soft);   --t-ink: var(--mid-ink); }
-.tier-dear  { --t-soft: var(--dear-soft);  --t-ink: var(--dear-ink); }
+.tier-cheap { --t: var(--cheap); --t-soft: var(--cheap-soft); --t-ink: var(--cheap-ink); }
+.tier-mid   { --t: var(--mid);   --t-soft: var(--mid-soft);   --t-ink: var(--mid-ink); }
+.tier-dear  { --t: var(--dear);  --t-soft: var(--dear-soft);  --t-ink: var(--dear-ink); }
 b.price { font-variant-numeric: tabular-nums; }
 b.price[class*="tier-"] { background: var(--t-soft); color: var(--t-ink); border-radius: 4px; padding: 0 5px; }
 .trip-total b.price[class*="tier-"] { padding: 5px 9px 3px; border-radius: 8px; }
@@ -352,9 +359,21 @@ b.price[class*="tier-"] { background: var(--t-soft); color: var(--t-ink); border
 .seg.bus { background: var(--muted); }
 .seg.flight { background: var(--focus); }
 .seg.wait { background: repeating-linear-gradient(135deg, var(--line) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--line); }
-.seg.night { background: repeating-linear-gradient(135deg, var(--course) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--course); opacity: 0.75; }
+.seg.night { background: repeating-linear-gradient(135deg, var(--night) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--night); opacity: 0.75; }
 .tl-note { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* Deadline ⇄ event links in the drawer */
+.evlink {
+  display: inline-flex; align-items: center; gap: 7px; width: fit-content; max-width: 100%; text-align: left;
+  border: 0; background: none; padding: 2px 0; cursor: pointer; color: var(--ink); font-weight: 600; font-size: 15px;
+}
+.evlink .sw { flex: none; width: 10px; height: 10px; border-radius: 3px; background: var(--c); }
+.evlink svg { flex: none; color: var(--c); }
+.evlink .muted { font-weight: 400; font-size: 13.5px; }
+.evlink:hover span:not(.muted) { text-decoration: underline; }
+.evlink.past { opacity: 0.6; }
+.dl-list { display: grid; gap: 2px; }

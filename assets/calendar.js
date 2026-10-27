@@ -17,6 +17,17 @@ const TAGS = {
   other:       { label: "Other" },
 };
 
+/* What the site shows: the routine tags each email by type (above), and the site groups events the way
+   BEST members think of them, from the title. A deadline takes the category of the event it belongs to. */
+const CATS = {
+  rm:     { label: "Regional Meeting",     icon: "meeting" },
+  course: { label: "Course",               icon: "course" },
+  mw:     { label: "Motivational Weekend", icon: "flame" },
+  ce:     { label: "Cultural Exchange",    icon: "globe" },
+  other:  { label: "Other",                icon: "other" },
+};
+const MAIN = new Set(["rm", "course", "mw"]); // their deadlines always show; the rest only when switched on
+
 const ICON = {
   meeting: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
   course: '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/>',
@@ -24,6 +35,9 @@ const ICON = {
   social: '<path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/>',
   deadline: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/>',
   other: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
+  flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>',
   pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
   mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
   close: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
@@ -109,18 +123,61 @@ function prepare(raw) {
     const rec = r.source ? parseWhen(r.source.receivedAt) : null;
     ev.rec = rec && rec.min !== null ? rec : null;
     ev.isNew = !!ev.rec && nowAbs() - ev.rec.abs >= 0 && nowAbs() - ev.rec.abs < 1440;
+    ev.dl = r.tag === "deadline";
+    ev.cat = ev.dl ? null : categorise(ev);
+    ev.dls = [];
     out.push(ev);
   }
+  linkDeadlines(out);
   return out.sort((a, b) => a.s.abs - b.s.abs);
 }
 
+const fold = (s) => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+function catOfText(title) {
+  const t = fold(title);
+  if (/\b[as]?rm\b|regional meeting/.test(t)) return "rm"; // aRM, sRM, Joint aRM
+  if (/motivational weekend|\bmw\b/.test(t)) return "mw";
+  if (/cultural exchange|\bce\b/.test(t)) return "ce";
+  if (/\bcourses?\b/.test(t) && !/t-?shirt|merch|order/.test(t)) return "course";
+  return null;
+}
+const categorise = (e) => catOfText(e.title) || (e.tag === "course" && !/training/i.test(e.title) ? "course" : "other");
+
+/* Match each deadline to its event: "Crasher applications close: aRM Athens" → the aRM held in Athens. */
+const STOP = new Set(("applications application apply close closes closing opens due crasher crashers co organiser organisers " +
+  "participant participants partner registration payment early bird delegate delegates extra the for and with " +
+  "joint region regions arm srm motivational weekend cultural exchange course courses best lbg vol edition").split(" "));
+const keyWords = (s) => fold(s).split(/[^a-z0-9]+/).filter((w) => w.length >= 3 && !STOP.has(w) && !/^20\d\d$/.test(w));
+function linkDeadlines(all) {
+  const events = all.filter((e) => !e.dl);
+  const words = new Map(events.map((e) => [e, new Set(keyWords(`${e.title} ${e.location?.name || ""} ${e.location?.city || ""}`))]));
+  for (const d of all.filter((x) => x.dl)) {
+    const want = catOfText(d.title);
+    const key = keyWords(d.title.includes(":") ? d.title.slice(d.title.indexOf(":") + 1) : d.title);
+    let best = null, top = 0;
+    for (const e of events) {
+      if (e.eDay < d.sDay || (want && e.cat !== want)) continue;
+      const score = key.filter((w) => words.get(e).has(w)).length;
+      if (score > top || (score && score === top && (e.multi > best.multi || (e.multi === best.multi && e.sDay < best.sDay)))) {
+        best = e; top = score;
+      }
+    }
+    d.forEv = best;
+    d.cat = best ? best.cat : want || "other";
+    if (best) best.dls.push(d);
+  }
+}
+const dlShort = (t) => (t.includes(":") ? t.slice(t.indexOf(":") + 1).trim() : t);
+const catLabel = (e) => (e.dl ? `Deadline · ${CATS[e.cat].label}` : CATS[e.cat].label);
+
 /* ---------- State ---------- */
-const active = new Set(Object.keys(TAGS));
+let only = null;            // the one category the filters are narrowed to, or null for all
+let otherDeadlines = false; // deadlines outside RM, Course and MW
 const todayInfo = info(TODAY);
 let monthCur = { y: todayInfo.y, m: todayInfo.m };
 let selDay = TODAY;
 const mqPhone = matchMedia("(max-width: 640px)");
-const visible = () => EVENTS.filter((e) => active.has(e.tag));
+const visible = () => EVENTS.filter((e) => (!only || e.cat === only) && (!e.dl || MAIN.has(e.cat) || otherDeadlines));
 
 const hashMonth = /^#(\d{4})-(\d{2})$/.exec(location.hash);
 if (hashMonth && +hashMonth[2] >= 1 && +hashMonth[2] <= 12) {
@@ -136,7 +193,7 @@ function timeCell(e, day) {
     big = fmtTime(e.s.min);
     word = false;
     if (e.e && e.e.min !== null) small = `to ${fmtTime(e.e.min)}`;
-    else if (e.tag === "deadline") small = "Due";
+    else if (e.dl) small = "Due";
   } else if (kind === "first" && !e.allDay) {
     big = fmtTime(e.s.min); small = "Starts"; word = false;
   } else if (kind === "last" && e.e && e.e.min !== null) {
@@ -158,7 +215,7 @@ function placeLine(e) {
 function evRow(e, day) {
   const t = timeCell(e, day);
   const cont = t.kind === "middle" || t.kind === "last";
-  const eyebrow = [TAGS[e.tag].label, e.cancelled ? "Cancelled" : t.progress].filter(Boolean).join(" · ");
+  const eyebrow = [catLabel(e), e.cancelled ? "Cancelled" : t.progress].filter(Boolean).join(" · ");
   const place = placeLine(e);
   const fl = !e.cancelled ? FLIGHTS[e.id] : null; // shown on every day of the event, not just the first
   const best = fl?.best?.[0];
@@ -166,7 +223,7 @@ function evRow(e, day) {
   const altFare = fl?.alternative && fl.alternative.saving >= 5 ? fl.alternative.total : null; // only when worth a day's shift
   const arrive = best ? lastTimed(best.out)?.b : null, leave = best ? firstTimed(best.back)?.a : null;
   const times = [arrive && `arrive ${fmtTime(arrive.min)}`, leave && `leave ${fmtTime(leave.min)}`].filter(Boolean).join(" · ");
-  const cls = `ev-row tag-${e.tag}${cont ? " is-cont" : ""}${e.cancelled ? " is-cancelled" : ""}`;
+  const cls = `ev-row tag-${e.cat}${cont ? " is-cont" : ""}${e.cancelled ? " is-cancelled" : ""}`;
   return `<button class="${cls}" type="button" data-id="${esc(e.id)}">
     <span class="ev-time"><b class="${t.word ? "word" : ""}">${t.big}</b>${t.small ? `<small>${t.small}</small>` : ""}</span>
     <span class="ev-main">
@@ -195,7 +252,7 @@ function renderMonth() {
     const items = evs
       .filter((e) => e.sDay <= w1 && e.eDay >= w0)
       .map((e) => ({ e, a: Math.max(e.sDay, w0) - w0, b: Math.min(e.eDay, w1) - w0 }))
-      .sort((p, q) => p.a - q.a || (q.b - q.a) - (p.b - p.a) || q.e.multi - p.e.multi || q.e.allDay - p.e.allDay || p.e.s.abs - q.e.s.abs);
+      .sort((p, q) => p.e.dl - q.e.dl || p.a - q.a || (q.b - q.a) - (p.b - p.a) || q.e.multi - p.e.multi || q.e.allDay - p.e.allDay || p.e.s.abs - q.e.s.abs);
     const occ = [];
     const hidden = Array(7).fill(0);
     let bars = "";
@@ -228,7 +285,7 @@ function renderMonth() {
   view.innerHTML = `<div class="month">
     <div>
       <div class="m-head">
-        <h2>${MON_LONG[m]} ${y}</h2>
+        <h2>${MON[m].toUpperCase()} ${y}</h2>
         <div class="m-nav">
           <button class="btn" type="button" data-today>Today</button>
           <button class="iconbtn" type="button" data-nav="-1" aria-label="Previous month">${svg("left")}</button>
@@ -270,15 +327,18 @@ function monthItem(it, lane, w0) {
   const contL = e.sDay < w0 + it.a, contR = e.eDay > w0 + it.b;
   const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${lane + 1}`;
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
-  const label = `${TAGS[e.tag].label}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${fare != null ? `, trip from ${flightsOrigin} ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
+  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${fare != null ? `, trip from ${flightsOrigin} ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
   const cx = e.cancelled ? " is-cancelled" : "";
   if (e.multi) {
-    const cls = `mi multi tag-${e.tag}${cx}${contL ? " cont-l" : ""}${contR ? " cont-r" : ""}`;
+    const cls = `mi multi tag-${e.cat}${cx}${contL ? " cont-l" : ""}${contR ? " cont-r" : ""}`;
     const lead = contL || e.allDay ? "" : `${fmtTime(e.s.min)} `;
     return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-n">${lead}${esc(e.title)}</span>${price}</button>`;
   }
+  if (e.dl) {
+    return `<button class="mi single dl tag-${e.cat}${cx}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}">${svg("flag", 12)}<span class="mi-n">${esc(dlShort(e.title))}</span></button>`;
+  }
   const time = e.allDay ? "" : `<span class="mi-t">${fmtTime(e.s.min)}</span>`;
-  return `<button class="mi single tag-${e.tag}${cx}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><i class="mi-dot"></i>${time}<span class="mi-n">${esc(e.title)}</span>${price}</button>`;
+  return `<button class="mi single tag-${e.cat}${cx}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><i class="mi-dot"></i>${time}<span class="mi-n">${esc(e.title)}</span>${price}</button>`;
 }
 
 /* ---------- Detail drawer ---------- */
@@ -301,7 +361,7 @@ function whenHtml(e) {
   const note = len ? `<p class="note">${len}</p>` : "";
   if (!e.multi) {
     if (e.allDay) return `<div class="when-one"><span class="lbl">When</span><b>${fmtDayLong(e.sDay)}</b><span>All day</span></div>`;
-    if (!e.e && e.tag === "deadline") {
+    if (!e.e && e.dl) {
       return `<div class="when-one"><span class="lbl">Due</span><b>${fmtDayLong(e.sDay)}</b><span class="mono">${fmtTime(e.s.min)}</span></div>`;
     }
     const range = e.e && e.e.min !== null ? `${fmtTime(e.s.min)} – ${fmtTime(e.e.min)}` : fmtTime(e.s.min);
@@ -543,18 +603,24 @@ function openEvent(id) {
   }
   const url = e.url ? safeUrl(e.url) : null;
   const link = url ? `<div><dt class="lbl">Link</dt><dd><a href="${esc(url.href)}" target="_blank" rel="noopener">Open link ${svg("ext", 14)}</a><span class="muted">${esc(url.hostname)}</span></dd></div>` : "";
+  const linked = e.dl && e.forEv
+    ? `<div><dt class="lbl">For</dt><dd><button class="evlink tag-${e.forEv.cat}" type="button" data-open="${esc(e.forEv.id)}"><i class="sw"></i>${esc(e.forEv.title)}</button><span class="muted">${fmtDay(e.forEv.sDay)}</span></dd></div>`
+    : !e.dl && e.dls.length
+      ? `<div><dt class="lbl">Deadlines</dt><dd class="dl-list">${e.dls.slice().sort((a, b) => a.s.abs - b.s.abs).map((d) =>
+          `<button class="evlink tag-${d.cat}${d.eDay < TODAY ? " past" : ""}" type="button" data-open="${esc(d.id)}">${svg("flag", 13)}<span>${esc(d.title.includes(":") ? d.title.slice(0, d.title.indexOf(":")) : d.title)}</span><span class="muted">${fmtDay(d.sDay)}</span></button>`).join("")}</dd></div>`
+      : "";
   const src = e.source || {};
   const srcRows = [
     src.from ? `<div><dt class="lbl">From</dt><dd>${esc(src.from)}</dd></div>` : "",
     src.subject ? `<div><dt class="lbl">Subject</dt><dd>${esc(src.subject)}</dd></div>` : "",
     e.rec ? `<div><dt class="lbl">Received</dt><dd>${fmtReceived(e.rec)}</dd></div>` : "",
   ].join("");
-  document.getElementById("dr-body").innerHTML = `<article class="ticket tag-${e.tag}">
-    <div class="tk-band">${svg(e.tag, 18)}<span>${esc(TAGS[e.tag].label)}${e.cancelled ? " · Cancelled" : ""}</span></div>
+  document.getElementById("dr-body").innerHTML = `<article class="ticket tag-${e.cat}">
+    <div class="tk-band">${svg(e.dl ? "flag" : CATS[e.cat].icon, 18)}<span>${esc(catLabel(e))}${e.cancelled ? " · Cancelled" : ""}</span></div>
     <div class="tk-body">
       <h2 class="tk-title${e.cancelled ? " is-cancelled" : ""}" id="tk-title">${esc(e.title)}${e.isNew ? NEW : ""}</h2>
       ${whenHtml(e)}
-      ${where || link ? `<dl class="fields">${where}${link}</dl>` : ""}
+      ${where || link || linked ? `<dl class="fields">${linked}${where}${link}</dl>` : ""}
       ${e.description ? `<p class="desc">${esc(e.description)}</p>` : ""}
       ${flightsHtml(e)}
     </div>
@@ -601,12 +667,14 @@ function renderStatus() {
 }
 function renderFilters() {
   const counts = {};
-  for (const e of EVENTS) counts[e.tag] = (counts[e.tag] || 0) + 1;
-  const allOn = active.size === Object.keys(TAGS).length;
+  for (const e of EVENTS) if (!e.dl) counts[e.cat] = (counts[e.cat] || 0) + 1;
+  const extra = EVENTS.filter((e) => e.dl && !MAIN.has(e.cat)).length;
   document.getElementById("filters").innerHTML =
-    Object.entries(TAGS).map(([k, t]) =>
-      `<button class="fchip tag-${k}" type="button" data-tag="${k}" aria-pressed="${active.has(k)}"><i class="sw"></i>${t.label}<span class="n">${counts[k] || 0}</span></button>`
-    ).join("") + (allOn ? "" : `<button class="linkbtn" type="button" data-showall>Show all</button>`);
+    Object.entries(CATS).map(([k, c]) =>
+      `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${!only || only === k}"><i class="sw"></i>${c.label}<span class="n">${counts[k] || 0}</span></button>`
+    ).join("") +
+    `<button class="fchip dl-chip" type="button" data-otherdl aria-pressed="${otherDeadlines}">${svg("flag", 14)}Other deadlines<span class="n">${extra}</span></button>` +
+    (only ? `<button class="linkbtn" type="button" data-showall>Show all</button>` : "");
 }
 function render() {
   renderStatus();
@@ -623,16 +691,28 @@ function goMonth(delta) {
 }
 
 document.addEventListener("click", (ev) => {
-  const chip = ev.target.closest("[data-tag]");
+  const chip = ev.target.closest("[data-cat]");
   if (chip) {
-    const k = chip.dataset.tag;
-    active.has(k) ? active.delete(k) : active.add(k);
+    const k = chip.dataset.cat;
+    only = only === k ? null : k; // one category at a time; tap it again for all
+    render();
+    return;
+  }
+  if (ev.target.closest("[data-otherdl]")) {
+    otherDeadlines = !otherDeadlines;
     render();
     return;
   }
   if (ev.target.closest("[data-showall]")) {
-    Object.keys(TAGS).forEach((k) => active.add(k));
+    only = null;
     render();
+    return;
+  }
+  const jump = ev.target.closest("#drawer [data-open]");
+  if (jump) {
+    const back = lastFocus;
+    openEvent(jump.dataset.open);
+    lastFocus = back; // closing still returns focus to where the reader started
     return;
   }
   if (ev.target.closest("[data-retry]")) { load(); return; }
