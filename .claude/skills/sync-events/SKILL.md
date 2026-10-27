@@ -1,6 +1,6 @@
 ---
 name: sync-events
-description: Read new BEST International emails from Gmail, turn the events and application deadlines in them into entries in data/events.json, refresh the cheapest trips from Zagreb in data/flights.json, validate, and push to main so the public calendar site updates. Used by the hourly routine; also run it by hand for a backfill.
+description: Read new BEST International emails from Gmail, turn the events and application deadlines in them into entries in data/events.json, validate, and push to main so the public calendar site updates. Used by the nightly routine; also run it by hand for a backfill.
 ---
 
 # Sync events from Gmail
@@ -43,7 +43,7 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
 2. **Search Gmail.**
    - Run the query above. Set the date 2 days before `lastCheckedAt`, so nothing at the boundary is missed.
    - Skip every message whose ID is already in `processed`.
-   - If nothing is left, skip to step 7 (travel prices). Don't change `events.json` or `sync-state.json`.
+   - If nothing is left, stop: make no commit and report "No new emails". Don't change `events.json` or `sync-state.json`.
 
 3. **Read each new email**, oldest first, and pull out **zero or more entries**:
    - A typical call gives two: **the event itself** (dates and place) and **its application deadline**. An event with several calls (co-organisers, crashers, participants) gets one event entry and one deadline per call.
@@ -102,26 +102,16 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
    - In `data/events.json`, add or update the events and set `updatedAt` to now (Europe/Zagreb, with offset).
    - In `data/sync-state.json`, set `lastCheckedAt` to now and append every message ID you read, including ones with no events. Keep only the newest 2000 IDs.
 
-7. **Refresh travel prices.** `data/flights.json` holds the cheapest trip from Zagreb for each upcoming event: bus + flight for events with `airports`, FlixBus alone for events with `bus`. The site shows it in the event's details. Run this step on every run, even with no new emails.
-   - Install the finder from its public repo:
-     ```sh
-     pip install --quiet git+https://github.com/zkristo/google-flights
-     ```
-   - Run it from this repo's folder:
-     ```sh
-     zagflights events data/events.json --out data/flights.json --limit 4 --max-age-hours 20
-     ```
-     It re-prices at most 4 events per run, stalest first, and only events whose prices are older than 20 hours or whose dates or airports changed. Each search takes about 30 seconds. It drops entries for past events.
-   - If the clone, install or run fails, leave `data/flights.json` as it was, carry on with the other steps, and mention the error in the report. Never edit `flights.json` by hand.
+7. **Travel prices are not part of this skill.** The GitHub Actions workflow `.github/workflows/prices.yml` prices the trips in `data/flights.json` every night, and again right after you push a change to `events.json`, using the `airports` and `bus` fields you fill in. Don't install or run zagflights here, and never edit `flights.json`.
 
 8. **Validate.** Run `node scripts/validate-events.mjs --fix`. It sorts the events, checks `flights.json`, and reports any problems. Fix every problem it lists and run it again until it prints `OK`. If you cannot get it to pass, do not push; report what is wrong.
 
 9. **Commit and push to `main`.**
-   - If `git status` shows no changes, make no commit and report "No new emails, prices up to date".
-   - Commit message: `Sync events from Gmail (N new, M updated)`, or `Sync events from Gmail (no events in K emails)` when only the state changed. When only `data/flights.json` changed, use `Update travel prices (N events)`.
+   - If `git status` shows no changes, make no commit and report "No new emails".
+   - Commit message: `Sync events from Gmail (N new, M updated)`, or `Sync events from Gmail (no events in K emails)` when only the state changed.
    - Push with `git push origin HEAD:main`. On a network error, retry up to 4 times with waits of 2, 4, 8 and 16 seconds. If the push is rejected because `main` moved, run `git pull --rebase origin main`, validate again, then push.
 
-10. **Report.** List the emails read and the events added, updated or cancelled, each with title, date and tag. Mention anything you were unsure about, and which events got new travel prices (with the cheapest total).
+10. **Report.** List the emails read and the events added, updated or cancelled, each with title, date and tag. Mention anything you were unsure about.
 
 ## Privacy rules (the site is public)
 
