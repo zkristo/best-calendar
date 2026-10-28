@@ -185,6 +185,16 @@ if (hashMonth && +hashMonth[2] >= 1 && +hashMonth[2] <= 12) {
   selDay = monthCur.y === todayInfo.y && monthCur.m === todayInfo.m ? TODAY : dayOf(monthCur.y, monthCur.m, 1);
 }
 
+/* Month grid or agenda (one scrolling list). A link (#agenda, #2026-11) wins, then the reader's last
+   choice; otherwise phones start in the agenda and wider screens in the month grid. */
+const VIEW_KEY = "best-calendar-view";
+let viewMode = location.hash === "#agenda" ? "agenda" : hashMonth ? "month" : null;
+if (!viewMode) {
+  try { viewMode = localStorage.getItem(VIEW_KEY); } catch {}
+  if (viewMode !== "month" && viewMode !== "agenda") viewMode = mqPhone.matches ? "agenda" : "month";
+}
+let showPast = false; // the agenda starts today unless the reader asks for earlier events
+
 /* ---------- Event row (selected-day list) ---------- */
 function timeCell(e, day) {
   const kind = !e.multi ? "single" : day === e.sDay ? "first" : day === e.eDay ? "last" : "middle";
@@ -212,10 +222,11 @@ function placeLine(e) {
   if (!L || !L.name) return "";
   return L.city && !L.name.includes(L.city) ? `${L.name}, ${L.city}` : L.name;
 }
-function evRow(e, day) {
+function evRow(e, day, agenda = false) {
   const t = timeCell(e, day);
-  const cont = t.kind === "middle" || t.kind === "last";
-  const eyebrow = [catLabel(e), e.cancelled ? "Cancelled" : t.progress].filter(Boolean).join(" · ");
+  const cont = !agenda && (t.kind === "middle" || t.kind === "last");
+  const span = agenda && e.multi && day === e.sDay ? `${fmtDay(e.sDay)} – ${fmtDay(e.eDay)}` : t.progress;
+  const eyebrow = [catLabel(e), e.cancelled ? "Cancelled" : span].filter(Boolean).join(" · ");
   const place = placeLine(e);
   const fl = !e.cancelled ? FLIGHTS[e.id] : null; // shown on every day of the event, not just the first
   const best = fl?.best?.[0];
@@ -287,6 +298,7 @@ function renderMonth() {
       <div class="m-head">
         <h2>${MON[m].toUpperCase()} ${y}</h2>
         <div class="m-nav">
+          ${viewSwitch()}
           <button class="btn" type="button" data-today>Today</button>
           <button class="iconbtn" type="button" data-nav="-1" aria-label="Previous month">${svg("left")}</button>
           <button class="iconbtn" type="button" data-nav="1" aria-label="Next month">${svg("right")}</button>
@@ -297,7 +309,7 @@ function renderMonth() {
     <aside class="m-side" id="m-side" aria-live="polite">
       <h3>${WD_LONG[si.wd]}, ${si.d} ${MON[si.m]}<small>${selDay === TODAY ? "Today" : ""}</small></h3>
       ${sideList(evs)}
-      ${TIER_CUTS ? `<p class="m-legend price-key">Trip prices from ${esc(flightsOrigin)}: <span class="key tier-cheap">cheap</span><span class="key tier-mid">mid</span><span class="key tier-dear">pricey</span></p>` : ""}
+      ${priceKey()}
     </aside>
   </div>`;
 }
@@ -318,6 +330,62 @@ function sideList(evs) {
   return `<p class="m-legend">Nothing on this day. Next up, ${fmtDay(next.sDay)}:</p>
     <div class="ev-list">${onDay(evs, next.sDay).map((e) => evRow(e, next.sDay)).join("")}</div>`;
 }
+const priceKey = () => (TIER_CUTS
+  ? `<p class="m-legend price-key">Trip prices from ${esc(flightsOrigin)}: <span class="key tier-cheap">cheap</span><span class="key tier-mid">mid</span><span class="key tier-dear">pricey</span></p>`
+  : "");
+const viewSwitch = () => `<div class="seg" role="group" aria-label="View">${[["month", "Month"], ["agenda", "Agenda"]].map(([k, l]) =>
+  `<button type="button" data-view="${k}" aria-pressed="${viewMode === k}">${l}</button>`).join("")}</div>`;
+
+/* ---------- Agenda ---------- */
+function renderAgenda() {
+  const view = document.getElementById("view");
+  const evs = visible();
+  // each event once: on its first day, or under today while it is running
+  const groups = new Map();
+  for (const e of evs) {
+    if (!showPast && e.eDay < TODAY) continue;
+    const day = !showPast && e.sDay < TODAY ? TODAY : e.sDay;
+    if (!groups.has(day)) groups.set(day, []);
+    groups.get(day).push(e);
+  }
+  if (evs.length && !groups.has(TODAY)) groups.set(TODAY, []); // today is always there to find your place
+  let body = "", month = null;
+  for (const d of [...groups.keys()].sort((a, b) => a - b)) {
+    const i = info(d);
+    if (i.y * 12 + i.m !== month) {
+      month = i.y * 12 + i.m;
+      body += `<h3 class="ag-month">${MON[i.m].toUpperCase()} ${i.y}</h3>`;
+    }
+    const list = groups.get(d).sort((a, b) => a.dl - b.dl || sortKeyOn(a, d) - sortKeyOn(b, d));
+    body += `<section class="ag-day${d === TODAY ? " today" : d < TODAY ? " past" : ""}" id="ag-${d}" aria-label="${fmtDayLong(d)}">
+      <div class="ag-date"><b>${i.d}</b><span>${WD[i.wd]}</span>${d === TODAY ? "<em>Today</em>" : ""}</div>
+      ${list.length ? `<div class="ev-list">${list.map((e) => evRow(e, d, true)).join("")}</div>` : `<p class="ag-none">Nothing today.</p>`}
+    </section>`;
+  }
+  const empty = !EVENTS.length
+    ? `<p class="m-legend">No events yet. They appear here when BEST International emails arrive.</p>`
+    : !evs.length ? `<p class="m-legend">No events match these filters. <button class="linkbtn" type="button" data-showall>Show all types</button></p>` : "";
+  view.innerHTML = `<div class="ag">
+    <div class="m-head">
+      <h2>Upcoming</h2>
+      <div class="m-nav">${viewSwitch()}<button class="btn" type="button" data-today>Today</button></div>
+    </div>
+    ${empty || `${showPast ? "" : `<button class="linkbtn ag-past" type="button" data-past>Show past events</button>`}
+    <div class="ag-list">${body}</div>
+    <p class="m-legend">That's everything announced so far.</p>`}
+    ${priceKey()}
+  </div>`;
+}
+function setView(mode) {
+  viewMode = mode;
+  try { localStorage.setItem(VIEW_KEY, mode); } catch {}
+  const hash = mode === "agenda" ? "#agenda"
+    : monthCur.y === todayInfo.y && monthCur.m === todayInfo.m ? "" : `#${monthCur.y}-${pad(monthCur.m + 1)}`;
+  try { history.replaceState(null, "", hash || location.pathname); } catch {}
+  render();
+}
+const scrollToToday = () => document.getElementById(`ag-${TODAY}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
 const tripFare = (e) => (e.cancelled ? null : FLIGHTS[e.id]?.best?.[0]?.total ?? null);
 function monthItem(it, lane, w0) {
   const e = it.e;
@@ -679,7 +747,7 @@ function renderFilters() {
 function render() {
   renderStatus();
   renderFilters();
-  renderMonth();
+  viewMode === "agenda" ? renderAgenda() : renderMonth();
 }
 function goMonth(delta) {
   const d = new Date(Date.UTC(monthCur.y, monthCur.m + delta, 1));
@@ -698,6 +766,15 @@ document.addEventListener("click", (ev) => {
     render();
     return;
   }
+  const sw = ev.target.closest("[data-view]");
+  if (sw) { if (sw.dataset.view !== viewMode) setView(sw.dataset.view); return; }
+  if (ev.target.closest("[data-past]")) {
+    showPast = true;
+    renderAgenda();
+    document.getElementById(`ag-${TODAY}`)?.scrollIntoView({ block: "start" });
+    return;
+  }
+  if (viewMode === "agenda" && ev.target.closest("[data-today]")) { scrollToToday(); return; }
   if (ev.target.closest("[data-otherdl]")) {
     otherDeadlines = !otherDeadlines;
     render();
@@ -737,7 +814,7 @@ document.addEventListener("click", (ev) => {
 });
 document.addEventListener("keydown", (ev) => {
   if (ev.key === "Escape") { closeDrawer(); return; }
-  if (!drawer.hidden || !loaded || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+  if (!drawer.hidden || !loaded || viewMode !== "month" || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   if (ev.target.closest && ev.target.closest("input, textarea, select, [contenteditable]")) return;
   if (ev.key === "ArrowLeft") goMonth(-1);
   if (ev.key === "ArrowRight") goMonth(1);
@@ -776,6 +853,6 @@ async function load() {
   }
 }
 
-mqPhone.addEventListener("change", () => { if (loaded) renderMonth(); });
+mqPhone.addEventListener("change", () => { if (loaded && viewMode === "month") renderMonth(); });
 load();
 setInterval(() => { if (drawer.hidden) load(); }, REFRESH_MS);
