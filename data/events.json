@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T20:30+02:00",
+  "updatedAt": "2026-10-27T14:50+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -345,22 +345,6 @@
       }
     },
     {
-      "id": "g-1a0ce0969bdc7ccb-2",
-      "title": "Applications close: MW Budapest",
-      "tag": "deadline",
-      "start": "2026-10-04T23:00+02:00",
-      "end": null,
-      "location": null,
-      "description": "Motivational weekend in the Hungarian countryside (20–22 November).",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb International list",
-        "subject": "[BEST International] [Call][jMW] LBG Budapest looking for a partner LBG for a jMW👀",
-        "receivedAt": "2026-09-23T13:31+02:00",
-        "messageId": "1a0ce0969bdc7ccb"
-      }
-    },
-    {
       "id": "g-1a0d978d973d2037-2",
       "title": "Applications close: MW Fort Boyard Edition",
       "tag": "deadline",
@@ -476,23 +460,6 @@
       }
     },
     {
-      "id": "g-1a10dd361d1f3877-2",
-      "title": "Applications close: YEHS – BEST Engineering Sprint",
-      "tag": "deadline",
-      "start": "2026-10-14T23:59+02:00",
-      "end": null,
-      "location": null,
-      "url": "https://forms.gle/tnydGRZsUmQfo44g8",
-      "description": "Apply individually; teams are put together by the organisers.",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb International list",
-        "subject": "[BEST International] [CALL][Hackathon] YEHS - BEST Engineering Sprint",
-        "receivedAt": "2026-10-05T22:50+02:00",
-        "messageId": "1a10dd361d1f3877"
-      }
-    },
-    {
       "id": "g-1a07b5481fe8ac52-1",
       "title": "Joint aRM 2026 – Regions Plum & Apple",
       "tag": "meeting",
@@ -595,23 +562,6 @@
       }
     },
     {
-      "id": "g-1a1128468832bb21-1",
-      "title": "Apply as Extra Delegate for aGA26",
-      "tag": "deadline",
-      "start": "2026-10-16T23:00+02:00",
-      "end": null,
-      "location": null,
-      "url": "https://forms.gle/ET54ARPtLGSi9odj7",
-      "description": "Extra delegates support the plenary (minutes, attendance, statistics, photos) during the online GA, 27 November – 6 December.",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb Board",
-        "subject": "[BEST International] [Board XXVIII] [Board] [Call][aGA26] Time to get involved as an Extra Delegate in aGA26! | DL: 16.10",
-        "receivedAt": "2026-10-06T20:39+02:00",
-        "messageId": "1a1128468832bb21"
-      }
-    },
-    {
       "id": "g-1a131cc15985ef38-1",
       "title": "Participant applications close: aRM Region Peach",
       "tag": "deadline",
@@ -626,23 +576,6 @@
         "subject": "[BEST International] [Call][aRM26 Patras][Pax] One More Swing to Patras 🇬🇷",
         "receivedAt": "2026-10-12T22:25+02:00",
         "messageId": "1a131cc15985ef38"
-      }
-    },
-    {
-      "id": "g-1a0d3071ca38f137-2",
-      "title": "Applications close: Alpine Jam 2026",
-      "tag": "deadline",
-      "start": "2026-10-16T23:36+02:00",
-      "end": null,
-      "location": null,
-      "url": "https://docs.google.com/forms/d/e/1FAIpQLSe3ngVgvXk98xhC116xmhvlgHCFLOu0hLvX-nQ1GhlTm7e9-Q/viewform",
-      "description": "Fill in the form and add a motivational video (up to 4 people per video).",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb International list",
-        "subject": "[BEST International] [CALL][ALPINE JAM] Torino is calling upon YOU!!!",
-        "receivedAt": "2026-09-24T12:47+02:00",
-        "messageId": "1a0d3071ca38f137"
       }
     },
     {
@@ -678,6 +611,23 @@
         "subject": "[BEST International] [Announcement][aGA26] How to write a proposal",
         "receivedAt": "2026-10-12T23:31+02:00",
         "messageId": "1a1346885f84cf49"
+      }
+    },
+    {
+      "id": "g-1a10dd361d1f3877-2",
+      "title": "Applications close: YEHS – BEST Engineering Sprint",
+      "tag": "deadline",
+      "start": "2026-10-18T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/tnydGRZsUmQfo44g8",
+      "description": "Apply individually; teams are put together by the organisers. Deadline extended to 18 October.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][Hackathon] YEHS - BEST Engineering Sprint",
+        "receivedAt": "2026-10-05T22:50+02:00",
+        "messageId": "1a10dd361d1f3877"
       }
     },
     {
@@ -745,6 +695,23 @@
       }
     },
     {
+      "id": "g-1a1128468832bb21-1",
+      "title": "Apply as Extra Delegate for aGA26",
+      "tag": "deadline",
+      "start": "2026-10-24T23:00+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/ET54ARPtLGSi9odj7",
+      "description": "Extra delegates support the plenary (minutes, attendance, statistics, photos) during the online GA, 27 November – 6 December. Deadline extended to 24 October.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [Call][aGA26] Time to get involved as an Extra Delegate in aGA26! | DL: 16.10",
+        "receivedAt": "2026-10-06T20:39+02:00",
+        "messageId": "1a1128468832bb21"
+      }
+    },
+    {
       "id": "g-1a0f8d194235decc-1",
       "title": "aGA26 proposals due",
       "tag": "deadline",
@@ -774,6 +741,23 @@
         "subject": "[BEST International] [Announcement][Spring27] Announce your events in Spring27| DL: Sunday, October 25th @23:00 CEST",
         "receivedAt": "2026-10-10T15:05+02:00",
         "messageId": "1a125f268f25cd0c"
+      }
+    },
+    {
+      "id": "g-1a144e711e56e74f-1",
+      "title": "LTSP input survey closes",
+      "tag": "deadline",
+      "start": "2026-10-25T23:59+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/Gk4rf6TqYnfi5LDo6",
+      "description": "LBGs and volunteers fill in the survey (about 20 minutes) on where BEST should be in three years, for the next Long-Term Strategic Plan.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [LTSP Creation][Survey] Shape the Future of BEST! | DL: 25/10 @ 23:59 CET",
+        "receivedAt": "2026-10-16T15:27+02:00",
+        "messageId": "1a144e711e56e74f"
       }
     },
     {
@@ -862,6 +846,40 @@
       }
     },
     {
+      "id": "g-1a0d3071ca38f137-2",
+      "title": "Applications close: Alpine Jam 2026",
+      "tag": "deadline",
+      "start": "2026-11-01T23:36+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSe3ngVgvXk98xhC116xmhvlgHCFLOu0hLvX-nQ1GhlTm7e9-Q/viewform",
+      "description": "Fill in the form and add a motivational video (up to 4 people per video). Deadline extended to 1 November.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][ALPINE JAM] Torino is calling upon YOU!!!",
+        "receivedAt": "2026-09-24T12:47+02:00",
+        "messageId": "1a0d3071ca38f137"
+      }
+    },
+    {
+      "id": "g-1a158e8087dc207a-2",
+      "title": "Sign-up closes: MW Valladolid",
+      "tag": "deadline",
+      "start": "2026-11-03",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScB-ubTQN6gcJyBCoEmyzl0GW1q143ZaPRIT3HIwyWF-N0TRw/viewform",
+      "description": "Sign up with the form for the Motivational Weekend in Valladolid (6–8 November).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL] [MWnov26] Shingeki no neurons: El Retumbón; Sign up to LBG Valladolid's Motivational Weekend!!!",
+        "receivedAt": "2026-10-20T12:42+02:00",
+        "messageId": "1a158e8087dc207a"
+      }
+    },
+    {
       "id": "g-1a095e33a7e10242-1",
       "title": "Cultural Exchange Ljubljana × Prague × Budapest",
       "tag": "social",
@@ -880,6 +898,23 @@
         "receivedAt": "2026-09-12T15:51+02:00",
         "messageId": "1a095e33a7e10242"
       }
+    },
+    {
+      "id": "g-1a0ce0969bdc7ccb-2",
+      "title": "Applications close: MW Budapest",
+      "tag": "deadline",
+      "start": "2026-11-04T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "Apply via the form for the Autumn Motivational Weekend in Tahitótfalu, Hungary (20–22 November). Fee 60 € + 8 € alcohol fee.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][jMW] LBG Budapest looking for a partner LBG for a jMW👀",
+        "receivedAt": "2026-09-23T13:31+02:00",
+        "messageId": "1a0ce0969bdc7ccb"
+      },
+      "url": "https://forms.gle/WpvdpdHnXm1gWuxb6"
     },
     {
       "id": "g-1a0c2eedd87e39ba-2",
@@ -920,6 +955,30 @@
       }
     },
     {
+      "id": "g-1a158e8087dc207a-1",
+      "title": "Motivational Weekend Valladolid",
+      "tag": "course",
+      "start": "2026-11-06",
+      "end": "2026-11-08",
+      "location": {
+        "name": "Albergue de dominicas",
+        "city": "Valladolid"
+      },
+      "airports": [
+        "MAD",
+        "VLL"
+      ],
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScB-ubTQN6gcJyBCoEmyzl0GW1q143ZaPRIT3HIwyWF-N0TRw/viewform",
+      "description": "Motivational weekend by LBG Valladolid for observers, members and alumni. Fee 34 € for one night or 50 € for the whole event, plus alcohol fee 6 € / 9 €.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL] [MWnov26] Shingeki no neurons: El Retumbón; Sign up to LBG Valladolid's Motivational Weekend!!!",
+        "receivedAt": "2026-10-20T12:42+02:00",
+        "messageId": "1a158e8087dc207a"
+      }
+    },
+    {
       "id": "g-1a132419ac4eb0a9-2",
       "title": "Applications close: Motivational Weekend Barcelona",
       "tag": "deadline",
@@ -934,6 +993,71 @@
         "subject": "[BEST International] [CALL][MW] LBG Barcelona is inviting you to BEST High: Motivation Weekend 2026! 🖤",
         "receivedAt": "2026-10-13T00:34+02:00",
         "messageId": "1a132419ac4eb0a9"
+      }
+    },
+    {
+      "id": "g-1a157e3d185ada38-1",
+      "title": "Apply to host Board Winter Meeting",
+      "tag": "deadline",
+      "start": "2026-11-08T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "LBGs can apply to host the International Board's Winter Meeting (7 people, 4 days, between 19 December and 12 January). Apply on the BEST internal platform and by email.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][IE][BWM] We are looking for Board Winter Meeting host | DL: 08/11",
+        "receivedAt": "2026-10-19T19:00+02:00",
+        "messageId": "1a157e3d185ada38"
+      }
+    },
+    {
+      "id": "g-1a17d62d24846fbd-1",
+      "title": "LTSP survey promotion closes",
+      "tag": "deadline",
+      "start": "2026-11-09T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "LBGs are asked to share the student survey for the 2027–2030 Long-Term Strategic Plan and fill it in themselves (about 10 minutes).",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [LTSP Creation] Promote External Survey to Shape the Future of BEST! | DL: 09/11 @ 23:59 CET",
+        "receivedAt": "2026-10-27T10:11+01:00",
+        "messageId": "1a17d62d24846fbd"
+      }
+    },
+    {
+      "id": "g-1a1436055b58d433-1",
+      "title": "Apply to host a LAB pilot event",
+      "tag": "deadline",
+      "start": "2026-11-13T23:59+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/C34PK9t6mbJAYZ6q9",
+      "description": "LBGs interested in hosting a LAB (Learn and Assemble with BEST) pilot event express interest via the form; it is not a commitment to host.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][LAB] Host a pilot event to launch a new Service! | DL: 13/11 @ 23:59 CET",
+        "receivedAt": "2026-10-16T08:00+02:00",
+        "messageId": "1a1436055b58d433"
+      }
+    },
+    {
+      "id": "g-1a17d65979162e75-1",
+      "title": "Apply to host BAESTIEMEC 2027",
+      "tag": "deadline",
+      "start": "2026-11-17T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "LBGs can apply to host the third BAESTIEMEC, a 5–6 day event for about 30 participants from BEST, AEGEE, EESTEC and ESTIEM, planned for around March. Apply on the BEST internal platform and by email.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][BAESTIEMEC] We are looking for host for an amazing event that brings together 4 NGOs - BAESTIEMEC! | DL: 17/11 @ 23:00 CEST",
+        "receivedAt": "2026-10-27T13:45+01:00",
+        "messageId": "1a17d65979162e75"
       }
     },
     {
@@ -960,18 +1084,20 @@
       "start": "2026-11-20",
       "end": "2026-11-22",
       "location": {
-        "name": "Hungarian countryside",
-        "city": "Hungary"
+        "name": "Tahitótfalu",
+        "address": "Petőfi Sándor u. 4, 2021",
+        "city": "Tahitótfalu"
       },
       "bus": "Budapest",
-      "description": "Motivational weekend by LBG Budapest. Fee to be announced.",
+      "description": "Autumn Motivational Weekend by LBG Budapest on the Danube, open to guests from other LBGs. Fee 60 € + 8 € alcohol fee, covering 2 nights, meals, drinks and trainings; the group meets in Budapest and travels together.",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
         "subject": "[BEST International] [Call][jMW] LBG Budapest looking for a partner LBG for a jMW👀",
         "receivedAt": "2026-09-23T13:31+02:00",
         "messageId": "1a0ce0969bdc7ccb"
-      }
+      },
+      "url": "https://forms.gle/WpvdpdHnXm1gWuxb6"
     },
     {
       "id": "g-1a11d18b85ee747c-1",
