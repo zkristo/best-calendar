@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T14:50+01:00",
+  "updatedAt": "2026-10-29T17:00+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -744,23 +744,6 @@
       }
     },
     {
-      "id": "g-1a144e711e56e74f-1",
-      "title": "LTSP input survey closes",
-      "tag": "deadline",
-      "start": "2026-10-25T23:59+01:00",
-      "end": null,
-      "location": null,
-      "url": "https://forms.gle/Gk4rf6TqYnfi5LDo6",
-      "description": "LBGs and volunteers fill in the survey (about 20 minutes) on where BEST should be in three years, for the next Long-Term Strategic Plan.",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb Board",
-        "subject": "[BEST International] [Board XXVIII] [Board] [LTSP Creation][Survey] Shape the Future of BEST! | DL: 25/10 @ 23:59 CET",
-        "receivedAt": "2026-10-16T15:27+02:00",
-        "messageId": "1a144e711e56e74f"
-      }
-    },
-    {
       "id": "g-1a0ea0e662212068-1",
       "title": "Cultural Exchange Tallinn",
       "tag": "social",
@@ -824,6 +807,23 @@
         "subject": "[BEST International] [Call][Coorgs][aRM26] Autumn Regional Meeting is looking for co-organisers!",
         "receivedAt": "2026-08-27T19:53+02:00",
         "messageId": "1a0445b7ee3333aa"
+      }
+    },
+    {
+      "id": "g-1a144e711e56e74f-1",
+      "title": "LTSP input survey closes",
+      "tag": "deadline",
+      "start": "2026-10-31T23:59+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/Gk4rf6TqYnfi5LDo6",
+      "description": "LBGs and volunteers fill in the survey (about 20 minutes) on where BEST should be in three years, for the next Long-Term Strategic Plan. Deadline extended to 31 October.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [LTSP Creation][Survey] Shape the Future of BEST! | DL: 25/10 @ 23:59 CET",
+        "receivedAt": "2026-10-16T15:27+02:00",
+        "messageId": "1a144e711e56e74f"
       }
     },
     {
