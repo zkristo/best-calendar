@@ -303,8 +303,8 @@ const onDay = (evs, day) =>
   evs.filter((e) => e.sDay <= day && e.eDay >= day).sort((a, b) => sortKeyOn(a, day) - sortKeyOn(b, day));
 
 /* ---------- Month ----------
-   The grid fills the screen. Each week fits as many lanes of bars as its row has room for; when a day has
-   more, the last lane says "+N more" and opens that day. */
+   The grid fills the screen. Each week fits as many lanes of bars as its row has room for (bars get thinner
+   on short screens so at least four fit); a day with more says "+N" beside its date. */
 function weekBars(evs, w0, lanes) {
   const w1 = w0 + 6;
   const items = evs
@@ -324,17 +324,13 @@ function weekBars(evs, w0, lanes) {
     for (let c = it.a; c <= it.b; c++) occ[lane][c] = true;
     it.lane = lane;
   }
-  const cap = occ.length > lanes ? lanes - 1 : lanes;
   const hidden = Array(7).fill(0);
   let bars = "";
   for (const it of items) {
-    if (it.lane >= cap) { for (let c = it.a; c <= it.b; c++) hidden[c]++; continue; }
+    if (it.lane >= lanes) { for (let c = it.a; c <= it.b; c++) hidden[c]++; continue; }
     bars += monthItem(it, w0);
   }
-  hidden.forEach((n, c) => {
-    if (n) bars += `<button class="mi-more" type="button" style="grid-column:${c + 1};grid-row:${cap + 1}" data-day="${w0 + c}" aria-label="${n} more on ${fmtDay(w0 + c)}">+${n}<span class="more-word"> more</span></button>`;
-  });
-  return bars;
+  return { bars, hidden };
 }
 function renderMonth() {
   const view = document.getElementById("view");
@@ -357,12 +353,23 @@ function renderMonth() {
     : a.m === z.m ? `${MON[a.m].toUpperCase()} ${a.y}` : `${MON[a.m].toUpperCase()} – ${MON[z.m].toUpperCase()} ${z.y}`;
   document.getElementById("top-nav").innerHTML = `<h2 aria-live="polite">${title}</h2>`;
   view.innerHTML = `<div class="mgrid"><div class="m-wd">${wd}</div>${weeks}</div>`;
-  const rows = view.querySelectorAll(".mw-items");
-  const cs = getComputedStyle(rows[0]);
-  const lane = parseFloat(cs.gridAutoRows) || 20, gap = parseFloat(cs.rowGap) || 0;
-  const lanes = Math.max(1, Math.floor((rows[0].clientHeight + gap) / (lane + gap)));
+  const grid = view.querySelector(".mgrid"), rows = view.querySelectorAll(".mw-items");
+  const h = rows[0].clientHeight, gap = parseFloat(getComputedStyle(rows[0]).rowGap) || 0;
+  const lane = Math.max(12, Math.min(parseFloat(getComputedStyle(grid).getPropertyValue("--lane")) || 21, Math.floor((h + gap) / 4) - gap));
+  grid.style.setProperty("--lane", `${lane}px`);
+  grid.classList.toggle("dense", lane < 15);
+  const lanes = Math.max(1, Math.floor((h + gap) / (lane + gap)));
   const evs = visible();
-  rows.forEach((el, w) => { el.innerHTML = weekBars(evs, g0 + w * 7, lanes); });
+  rows.forEach((el, w) => {
+    const { bars, hidden } = weekBars(evs, g0 + w * 7, lanes);
+    el.innerHTML = bars;
+    const days = el.previousElementSibling.children;
+    hidden.forEach((n, c) => {
+      if (!n) return;
+      days[c].insertAdjacentHTML("beforeend", `<span class="md-more" aria-hidden="true">+${n}</span>`);
+      days[c].setAttribute("aria-label", `${days[c].getAttribute("aria-label")}, ${n} more`);
+    });
+  });
   fitTickers(view);
 }
 
