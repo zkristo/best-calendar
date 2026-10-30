@@ -191,6 +191,9 @@ function shortName(e) { // Other events have no tag, so their own name leads: "(
   return ab ? ab[1] : e.title.split(/\s[–—-]\s|:\s|\s\(/)[0].trim();
 }
 const tagOf = (e) => CATS[e.cat].short || shortName(e);
+// every deadline for the event has passed: applications are closed
+const dlPassed = (d) => (d.allDay ? d.eDay < TODAY : d.s.abs < nowAbs());
+const isClosed = (e) => !e.dl && e.dls.length > 0 && e.dls.every(dlPassed);
 
 /* ---------- State ---------- */
 const DEFAULT_CATS = new Set(["rm", "course", "mw", "jam", "ce"]); // Other starts switched off
@@ -207,7 +210,6 @@ const pageMonth = (k) => { const d = new Date(Date.UTC(NEXT0.y, NEXT0.m + k - 1,
 const pageStart = (k) => { if (!k) return WEEK0; const { y, m } = pageMonth(k), f = dayOf(y, m, 1); return f - info(f).wd; };
 const pageOf = (day) => { const i = info(day); return day < WEEK0 + 42 ? 0 : i.y * 12 + i.m - (NEXT0.y * 12 + NEXT0.m) + 1; };
 const pageHash = () => { if (!page) return ""; const { y, m } = pageMonth(page); return `#${y}-${pad(m + 1)}`; };
-const mqPhone = matchMedia("(max-width: 640px)");
 // past events stay off the calendar (the agenda can still show them on request)
 const visible = (withPast = false) => EVENTS.filter((e) =>
   (withPast || e.eDay >= TODAY) && catOn(e.cat) && (!e.dl || MAIN.has(e.cat) || otherDeadlines));
@@ -217,14 +219,8 @@ if (hashMonth && +hashMonth[2] >= 1 && +hashMonth[2] <= 12) {
   page = Math.max(0, pageOf(dayOf(+hashMonth[1], +hashMonth[2] - 1, 1)));
 }
 
-/* Month grid or agenda (one scrolling list). A link (#agenda, #2026-11) wins, then the reader's last
-   choice; otherwise phones start in the agenda and wider screens in the month grid. */
-const VIEW_KEY = "best-calendar-view";
-let viewMode = location.hash === "#agenda" ? "agenda" : hashMonth ? "month" : null;
-if (!viewMode) {
-  try { viewMode = localStorage.getItem(VIEW_KEY); } catch {}
-  if (viewMode !== "month" && viewMode !== "agenda") viewMode = mqPhone.matches ? "agenda" : "month";
-}
+/* The agenda (one scrolling list) is a sheet pulled up over the grid; #agenda opens it. */
+let agendaOpen = false;
 let showPast = false; // the agenda starts today unless the reader asks for earlier events
 
 /* ---------- Event row (selected-day list) ---------- */
@@ -297,7 +293,7 @@ function evRow(e) {
         `<span class="ev-dl tag-${d.cat}" data-open="${esc(d.id)}">${svg("flag", 13)}${esc(dlKind(d))} · ${fmtDay(d.sDay)}</span>`);
   const cls = `ev-row tag-${e.cat}${e.dl ? " is-dl" : ""}${e.cancelled ? " is-cancelled" : ""}`;
   return `<button class="${cls}" type="button" data-id="${esc(e.id)}">
-    <span class="ev-title">${e.dl ? svg("flag", 15) : ""}${esc(e.title)}${e.cancelled ? " (cancelled)" : ""}${e.isNew ? " " + NEW : ""}</span>
+    <span class="ev-title">${e.dl ? svg("flag", 15) : ""}${isClosed(e) ? `<span class="ev-closed">Closed</span>` : ""}${esc(e.title)}${e.cancelled ? " (cancelled)" : ""}${e.isNew ? " " + NEW : ""}</span>
     ${meta.length ? `<span class="ev-meta">${meta.join("")}</span>` : ""}
     ${trips.length ? `<span class="ev-trips">${trips.map((t) => tripLine(e, t, icon)).join("")}</span>` : ""}
     ${links.length ? `<span class="ev-dls">${links.join("")}</span>` : ""}
@@ -313,7 +309,7 @@ function weekBars(evs, w0, lanes) {
   const w1 = w0 + 6;
   const items = evs
     .filter((e) => e.sDay <= w1 && e.eDay >= w0)
-    .map((e) => ({ e, a: Math.max(e.sDay, w0, TODAY) - w0, b: Math.min(e.eDay, w1) - w0 }))
+    .map((e) => ({ e, a: Math.max(e.sDay, w0) - w0, b: Math.min(e.eDay, w1) - w0 }))
     .sort((p, q) => p.e.dl - q.e.dl || p.a - q.a || (q.b - q.a) - (p.b - p.a) || q.e.multi - p.e.multi || q.e.allDay - p.e.allDay || p.e.s.abs - q.e.s.abs);
   const occ = [];
   for (const it of items) {
@@ -398,7 +394,6 @@ const priceKey = () => (TIER_CUTS
 
 /* ---------- Agenda ---------- */
 function renderAgenda() {
-  const view = document.getElementById("view");
   const evs = visible(showPast);
   // each event once: on its first day, or under today while it is running
   const groups = new Map();
@@ -425,19 +420,23 @@ function renderAgenda() {
   const empty = !EVENTS.length
     ? `<p class="m-legend">No events yet. They appear here when BEST International emails arrive.</p>`
     : !evs.length ? `<p class="m-legend">No events match these categories. <button class="linkbtn" type="button" data-showall>Reset categories</button></p>` : "";
-  document.getElementById("top-nav").innerHTML = "";
-  view.innerHTML = `<div class="ag">
+  document.getElementById("ag-scroll").innerHTML = `<div class="ag">
     ${empty || `${showPast ? "" : `<button class="linkbtn ag-past" type="button" data-past>Show past events</button>`}
     <div class="ag-list">${body}</div>
     <p class="m-legend">That's everything announced so far.</p>`}
+    ${priceKey()}${statusHtml()}
   </div>`;
 }
-function setView(mode) {
-  viewMode = mode;
-  try { localStorage.setItem(VIEW_KEY, mode); } catch {}
-  const hash = mode === "agenda" ? "#agenda" : pageHash();
-  try { history.replaceState(null, "", hash || location.pathname); } catch {}
-  render();
+const agendaEl = document.getElementById("agenda"), agScroll = document.getElementById("ag-scroll"), grip = document.getElementById("grip");
+function setAgenda(open) {
+  if (open === agendaOpen) return;
+  agendaOpen = open;
+  if (open) { renderAgenda(); agScroll.scrollTop = 0; }
+  agendaEl.classList.toggle("open", open);
+  agScroll.inert = !open;
+  grip.setAttribute("aria-expanded", String(open));
+  grip.setAttribute("aria-label", open ? "Close the agenda" : "Open the agenda");
+  try { history.replaceState(null, "", open ? "#agenda" : pageHash() || location.pathname); } catch {}
 }
 const scrollToToday = () => document.getElementById(`ag-${TODAY}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -449,12 +448,13 @@ function barText(e) {
     return svg("flag", 11) + what.filter(Boolean).join("");
   }
   const fare = tripFare(e), tier = tierOf(fare), city = shortCity(e), mode = FLIGHTS[e.id]?.mode;
-  return [
+  const parts = [
     `<b>${esc(tagOf(e))}</b>`,
     city && `<span>${esc(city)}</span>`,
     e.fee && `<span class="mi-fee">${esc(e.fee)}</span>`,
     fare != null && `<span class="mi-p${tier ? " tier-" + tier : ""}">${svg(mode === "bus" ? "bus" : "plane", 11)}€${Math.round(fare)}</span>`,
   ].filter(Boolean).join("");
+  return isClosed(e) ? `<b class="mi-closed">Closed</b><span class="x">${parts}</span>` : parts;
 }
 function monthItem(it, w0) {
   const e = it.e;
@@ -463,7 +463,7 @@ function monthItem(it, w0) {
   const contL = e.sDay < w0 + it.a, contR = e.eDay > w0 + it.b;
   const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${it.lane + 1}`;
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
-  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${e.fee ? `, ${feeText(e.fee).toLowerCase()}` : ""}` +
+  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}${isClosed(e) ? ", applications closed" : ""}: ${e.title}, ${when}${e.fee ? `, ${feeText(e.fee).toLowerCase()}` : ""}` +
     `${fare != null ? `, trip ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
   const cls = ["mi", `tag-${e.cat}`, e.dl && "dl", contL && "cont-l", contR && "cont-r", e.cancelled && "is-cancelled"].filter(Boolean).join(" ");
   return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-run"><span class="mi-txt">${barText(e)}</span></span></button>`;
@@ -776,7 +776,7 @@ function openDay(day) {
 }
 function stepDay(delta) {
   const d = sheetDay + delta, g0 = pageStart(page);
-  if (viewMode === "month" && (d < g0 || d > g0 + 41)) goMonth(pageOf(d) - page); // keep the grid behind on a page showing this day
+  if (d < g0 || d > g0 + 41) goMonth(pageOf(d) - page); // keep the grid behind on a page showing this day
   openDay(d);
 }
 function fitBars(root) {
@@ -786,7 +786,6 @@ function fitBars(root) {
   }
 }
 function showDrawer() {
-  setPanel(false);
   drawer.hidden = false;
   scrim.hidden = false;
   drawer.scrollTop = 0;
@@ -823,46 +822,16 @@ function statusHtml() {
   return parts.length ? `<p class="status">${parts.join("")}</p>` : "";
 }
 function renderFilters() {
-  const counts = {};
-  const ahead = EVENTS.filter((e) => e.eDay >= TODAY);
-  for (const e of ahead) if (!e.dl) counts[e.cat] = (counts[e.cat] || 0) + 1;
-  const extra = ahead.filter((e) => e.dl && !MAIN.has(e.cat)).length;
   document.getElementById("filters").innerHTML =
     Object.entries(CATS).map(([k, c]) =>
-      `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${catOn(k)}"><i class="sw"></i>${c.label}<span class="n">${counts[k] || 0}</span></button>`
+      `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${catOn(k)}" title="${c.label}">${c.short || c.label}${c.short ? `<span class="vh"> (${c.label})</span>` : ""}</button>`
     ).join("") +
-    `<button class="fchip dl-chip" type="button" data-otherdl aria-pressed="${otherDeadlines}">${svg("flag", 14)}Other deadlines<span class="n">${extra}</span></button>`;
-  document.getElementById("panel-foot").innerHTML =
-    // the reset link keeps its place when hidden, so the panel doesn't change size
-    `<button class="linkbtn" type="button" data-showall${picked ? "" : " hidden-keep"}>Reset categories</button>${priceKey()}${statusHtml()}`;
-}
-
-/* ---------- Dock: categories, today and the view switch, bottom right ---------- */
-const panel = document.getElementById("panel");
-const catBtn = document.getElementById("cat-btn");
-function setPanel(open) {
-  panel.hidden = !open;
-  catBtn.setAttribute("aria-expanded", String(open));
-}
-function renderDock() {
-  // a fixed round button: the sliders icon, or a dot per picked category
-  const names = picked ? [...picked].map((k) => CATS[k].label).join(", ") : "";
-  catBtn.className = `fab round${picked ? " is-on" : ""}`;
-  catBtn.innerHTML = picked
-    ? `<span class="dots">${[...picked].slice(0, 4).map((k) => `<i class="tag-${k}"></i>`).join("")}</span><span class="vh">Categories: showing ${esc(names)}</span>`
-    : `${svg("sliders")}<span class="vh">Categories</span>`;
-  catBtn.title = picked ? `Showing ${names}` : "Categories";
-  const to = viewMode === "agenda" ? ["month", "Month view", "grid"] : ["agenda", "Agenda view", "list"];
-  const vb = document.getElementById("view-btn");
-  vb.dataset.toggleView = to[0];
-  vb.title = to[1];
-  vb.innerHTML = `${svg(to[2])}<span class="vh">${to[1]}</span>`;
+    `<button class="fchip dl-chip" type="button" data-otherdl aria-pressed="${otherDeadlines}" title="Other deadlines">${svg("flag", 15)}<span class="vh">Other deadlines</span></button>`;
 }
 function render() {
-  document.body.dataset.mode = viewMode;
   renderFilters();
-  renderDock();
-  viewMode === "agenda" ? renderAgenda() : renderMonth();
+  renderMonth();
+  if (agendaOpen) renderAgenda();
 }
 function goMonth(delta) {
   const next = Math.max(0, page + delta);
@@ -873,8 +842,7 @@ function goMonth(delta) {
 }
 
 document.addEventListener("click", (ev) => {
-  if (ev.target.closest("#cat-btn")) { setPanel(panel.hidden); return; }
-  if (!panel.hidden && !ev.target.closest("#dock")) { setPanel(false); return; } // a tap elsewhere only closes the panel
+  if (ev.target.closest("#grip")) { setAgenda(!agendaOpen); return; }
   const chip = ev.target.closest("[data-cat]");
   if (chip) {
     const k = chip.dataset.cat;
@@ -884,15 +852,13 @@ document.addEventListener("click", (ev) => {
     render();
     return;
   }
-  const sw = ev.target.closest("[data-toggle-view]");
-  if (sw) { setView(sw.dataset.toggleView); return; }
   if (ev.target.closest("[data-past]")) {
     showPast = true;
     renderAgenda();
     document.getElementById(`ag-${TODAY}`)?.scrollIntoView({ block: "start" });
     return;
   }
-  if (viewMode === "agenda" && ev.target.closest("[data-today]")) { scrollToToday(); return; }
+  if (agendaOpen && ev.target.closest("[data-today]")) { scrollToToday(); return; }
   if (ev.target.closest("[data-otherdl]")) {
     otherDeadlines = !otherDeadlines;
     render();
@@ -903,7 +869,7 @@ document.addEventListener("click", (ev) => {
     render();
     return;
   }
-  const jump = ev.target.closest("#drawer [data-open], #drawer [data-id], #view [data-open]");
+  const jump = ev.target.closest("#drawer [data-open], #drawer [data-id], #view [data-open], #agenda [data-open]");
   if (jump) {
     const back = lastFocus, inDrawer = !!jump.closest("#drawer");
     openEvent(jump.dataset.open || jump.dataset.id);
@@ -911,7 +877,7 @@ document.addEventListener("click", (ev) => {
     return;
   }
   if (ev.target.closest("[data-retry]")) { load(); return; }
-  const evBtn = ev.target.closest("#view [data-id]");
+  const evBtn = ev.target.closest("#view [data-id], #agenda [data-id]");
   if (evBtn) { openEvent(evBtn.dataset.id); return; }
   if (ev.target.closest("[data-today]")) {
     goMonth(-page);
@@ -922,14 +888,15 @@ document.addEventListener("click", (ev) => {
 });
 document.addEventListener("keydown", (ev) => {
   if (ev.key === "Escape") {
-    if (!panel.hidden) { setPanel(false); catBtn.focus(); } else closeDrawer();
+    if (!drawer.hidden) closeDrawer();
+    else if (agendaOpen) { setAgenda(false); grip.focus(); }
     return;
   }
   if (!drawer.hidden && sheetDay !== null && (ev.key === "ArrowLeft" || ev.key === "ArrowRight")) {
     stepDay(ev.key === "ArrowLeft" ? -1 : 1);
     return;
   }
-  if (!drawer.hidden || !loaded || viewMode !== "month" || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+  if (!drawer.hidden || !loaded || agendaOpen || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   if (ev.target.closest && ev.target.closest("input, textarea, select, [contenteditable]")) return;
   if (ev.key === "ArrowLeft") goMonth(-1);
   if (ev.key === "ArrowRight") goMonth(1);
@@ -958,8 +925,10 @@ async function load() {
     BY_ID = Object.fromEntries(EVENTS.map((e) => [e.id, e]));
     computeTiers();
     updatedAt = data.updatedAt || null;
+    const first = !loaded;
     loaded = true;
     render();
+    if (first && location.hash === "#agenda") setAgenda(true);
   } catch (err) {
     if (loaded) return; // keep showing the last good data during a background refresh
     console.warn("Could not load events:", err);
@@ -969,7 +938,7 @@ async function load() {
 }
 
 let refit = 0;
-const refitMonth = () => { if (loaded && viewMode === "month") renderMonth(); };
+const refitMonth = () => { if (loaded) renderMonth(); };
 addEventListener("resize", () => { clearTimeout(refit); refit = setTimeout(refitMonth, 150); });
 document.fonts?.ready.then(refitMonth);
 
@@ -977,7 +946,7 @@ const viewEl = document.getElementById("view");
 // mouse wheel or trackpad over the grid turns the month (the grid itself never scrolls)
 let wheelSum = 0, wheelLock = 0, wheelLast = 0;
 viewEl.addEventListener("wheel", (ev) => {
-  if (viewMode !== "month" || ev.ctrlKey || viewEl.scrollHeight > viewEl.clientHeight + 1) return; // a short window scrolls the grid
+  if (ev.ctrlKey || viewEl.scrollHeight > viewEl.clientHeight + 1) return; // a short window scrolls the grid
   ev.preventDefault();
   const now = Date.now();
   if (now < wheelLock) { wheelLock = now + 250; return; } // let a trackpad's flick run out before the next month
@@ -988,7 +957,8 @@ viewEl.addEventListener("wheel", (ev) => {
   if (Math.abs(wheelSum) >= 50) { goMonth(wheelSum > 0 ? 1 : -1); wheelSum = 0; wheelLock = now + 400; }
 }, { passive: false });
 
-// swipe sideways: the grid to the next or previous month, a day sheet to the next or previous day
+/* Swipes: sideways on the grid changes month and on a day sheet changes day; up from the grid or the
+   category bar pulls the agenda up, and down (from the top of the list) puts it away. */
 function onSwipe(el, go) {
   let t0 = null;
   el.addEventListener("touchstart", (ev) => {
@@ -998,10 +968,21 @@ function onSwipe(el, go) {
     if (!t0) return;
     const t = ev.changedTouches[0], dx = t.clientX - t0.x, dy = t.clientY - t0.y;
     t0 = null;
-    if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) go(dx < 0 ? 1 : -1);
+    if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) go(dx < 0 ? "left" : "right");
+    else if (Math.abs(dy) > 50 && Math.abs(dy) > 2 * Math.abs(dx)) go(dy < 0 ? "up" : "down");
   }, { passive: true });
 }
-onSwipe(viewEl, (d) => { if (viewMode === "month") goMonth(d); });
-onSwipe(drawer, (d) => { if (sheetDay !== null) stepDay(d); });
+onSwipe(viewEl, (dir) => {
+  if (dir === "left" || dir === "right") goMonth(dir === "left" ? 1 : -1);
+  else if (dir === "up") setAgenda(true);
+});
+onSwipe(document.querySelector(".catbar"), (dir) => { if (dir === "up" || dir === "down") setAgenda(dir === "up"); });
+let agAtTop = true;
+agendaEl.addEventListener("touchstart", () => { agAtTop = agScroll.scrollTop <= 0; }, { passive: true });
+onSwipe(agendaEl, (dir) => {
+  if (dir === "up" && !agendaOpen) setAgenda(true);
+  if (dir === "down" && agAtTop) setAgenda(false);
+});
+onSwipe(drawer, (dir) => { if (sheetDay !== null && (dir === "left" || dir === "right")) stepDay(dir === "left" ? 1 : -1); });
 load();
 setInterval(() => { if (drawer.hidden) load(); }, REFRESH_MS);
