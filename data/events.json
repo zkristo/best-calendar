@@ -320,6 +320,7 @@
       },
       "url": "https://forms.gle/msrm7mGLLsPcXUdd7",
       "description": "Training sessions, an international evening, cantus and team building with LBG Copenhagen. Fee 300 kr (about 40 €); everyone who applies is accepted.",
+      "fee": "€40",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -553,6 +554,7 @@
       ],
       "url": "https://docs.google.com/forms/d/e/1FAIpQLSdtAfU3fokBv-Ncft0fRNPFaLSFokQCupeVSIjeLOpkKJTVhw/viewform",
       "description": "Motivational weekend by LBG Lyon. Fee 65 € + 5 € alcohol fee (alumni 80 € + 5 €). The call's header says 2027, but the text gives 16–18 October with applications closing 4 October 2026.",
+      "fee": "€65",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -662,6 +664,7 @@
         "LIL"
       ],
       "description": "Autumn Regional Meeting hosted by LBG Ghent. Fee 80 € for the full event plus an optional 15 € alcohol fee.",
+      "fee": "€80",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -686,6 +689,7 @@
       ],
       "url": "https://docs.google.com/forms/d/e/1FAIpQLSeSp6TTqj9Gr0z-wGPgR-qQhMyOGm4K031o8upWDJ1nBXafow/viewform",
       "description": "First Nordic JBT hosted in Warsaw. LBG Warsaw looks for co-organisers to help run it; transport and hot meals covered. Fee 0 € plus an optional 20 €.",
+      "fee": "free",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -779,6 +783,7 @@
         "GPA"
       ],
       "description": "Autumn Regional Meeting hosted by LBG Patras. Crasher fee 70 € plus an optional 15 € alcohol fee; crashers stay in tents on site.",
+      "fee": "€70",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -801,6 +806,7 @@
         "OPO"
       ],
       "description": "Autumn Regional Meeting hosted by LBG Lisbon. Crasher fee 85 € plus an optional 10 € alcohol fee.",
+      "fee": "€85",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -837,6 +843,7 @@
       },
       "url": "https://forms.gle/tnydGRZsUmQfo44g8",
       "description": "Online hackathon in mixed teams with Korean YEHS students on Green City: Engineering Sustainable Urban Systems. Mandatory sessions on 1 Nov, 21 Nov and 5 Dec. Free.",
+      "fee": "free",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -891,6 +898,7 @@
       },
       "bus": "Ljubljana",
       "description": "Cultural exchange hosted by LBG Ljubljana, open to crashers. Fee 130 €.",
+      "fee": "€130",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -970,6 +978,7 @@
       ],
       "url": "https://docs.google.com/forms/d/e/1FAIpQLScB-ubTQN6gcJyBCoEmyzl0GW1q143ZaPRIT3HIwyWF-N0TRw/viewform",
       "description": "Motivational weekend by LBG Valladolid for observers, members and alumni. Fee 34 € for one night or 50 € for the whole event, plus alcohol fee 6 € / 9 €.",
+      "fee": "€34–50",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -1090,6 +1099,7 @@
       },
       "bus": "Budapest",
       "description": "Autumn Motivational Weekend by LBG Budapest on the Danube, open to guests from other LBGs. Fee 60 € + 8 € alcohol fee, covering 2 nights, meals, drinks and trainings; the group meets in Budapest and travels together.",
+      "fee": "€60",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -1115,6 +1125,7 @@
       ],
       "url": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=nCJQO3jNiEWbz5e3Yp4vD0CGj6qPOYBLrV8bO7YJfJlUMDFFSzNCMVJKNEtSN0QwUFJUR081M1hZMy4u&route=shorturl",
       "description": "Three days of design workshops, panel discussions and exhibitions with industry professionals. Fee 50 €.",
+      "fee": "€50",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -1138,6 +1149,7 @@
       ],
       "url": "https://forms.gle/ss4RK1NGao8w6Pcq6",
       "description": "Motivational weekend by LBG Eka UrFU for any BESTie. Fee 40 € (alcohol included).",
+      "fee": "€40",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -1162,6 +1174,7 @@
       ],
       "url": "https://forms.gle/9jJWJ9Mr9WwwoRJY7",
       "description": "Romanian JAM with a limited number of spots for international BESTies. 18 € per night plus a 2 € deposit per night.",
+      "fee": "€18/night",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -1204,6 +1217,7 @@
         "BCN"
       ],
       "description": "Motivational Weekend by LBG Barcelona with a Monster High theme. Guest fee 60 €, covering 2 nights of accommodation, all meals, drinks at the parties and activities. Apply via the online form.",
+      "fee": "€60",
       "url": "https://forms.gle/oJVMqXAdEcQ2Z8rS8",
       "status": "confirmed",
       "source": {
@@ -1229,6 +1243,7 @@
       ],
       "url": "https://docs.google.com/forms/d/e/1FAIpQLSe3ngVgvXk98xhC116xmhvlgHCFLOu0hLvX-nQ1GhlTm7e9-Q/viewform",
       "description": "20th Alpine Jam by LBG Torino, with a medieval theme. Fee 150 € (members) or 180 € (alumni and guests), bus from Turin included.",
+      "fee": "€150",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",
@@ -1252,6 +1267,7 @@
         "SAW"
       ],
       "description": "Three-day New Year's Eve event for 200 BESTies, ending with a boat party on the Bosphorus. Fee 170 € (alumni 240 €), shared bed 150 €. Apply by sending a motivational video or presentation by email.",
+      "fee": "€170",
       "status": "confirmed",
       "source": {
         "from": "BEST Zagreb International list",

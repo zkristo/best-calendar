@@ -16,19 +16,27 @@
   <header class="top">
     <div class="brand">
       <span class="mark" aria-hidden="true"><small id="mark-mon"></small><b id="mark-day"></b></span>
-      <div>
-        <h1>BEST Calendar</h1>
-        <p>BEST International events and deadlines, added automatically when the emails arrive.</p>
-      </div>
+      <h1>BEST Calendar</h1>
     </div>
-    <div class="status" id="status" aria-live="polite"></div>
+    <div class="top-nav" id="top-nav"></div>
   </header>
-
-  <div class="filters" id="filters" role="group" aria-label="Show events by type"></div>
 
   <main id="view">
     <div class="state"><p>Loading events…</p></div>
   </main>
+</div>
+
+<div class="dock" id="dock">
+  <div class="panel" id="panel" hidden>
+    <h2 class="panel-title">Categories</h2>
+    <div class="filters" id="filters" role="group" aria-label="Show events by category"></div>
+    <div class="panel-foot" id="panel-foot"></div>
+  </div>
+  <div class="dock-btns">
+    <button class="fab" id="cat-btn" type="button" aria-expanded="false" aria-controls="panel"></button>
+    <button class="fab" type="button" data-today>Today</button>
+    <div class="vswitch" id="vswitch" role="group" aria-label="View"></div>
+  </div>
 </div>
 
 <div class="scrim" id="scrim" hidden></div>

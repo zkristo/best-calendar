@@ -117,6 +117,9 @@ function checkEvent(e, i, seen) {
   if (e.description !== undefined && e.description !== null && typeof e.description !== "string") {
     fail(at, "description must be a string");
   }
+  if (e.fee !== undefined && e.fee !== null && (typeof e.fee !== "string" || !e.fee.trim() || e.fee.length > 20)) {
+    fail(at, 'fee must be a short label, e.g. "€65", "€18/night" or "free"');
+  }
 
   if (e.source !== undefined && e.source !== null) {
     const src = e.source;

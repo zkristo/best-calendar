@@ -19,12 +19,13 @@ const TAGS = {
 
 /* What the site shows: the routine tags each email by type (above), and the site groups events the way
    BEST members think of them, from the title. A deadline takes the category of the event it belongs to. */
-const CATS = {
-  rm:     { label: "Regional Meeting",     icon: "meeting" },
-  course: { label: "Course",               icon: "course" },
-  mw:     { label: "Motivational Weekend", icon: "flame" },
-  ce:     { label: "Cultural Exchange",    icon: "globe" },
-  other:  { label: "Other",                icon: "other" },
+const CATS = { // short: the tag at the start of each bar in the month grid (Other events use their own name)
+  rm:     { label: "Regional Meeting",     short: "RM",  icon: "meeting" },
+  course: { label: "Course",               short: "CRS", icon: "course" },
+  mw:     { label: "Motivational Weekend", short: "MW",  icon: "flame" },
+  jam:    { label: "JAM",                  short: "JAM", icon: "music" },
+  ce:     { label: "Cultural Exchange",    short: "CE",  icon: "globe" },
+  other:  { label: "Other",                short: "",    icon: "other" },
 };
 const MAIN = new Set(["rm", "course", "mw"]); // their deadlines always show; the rest only when switched on
 
@@ -36,6 +37,10 @@ const ICON = {
   deadline: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/>',
   other: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
   flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+  sliders: '<path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/>',
+  grid: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/><path d="M9 10v11"/><path d="M15 10v11"/><path d="M3 15.5h18"/>',
+  list: '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>',
   globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
   flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>',
   pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
@@ -137,6 +142,7 @@ function catOfText(title) {
   const t = fold(title);
   if (/\b[as]?rm\b|regional meeting/.test(t)) return "rm"; // aRM, sRM, Joint aRM
   if (/motivational weekend|\bmw\b/.test(t)) return "mw";
+  if (/jam\b/.test(t)) return "jam"; // JAM, Alpine Jam, RoJAM
   if (/cultural exchange|\bce\b/.test(t)) return "ce";
   if (/\bcourses?\b/.test(t) && !/t-?shirt|merch|order/.test(t)) return "course";
   return null;
@@ -146,7 +152,7 @@ const categorise = (e) => catOfText(e.title) || (e.tag === "course" && !/trainin
 /* Match each deadline to its event: "Crasher applications close: aRM Athens" → the aRM held in Athens. */
 const STOP = new Set(("applications application apply close closes closing opens due crasher crashers co organiser organisers " +
   "participant participants partner registration payment early bird delegate delegates extra the for and with " +
-  "joint region regions arm srm motivational weekend cultural exchange course courses best lbg vol edition").split(" "));
+  "joint region regions arm srm motivational weekend cultural exchange course courses jam best lbg vol edition").split(" "));
 const keyWords = (s) => fold(s).split(/[^a-z0-9]+/).filter((w) => w.length >= 3 && !STOP.has(w) && !/^20\d\d$/.test(w));
 function linkDeadlines(all) {
   const events = all.filter((e) => !e.dl);
@@ -169,20 +175,33 @@ function linkDeadlines(all) {
 }
 const dlShort = (t) => (t.includes(":") ? t.slice(t.indexOf(":") + 1).trim() : t);
 const catLabel = (e) => (e.dl ? `Deadline · ${CATS[e.cat].label}` : CATS[e.cat].label);
+const feeText = (f) => (/^free$/i.test(f) ? "Free" : `Fee ${f}`);
+
+/* What a bar says: tag, city, fee, then the trip price. "Hørsholm, Denmark" → "Hørsholm". */
+function shortCity(e) {
+  const L = e.location;
+  if (!L || !L.name) return e.bus || "";
+  if (/^online$/i.test(L.name.trim())) return "Online";
+  const c = (L.city || (L.name.includes(",") ? L.name : "")).split(",")[0].replace(/^near\s+/i, "").trim();
+  return c || e.bus || L.name;
+}
+function shortName(e) { // Other events have no tag, so their own name leads: "(aGA26)", "YEHS – …", "SCARLET Vol. XVI – …"
+  const ab = /\(([^\s()]{2,10})\)/.exec(e.title);
+  return ab ? ab[1] : e.title.split(/\s[–—-]\s|:\s|\s\(/)[0].trim();
+}
+const tagOf = (e) => CATS[e.cat].short || shortName(e);
 
 /* ---------- State ---------- */
 let only = null;            // the one category the filters are narrowed to, or null for all
 let otherDeadlines = false; // deadlines outside RM, Course and MW
 const todayInfo = info(TODAY);
 let monthCur = { y: todayInfo.y, m: todayInfo.m };
-let selDay = TODAY;
 const mqPhone = matchMedia("(max-width: 640px)");
 const visible = () => EVENTS.filter((e) => (!only || e.cat === only) && (!e.dl || MAIN.has(e.cat) || otherDeadlines));
 
 const hashMonth = /^#(\d{4})-(\d{2})$/.exec(location.hash);
 if (hashMonth && +hashMonth[2] >= 1 && +hashMonth[2] <= 12) {
   monthCur = { y: +hashMonth[1], m: +hashMonth[2] - 1 };
-  selDay = monthCur.y === todayInfo.y && monthCur.m === todayInfo.m ? TODAY : dayOf(monthCur.y, monthCur.m, 1);
 }
 
 /* Month grid or agenda (one scrolling list). A link (#agenda, #2026-11) wins, then the reader's last
@@ -227,7 +246,7 @@ function evRow(e, day, agenda = false) {
   const cont = !agenda && (t.kind === "middle" || t.kind === "last");
   const span = agenda && e.multi && day === e.sDay ? `${fmtDay(e.sDay)} – ${fmtDay(e.eDay)}` : t.progress;
   const eyebrow = [catLabel(e), e.cancelled ? "Cancelled" : span].filter(Boolean).join(" · ");
-  const place = placeLine(e);
+  const where = [placeLine(e), e.fee && feeText(e.fee)].filter(Boolean).join(" · ");
   const fl = !e.cancelled ? FLIGHTS[e.id] : null; // shown on every day of the event, not just the first
   const best = fl?.best?.[0];
   const fare = best?.total ?? null;
@@ -240,7 +259,7 @@ function evRow(e, day, agenda = false) {
     <span class="ev-main">
       <span class="ev-eyebrow">${esc(eyebrow)}</span>
       <span class="ev-title">${esc(e.title)}${e.isNew && !cont ? " " + NEW : ""}</span>
-      ${place ? `<span class="ev-loc">${svg("pin", 14)}<span>${esc(place)}</span></span>` : ""}
+      ${where ? `<span class="ev-loc">${svg("pin", 14)}<span>${esc(where)}</span></span>` : ""}
       ${fare != null ? `<span class="ev-fly">${svg(fl.mode === "bus" ? "bus" : "plane", 14)}<span>From ${esc(flightsOrigin)}: ${priceTag(fare)}${times ? ` · ${times}` : ""}${altFare != null ? ` · ±1 day ${priceTag(altFare)}` : ""}</span></span>` : ""}
       ${e.description ? `<span class="ev-desc">${esc(e.description)}</span>` : ""}
     </span>
@@ -249,92 +268,95 @@ function evRow(e, day, agenda = false) {
 const onDay = (evs, day) =>
   evs.filter((e) => e.sDay <= day && e.eDay >= day).sort((a, b) => sortKeyOn(a, day) - sortKeyOn(b, day));
 
-/* ---------- Month ---------- */
-const MAX_LANES = 3;
+/* ---------- Month ----------
+   The grid fills the screen. Each week fits as many lanes of bars as its row has room for; when a day has
+   more, the last lane says "+N more" and opens that day. */
+function weekBars(evs, w0, lanes) {
+  const w1 = w0 + 6;
+  const items = evs
+    .filter((e) => e.sDay <= w1 && e.eDay >= w0)
+    .map((e) => ({ e, a: Math.max(e.sDay, w0) - w0, b: Math.min(e.eDay, w1) - w0 }))
+    .sort((p, q) => p.e.dl - q.e.dl || p.a - q.a || (q.b - q.a) - (p.b - p.a) || q.e.multi - p.e.multi || q.e.allDay - p.e.allDay || p.e.s.abs - q.e.s.abs);
+  const occ = [];
+  for (const it of items) {
+    let lane = 0;
+    for (;;) {
+      occ[lane] ??= Array(7).fill(false);
+      let free = true;
+      for (let c = it.a; c <= it.b; c++) if (occ[lane][c]) { free = false; break; }
+      if (free) break;
+      lane++;
+    }
+    for (let c = it.a; c <= it.b; c++) occ[lane][c] = true;
+    it.lane = lane;
+  }
+  const cap = occ.length > lanes ? lanes - 1 : lanes;
+  const hidden = Array(7).fill(0);
+  let bars = "";
+  for (const it of items) {
+    if (it.lane >= cap) { for (let c = it.a; c <= it.b; c++) hidden[c]++; continue; }
+    bars += monthItem(it, w0);
+  }
+  hidden.forEach((n, c) => {
+    if (n) bars += `<button class="mi-more" type="button" style="grid-column:${c + 1};grid-row:${cap + 1}" data-day="${w0 + c}" aria-label="${n} more on ${fmtDay(w0 + c)}">+${n}<span class="more-word"> more</span></button>`;
+  });
+  return bars;
+}
 function renderMonth() {
   const view = document.getElementById("view");
   const { y, m } = monthCur;
   const first = dayOf(y, m, 1);
   const g0 = first - info(first).wd;
-  const evs = visible();
   let weeks = "";
   for (let w = 0; w < 6; w++) {
-    const w0 = g0 + w * 7, w1 = w0 + 6;
-    const items = evs
-      .filter((e) => e.sDay <= w1 && e.eDay >= w0)
-      .map((e) => ({ e, a: Math.max(e.sDay, w0) - w0, b: Math.min(e.eDay, w1) - w0 }))
-      .sort((p, q) => p.e.dl - q.e.dl || p.a - q.a || (q.b - q.a) - (p.b - p.a) || q.e.multi - p.e.multi || q.e.allDay - p.e.allDay || p.e.s.abs - q.e.s.abs);
-    const occ = [];
-    const hidden = Array(7).fill(0);
-    let bars = "";
-    for (const it of items) {
-      let lane = 0;
-      for (;;) {
-        occ[lane] ??= Array(7).fill(false);
-        let free = true;
-        for (let c = it.a; c <= it.b; c++) if (occ[lane][c]) { free = false; break; }
-        if (free) break;
-        lane++;
-      }
-      for (let c = it.a; c <= it.b; c++) occ[lane][c] = true;
-      if (lane >= MAX_LANES) { for (let c = it.a; c <= it.b; c++) hidden[c]++; continue; }
-      bars += monthItem(it, lane, w0);
-    }
-    hidden.forEach((n, c) => {
-      if (n) bars += `<button class="mi-more" type="button" style="grid-column:${c + 1}" data-day="${w0 + c}" aria-label="${n} more on ${fmtDay(w0 + c)}">+${n}<span class="more-word"> more</span></button>`;
-    });
     let days = "";
     for (let c = 0; c < 7; c++) {
-      const d = w0 + c, i = info(d);
-      const cls = ["md", i.m !== m && "out", c >= 5 && "wkend", d === TODAY && "today", d === selDay && "sel"].filter(Boolean).join(" ");
+      const d = g0 + w * 7 + c, i = info(d);
+      const cls = ["md", i.m !== m && "out", c >= 5 && "wkend", d === TODAY && "today"].filter(Boolean).join(" ");
       days += `<button class="${cls}" type="button" data-day="${d}" aria-label="${fmtDayLong(d)}"><span class="md-num">${i.d}</span></button>`;
     }
-    weeks += `<div class="mw"><div class="mw-days">${days}</div><div class="mw-items">${bars}</div></div>`;
+    weeks += `<div class="mw"><div class="mw-days">${days}</div><div class="mw-items"></div></div>`;
   }
   const wd = WD.map((n) => `<span><span class="long">${n}</span><span class="short">${n[0]}</span></span>`).join("");
-  const si = info(selDay);
-  view.innerHTML = `<div class="month">
-    <div>
-      <div class="m-head">
-        <h2>${MON[m].toUpperCase()} ${y}</h2>
-        <div class="m-nav">
-          ${viewSwitch()}
-          <button class="btn" type="button" data-today>Today</button>
-          <button class="iconbtn" type="button" data-nav="-1" aria-label="Previous month">${svg("left")}</button>
-          <button class="iconbtn" type="button" data-nav="1" aria-label="Next month">${svg("right")}</button>
-        </div>
-      </div>
-      <div class="mgrid"><div class="m-wd">${wd}</div>${weeks}</div>
-    </div>
-    <aside class="m-side" id="m-side" aria-live="polite">
-      <h3>${WD_LONG[si.wd]}, ${si.d} ${MON[si.m]}<small>${selDay === TODAY ? "Today" : ""}</small></h3>
-      ${sideList(evs)}
-      ${priceKey()}
-    </aside>
-  </div>`;
+  document.getElementById("top-nav").innerHTML = `
+    <button class="iconbtn" type="button" data-nav="-1" aria-label="Previous month">${svg("left")}</button>
+    <h2>${MON[m].toUpperCase()} ${y}</h2>
+    <button class="iconbtn" type="button" data-nav="1" aria-label="Next month">${svg("right")}</button>`;
+  view.innerHTML = `<div class="mgrid"><div class="m-wd">${wd}</div>${weeks}</div>`;
+  const rows = view.querySelectorAll(".mw-items");
+  const cs = getComputedStyle(rows[0]);
+  const lane = parseFloat(cs.gridAutoRows) || 20, gap = parseFloat(cs.rowGap) || 0;
+  const lanes = Math.max(1, Math.floor((rows[0].clientHeight + gap) / (lane + gap)));
+  const evs = visible();
+  rows.forEach((el, w) => { el.innerHTML = weekBars(evs, g0 + w * 7, lanes); });
+  fitTickers(view);
 }
-function sideList(evs) {
-  if (!EVENTS.length) {
-    return `<p class="m-legend">No events yet. They appear here when BEST International emails arrive.</p>`;
+
+/* Text that doesn't fit its bar scrolls sideways, like the display on a train: two copies side by side,
+   moved left by one copy's width so the loop is seamless. Reduced motion keeps it still and cut off. */
+const calm = matchMedia("(prefers-reduced-motion: reduce)");
+const TICK_SPEED = 30; // px per second
+function fitTickers(root) {
+  if (calm.matches) return;
+  for (const run of root.querySelectorAll(".mi-run")) {
+    const txt = run.firstElementChild;
+    if (txt.scrollWidth <= run.clientWidth + 1) continue;
+    run.parentElement.classList.add("tick");
+    const copy = txt.cloneNode(true);
+    copy.setAttribute("aria-hidden", "true");
+    const track = document.createElement("span");
+    track.className = "mi-track";
+    track.append(txt, copy);
+    run.append(track);
+    const d = txt.offsetWidth;
+    track.style.setProperty("--d", `${d}px`);
+    track.style.animationDuration = `${(d / TICK_SPEED / 0.75).toFixed(1)}s`; // a quarter of each loop rests at the start
   }
-  if (!evs.length) {
-    return `<p class="m-legend">No events match these filters. <button class="linkbtn" type="button" data-showall>Show all types</button></p>`;
-  }
-  const items = onDay(evs, selDay);
-  if (items.length) {
-    return `<div class="ev-list">${items.map((e) => evRow(e, selDay)).join("")}</div>
-      <p class="m-legend">Pick any day in the grid to list its events here.</p>`;
-  }
-  const next = evs.find((e) => e.sDay > selDay);
-  if (!next) return `<p class="m-legend">Nothing on this day, and nothing planned after it yet.</p>`;
-  return `<p class="m-legend">Nothing on this day. Next up, ${fmtDay(next.sDay)}:</p>
-    <div class="ev-list">${onDay(evs, next.sDay).map((e) => evRow(e, next.sDay)).join("")}</div>`;
 }
+
 const priceKey = () => (TIER_CUTS
-  ? `<p class="m-legend price-key">Trip prices from ${esc(flightsOrigin)}: <span class="key tier-cheap">cheap</span><span class="key tier-mid">mid</span><span class="key tier-dear">pricey</span></p>`
+  ? `<p class="m-legend price-key">Trip prices from ${esc(flightsOrigin)}<span class="keys"><span class="key tier-cheap">cheap</span><span class="key tier-mid">mid</span><span class="key tier-dear">pricey</span></span></p>`
   : "");
-const viewSwitch = () => `<div class="seg" role="group" aria-label="View">${[["month", "Month"], ["agenda", "Agenda"]].map(([k, l]) =>
-  `<button type="button" data-view="${k}" aria-pressed="${viewMode === k}">${l}</button>`).join("")}</div>`;
 
 /* ---------- Agenda ---------- */
 function renderAgenda() {
@@ -365,15 +387,11 @@ function renderAgenda() {
   const empty = !EVENTS.length
     ? `<p class="m-legend">No events yet. They appear here when BEST International emails arrive.</p>`
     : !evs.length ? `<p class="m-legend">No events match these filters. <button class="linkbtn" type="button" data-showall>Show all types</button></p>` : "";
+  document.getElementById("top-nav").innerHTML = "";
   view.innerHTML = `<div class="ag">
-    <div class="m-head">
-      <h2>Upcoming</h2>
-      <div class="m-nav">${viewSwitch()}<button class="btn" type="button" data-today>Today</button></div>
-    </div>
     ${empty || `${showPast ? "" : `<button class="linkbtn ag-past" type="button" data-past>Show past events</button>`}
     <div class="ag-list">${body}</div>
     <p class="m-legend">That's everything announced so far.</p>`}
-    ${priceKey()}
   </div>`;
 }
 function setView(mode) {
@@ -387,26 +405,31 @@ function setView(mode) {
 const scrollToToday = () => document.getElementById(`ag-${TODAY}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
 const tripFare = (e) => (e.cancelled ? null : FLIGHTS[e.id]?.best?.[0]?.total ?? null);
-function monthItem(it, lane, w0) {
+function barText(e) {
+  if (e.dl) { // a deadline names the event it belongs to, in that event's colour
+    const f = e.forEv;
+    const what = f ? [`<b>${esc(tagOf(f))}</b>`, shortCity(f) && `<span>${esc(shortCity(f))}</span>`] : [`<span>${esc(dlShort(e.title))}</span>`];
+    return svg("flag", 11) + what.filter(Boolean).join("");
+  }
+  const fare = tripFare(e), tier = tierOf(fare), city = shortCity(e), mode = FLIGHTS[e.id]?.mode;
+  return [
+    `<b>${esc(tagOf(e))}</b>`,
+    city && `<span>${esc(city)}</span>`,
+    e.fee && `<span class="mi-fee">${esc(e.fee)}</span>`,
+    fare != null && `<span class="mi-p${tier ? " tier-" + tier : ""}">${svg(mode === "bus" ? "bus" : "plane", 11)}€${Math.round(fare)}</span>`,
+  ].filter(Boolean).join("");
+}
+function monthItem(it, w0) {
   const e = it.e;
   const fare = tripFare(e);
   const tier = tierOf(fare);
-  const price = fare != null ? `<span class="mi-p${tier ? " tier-" + tier : ""}">€${Math.round(fare)}</span>` : "";
   const contL = e.sDay < w0 + it.a, contR = e.eDay > w0 + it.b;
-  const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${lane + 1}`;
+  const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${it.lane + 1}`;
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
-  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${fare != null ? `, trip from ${flightsOrigin} ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
-  const cx = e.cancelled ? " is-cancelled" : "";
-  if (e.multi) {
-    const cls = `mi multi tag-${e.cat}${cx}${contL ? " cont-l" : ""}${contR ? " cont-r" : ""}`;
-    const lead = contL || e.allDay ? "" : `${fmtTime(e.s.min)} `;
-    return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-n">${lead}${esc(e.title)}</span>${price}</button>`;
-  }
-  if (e.dl) {
-    return `<button class="mi single dl tag-${e.cat}${cx}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}">${svg("flag", 12)}<span class="mi-n">${esc(dlShort(e.title))}</span></button>`;
-  }
-  const time = e.allDay ? "" : `<span class="mi-t">${fmtTime(e.s.min)}</span>`;
-  return `<button class="mi single tag-${e.cat}${cx}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><i class="mi-dot"></i>${time}<span class="mi-n">${esc(e.title)}</span>${price}</button>`;
+  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${e.fee ? `, ${feeText(e.fee).toLowerCase()}` : ""}` +
+    `${fare != null ? `, trip from ${flightsOrigin} ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
+  const cls = ["mi", `tag-${e.cat}`, e.dl && "dl", contL && "cont-l", contR && "cont-r", e.cancelled && "is-cancelled"].filter(Boolean).join(" ");
+  return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-run"><span class="mi-txt">${barText(e)}</span></span></button>`;
 }
 
 /* ---------- Detail drawer ---------- */
@@ -669,6 +692,7 @@ function openEvent(id) {
     const maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent([L.name, L.address, L.city].filter(Boolean).join(", "));
     where = `<div><dt class="lbl">Where</dt><dd><span>${esc(L.name)}</span>${sub ? `<span class="muted">${esc(sub)}</span>` : ""}${online ? "" : `<a href="${esc(maps)}" target="_blank" rel="noopener">Open in Maps ${svg("ext", 14)}</a>`}</dd></div>`;
   }
+  const fee = e.fee ? `<div><dt class="lbl">Fee</dt><dd>${esc(e.fee)}</dd></div>` : "";
   const url = e.url ? safeUrl(e.url) : null;
   const link = url ? `<div><dt class="lbl">Link</dt><dd><a href="${esc(url.href)}" target="_blank" rel="noopener">Open link ${svg("ext", 14)}</a><span class="muted">${esc(url.hostname)}</span></dd></div>` : "";
   const linked = e.dl && e.forEv
@@ -688,7 +712,7 @@ function openEvent(id) {
     <div class="tk-body">
       <h2 class="tk-title${e.cancelled ? " is-cancelled" : ""}" id="tk-title">${esc(e.title)}${e.isNew ? NEW : ""}</h2>
       ${whenHtml(e)}
-      ${where || link || linked ? `<dl class="fields">${linked}${where}${link}</dl>` : ""}
+      ${where || fee || link || linked ? `<dl class="fields">${linked}${where}${fee}${link}</dl>` : ""}
       ${e.description ? `<p class="desc">${esc(e.description)}</p>` : ""}
       ${flightsHtml(e)}
     </div>
@@ -698,6 +722,19 @@ function openEvent(id) {
       <dl class="fields">${srcRows}</dl>
     </div>` : ""}
   </article>`;
+  showDrawer();
+}
+function openDay(day) {
+  lastFocus = document.activeElement;
+  const items = onDay(visible(), day);
+  document.getElementById("dr-body").innerHTML = `<section class="day-sheet">
+    <h2 class="day-title" id="tk-title">${fmtDayLong(day)}${day === TODAY ? "<small>Today</small>" : ""}</h2>
+    ${items.length ? `<div class="ev-list">${items.map((e) => evRow(e, day)).join("")}</div>` : `<p class="m-legend">Nothing on this day.</p>`}
+  </section>`;
+  showDrawer();
+}
+function showDrawer() {
+  setPanel(false);
   drawer.hidden = false;
   scrim.hidden = false;
   drawer.scrollTop = 0;
@@ -719,8 +756,7 @@ scrim.addEventListener("click", closeDrawer);
 document.getElementById("mark-mon").textContent = MON[todayInfo.m];
 document.getElementById("mark-day").textContent = todayInfo.d;
 
-function renderStatus() {
-  const el = document.getElementById("status");
+function statusHtml() {
   const parts = [];
   const fresh = EVENTS.filter((e) => e.isNew).length;
   if (fresh) parts.push(`<span class="new">New</span><span><strong>${fresh} ${fresh === 1 ? "event" : "events"}</strong> added in the last day</span>`);
@@ -731,7 +767,7 @@ function renderStatus() {
   } else if (loaded) {
     parts.push(`<span>Waiting for the first email sync</span>`);
   }
-  el.innerHTML = parts.join("");
+  return parts.length ? `<p class="status">${parts.join("")}</p>` : "";
 }
 function renderFilters() {
   const counts = {};
@@ -741,24 +777,44 @@ function renderFilters() {
     Object.entries(CATS).map(([k, c]) =>
       `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${!only || only === k}"><i class="sw"></i>${c.label}<span class="n">${counts[k] || 0}</span></button>`
     ).join("") +
-    `<button class="fchip dl-chip" type="button" data-otherdl aria-pressed="${otherDeadlines}">${svg("flag", 14)}Other deadlines<span class="n">${extra}</span></button>` +
-    (only ? `<button class="linkbtn" type="button" data-showall>Show all</button>` : "");
+    `<button class="fchip dl-chip" type="button" data-otherdl aria-pressed="${otherDeadlines}">${svg("flag", 14)}Other deadlines<span class="n">${extra}</span></button>`;
+  document.getElementById("panel-foot").innerHTML =
+    `${only ? `<button class="linkbtn" type="button" data-showall>Show all categories</button>` : ""}${priceKey()}${statusHtml()}`;
+}
+
+/* ---------- Dock: categories, today and the view switch, bottom right ---------- */
+const panel = document.getElementById("panel");
+const catBtn = document.getElementById("cat-btn");
+function setPanel(open) {
+  panel.hidden = !open;
+  catBtn.setAttribute("aria-expanded", String(open));
+}
+function renderDock() {
+  catBtn.className = `fab${only ? ` tag-${only} is-on` : ""}`;
+  catBtn.innerHTML = only
+    ? `<i class="sw"></i><b>${esc(CATS[only].short || CATS[only].label)}</b><span class="vh">: showing only ${esc(CATS[only].label)}. Categories</span>`
+    : `${svg("sliders")}<span class="vh">Categories</span>`;
+  catBtn.title = only ? `Showing only ${CATS[only].label}` : "Categories";
+  document.getElementById("vswitch").innerHTML = [["month", "Month", "grid"], ["agenda", "Agenda", "list"]].map(([k, l, i]) =>
+    `<button type="button" data-view="${k}" aria-pressed="${viewMode === k}" title="${l}">${svg(i)}<span class="vh">${l}</span></button>`).join("");
 }
 function render() {
-  renderStatus();
+  document.body.dataset.mode = viewMode; // not data-view: that marks the switch buttons
   renderFilters();
+  renderDock();
   viewMode === "agenda" ? renderAgenda() : renderMonth();
 }
 function goMonth(delta) {
   const d = new Date(Date.UTC(monthCur.y, monthCur.m + delta, 1));
   monthCur = { y: d.getUTCFullYear(), m: d.getUTCMonth() };
   const isThis = monthCur.y === todayInfo.y && monthCur.m === todayInfo.m;
-  selDay = isThis ? TODAY : dayOf(monthCur.y, monthCur.m, 1);
   try { history.replaceState(null, "", isThis ? location.pathname : `#${monthCur.y}-${pad(monthCur.m + 1)}`); } catch {}
   renderMonth();
 }
 
 document.addEventListener("click", (ev) => {
+  if (ev.target.closest("#cat-btn")) { setPanel(panel.hidden); return; }
+  if (!panel.hidden && !ev.target.closest("#dock")) { setPanel(false); return; } // a tap elsewhere only closes the panel
   const chip = ev.target.closest("[data-cat]");
   if (chip) {
     const k = chip.dataset.cat;
@@ -785,10 +841,10 @@ document.addEventListener("click", (ev) => {
     render();
     return;
   }
-  const jump = ev.target.closest("#drawer [data-open]");
+  const jump = ev.target.closest("#drawer [data-open], #drawer [data-id]");
   if (jump) {
     const back = lastFocus;
-    openEvent(jump.dataset.open);
+    openEvent(jump.dataset.open || jump.dataset.id);
     lastFocus = back; // closing still returns focus to where the reader started
     return;
   }
@@ -802,18 +858,13 @@ document.addEventListener("click", (ev) => {
     return;
   }
   const dayBtn = ev.target.closest("#view [data-day]");
-  if (dayBtn) {
-    selDay = +dayBtn.dataset.day;
-    const i = info(selDay);
-    if (i.y !== monthCur.y || i.m !== monthCur.m) monthCur = { y: i.y, m: i.m };
-    renderMonth();
-    if (mqPhone.matches || ev.target.closest(".mi-more")) {
-      document.getElementById("m-side").scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
+  if (dayBtn) openDay(+dayBtn.dataset.day);
 });
 document.addEventListener("keydown", (ev) => {
-  if (ev.key === "Escape") { closeDrawer(); return; }
+  if (ev.key === "Escape") {
+    if (!panel.hidden) { setPanel(false); catBtn.focus(); } else closeDrawer();
+    return;
+  }
   if (!drawer.hidden || !loaded || viewMode !== "month" || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   if (ev.target.closest && ev.target.closest("input, textarea, select, [contenteditable]")) return;
   if (ev.key === "ArrowLeft") goMonth(-1);
@@ -853,6 +904,22 @@ async function load() {
   }
 }
 
-mqPhone.addEventListener("change", () => { if (loaded && viewMode === "month") renderMonth(); });
+let refit = 0;
+const refitMonth = () => { if (loaded && viewMode === "month") renderMonth(); };
+addEventListener("resize", () => { clearTimeout(refit); refit = setTimeout(refitMonth, 150); });
+document.fonts?.ready.then(refitMonth);
+
+// swipe the grid sideways for the next or previous month
+let touch0 = null;
+const viewEl = document.getElementById("view");
+viewEl.addEventListener("touchstart", (ev) => {
+  touch0 = ev.touches.length === 1 ? { x: ev.touches[0].clientX, y: ev.touches[0].clientY } : null;
+}, { passive: true });
+viewEl.addEventListener("touchend", (ev) => {
+  if (!touch0 || viewMode !== "month") return;
+  const t = ev.changedTouches[0], dx = t.clientX - touch0.x, dy = t.clientY - touch0.y;
+  touch0 = null;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) goMonth(dx < 0 ? 1 : -1);
+}, { passive: true });
 load();
 setInterval(() => { if (drawer.hidden) load(); }, REFRESH_MS);

@@ -52,6 +52,7 @@ The sync never re-adds an event from an email it has already read, so you can sa
   "bus": "Ljubljana",               // optional, instead of airports: FlixBus city for events a bus ride away
   "url": "https://forms.gle/…",     // optional, the public application form only
   "description": "One or two sentences.",
+  "fee": "€70",                     // optional, the participation fee as a short label ("€18/night", "free")
   "status": "confirmed",           // or "cancelled"
   "source": { "from": "BEST Zagreb International list", "subject": "…", "receivedAt": "2026-10-12T09:05+02:00", "messageId": "…" }
 }
