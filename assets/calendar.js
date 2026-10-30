@@ -272,7 +272,7 @@ function tripLine(e, t, icon) {
 }
 const dlKind = (d) => (d.title.includes(":") ? d.title.slice(0, d.title.indexOf(":")) : d.title);
 function evRow(e) {
-  const fl = !e.cancelled ? FLIGHTS[e.id] : null;
+  const fl = !e.cancelled && !isClosed(e) ? FLIGHTS[e.id] : null; // no trips to plan once applications are closed
   const icon = fl?.mode === "bus" ? "bus" : "plane";
   // the best trip on the event's dates, then the second option (±1 day, or the next one on the same dates)
   const trips = [fl?.best?.[0], fl?.alternative || fl?.best?.[1]].filter(Boolean);
@@ -440,7 +440,7 @@ function setAgenda(open) {
 }
 const scrollToToday = () => document.getElementById(`ag-${TODAY}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-const tripFare = (e) => (e.cancelled ? null : FLIGHTS[e.id]?.best?.[0]?.total ?? null);
+const tripFare = (e) => (e.cancelled || isClosed(e) ? null : FLIGHTS[e.id]?.best?.[0]?.total ?? null);
 function barText(e) {
   if (e.dl) { // a deadline names the event it belongs to, in that event's colour
     const f = e.forEv;
@@ -448,13 +448,16 @@ function barText(e) {
     return svg("flag", 11) + what.filter(Boolean).join("");
   }
   const fare = tripFare(e), tier = tierOf(fare), city = shortCity(e), mode = FLIGHTS[e.id]?.mode;
-  const parts = [
+  if (isClosed(e)) {
+    const words = [`<b>${esc(tagOf(e))}</b>`, city && esc(city), e.fee && esc(e.fee)].filter(Boolean).join("&ensp;");
+    return `<b class="mi-closed">Closed</b><span class="x">${words}</span>`;
+  }
+  return [
     `<b>${esc(tagOf(e))}</b>`,
     city && `<span>${esc(city)}</span>`,
     e.fee && `<span class="mi-fee">${esc(e.fee)}</span>`,
     fare != null && `<span class="mi-p${tier ? " tier-" + tier : ""}">${svg(mode === "bus" ? "bus" : "plane", 11)}€${Math.round(fare)}</span>`,
   ].filter(Boolean).join("");
-  return isClosed(e) ? `<b class="mi-closed">Closed</b><span class="x">${parts}</span>` : parts;
 }
 function monthItem(it, w0) {
   const e = it.e;
@@ -465,7 +468,7 @@ function monthItem(it, w0) {
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
   const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}${isClosed(e) ? ", applications closed" : ""}: ${e.title}, ${when}${e.fee ? `, ${feeText(e.fee).toLowerCase()}` : ""}` +
     `${fare != null ? `, trip ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
-  const cls = ["mi", `tag-${e.cat}`, e.dl && "dl", contL && "cont-l", contR && "cont-r", e.cancelled && "is-cancelled"].filter(Boolean).join(" ");
+  const cls = ["mi", `tag-${e.cat}`, e.dl && "dl", contL && "cont-l", contR && "cont-r", e.cancelled && "is-cancelled", isClosed(e) && "is-closed"].filter(Boolean).join(" ");
   return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-run"><span class="mi-txt">${barText(e)}</span></span></button>`;
 }
 
