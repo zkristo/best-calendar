@@ -228,41 +228,48 @@ function timeCell(e, day) {
   } else if (kind === "last" && e.e && e.e.min !== null) {
     big = fmtTime(e.e.min); small = "Ends"; word = false;
   }
-  const progress = e.multi ? `Day ${day - e.sDay + 1} of ${e.eDay - e.sDay + 1}` : "";
-  return { kind, big, small, word, progress };
+  return { kind, big, small, word };
 }
 const sortKeyOn = (e, day) => {
   const t = timeCell(e, day);
   if (t.word) return -1;
   return t.kind === "last" ? e.e.min : e.s.min;
 };
-function placeLine(e) {
+function cityCountry(e) { // "Patras, Greece", "Online"; a venue name only when that's all there is
   const L = e.location;
-  if (!L || !L.name) return "";
-  return L.city && !L.name.includes(L.city) ? `${L.name}, ${L.city}` : L.name;
+  if (!L || !L.name) return e.bus || "";
+  if (/^online$/i.test(L.name.trim())) return "Online";
+  return L.city || L.name;
 }
-function evRow(e, day, agenda = false) {
-  const t = timeCell(e, day);
-  const cont = !agenda && (t.kind === "middle" || t.kind === "last");
-  const span = agenda && e.multi && day === e.sDay ? `${fmtDay(e.sDay)} – ${fmtDay(e.eDay)}` : t.progress;
-  const eyebrow = [catLabel(e), e.cancelled ? "Cancelled" : span].filter(Boolean).join(" · ");
-  const where = [placeLine(e), e.fee && feeText(e.fee)].filter(Boolean).join(" · ");
-  const fl = !e.cancelled ? FLIGHTS[e.id] : null; // shown on every day of the event, not just the first
-  const best = fl?.best?.[0];
-  const fare = best?.total ?? null;
-  const altFare = fl?.alternative && fl.alternative.saving >= 5 ? fl.alternative.total : null; // only when worth a day's shift
-  const arrive = best ? lastTimed(best.out)?.b : null, leave = best ? firstTimed(best.back)?.a : null;
-  const times = [arrive && `arrive ${fmtTime(arrive.min)}`, leave && `leave ${fmtTime(leave.min)}`].filter(Boolean).join(" · ");
-  const cls = `ev-row tag-${e.cat}${cont ? " is-cont" : ""}${e.cancelled ? " is-cancelled" : ""}`;
+function fmtRange(a, b) { // "6–9 Nov", "30 Oct – 2 Nov"
+  const x = info(a), y = info(b);
+  return x.m === y.m ? `${x.d}–${y.d} ${MON[y.m]}` : `${x.d} ${MON[x.m]} – ${y.d} ${MON[y.m]}`;
+}
+const dlKind = (d) => (d.title.includes(":") ? d.title.slice(0, d.title.indexOf(":")) : d.title);
+function evRow(e) {
+  const fl = !e.cancelled ? FLIGHTS[e.id] : null;
+  const fare = fl?.best?.[0]?.total ?? null; // the trip on the event's own dates
+  const when = e.multi ? fmtRange(e.sDay, e.eDay)
+    : e.allDay ? ""
+    : e.dl ? `Due ${fmtTime(e.s.min)}`
+    : e.e && e.e.min !== null ? `${fmtTime(e.s.min)}–${fmtTime(e.e.min)}` : fmtTime(e.s.min);
+  const place = e.dl ? "" : cityCountry(e);
+  const meta = [
+    when && `<span>${when}</span>`,
+    place && `<span>${svg("pin", 14)}${esc(place)}</span>`,
+    e.fee && `<span>${esc(feeText(e.fee))}</span>`,
+    fare != null && `<span>${svg(fl.mode === "bus" ? "bus" : "plane", 14)}${priceTag(fare)}</span>`,
+  ].filter(Boolean);
+  // a deadline points at its event; an event lists the deadlines still ahead (tap one to open it)
+  const links = e.dl
+    ? (e.forEv ? [`<span class="ev-dl tag-${e.forEv.cat}" data-open="${esc(e.forEv.id)}"><i class="sw"></i>${esc(e.forEv.title)}</span>`] : [])
+    : e.dls.filter((d) => d.eDay >= TODAY).sort((p, q) => p.s.abs - q.s.abs).map((d) =>
+        `<span class="ev-dl tag-${d.cat}" data-open="${esc(d.id)}">${svg("flag", 13)}${esc(dlKind(d))} · ${fmtDay(d.sDay)}</span>`);
+  const cls = `ev-row tag-${e.cat}${e.dl ? " is-dl" : ""}${e.cancelled ? " is-cancelled" : ""}`;
   return `<button class="${cls}" type="button" data-id="${esc(e.id)}">
-    <span class="ev-time"><b class="${t.word ? "word" : ""}">${t.big}</b>${t.small ? `<small>${t.small}</small>` : ""}</span>
-    <span class="ev-main">
-      <span class="ev-eyebrow">${esc(eyebrow)}</span>
-      <span class="ev-title">${esc(e.title)}${e.isNew && !cont ? " " + NEW : ""}</span>
-      ${where ? `<span class="ev-loc">${svg("pin", 14)}<span>${esc(where)}</span></span>` : ""}
-      ${fare != null ? `<span class="ev-fly">${svg(fl.mode === "bus" ? "bus" : "plane", 14)}<span>From ${esc(flightsOrigin)}: ${priceTag(fare)}${times ? ` · ${times}` : ""}${altFare != null ? ` · ±1 day ${priceTag(altFare)}` : ""}</span></span>` : ""}
-      ${e.description ? `<span class="ev-desc">${esc(e.description)}</span>` : ""}
-    </span>
+    <span class="ev-title">${e.dl ? svg("flag", 15) : ""}${esc(e.title)}${e.cancelled ? " (cancelled)" : ""}${e.isNew ? " " + NEW : ""}</span>
+    ${meta.length ? `<span class="ev-meta">${meta.join("")}</span>` : ""}
+    ${links.length ? `<span class="ev-dls">${links.join("")}</span>` : ""}
   </button>`;
 }
 const onDay = (evs, day) =>
@@ -318,10 +325,7 @@ function renderMonth() {
     weeks += `<div class="mw"><div class="mw-days">${days}</div><div class="mw-items"></div></div>`;
   }
   const wd = WD.map((n) => `<span><span class="long">${n}</span><span class="short">${n[0]}</span></span>`).join("");
-  document.getElementById("top-nav").innerHTML = `
-    <button class="iconbtn" type="button" data-nav="-1" aria-label="Previous month">${svg("left")}</button>
-    <h2>${MON[m].toUpperCase()} ${y}</h2>
-    <button class="iconbtn" type="button" data-nav="1" aria-label="Next month">${svg("right")}</button>`;
+  document.getElementById("top-nav").innerHTML = `<h2 aria-live="polite">${MON[m].toUpperCase()} ${y}</h2>`;
   view.innerHTML = `<div class="mgrid"><div class="m-wd">${wd}</div>${weeks}</div>`;
   const rows = view.querySelectorAll(".mw-items");
   const cs = getComputedStyle(rows[0]);
@@ -355,7 +359,7 @@ function fitTickers(root) {
 }
 
 const priceKey = () => (TIER_CUTS
-  ? `<p class="m-legend price-key">Trip prices from ${esc(flightsOrigin)}<span class="keys"><span class="key tier-cheap">cheap</span><span class="key tier-mid">mid</span><span class="key tier-dear">pricey</span></span></p>`
+  ? `<p class="m-legend price-key">Trip prices<span class="keys"><span class="key tier-cheap">cheap</span><span class="key tier-mid">mid</span><span class="key tier-dear">pricey</span></span></p>`
   : "");
 
 /* ---------- Agenda ---------- */
@@ -381,7 +385,7 @@ function renderAgenda() {
     const list = groups.get(d).sort((a, b) => a.dl - b.dl || sortKeyOn(a, d) - sortKeyOn(b, d));
     body += `<section class="ag-day${d === TODAY ? " today" : d < TODAY ? " past" : ""}" id="ag-${d}" aria-label="${fmtDayLong(d)}">
       <div class="ag-date"><b>${i.d}</b><span>${WD[i.wd]}</span>${d === TODAY ? "<em>Today</em>" : ""}</div>
-      ${list.length ? `<div class="ev-list">${list.map((e) => evRow(e, d, true)).join("")}</div>` : `<p class="ag-none">Nothing today.</p>`}
+      ${list.length ? `<div class="ev-list">${list.map((e) => evRow(e)).join("")}</div>` : `<p class="ag-none">Nothing today.</p>`}
     </section>`;
   }
   const empty = !EVENTS.length
@@ -427,7 +431,7 @@ function monthItem(it, w0) {
   const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${it.lane + 1}`;
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
   const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}: ${e.title}, ${when}${e.fee ? `, ${feeText(e.fee).toLowerCase()}` : ""}` +
-    `${fare != null ? `, trip from ${flightsOrigin} ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
+    `${fare != null ? `, trip ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
   const cls = ["mi", `tag-${e.cat}`, e.dl && "dl", contL && "cont-l", contR && "cont-r", e.cancelled && "is-cancelled"].filter(Boolean).join(" ");
   return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-run"><span class="mi-txt">${barText(e)}</span></span></button>`;
 }
@@ -658,14 +662,14 @@ function flightsHtml(e) {
   const checked = parseWhen(f.searchedAt);
   const when = checked && checked.min !== null ? `Prices checked ${ago(checked.abs)}. ` : "";
   const bus = f.mode === "bus";
-  const head = `<p class="trip-head">${svg(bus ? "bus" : "plane", 16)} Getting there from ${esc(flightsOrigin)}${bus ? " by bus" : ""}</p>`;
+  const head = `<p class="trip-head">${svg(bus ? "bus" : "plane", 16)} Getting there${bus ? " by bus" : ""}</p>`;
   const best = f.best && f.best[0];
   const alt = f.alternative;
   if (!best && !alt) {
     return `<section class="trip">${head}<p class="trip-note">${bus ? "No FlixBus rides found for these dates yet." : "No bus + flight combination found for these dates yet."} ${esc(when)}</p></section>`;
   }
   const baseline = best && f.baseline && f.baseline > best.total + 0.5
-    ? `<p class="trip-note">Flying from ${esc(flightsOrigin)} both ways on these dates: ${euro(f.baseline)}</p>` : "";
+    ? `<p class="trip-note">Flying both ways on these dates: ${euro(f.baseline)}</p>` : "";
   const more = (f.best || []).slice(1);
   return `<section class="trip">
     ${head}
@@ -729,7 +733,7 @@ function openDay(day) {
   const items = onDay(visible(), day);
   document.getElementById("dr-body").innerHTML = `<section class="day-sheet">
     <h2 class="day-title" id="tk-title">${fmtDayLong(day)}${day === TODAY ? "<small>Today</small>" : ""}</h2>
-    ${items.length ? `<div class="ev-list">${items.map((e) => evRow(e, day)).join("")}</div>` : `<p class="m-legend">Nothing on this day.</p>`}
+    ${items.length ? `<div class="ev-list">${items.map((e) => evRow(e)).join("")}</div>` : `<p class="m-legend">Nothing on this day.</p>`}
   </section>`;
   showDrawer();
 }
@@ -795,11 +799,14 @@ function renderDock() {
     ? `<i class="sw"></i><b>${esc(CATS[only].short || CATS[only].label)}</b><span class="vh">: showing only ${esc(CATS[only].label)}. Categories</span>`
     : `${svg("sliders")}<span class="vh">Categories</span>`;
   catBtn.title = only ? `Showing only ${CATS[only].label}` : "Categories";
-  document.getElementById("vswitch").innerHTML = [["month", "Month", "grid"], ["agenda", "Agenda", "list"]].map(([k, l, i]) =>
-    `<button type="button" data-view="${k}" aria-pressed="${viewMode === k}" title="${l}">${svg(i)}<span class="vh">${l}</span></button>`).join("");
+  const to = viewMode === "agenda" ? ["month", "Month view", "grid"] : ["agenda", "Agenda view", "list"];
+  const vb = document.getElementById("view-btn");
+  vb.dataset.toggleView = to[0];
+  vb.title = to[1];
+  vb.innerHTML = `${svg(to[2])}<span class="vh">${to[1]}</span>`;
 }
 function render() {
-  document.body.dataset.mode = viewMode; // not data-view: that marks the switch buttons
+  document.body.dataset.mode = viewMode;
   renderFilters();
   renderDock();
   viewMode === "agenda" ? renderAgenda() : renderMonth();
@@ -822,8 +829,8 @@ document.addEventListener("click", (ev) => {
     render();
     return;
   }
-  const sw = ev.target.closest("[data-view]");
-  if (sw) { if (sw.dataset.view !== viewMode) setView(sw.dataset.view); return; }
+  const sw = ev.target.closest("[data-toggle-view]");
+  if (sw) { setView(sw.dataset.toggleView); return; }
   if (ev.target.closest("[data-past]")) {
     showPast = true;
     renderAgenda();
@@ -841,18 +848,16 @@ document.addEventListener("click", (ev) => {
     render();
     return;
   }
-  const jump = ev.target.closest("#drawer [data-open], #drawer [data-id]");
+  const jump = ev.target.closest("#drawer [data-open], #drawer [data-id], #view [data-open]");
   if (jump) {
-    const back = lastFocus;
+    const back = lastFocus, inDrawer = !!jump.closest("#drawer");
     openEvent(jump.dataset.open || jump.dataset.id);
-    lastFocus = back; // closing still returns focus to where the reader started
+    if (inDrawer) lastFocus = back; // closing still returns focus to where the reader started
     return;
   }
   if (ev.target.closest("[data-retry]")) { load(); return; }
   const evBtn = ev.target.closest("#view [data-id]");
   if (evBtn) { openEvent(evBtn.dataset.id); return; }
-  const nav = ev.target.closest("[data-nav]");
-  if (nav) { goMonth(+nav.dataset.nav); return; }
   if (ev.target.closest("[data-today]")) {
     goMonth(todayInfo.y * 12 + todayInfo.m - (monthCur.y * 12 + monthCur.m));
     return;
@@ -909,9 +914,23 @@ const refitMonth = () => { if (loaded && viewMode === "month") renderMonth(); };
 addEventListener("resize", () => { clearTimeout(refit); refit = setTimeout(refitMonth, 150); });
 document.fonts?.ready.then(refitMonth);
 
+const viewEl = document.getElementById("view");
+// mouse wheel or trackpad over the grid turns the month (the grid itself never scrolls)
+let wheelSum = 0, wheelLock = 0, wheelLast = 0;
+viewEl.addEventListener("wheel", (ev) => {
+  if (viewMode !== "month" || ev.ctrlKey || viewEl.scrollHeight > viewEl.clientHeight + 1) return; // a short window scrolls the grid
+  ev.preventDefault();
+  const now = Date.now();
+  if (now < wheelLock) { wheelLock = now + 250; return; } // let a trackpad's flick run out before the next month
+  if (now - wheelLast > 300) wheelSum = 0; // a fresh gesture starts from zero
+  wheelLast = now;
+  const px = ev.deltaMode === 1 ? 40 : ev.deltaMode === 2 ? 800 : 1; // lines or pages, on some mice
+  wheelSum += (Math.abs(ev.deltaX) > Math.abs(ev.deltaY) ? ev.deltaX : ev.deltaY) * px;
+  if (Math.abs(wheelSum) >= 50) { goMonth(wheelSum > 0 ? 1 : -1); wheelSum = 0; wheelLock = now + 400; }
+}, { passive: false });
+
 // swipe the grid sideways for the next or previous month
 let touch0 = null;
-const viewEl = document.getElementById("view");
 viewEl.addEventListener("touchstart", (ev) => {
   touch0 = ev.touches.length === 1 ? { x: ev.touches[0].clientX, y: ev.touches[0].clientY } : null;
 }, { passive: true });

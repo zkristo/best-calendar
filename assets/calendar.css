@@ -105,13 +105,14 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
 .mark {
   flex: none; width: 42px; height: 46px; border-radius: 8px; background: var(--sign); color: var(--sign-ink);
   display: grid; place-items: center; align-content: center; font-family: var(--f-display); line-height: 1;
+  border: 0; padding: 0; cursor: pointer;
 }
 .mark small { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 .mark b { font-size: 23px; font-weight: 700; }
 .brand h1 { margin: 0; font: 700 26px/1 var(--f-display); letter-spacing: 0.01em; white-space: nowrap; }
 .top-nav { display: flex; align-items: center; gap: 4px; }
 .top-nav:empty { display: none; }
-.top-nav h2 { margin: 0; min-width: 6.2ch; text-align: center; font: 700 24px/1 var(--f-display); letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+.top-nav h2 { margin: 0; font: 700 24px/1 var(--f-display); letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
 @media (max-width: 640px) {
   .wrap { padding-inline: 12px; gap: 8px; }
   body[data-mode="month"] .wrap { padding-inline: 0; padding-bottom: 0; }
@@ -122,7 +123,6 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
   .brand { gap: 9px; }
   .brand h1 { font-size: 22px; }
   .top-nav h2 { font-size: 20px; }
-  .top-nav .iconbtn { width: 32px; height: 32px; }
 }
 .status { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; color: var(--muted); font-size: 13px; margin: 0; }
 .status strong { color: var(--ink); font-weight: 600; }
@@ -147,29 +147,27 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
 .btn { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 6px 14px; cursor: pointer; font-weight: 600; }
 .btn:hover { border-color: var(--muted); }
 
-/* ---------- Event row (selected-day list) ---------- */
+/* ---------- Event card: title, then when · place · fee · trip, then deadlines; the full width ---------- */
 .ev-list { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .ev-row {
-  display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 12px; align-items: start; width: 100%;
-  text-align: left; background: transparent; border: 0; border-top: 1px solid var(--line-soft); padding: 12px 14px; cursor: pointer;
+  display: grid; gap: 5px; width: 100%; text-align: left; cursor: pointer;
+  background: transparent; border: 0; border-top: 1px solid var(--line-soft); padding: 12px 14px 12px 16px;
+  box-shadow: inset 4px 0 0 var(--c);
 }
 .ev-row:first-child { border-top: 0; }
 .ev-row:hover { background: var(--c-soft); }
-.ev-time { display: grid; gap: 2px; padding-top: 1px; }
-.ev-time b { font: 500 15px/1.2 var(--f-mono); font-variant-numeric: tabular-nums; }
-.ev-time b.word { font-family: var(--f-body); font-weight: 600; font-size: 14px; }
-.ev-time small { color: var(--muted); font-size: 12.5px; line-height: 1.25; }
-.ev-main { min-width: 0; display: grid; gap: 2px; }
-.ev-eyebrow { font: 600 12px/1.3 var(--f-body); text-transform: uppercase; letter-spacing: 0.07em; color: var(--c-ink); }
-.ev-title { font: 600 15.5px/1.25 var(--f-body); }
-.ev-loc { display: flex; gap: 5px; align-items: center; color: var(--muted); font-size: 14px; min-width: 0; }
-.ev-loc { align-items: flex-start; }
-.ev-loc svg { margin-top: 2px; }
-.ev-loc svg { flex: none; }
-.ev-desc { color: var(--muted); font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.ev-row.is-cont .ev-title { color: var(--muted); }
-.ev-row.is-cont .ev-desc { display: none; }
-.is-cancelled .ev-title, .is-cancelled .mi-n, .tk-title.is-cancelled { text-decoration: line-through; }
+.ev-title { font: 600 16px/1.3 var(--f-body); }
+.ev-title svg { color: var(--c); vertical-align: -2px; margin-right: 6px; }
+.ev-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; color: var(--muted); font-size: 14px; }
+.ev-meta > span { display: inline-flex; align-items: center; gap: 5px; font-variant-numeric: tabular-nums; }
+.ev-meta svg { flex: none; }
+.ev-meta b { color: var(--ink); font-weight: 600; }
+.ev-dls { display: grid; gap: 2px; justify-items: start; }
+.ev-dl { display: inline-flex; align-items: center; gap: 6px; color: var(--c-ink); font-size: 14px; font-weight: 600; }
+.ev-dl svg { flex: none; color: var(--c); }
+.ev-dl .sw { flex: none; width: 10px; height: 10px; border-radius: 3px; background: var(--c); }
+.ev-dl:hover { text-decoration: underline; }
+.is-cancelled .ev-title, .tk-title.is-cancelled { text-decoration: line-through; }
 .is-cancelled .ev-title { color: var(--muted); }
 
 /* ---------- Month: the grid fills the screen, bars carry tag · city · fee · trip price ---------- */
@@ -190,7 +188,7 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
 .mw-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
 .md {
   border: 0; border-left: 1px solid var(--line-soft); background: transparent; cursor: pointer;
-  text-align: left; padding: 5px 7px; min-width: 0;
+  text-align: left; padding: 6px 5px; min-width: 0;
   display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
 }
 .md:first-child { border-left: 0; }
@@ -200,11 +198,11 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
 .md.out .md-num { color: var(--muted); font-weight: 500; }
 .md.today .md-num { background: var(--ink); color: var(--surface); }
 .mw-items {
-  position: absolute; top: 28px; left: 0; right: 0; bottom: 3px; pointer-events: none; overflow: hidden;
-  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-auto-rows: 21px; row-gap: 3px; align-content: start;
+  position: absolute; top: 32px; left: 0; right: 0; bottom: 4px; pointer-events: none; overflow: hidden;
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-auto-rows: 21px; row-gap: 4px; align-content: start;
 }
 .mi {
-  pointer-events: auto; min-width: 0; margin-inline: 3px; border: 0; cursor: pointer; text-align: left;
+  pointer-events: auto; min-width: 0; margin-inline: 4px; border: 0; cursor: pointer; text-align: left;
   display: flex; align-items: center; gap: 4px; padding: 0 6px; border-radius: 5px; overflow: hidden;
   background: var(--c); color: var(--c-on); font: 600 13.5px/1 var(--f-display); letter-spacing: 0.01em; white-space: nowrap;
 }
@@ -216,7 +214,7 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
 .mi.is-cancelled .mi-txt { text-decoration: line-through; }
 .mi-run { flex: 1 1 auto; min-width: 0; overflow: hidden; }
 .mi-txt { display: block; overflow: hidden; text-overflow: ellipsis; }
-.mi-txt > * + * { margin-left: 0.5em; }
+.mi-txt > * + * { margin-left: 0.65em; }
 .mi-txt b { font-weight: 700; letter-spacing: 0.04em; }
 .mi-fee { font-variant-numeric: tabular-nums; opacity: 0.85; }
 .mi-p {
@@ -244,9 +242,9 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
   .m-wd span { padding: 4px 0; text-align: center; font-size: 11px; }
   .m-wd .long { display: none; }
   .m-wd .short { display: inline; }
-  .md { padding: 3px 0 0; align-items: center; }
+  .md { padding: 4px 0 0; align-items: center; }
   .md-num { font-size: 13px; padding: 2px 4px 1px; }
-  .mw-items { top: 21px; bottom: 2px; grid-auto-rows: 16px; row-gap: 2px; }
+  .mw-items { top: 24px; bottom: 3px; grid-auto-rows: 16px; row-gap: 3px; }
   .mi { margin-inline: 1px; padding: 0 3px; border-radius: 3px; font-size: 11.5px; gap: 2px; }
   .mi.cont-l, .mi.cont-r { margin-inline: 0; }
   .mi.dl { box-shadow: inset 2px 0 0 var(--c); }
@@ -254,6 +252,7 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
   .mi-p { font-size: 10px; padding: 1px 3px; }
   .mi-p svg { display: none; }
   .mi.tick .mi-txt { padding-right: 2em; }
+  .mi-txt > * + * { margin-left: 0.5em; }
   .mi-more { font-size: 10.5px; line-height: 16px; text-align: center; padding: 0; margin-inline: 1px; }
   .more-word { display: none; }
 }
@@ -287,8 +286,7 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
 .when .mono, .when-one .mono { font-size: 18px; }
 .note { margin: -6px 0 0; color: var(--muted); font-size: 13.5px; }
 .fields { margin: 0; display: grid; gap: 12px; }
-.fields > div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; }
-.fields dt { padding-top: 2px; }
+.fields > div { display: grid; gap: 3px; }
 .fields dd { margin: 0; display: grid; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
 .fields dd .muted { color: var(--muted); font-size: 14px; }
 .fields a { color: var(--focus); font-weight: 600; font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; width: fit-content; }
@@ -301,15 +299,9 @@ body[data-mode="agenda"] .wrap { padding-bottom: calc(env(safe-area-inset-bottom
 .perf i:last-child { right: -12px; }
 .src { padding: 6px 18px 18px; display: grid; gap: 10px; }
 .src-head { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0; }
-.src .fields > div { grid-template-columns: 76px minmax(0, 1fr); }
 .src .fields { font-size: 14px; gap: 8px; }
 
 /* ---------- Getting there from Zagreb (data/flights.json) ---------- */
-.ev-fly { display: flex; gap: 5px; align-items: center; color: var(--muted); font-size: 14px; min-width: 0; }
-.ev-fly svg { flex: none; }
-.ev-fly { align-items: flex-start; }
-.ev-fly svg { margin-top: 2px; }
-.ev-fly b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .trip { display: grid; gap: 14px; border-top: 1px solid var(--line-soft); padding-top: 16px; min-width: 0; }
 .trip-head { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 .trip-total { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 4px 12px; }
@@ -405,21 +397,16 @@ b.price[class*="tier-"] { background: var(--t-soft); color: var(--t-ink); border
 }
 .dock > * { pointer-events: auto; }
 .dock-btns { display: grid; gap: 8px; justify-items: end; }
-.fab, .vswitch { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(15, 25, 40, 0.18); }
 .fab {
   height: 44px; min-width: 44px; padding: 0 13px; border-radius: 22px; cursor: pointer;
   display: inline-flex; align-items: center; justify-content: center; gap: 7px; font-weight: 600; font-size: 14.5px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(15, 25, 40, 0.18);
 }
 .fab:hover { border-color: var(--muted); }
 .fab .sw { width: 12px; height: 12px; border-radius: 3px; background: var(--c); }
 .fab.is-on { border-color: var(--c); box-shadow: 0 0 0 1px var(--c), 0 6px 18px rgba(15, 25, 40, 0.18); }
 .fab.is-on b { font: 700 16px/1 var(--f-display); letter-spacing: 0.04em; }
 #cat-btn[aria-expanded="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
-.vswitch { display: grid; border-radius: 22px; overflow: hidden; }
-.vswitch button { width: 44px; height: 42px; display: grid; place-items: center; border: 0; background: none; color: var(--muted); cursor: pointer; }
-.vswitch button + button { border-top: 1px solid var(--line); }
-.vswitch button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
-.vswitch button:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
 .panel {
   width: min(290px, calc(100vw - 96px)); max-height: calc(100dvh - 40px); overflow-y: auto;
   background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow);
@@ -432,7 +419,6 @@ b.price[class*="tier-"] { background: var(--t-soft); color: var(--t-ink); border
   .dock { right: calc(env(safe-area-inset-right, 0px) + 10px); bottom: calc(env(safe-area-inset-bottom, 0px) + 10px); gap: 8px; }
   .dock-btns { gap: 6px; }
   .fab { height: 40px; min-width: 40px; padding: 0 11px; font-size: 14px; }
-  .vswitch button { width: 40px; height: 38px; }
 }
 .day-sheet { display: grid; gap: 12px; }
 .day-title { margin: 0; display: flex; align-items: baseline; gap: 10px; font: 700 24px/1.1 var(--f-display); }

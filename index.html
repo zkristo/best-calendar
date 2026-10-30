@@ -15,7 +15,7 @@
 <div class="wrap">
   <header class="top">
     <div class="brand">
-      <span class="mark" aria-hidden="true"><small id="mark-mon"></small><b id="mark-day"></b></span>
+      <button class="mark" type="button" data-today aria-label="Go to today" title="Go to today"><small id="mark-mon"></small><b id="mark-day"></b></button>
       <h1>BEST Calendar</h1>
     </div>
     <div class="top-nav" id="top-nav"></div>
@@ -34,8 +34,7 @@
   </div>
   <div class="dock-btns">
     <button class="fab" id="cat-btn" type="button" aria-expanded="false" aria-controls="panel"></button>
-    <button class="fab" type="button" data-today>Today</button>
-    <div class="vswitch" id="vswitch" role="group" aria-label="View"></div>
+    <button class="fab" id="view-btn" type="button" data-toggle-view></button>
   </div>
 </div>
 
