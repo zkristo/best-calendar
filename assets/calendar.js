@@ -41,6 +41,7 @@ const ICON = {
   sliders: '<path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/>',
   grid: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18"/><path d="M9 10v11"/><path d="M15 10v11"/><path d="M3 15.5h18"/>',
   list: '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>',
+  moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
   globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
   flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>',
   pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
@@ -192,16 +193,28 @@ function shortName(e) { // Other events have no tag, so their own name leads: "(
 const tagOf = (e) => CATS[e.cat].short || shortName(e);
 
 /* ---------- State ---------- */
-let only = null;            // the one category the filters are narrowed to, or null for all
+const DEFAULT_CATS = new Set(["rm", "course", "mw", "jam", "ce"]); // Other starts switched off
+let picked = null;          // the categories the reader picked, or null for the default set
+const catOn = (k) => (picked ? picked.has(k) : DEFAULT_CATS.has(k));
 let otherDeadlines = false; // deadlines outside RM, Course and MW
 const todayInfo = info(TODAY);
-let monthCur = { y: todayInfo.y, m: todayInfo.m };
+/* Pages of the grid: page 0 is six weeks starting this week, so nothing past fills the screen; pages 1, 2, …
+   are whole months after that. There is no going back past this week. */
+const WEEK0 = TODAY - todayInfo.wd;
+const NEXT0 = info(WEEK0 + 42); // the month page 1 shows
+let page = 0;
+const pageMonth = (k) => { const d = new Date(Date.UTC(NEXT0.y, NEXT0.m + k - 1, 1)); return { y: d.getUTCFullYear(), m: d.getUTCMonth() }; };
+const pageStart = (k) => { if (!k) return WEEK0; const { y, m } = pageMonth(k), f = dayOf(y, m, 1); return f - info(f).wd; };
+const pageOf = (day) => { const i = info(day); return day < WEEK0 + 42 ? 0 : i.y * 12 + i.m - (NEXT0.y * 12 + NEXT0.m) + 1; };
+const pageHash = () => { if (!page) return ""; const { y, m } = pageMonth(page); return `#${y}-${pad(m + 1)}`; };
 const mqPhone = matchMedia("(max-width: 640px)");
-const visible = () => EVENTS.filter((e) => (!only || e.cat === only) && (!e.dl || MAIN.has(e.cat) || otherDeadlines));
+// past events stay off the calendar (the agenda can still show them on request)
+const visible = (withPast = false) => EVENTS.filter((e) =>
+  (withPast || e.eDay >= TODAY) && catOn(e.cat) && (!e.dl || MAIN.has(e.cat) || otherDeadlines));
 
 const hashMonth = /^#(\d{4})-(\d{2})$/.exec(location.hash);
 if (hashMonth && +hashMonth[2] >= 1 && +hashMonth[2] <= 12) {
-  monthCur = { y: +hashMonth[1], m: +hashMonth[2] - 1 };
+  page = Math.max(0, pageOf(dayOf(+hashMonth[1], +hashMonth[2] - 1, 1)));
 }
 
 /* Month grid or agenda (one scrolling list). A link (#agenda, #2026-11) wins, then the reader's last
@@ -241,14 +254,32 @@ function cityCountry(e) { // "Patras, Greece", "Online"; a venue name only when 
   if (/^online$/i.test(L.name.trim())) return "Online";
   return L.city || L.name;
 }
-function fmtRange(a, b) { // "6–9 Nov", "30 Oct – 2 Nov"
+function fmtRange(a, b) { // "6–9 Nov", "30 Oct – 2 Nov", "6 Nov"
   const x = info(a), y = info(b);
+  if (a === b) return `${x.d} ${MON[x.m]}`;
   return x.m === y.m ? `${x.d}–${y.d} ${MON[y.m]}` : `${x.d} ${MON[x.m]} – ${y.d} ${MON[y.m]}`;
+}
+function feeRange(e) { // the fee in euros as [low, high]; "€18/night" counts the event's nights
+  if (!e.fee) return null;
+  if (/^free$/i.test(e.fee)) return [0, 0];
+  const m = /€\s?(\d+(?:\.\d+)?)(?:\s?[–-]\s?(\d+(?:\.\d+)?))?(\/night)?/.exec(e.fee);
+  if (!m) return null;
+  const n = m[3] ? Math.max(e.eDay - e.sDay, 1) : 1;
+  return [+m[1] * n, +(m[2] ?? m[1]) * n];
+}
+function tripLine(e, t, icon) {
+  const a = firstTimed(t.out)?.a, b = lastTimed(t.back)?.b;
+  const fee = feeRange(e);
+  const sum = fee && fee[1] > 0
+    ? `<span class="ev-sum">= ${fee[0] === fee[1] ? euro(fee[0] + t.total) : `${euro(fee[0] + t.total)}–${euro(fee[1] + t.total)}`}</span>` : "";
+  return `<span class="ev-trip">${svg(icon, 14)}${a && b ? `<span>${fmtRange(a.day, b.day)}</span>` : ""}${priceTag(t.total)}${sum}</span>`;
 }
 const dlKind = (d) => (d.title.includes(":") ? d.title.slice(0, d.title.indexOf(":")) : d.title);
 function evRow(e) {
   const fl = !e.cancelled ? FLIGHTS[e.id] : null;
-  const fare = fl?.best?.[0]?.total ?? null; // the trip on the event's own dates
+  const icon = fl?.mode === "bus" ? "bus" : "plane";
+  // the best trip on the event's dates, then the second option (±1 day, or the next one on the same dates)
+  const trips = [fl?.best?.[0], fl?.alternative || fl?.best?.[1]].filter(Boolean);
   const when = e.multi ? fmtRange(e.sDay, e.eDay)
     : e.allDay ? ""
     : e.dl ? `Due ${fmtTime(e.s.min)}`
@@ -258,7 +289,6 @@ function evRow(e) {
     when && `<span>${when}</span>`,
     place && `<span>${svg("pin", 14)}${esc(place)}</span>`,
     e.fee && `<span>${esc(feeText(e.fee))}</span>`,
-    fare != null && `<span>${svg(fl.mode === "bus" ? "bus" : "plane", 14)}${priceTag(fare)}</span>`,
   ].filter(Boolean);
   // a deadline points at its event; an event lists the deadlines still ahead (tap one to open it)
   const links = e.dl
@@ -269,6 +299,7 @@ function evRow(e) {
   return `<button class="${cls}" type="button" data-id="${esc(e.id)}">
     <span class="ev-title">${e.dl ? svg("flag", 15) : ""}${esc(e.title)}${e.cancelled ? " (cancelled)" : ""}${e.isNew ? " " + NEW : ""}</span>
     ${meta.length ? `<span class="ev-meta">${meta.join("")}</span>` : ""}
+    ${trips.length ? `<span class="ev-trips">${trips.map((t) => tripLine(e, t, icon)).join("")}</span>` : ""}
     ${links.length ? `<span class="ev-dls">${links.join("")}</span>` : ""}
   </button>`;
 }
@@ -282,7 +313,7 @@ function weekBars(evs, w0, lanes) {
   const w1 = w0 + 6;
   const items = evs
     .filter((e) => e.sDay <= w1 && e.eDay >= w0)
-    .map((e) => ({ e, a: Math.max(e.sDay, w0) - w0, b: Math.min(e.eDay, w1) - w0 }))
+    .map((e) => ({ e, a: Math.max(e.sDay, w0, TODAY) - w0, b: Math.min(e.eDay, w1) - w0 }))
     .sort((p, q) => p.e.dl - q.e.dl || p.a - q.a || (q.b - q.a) - (p.b - p.a) || q.e.multi - p.e.multi || q.e.allDay - p.e.allDay || p.e.s.abs - q.e.s.abs);
   const occ = [];
   for (const it of items) {
@@ -311,21 +342,24 @@ function weekBars(evs, w0, lanes) {
 }
 function renderMonth() {
   const view = document.getElementById("view");
-  const { y, m } = monthCur;
-  const first = dayOf(y, m, 1);
-  const g0 = first - info(first).wd;
+  const pm = page ? pageMonth(page) : null; // null: the rolling first page
+  const g0 = pageStart(page);
   let weeks = "";
   for (let w = 0; w < 6; w++) {
     let days = "";
     for (let c = 0; c < 7; c++) {
       const d = g0 + w * 7 + c, i = info(d);
-      const cls = ["md", i.m !== m && "out", c >= 5 && "wkend", d === TODAY && "today"].filter(Boolean).join(" ");
-      days += `<button class="${cls}" type="button" data-day="${d}" aria-label="${fmtDayLong(d)}"><span class="md-num">${i.d}</span></button>`;
+      const cls = ["md", pm && i.m !== pm.m && "out", c >= 5 && "wkend", d === TODAY && "today", d < TODAY && "past"].filter(Boolean).join(" ");
+      const num = i.d === 1 && !pm ? `${i.d} ${MON[i.m].toUpperCase()}` : i.d; // on the rolling page, mark where a month starts
+      days += `<button class="${cls}" type="button" data-day="${d}" aria-label="${fmtDayLong(d)}"><span class="md-num">${num}</span></button>`;
     }
     weeks += `<div class="mw"><div class="mw-days">${days}</div><div class="mw-items"></div></div>`;
   }
   const wd = WD.map((n) => `<span><span class="long">${n}</span><span class="short">${n[0]}</span></span>`).join("");
-  document.getElementById("top-nav").innerHTML = `<h2 aria-live="polite">${MON[m].toUpperCase()} ${y}</h2>`;
+  const a = info(g0), z = info(g0 + 41);
+  const title = pm ? `${MON[pm.m].toUpperCase()} ${pm.y}`
+    : a.m === z.m ? `${MON[a.m].toUpperCase()} ${a.y}` : `${MON[a.m].toUpperCase()} – ${MON[z.m].toUpperCase()} ${z.y}`;
+  document.getElementById("top-nav").innerHTML = `<h2 aria-live="polite">${title}</h2>`;
   view.innerHTML = `<div class="mgrid"><div class="m-wd">${wd}</div>${weeks}</div>`;
   const rows = view.querySelectorAll(".mw-items");
   const cs = getComputedStyle(rows[0]);
@@ -365,7 +399,7 @@ const priceKey = () => (TIER_CUTS
 /* ---------- Agenda ---------- */
 function renderAgenda() {
   const view = document.getElementById("view");
-  const evs = visible();
+  const evs = visible(showPast);
   // each event once: on its first day, or under today while it is running
   const groups = new Map();
   for (const e of evs) {
@@ -390,7 +424,7 @@ function renderAgenda() {
   }
   const empty = !EVENTS.length
     ? `<p class="m-legend">No events yet. They appear here when BEST International emails arrive.</p>`
-    : !evs.length ? `<p class="m-legend">No events match these filters. <button class="linkbtn" type="button" data-showall>Show all types</button></p>` : "";
+    : !evs.length ? `<p class="m-legend">No events match these categories. <button class="linkbtn" type="button" data-showall>Reset categories</button></p>` : "";
   document.getElementById("top-nav").innerHTML = "";
   view.innerHTML = `<div class="ag">
     ${empty || `${showPast ? "" : `<button class="linkbtn ag-past" type="button" data-past>Show past events</button>`}
@@ -401,8 +435,7 @@ function renderAgenda() {
 function setView(mode) {
   viewMode = mode;
   try { localStorage.setItem(VIEW_KEY, mode); } catch {}
-  const hash = mode === "agenda" ? "#agenda"
-    : monthCur.y === todayInfo.y && monthCur.m === todayInfo.m ? "" : `#${monthCur.y}-${pad(monthCur.m + 1)}`;
+  const hash = mode === "agenda" ? "#agenda" : pageHash();
   try { history.replaceState(null, "", hash || location.pathname); } catch {}
   render();
 }
@@ -558,14 +591,12 @@ function legTimeline(label, leg) {
   const refDay = first.a.day;
   const total = segs.reduce((n, g) => n + g.min, 0);
   const home = (leg.steps || []).find((s) => s.kind === "transfer");
-  const words = segs.map(segText);
-  if (home && home.minutes) words[label === "Out" ? "unshift" : "push"](`${home.text} ${fmtDur(home.minutes)}`);
-  const note = words.join(" · ");
+  const note = segs.map(segText).join(" · "); // for screen readers; the bar says the same
+  const ICONS = { bus: "bus", flight: "plane", night: "moon" };
   const bar = segs.map((g) => {
     const what = g.kind === "night" ? "Overnight wait" : g.kind === "wait" ? "Wait" : g.kind === "bus" ? "Bus" : "Flight";
-    const tip = `${what} ${fmtTime(g.a.min)}–${fmtTime(g.b.min)} (${g.approx ? "≈" : ""}${fmtDur(g.min)})`;
-    const icon = (g.kind === "bus" || g.kind === "flight") && g.min / total >= 0.14 ? svg(g.kind === "bus" ? "bus" : "plane", 12) : "";
-    return `<i class="seg ${g.kind}" style="flex-grow:${Math.max(g.min, 1)}" title="${esc(tip)}">${icon}</i>`;
+    const tip = `${what} ${fmtTime(g.a.min)}–${fmtTime(g.b.min)} (${g.approx ? "≈" : ""}${fmtDur(g.min)})${g.transfer ? `, incl. ${g.transfer} min transfer` : ""}`;
+    return `<i class="seg ${g.kind}" style="flex-grow:${Math.max(g.min, 1)}" title="${esc(tip)}">${ICONS[g.kind] ? svg(ICONS[g.kind], 12) : ""}<span>${g.approx ? "≈" : ""}${fmtDur(g.min)}</span></i>`;
   }).join("");
   return `<div class="tl">
     <p class="tl-head"><span><b>${label}</b> · ${fmtDay(refDay)}</span><span class="tl-dur">${fmtDur(total)} total</span></p>
@@ -574,7 +605,8 @@ function legTimeline(label, leg) {
       <span class="tl-end r"><b>${clock(last.b, refDay)}</b><span>${esc(placeTo(last.s))}</span></span>
     </div>
     <div class="tl-bar" aria-hidden="true">${bar}</div>
-    <p class="tl-note">${esc(note[0].toUpperCase() + note.slice(1))}</p>
+    <p class="vh">${esc(note[0].toUpperCase() + note.slice(1))}</p>
+    ${home && home.minutes ? `<p class="tl-home">${svg("car", 13)}${esc(home.text)} · ${fmtDur(home.minutes)}</p>` : ""}
   </div>`;
 }
 function bookHtml(t) {
@@ -687,6 +719,7 @@ function flightsHtml(e) {
 function openEvent(id) {
   const e = BY_ID[id];
   if (!e) return;
+  sheetDay = null;
   lastFocus = document.activeElement;
   const L = e.location;
   let where = "";
@@ -728,14 +761,29 @@ function openEvent(id) {
   </article>`;
   showDrawer();
 }
+let sheetDay = null; // the day the drawer is showing, when it shows a day
 function openDay(day) {
-  lastFocus = document.activeElement;
+  const fresh = drawer.hidden;
+  if (fresh) lastFocus = document.activeElement;
+  sheetDay = day;
   const items = onDay(visible(), day);
   document.getElementById("dr-body").innerHTML = `<section class="day-sheet">
     <h2 class="day-title" id="tk-title">${fmtDayLong(day)}${day === TODAY ? "<small>Today</small>" : ""}</h2>
     ${items.length ? `<div class="ev-list">${items.map((e) => evRow(e)).join("")}</div>` : `<p class="m-legend">Nothing on this day.</p>`}
   </section>`;
-  showDrawer();
+  if (fresh) showDrawer();
+  else drawer.scrollTop = 0;
+}
+function stepDay(delta) {
+  const d = sheetDay + delta, g0 = pageStart(page);
+  if (viewMode === "month" && (d < g0 || d > g0 + 41)) goMonth(pageOf(d) - page); // keep the grid behind on a page showing this day
+  openDay(d);
+}
+function fitBars(root) {
+  for (const bar of root.querySelectorAll(".tl-bar")) {
+    if (bar.scrollWidth > bar.clientWidth + 1) bar.classList.add("tight");
+    if (bar.scrollWidth > bar.clientWidth + 1) bar.classList.add("tighter");
+  }
 }
 function showDrawer() {
   setPanel(false);
@@ -743,6 +791,7 @@ function showDrawer() {
   scrim.hidden = false;
   drawer.scrollTop = 0;
   requestAnimationFrame(() => { drawer.classList.add("open"); scrim.classList.add("open"); });
+  fitBars(drawer);
   document.getElementById("dr-close").focus();
 }
 function closeDrawer() {
@@ -775,15 +824,17 @@ function statusHtml() {
 }
 function renderFilters() {
   const counts = {};
-  for (const e of EVENTS) if (!e.dl) counts[e.cat] = (counts[e.cat] || 0) + 1;
-  const extra = EVENTS.filter((e) => e.dl && !MAIN.has(e.cat)).length;
+  const ahead = EVENTS.filter((e) => e.eDay >= TODAY);
+  for (const e of ahead) if (!e.dl) counts[e.cat] = (counts[e.cat] || 0) + 1;
+  const extra = ahead.filter((e) => e.dl && !MAIN.has(e.cat)).length;
   document.getElementById("filters").innerHTML =
     Object.entries(CATS).map(([k, c]) =>
-      `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${!only || only === k}"><i class="sw"></i>${c.label}<span class="n">${counts[k] || 0}</span></button>`
+      `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${catOn(k)}"><i class="sw"></i>${c.label}<span class="n">${counts[k] || 0}</span></button>`
     ).join("") +
     `<button class="fchip dl-chip" type="button" data-otherdl aria-pressed="${otherDeadlines}">${svg("flag", 14)}Other deadlines<span class="n">${extra}</span></button>`;
   document.getElementById("panel-foot").innerHTML =
-    `${only ? `<button class="linkbtn" type="button" data-showall>Show all categories</button>` : ""}${priceKey()}${statusHtml()}`;
+    // the reset link keeps its place when hidden, so the panel doesn't change size
+    `<button class="linkbtn" type="button" data-showall${picked ? "" : " hidden-keep"}>Reset categories</button>${priceKey()}${statusHtml()}`;
 }
 
 /* ---------- Dock: categories, today and the view switch, bottom right ---------- */
@@ -794,11 +845,13 @@ function setPanel(open) {
   catBtn.setAttribute("aria-expanded", String(open));
 }
 function renderDock() {
-  catBtn.className = `fab${only ? ` tag-${only} is-on` : ""}`;
-  catBtn.innerHTML = only
-    ? `<i class="sw"></i><b>${esc(CATS[only].short || CATS[only].label)}</b><span class="vh">: showing only ${esc(CATS[only].label)}. Categories</span>`
+  // a fixed round button: the sliders icon, or a dot per picked category
+  const names = picked ? [...picked].map((k) => CATS[k].label).join(", ") : "";
+  catBtn.className = `fab round${picked ? " is-on" : ""}`;
+  catBtn.innerHTML = picked
+    ? `<span class="dots">${[...picked].slice(0, 4).map((k) => `<i class="tag-${k}"></i>`).join("")}</span><span class="vh">Categories: showing ${esc(names)}</span>`
     : `${svg("sliders")}<span class="vh">Categories</span>`;
-  catBtn.title = only ? `Showing only ${CATS[only].label}` : "Categories";
+  catBtn.title = picked ? `Showing ${names}` : "Categories";
   const to = viewMode === "agenda" ? ["month", "Month view", "grid"] : ["agenda", "Agenda view", "list"];
   const vb = document.getElementById("view-btn");
   vb.dataset.toggleView = to[0];
@@ -812,10 +865,10 @@ function render() {
   viewMode === "agenda" ? renderAgenda() : renderMonth();
 }
 function goMonth(delta) {
-  const d = new Date(Date.UTC(monthCur.y, monthCur.m + delta, 1));
-  monthCur = { y: d.getUTCFullYear(), m: d.getUTCMonth() };
-  const isThis = monthCur.y === todayInfo.y && monthCur.m === todayInfo.m;
-  try { history.replaceState(null, "", isThis ? location.pathname : `#${monthCur.y}-${pad(monthCur.m + 1)}`); } catch {}
+  const next = Math.max(0, page + delta);
+  if (next === page) return;
+  page = next;
+  try { history.replaceState(null, "", pageHash() || location.pathname); } catch {}
   renderMonth();
 }
 
@@ -825,7 +878,9 @@ document.addEventListener("click", (ev) => {
   const chip = ev.target.closest("[data-cat]");
   if (chip) {
     const k = chip.dataset.cat;
-    only = only === k ? null : k; // one category at a time; tap it again for all
+    if (!picked) picked = new Set([k]); // the first tap narrows to that one
+    else if (picked.has(k)) { picked.delete(k); if (!picked.size) picked = null; }
+    else picked.add(k); // later taps add more
     render();
     return;
   }
@@ -844,7 +899,7 @@ document.addEventListener("click", (ev) => {
     return;
   }
   if (ev.target.closest("[data-showall]")) {
-    only = null;
+    picked = null;
     render();
     return;
   }
@@ -859,7 +914,7 @@ document.addEventListener("click", (ev) => {
   const evBtn = ev.target.closest("#view [data-id]");
   if (evBtn) { openEvent(evBtn.dataset.id); return; }
   if (ev.target.closest("[data-today]")) {
-    goMonth(todayInfo.y * 12 + todayInfo.m - (monthCur.y * 12 + monthCur.m));
+    goMonth(-page);
     return;
   }
   const dayBtn = ev.target.closest("#view [data-day]");
@@ -868,6 +923,10 @@ document.addEventListener("click", (ev) => {
 document.addEventListener("keydown", (ev) => {
   if (ev.key === "Escape") {
     if (!panel.hidden) { setPanel(false); catBtn.focus(); } else closeDrawer();
+    return;
+  }
+  if (!drawer.hidden && sheetDay !== null && (ev.key === "ArrowLeft" || ev.key === "ArrowRight")) {
+    stepDay(ev.key === "ArrowLeft" ? -1 : 1);
     return;
   }
   if (!drawer.hidden || !loaded || viewMode !== "month" || ev.altKey || ev.ctrlKey || ev.metaKey) return;
@@ -929,16 +988,20 @@ viewEl.addEventListener("wheel", (ev) => {
   if (Math.abs(wheelSum) >= 50) { goMonth(wheelSum > 0 ? 1 : -1); wheelSum = 0; wheelLock = now + 400; }
 }, { passive: false });
 
-// swipe the grid sideways for the next or previous month
-let touch0 = null;
-viewEl.addEventListener("touchstart", (ev) => {
-  touch0 = ev.touches.length === 1 ? { x: ev.touches[0].clientX, y: ev.touches[0].clientY } : null;
-}, { passive: true });
-viewEl.addEventListener("touchend", (ev) => {
-  if (!touch0 || viewMode !== "month") return;
-  const t = ev.changedTouches[0], dx = t.clientX - touch0.x, dy = t.clientY - touch0.y;
-  touch0 = null;
-  if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) goMonth(dx < 0 ? 1 : -1);
-}, { passive: true });
+// swipe sideways: the grid to the next or previous month, a day sheet to the next or previous day
+function onSwipe(el, go) {
+  let t0 = null;
+  el.addEventListener("touchstart", (ev) => {
+    t0 = ev.touches.length === 1 ? { x: ev.touches[0].clientX, y: ev.touches[0].clientY } : null;
+  }, { passive: true });
+  el.addEventListener("touchend", (ev) => {
+    if (!t0) return;
+    const t = ev.changedTouches[0], dx = t.clientX - t0.x, dy = t.clientY - t0.y;
+    t0 = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) go(dx < 0 ? 1 : -1);
+  }, { passive: true });
+}
+onSwipe(viewEl, (d) => { if (viewMode === "month") goMonth(d); });
+onSwipe(drawer, (d) => { if (sheetDay !== null) stepDay(d); });
 load();
 setInterval(() => { if (drawer.hidden) load(); }, REFRESH_MS);
