@@ -202,6 +202,15 @@ const tagOf = (e) => CATS[e.cat].short || shortName(e);
 // every deadline for the event has passed: applications are closed
 const dlPassed = (d) => (d.allDay ? d.eDay < TODAY : d.s.abs < nowAbs());
 const isClosed = (e) => !e.dl && e.dls.length > 0 && e.dls.every(dlPassed);
+// the next deadline still ahead for an event, and the time left: "8d", or "5h" on the last day
+const dueAbs = (d) => (d.allDay ? (d.eDay + 1) * 1440 : d.s.abs);
+const nextDl = (e) => e.dls.filter((d) => !dlPassed(d)).sort((a, b) => dueAbs(a) - dueAbs(b))[0] || null;
+function timeLeft(d) {
+  const m = dueAbs(d) - nowAbs();
+  if (m >= 1440) { const n = Math.floor(m / 1440); return { short: `${n}d`, long: `${n} ${n === 1 ? "day" : "days"}` }; }
+  const h = Math.max(1, Math.ceil(m / 60));
+  return { short: `${h}h`, long: `${h} ${h === 1 ? "hour" : "hours"}` };
+}
 
 /* ---------- State ---------- */
 /* The bottom bar. RM, CRS, MW, JAM and CE: all on at first; the first tap narrows to that one, later taps add
@@ -510,9 +519,11 @@ function barText(e) {
     const words = [`<b>${esc(tagOf(e))}</b>`, city && esc(city), e.fee && esc(feeOf(e))].filter(Boolean).join("&ensp;");
     return `${svg("ban", 11)}<span class="x">${words}</span>`;
   }
+  const due = nextDl(e), left = due && timeLeft(due);
   return [
     `<b>${esc(tagOf(e))}</b>`,
     city && `<span>${esc(city)}</span>`,
+    left && `<span class="mi-due">${svg("flag", 10)}${left.short}</span>`,
     e.fee && `<span class="mi-fee">${esc(feeOf(e))}</span>`,
     fare != null && `<span class="mi-p${tier ? " tier-" + tier : ""}">${svg(mode === "bus" ? "bus" : "plane", 11)}€${Math.round(fare)}</span>`,
   ].filter(Boolean).join("");
@@ -524,7 +535,8 @@ function monthItem(it, w0) {
   const contL = e.sDay < w0 + it.a, contR = e.eDay > w0 + it.b;
   const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${it.lane + 1}`;
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
-  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}${isClosed(e) ? ", applications closed" : ""}: ${e.title}, ${when}${e.fee ? `, ${feeText(feeOf(e)).toLowerCase()}` : ""}` +
+  const due = !e.dl && !e.cancelled && nextDl(e);
+  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}${isClosed(e) ? ", applications closed" : ""}: ${e.title}, ${when}${due ? `, ${dlKind(due).toLowerCase()} in ${timeLeft(due).long}` : ""}${e.fee ? `, ${feeText(feeOf(e)).toLowerCase()}` : ""}` +
     `${fare != null ? `, trip ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
   const cls = ["mi", `tag-${e.cat}`, e.dl && "dl", contL && "cont-l", contR && "cont-r", e.cancelled && "is-cancelled", isClosed(e) && "is-closed"].filter(Boolean).join(" ");
   return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-run"><span class="mi-txt">${barText(e)}</span></span></button>`;
@@ -1052,7 +1064,7 @@ function slides(host, { current, make, turn, enabled = () => true }) {
       : null;
   }, { passive: true });
   host.addEventListener("touchmove", (ev) => {
-    if (!drag || !drag.cur) return;
+    if (!drag || !drag.cur || holding) return;
     const dx = ev.touches[0].clientX - drag.x0, dy = ev.touches[0].clientY - drag.y0;
     if (!drag.axis) {
       if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
@@ -1117,6 +1129,34 @@ const daySlides = slides(drBody, {
     drawer.scrollTop = 0;
   },
 });
+
+/* Phones have no hover: hold a finger on a bar and its event and deadlines light up, the rest fades;
+   let go and it clears, without opening anything. */
+let holding = false;
+{
+  let timer = 0, at = null;
+  const wait = () => { clearTimeout(timer); timer = 0; };
+  viewEl.addEventListener("touchstart", (ev) => {
+    wait();
+    const bar = ev.touches.length === 1 && ev.target.closest(".mi[data-id]");
+    if (!bar) return;
+    at = { x: ev.touches[0].clientX, y: ev.touches[0].clientY };
+    timer = setTimeout(() => { timer = 0; holding = true; showLink(bar.dataset.id); navigator.vibrate?.(8); }, 400);
+  }, { passive: true });
+  viewEl.addEventListener("touchmove", (ev) => {
+    if (timer && Math.hypot(ev.touches[0].clientX - at.x, ev.touches[0].clientY - at.y) > 10) wait(); // a swipe, not a hold
+  }, { passive: true });
+  const lift = (ev) => {
+    wait();
+    if (!holding) return;
+    holding = false;
+    showLink(null);
+    if (ev.cancelable) ev.preventDefault(); // no tap after a hold
+  };
+  viewEl.addEventListener("touchend", lift);
+  viewEl.addEventListener("touchcancel", lift);
+  viewEl.addEventListener("contextmenu", (ev) => { if (ev.target.closest(".mi")) ev.preventDefault(); });
+}
 // mouse wheel or trackpad over the grid turns the month (the grid itself never scrolls)
 let wheelSum = 0, wheelLock = 0, wheelLast = 0;
 viewEl.addEventListener("wheel", (ev) => {

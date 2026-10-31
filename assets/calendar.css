@@ -247,6 +247,14 @@ button { font: inherit; color: inherit; }
 .mi-txt > * + * { margin-left: 0.65em; }
 .mi-txt b { font-weight: 700; letter-spacing: 0.04em; }
 .mi-fee { font-variant-numeric: tabular-nums; opacity: 0.85; }
+.mi { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+/* time left to apply, on the event's own bar: the deadline's red stripes in small */
+.mi-due {
+  display: inline-flex; align-items: center; gap: 2px; padding: 2px 4px 2px 3px; border-radius: 4px; vertical-align: 1px;
+  background: repeating-linear-gradient(-45deg, var(--dl-stripe) 0 3px, transparent 3px 6px), var(--surface);
+  box-shadow: inset 0 0 0 1px var(--dl-line); color: var(--dl-ink); font: 600 11px/1 var(--f-mono); letter-spacing: 0;
+}
+.mi-due svg { width: 10px; height: 10px; color: var(--dl); }
 /* closed applications: hatched grey like a closed-off lane, ⊘ first, the rest struck through */
 .mi.is-closed {
   background: repeating-linear-gradient(-45deg, var(--line-soft) 0 4px, transparent 4px 8px), var(--surface);
@@ -271,7 +279,7 @@ button { font: inherit; color: inherit; }
 @keyframes tick { 0%, 25% { transform: translateX(0); } 100% { transform: translateX(calc(-1 * var(--d))); } }
 .mgrid { --lane: 21px; }
 .mgrid.dense .mi { font-size: 10.5px; }
-.mgrid.dense .mi-p { font-size: 9.5px; padding: 0 3px; }
+.mgrid.dense .mi-p, .mgrid.dense .mi-due { font-size: 9.5px; padding: 0 3px; }
 .md-more {
   position: absolute; top: 6px; right: 6px; padding: 3px 5px 2px; border-radius: 5px;
   background: var(--line-soft); color: var(--muted); font: 700 12px/1 var(--f-display); letter-spacing: 0.02em;
@@ -292,8 +300,9 @@ button { font: inherit; color: inherit; }
   .md-more { top: 4px; right: 2px; padding: 2px 3px 1px; font-size: 10.5px; }
   .mi { margin-inline: 1px; padding: 0 3px; border-radius: 3px; font-size: 11.5px; gap: 2px; }
   .mi.cont-l, .mi.cont-r { margin-inline: 0; }
-  .mi.dl svg { display: none; }
   .mi-p { font-size: 10px; padding: 1px 3px; }
+  .mi-due { font-size: 10px; padding: 1px 3px 1px 2px; }
+  .mi-due svg { width: 9px; height: 9px; }
   .mi-p svg { display: none; }
   .mi.tick .mi-txt { padding-right: 2em; }
   .mi-txt > * + * { margin-left: 0.5em; }
