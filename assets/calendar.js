@@ -43,6 +43,7 @@ const ICON = {
   list: '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>',
   moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
   globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  ban: '<circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/>',
   flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>',
   pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
   mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
@@ -204,13 +205,14 @@ const isClosed = (e) => !e.dl && e.dls.length > 0 && e.dls.every(dlPassed);
 
 /* ---------- State ---------- */
 /* The bottom bar. RM, CRS, MW, JAM and CE: all on at first; the first tap narrows to that one, later taps add
-   or remove. Other and the flag are plain on/off switches, both off at first. The flag shows the deadlines of
+   or remove. Other, the flag and ⊘ (closed applications) are plain on/off switches, all off at first. The flag shows the deadlines of
    the categories that are on; deadlines of Other events belong to Other and come with it. */
 let picked = null;     // the main categories the reader picked, or null for all of them
 let otherOn = false;
 let deadlinesOn = false;
+let closedOn = false; // ⊘: events whose applications have closed, for the categories that are on
 const catOn = (k) => (k === "other" ? otherOn : picked ? picked.has(k) : true);
-const shows = (e) => catOn(e.cat) && (!e.dl || e.cat === "other" || deadlinesOn);
+const shows = (e) => catOn(e.cat) && (!e.dl || e.cat === "other" || deadlinesOn) && (closedOn || !isClosed(e));
 const todayInfo = info(TODAY);
 /* Pages of the grid: page 0 is six weeks starting this week, so nothing past fills the screen; pages 1, 2, …
    are whole months after that. There is no going back past this week. */
@@ -506,7 +508,7 @@ function barText(e) {
   const fare = tripFare(e), tier = tierOf(fare), city = shortCity(e), mode = FLIGHTS[e.id]?.mode;
   if (isClosed(e)) {
     const words = [`<b>${esc(tagOf(e))}</b>`, city && esc(city), e.fee && esc(feeOf(e))].filter(Boolean).join("&ensp;");
-    return `<b class="mi-closed">Closed</b><span class="x">${words}</span>`;
+    return `${svg("ban", 11)}<span class="x">${words}</span>`;
   }
   return [
     `<b>${esc(tagOf(e))}</b>`,
@@ -885,7 +887,8 @@ function renderFilters() {
     Object.entries(CATS).map(([k, c]) =>
       `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${catOn(k)}" title="${c.label}">${c.short || c.label}${c.short ? `<span class="vh"> (${c.label})</span>` : ""}</button>`
     ).join("") +
-    `<button class="fchip dl-chip" type="button" data-cat="dl" aria-pressed="${deadlinesOn}" title="Deadlines">${svg("flag", 15)}<span class="vh">Deadlines</span></button>`;
+    `<button class="fchip dl-chip" type="button" data-cat="dl" aria-pressed="${deadlinesOn}" title="Deadlines">${svg("flag", 15)}<span class="vh">Deadlines</span></button>` +
+    `<button class="fchip dl-chip" type="button" data-cat="closed" aria-pressed="${closedOn}" title="Closed applications">${svg("ban", 16)}<span class="vh">Closed applications</span></button>`;
 }
 function render() {
   renderFilters();
@@ -906,6 +909,7 @@ document.addEventListener("click", (ev) => {
   if (chip) {
     const k = chip.dataset.cat;
     if (k === "dl") deadlinesOn = !deadlinesOn;
+    else if (k === "closed") closedOn = !closedOn;
     else if (k === "other") otherOn = !otherOn;
     else if (!picked) picked = new Set([k]); // the first tap narrows to that one
     else if (picked.has(k)) { picked.delete(k); if (!picked.size) picked = null; }

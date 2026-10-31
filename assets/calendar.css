@@ -1,5 +1,6 @@
-/* Layout: wayfinding-sign look. Cool paper ground, white surfaces, one signage-yellow accent for "today" and "new".
-   Tag colours carry meaning everywhere; everything else stays neutral. */
+/* Layout: wayfinding-sign look. Cool paper ground, white surfaces. Every colour has one job:
+   signage yellow is the brand and "today"/"new"; the five line colours are the categories, all equally strong;
+   red, amber and green only ever mean price; dark ink means a deadline; hatched grey means closed. */
 :root {
   --bg: #F2F4F7;
   --surface: #FFFFFF;
@@ -15,14 +16,16 @@
   --on-solid: #FFFFFF;
   --shadow: 0 18px 50px rgba(15, 25, 40, 0.18);
 
-  /* categories: the three main ones in primaries, Cultural Exchange green, the rest quiet slate.
-     --x-on is the text colour on a solid --x bar */
-  --rm: #1F5FD1;     --rm-soft: #E2EBFC;     --rm-ink: #174A9E;     --rm-on: #FFFFFF;
-  --course: #D23A2E; --course-soft: #FBE4E1; --course-ink: #9C2A21; --course-on: #FFFFFF;
-  --mw: #F2B200;     --mw-soft: #FFF3CC;     --mw-ink: #765300;     --mw-on: #261C00;
-  --jam: #B4318A;    --jam-soft: #F8E1F0;    --jam-ink: #8A1F68;    --jam-on: #FFFFFF;
-  --ce: #1B8150;     --ce-soft: #DDF1E6;     --ce-ink: #135E3A;     --ce-on: #FFFFFF;
-  --other: #6A7585;  --other-soft: #E8EBF0;  --other-ink: #414B59;  --other-on: #FFFFFF;
+  /* categories, like the lines on a transit map: same strength, hues kept clear of the price colours and of
+     the signage yellow. --x-soft is a bar's ground, --x-ink its text, --x-on text on a solid --x,
+     --x-pop the colour on a deadline's dark bar */
+  --rm: #2D5BD7;     --rm-soft: #E3EAFC;     --rm-ink: #1C3F9C;     --rm-on: #FFFFFF;     --rm-pop: #A9C1F7;
+  --course: #7A4FD3; --course-soft: #ECE5FB; --course-ink: #52309A; --course-on: #FFFFFF; --course-pop: #C9B5F5;
+  --mw: #E06A22;     --mw-soft: #FCE7D8;     --mw-ink: #96420E;     --mw-on: #FFFFFF;     --mw-pop: #F6BC92;
+  --jam: #C2367F;    --jam-soft: #F9E2EE;    --jam-ink: #8C1F5C;    --jam-on: #FFFFFF;    --jam-pop: #F0A8CF;
+  --ce: #0E8A87;     --ce-soft: #DAF2F0;     --ce-ink: #0A605E;     --ce-on: #FFFFFF;     --ce-pop: #8ED9D4;
+  --other: #66758A;  --other-soft: #E7ECF2;  --other-ink: #3D4A5C;  --other-on: #FFFFFF;  --other-pop: #B7C2D0;
+  --dl-bg: #1A2638;  --dl-fg: #F2F5F9;
   --night: #5B4BC4;
 
   /* trip price colours: cheap → mid → pricey */
@@ -40,12 +43,13 @@
     --bg: #0D1218; --surface: #151C25; --weekend: #18202A; --ink: #E6EBF1; --muted: #95A2B3;
     --line: #29333F; --line-soft: #202934; --scrim: rgba(0, 0, 0, 0.6);
     --focus: #6EA0F2; --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
-    --rm-soft: #172741;     --rm-ink: #A8C4F5;
-    --course: #DB4A3E; --course-soft: #3A1A17; --course-ink: #F4AAA2;
-    --mw: #E5A800;     --mw-soft: #3A2F0A;     --mw-ink: #F5D27A;
-    --jam: #C2449A;    --jam-soft: #3A1430;    --jam-ink: #F2A9DA;
-    --ce: #1F8A56;     --ce-soft: #12301F;     --ce-ink: #8FD8AF;
-    --other: #7C8796;  --other-soft: #222A35;  --other-ink: #B5BFCC;
+    --rm: #4F7DF0;     --rm-soft: #1C2F57;     --rm-ink: #ADC4F8;     --rm-pop: #1C3F9C;
+    --course: #9673EC; --course-soft: #2D2252; --course-ink: #CDBBF8; --course-pop: #52309A;
+    --mw: #EE843F;     --mw-soft: #43291A;     --mw-ink: #F7C19C;     --mw-pop: #96420E;
+    --jam: #D4559A;    --jam-soft: #421B38;    --jam-ink: #F3AFD3;    --jam-pop: #8C1F5C;
+    --ce: #22A29E;     --ce-soft: #12393A;     --ce-ink: #92DDD8;     --ce-pop: #0A605E;
+    --other: #7C8796;  --other-soft: #222A35;  --other-ink: #B5BFCC;  --other-pop: #3D4A5C;
+    --dl-bg: #CDD5E0;  --dl-fg: #0D1218;
     --night: #8D7FE8;
     --cheap-soft: #133524; --cheap-ink: #8EE0B1;
     --mid-soft: #3A2E0C;   --mid-ink: #F3CF73;
@@ -57,12 +61,13 @@
   --bg: #0D1218; --surface: #151C25; --weekend: #18202A; --ink: #E6EBF1; --muted: #95A2B3;
   --line: #29333F; --line-soft: #202934; --scrim: rgba(0, 0, 0, 0.6);
   --focus: #6EA0F2; --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
-  --rm-soft: #172741;     --rm-ink: #A8C4F5;
-  --course: #DB4A3E; --course-soft: #3A1A17; --course-ink: #F4AAA2;
-  --mw: #E5A800;     --mw-soft: #3A2F0A;     --mw-ink: #F5D27A;
-  --jam: #C2449A;    --jam-soft: #3A1430;    --jam-ink: #F2A9DA;
-  --ce: #1F8A56;     --ce-soft: #12301F;     --ce-ink: #8FD8AF;
-  --other: #7C8796;  --other-soft: #222A35;  --other-ink: #B5BFCC;
+  --rm: #4F7DF0;     --rm-soft: #1C2F57;     --rm-ink: #ADC4F8;     --rm-pop: #1C3F9C;
+  --course: #9673EC; --course-soft: #2D2252; --course-ink: #CDBBF8; --course-pop: #52309A;
+  --mw: #EE843F;     --mw-soft: #43291A;     --mw-ink: #F7C19C;     --mw-pop: #96420E;
+  --jam: #D4559A;    --jam-soft: #421B38;    --jam-ink: #F3AFD3;    --jam-pop: #8C1F5C;
+  --ce: #22A29E;     --ce-soft: #12393A;     --ce-ink: #92DDD8;     --ce-pop: #0A605E;
+  --other: #7C8796;  --other-soft: #222A35;  --other-ink: #B5BFCC;  --other-pop: #3D4A5C;
+  --dl-bg: #CDD5E0;  --dl-fg: #0D1218;
   --night: #8D7FE8;
   --cheap-soft: #133524; --cheap-ink: #8EE0B1;
   --mid-soft: #3A2E0C;   --mid-ink: #F3CF73;
@@ -70,12 +75,12 @@
   color-scheme: dark;
 }
 
-.tag-rm     { --c: var(--rm);     --c-soft: var(--rm-soft);     --c-ink: var(--rm-ink);     --c-on: var(--rm-on); }
-.tag-course { --c: var(--course); --c-soft: var(--course-soft); --c-ink: var(--course-ink); --c-on: var(--course-on); }
-.tag-mw     { --c: var(--mw);     --c-soft: var(--mw-soft);     --c-ink: var(--mw-ink);     --c-on: var(--mw-on); }
-.tag-jam    { --c: var(--jam);    --c-soft: var(--jam-soft);    --c-ink: var(--jam-ink);    --c-on: var(--jam-on); }
-.tag-ce     { --c: var(--ce);     --c-soft: var(--ce-soft);     --c-ink: var(--ce-ink);     --c-on: var(--ce-on); }
-.tag-other  { --c: var(--other);  --c-soft: var(--other-soft);  --c-ink: var(--other-ink);  --c-on: var(--other-on); }
+.tag-rm     { --c: var(--rm);     --c-soft: var(--rm-soft);     --c-ink: var(--rm-ink);     --c-on: var(--rm-on); --c-pop: var(--rm-pop); }
+.tag-course { --c: var(--course); --c-soft: var(--course-soft); --c-ink: var(--course-ink); --c-on: var(--course-on); --c-pop: var(--course-pop); }
+.tag-mw     { --c: var(--mw);     --c-soft: var(--mw-soft);     --c-ink: var(--mw-ink);     --c-on: var(--mw-on); --c-pop: var(--mw-pop); }
+.tag-jam    { --c: var(--jam);    --c-soft: var(--jam-soft);    --c-ink: var(--jam-ink);    --c-on: var(--jam-on); --c-pop: var(--jam-pop); }
+.tag-ce     { --c: var(--ce);     --c-soft: var(--ce-soft);     --c-ink: var(--ce-ink);     --c-on: var(--ce-on); --c-pop: var(--ce-pop); }
+.tag-other  { --c: var(--other);  --c-soft: var(--other-soft);  --c-ink: var(--other-ink);  --c-on: var(--other-on); --c-pop: var(--other-pop); }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -147,7 +152,7 @@ button { font: inherit; color: inherit; }
   font: 700 15px/1 var(--f-display); letter-spacing: 0.04em; white-space: nowrap; overflow: hidden;
 }
 .fchip[aria-pressed="false"] { background: transparent; color: var(--muted); border: 1px dashed var(--line); }
-.fchip.dl-chip { flex: 0 0 44px; --c: var(--ink); --c-on: var(--surface); }
+.fchip.dl-chip { flex: 0 0 44px; --c: var(--dl-bg); --c-on: var(--dl-fg); }
 .linkbtn { border: 0; background: none; color: var(--focus); cursor: pointer; padding: 4px; font-size: 14px; font-weight: 600; }
 .btn { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 6px 14px; cursor: pointer; font-weight: 600; }
 .btn:hover { border-color: var(--muted); }
@@ -216,28 +221,31 @@ button { font: inherit; color: inherit; }
 .mi {
   pointer-events: auto; min-width: 0; margin-inline: 4px; border: 0; cursor: pointer; text-align: left;
   display: flex; align-items: center; gap: 4px; padding: 0 6px; border-radius: 5px; overflow: hidden;
-  background: var(--c); color: var(--c-on); font: 600 13.5px/1 var(--f-display); letter-spacing: 0.01em; white-space: nowrap;
+  background: var(--c-soft); color: var(--c-ink); font: 600 13.5px/1 var(--f-display); letter-spacing: 0.01em; white-space: nowrap;
 }
 .mi.cont-l { margin-left: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; }
 .mi.cont-r { margin-right: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
-.mi.dl { background: var(--c-soft); color: var(--c-ink); box-shadow: inset 3px 0 0 var(--c); }
-.mi.dl svg { flex: none; color: var(--c); margin-right: 3px; vertical-align: -1px; }
+/* a deadline: dark ink, like the flag button; the flag and the event's tag in the event's colour */
+.mi.dl { background: var(--dl-bg); color: var(--dl-fg); }
+.mi.dl svg, .mi.dl b { color: var(--c-pop); }
+.mi-txt > svg { flex: none; margin-right: 3px; vertical-align: -1px; }
 .mi.is-cancelled { opacity: 0.5; }
 /* an event and its deadlines, linked while you point at one of them */
 .mi { transition: opacity 0.12s ease; }
 .mgrid.linking .mi:not(.linked) { opacity: 0.25; }
 .mgrid.linking .mi.linked { box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--c); }
-.mgrid.linking .mi.dl.linked { box-shadow: inset 3px 0 0 var(--c), 0 0 0 2px var(--surface), 0 0 0 3.5px var(--c); }
 .mi.is-cancelled .mi-txt { text-decoration: line-through; }
 .mi-run { flex: 1 1 auto; min-width: 0; overflow: hidden; }
 .mi-txt { display: block; overflow: hidden; text-overflow: ellipsis; }
 .mi-txt > * + * { margin-left: 0.65em; }
 .mi-txt b { font-weight: 700; letter-spacing: 0.04em; }
 .mi-fee { font-variant-numeric: tabular-nums; opacity: 0.85; }
-/* closed applications: drawn like a deadline (the soft shade of the event's colour), faded, the text struck through */
-.mi.is-closed { background: var(--c-soft); color: var(--c-ink); opacity: 0.6; }
-.mi-closed { text-transform: uppercase; letter-spacing: 0.06em; }
-.mi .x { text-decoration: line-through; text-decoration-thickness: 1.5px; opacity: 0.85; }
+/* closed applications: hatched grey like a closed-off lane, ⊘ first, the rest struck through */
+.mi.is-closed {
+  background: repeating-linear-gradient(-45deg, var(--line-soft) 0 4px, transparent 4px 8px), var(--surface);
+  color: var(--muted); box-shadow: inset 0 0 0 1px var(--line);
+}
+.mi .x { text-decoration: line-through; text-decoration-thickness: 1.5px; }
 .ev-closed {
   display: inline-block; margin-right: 7px; vertical-align: 2px; padding: 2px 6px 1px; border-radius: 4px;
   background: var(--line-soft); color: var(--muted); font: 700 11px/1 var(--f-display); letter-spacing: 0.08em; text-transform: uppercase;
@@ -247,7 +255,7 @@ button { font: inherit; color: inherit; }
   font: 600 11px/1 var(--f-mono); font-variant-numeric: tabular-nums; letter-spacing: 0;
   padding: 2px 5px 2px 4px; border-radius: 4px; background: var(--surface); color: var(--ink);
 }
-.mi-p[class*="tier-"]::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--t); order: 2; }
+.mi-p[class*="tier-"] { background: var(--t-soft); color: var(--t-ink); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t-ink) 28%, transparent); }
 .mi-p svg { width: 11px; height: 11px; }
 /* train-display ticker for text that doesn't fit */
 .mi.tick .mi-txt { flex: none; overflow: visible; text-overflow: clip; padding-right: 2.5em; }
@@ -277,7 +285,6 @@ button { font: inherit; color: inherit; }
   .md-more { top: 4px; right: 2px; padding: 2px 3px 1px; font-size: 10.5px; }
   .mi { margin-inline: 1px; padding: 0 3px; border-radius: 3px; font-size: 11.5px; gap: 2px; }
   .mi.cont-l, .mi.cont-r { margin-inline: 0; }
-  .mi.dl { box-shadow: inset 2px 0 0 var(--c); }
   .mi.dl svg { display: none; }
   .mi-p { font-size: 10px; padding: 1px 3px; }
   .mi-p svg { display: none; }
