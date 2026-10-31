@@ -218,14 +218,19 @@ button { font: inherit; color: inherit; }
 .mi.dl { background: var(--c-soft); color: var(--c-ink); box-shadow: inset 3px 0 0 var(--c); }
 .mi.dl svg { flex: none; color: var(--c); margin-right: 3px; vertical-align: -1px; }
 .mi.is-cancelled { opacity: 0.5; }
+/* an event and its deadlines, linked while you point at one of them */
+.mi { transition: opacity 0.12s ease; }
+.mgrid.linking .mi:not(.linked) { opacity: 0.25; }
+.mgrid.linking .mi.linked { box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--c); }
+.mgrid.linking .mi.dl.linked { box-shadow: inset 3px 0 0 var(--c), 0 0 0 2px var(--surface), 0 0 0 3.5px var(--c); }
 .mi.is-cancelled .mi-txt { text-decoration: line-through; }
 .mi-run { flex: 1 1 auto; min-width: 0; overflow: hidden; }
 .mi-txt { display: block; overflow: hidden; text-overflow: ellipsis; }
 .mi-txt > * + * { margin-left: 0.65em; }
 .mi-txt b { font-weight: 700; letter-spacing: 0.04em; }
 .mi-fee { font-variant-numeric: tabular-nums; opacity: 0.85; }
-/* closed applications: the colour stays recognisable but washed out, and the text is struck through */
-.mi.is-closed { filter: saturate(0.35); }
+/* closed applications: drawn like a deadline (the soft shade of the event's colour), faded, the text struck through */
+.mi.is-closed { background: var(--c-soft); color: var(--c-ink); opacity: 0.6; }
 .mi-closed { text-transform: uppercase; letter-spacing: 0.06em; }
 .mi .x { text-decoration: line-through; text-decoration-thickness: 1.5px; opacity: 0.85; }
 .ev-closed {

@@ -28,7 +28,6 @@ const CATS = { // short: the tag at the start of each bar in the month grid (Oth
   ce:     { label: "Cultural Exchange",    short: "CE",  icon: "globe" },
   other:  { label: "Other",                short: "",    icon: "other" },
 };
-const MAIN = new Set(["rm", "course", "mw"]); // their deadlines always show; the rest only when switched on
 
 const ICON = {
   meeting: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
@@ -198,10 +197,12 @@ const dlPassed = (d) => (d.allDay ? d.eDay < TODAY : d.s.abs < nowAbs());
 const isClosed = (e) => !e.dl && e.dls.length > 0 && e.dls.every(dlPassed);
 
 /* ---------- State ---------- */
-const DEFAULT_CATS = new Set(["rm", "course", "mw", "jam", "ce"]); // Other starts switched off
+/* The bottom bar: one button per category, then the flag, which holds every deadline whatever its event.
+   A deadline still wears its event's colour. */
+const DEFAULT_CATS = new Set(["rm", "course", "mw", "jam", "ce", "dl"]); // Other starts switched off
 let picked = null;          // the categories the reader picked, or null for the default set
 const catOn = (k) => (picked ? picked.has(k) : DEFAULT_CATS.has(k));
-let otherDeadlines = false; // deadlines outside RM, Course and MW
+const filterKey = (e) => (e.dl ? "dl" : e.cat);
 const todayInfo = info(TODAY);
 /* Pages of the grid: page 0 is six weeks starting this week, so nothing past fills the screen; pages 1, 2, …
    are whole months after that. There is no going back past this week. */
@@ -214,7 +215,7 @@ const pageOf = (day) => { const i = info(day); return day < WEEK0 + 42 ? 0 : i.y
 const pageHash = () => { if (!page) return ""; const { y, m } = pageMonth(page); return `#${y}-${pad(m + 1)}`; };
 // past events stay off the calendar (the agenda can still show them on request)
 const visible = (withPast = false) => EVENTS.filter((e) =>
-  (withPast || e.eDay >= TODAY) && catOn(e.cat) && (!e.dl || MAIN.has(e.cat) || otherDeadlines));
+  (withPast || e.eDay >= TODAY) && catOn(filterKey(e)));
 
 const hashMonth = /^#(\d{4})-(\d{2})$/.exec(location.hash);
 if (hashMonth && +hashMonth[2] >= 1 && +hashMonth[2] <= 12) {
@@ -336,6 +337,7 @@ function weekBars(evs, w0, lanes) {
 }
 function renderMonth() {
   const view = document.getElementById("view");
+  linkOn = null;
   const pm = page ? pageMonth(page) : null; // null: the rolling first page
   const g0 = pageStart(page);
   let weeks = "";
@@ -373,6 +375,30 @@ function renderMonth() {
     });
   });
   fitTickers(view);
+}
+
+/* Pointing at a bar (or tabbing to it) links an event with its deadlines: they stay lit and get a ring,
+   everything else on the grid fades. Only when at least two of them are on the page. */
+let linkOn = null;
+function showLink(id) {
+  if (id === linkOn) return;
+  linkOn = id;
+  const grid = document.querySelector("#view .mgrid");
+  if (!grid) return;
+  grid.querySelectorAll(".mi.linked").forEach((x) => x.classList.remove("linked"));
+  const e = id ? BY_ID[id] : null, ev = e && (e.dl ? e.forEv : e);
+  const ids = new Set(ev ? [ev.id, ...ev.dls.map((d) => d.id)] : []);
+  const bars = [...grid.querySelectorAll(".mi[data-id]")].filter((x) => ids.has(x.dataset.id));
+  const on = new Set(bars.map((x) => x.dataset.id)).size > 1;
+  if (on) bars.forEach((x) => x.classList.add("linked"));
+  grid.classList.toggle("linking", on);
+}
+{
+  const view = document.getElementById("view");
+  view.addEventListener("pointerover", (ev) => { if (ev.pointerType === "mouse") showLink(ev.target.closest(".mi[data-id]")?.dataset.id || null); });
+  view.addEventListener("pointerleave", () => showLink(null));
+  view.addEventListener("focusin", (ev) => { const b = ev.target.closest(".mi[data-id]"); showLink(b && b.matches(":focus-visible") ? b.dataset.id : null); });
+  view.addEventListener("focusout", () => showLink(null));
 }
 
 /* Text that doesn't fit its bar scrolls sideways, like the display on a train: two copies side by side,
@@ -836,7 +862,7 @@ function renderFilters() {
     Object.entries(CATS).map(([k, c]) =>
       `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${catOn(k)}" title="${c.label}">${c.short || c.label}${c.short ? `<span class="vh"> (${c.label})</span>` : ""}</button>`
     ).join("") +
-    `<button class="fchip dl-chip" type="button" data-otherdl aria-pressed="${otherDeadlines}" title="Other deadlines">${svg("flag", 15)}<span class="vh">Other deadlines</span></button>`;
+    `<button class="fchip dl-chip" type="button" data-cat="dl" aria-pressed="${catOn("dl")}" title="Deadlines">${svg("flag", 15)}<span class="vh">Deadlines</span></button>`;
 }
 function render() {
   renderFilters();
@@ -869,11 +895,6 @@ document.addEventListener("click", (ev) => {
     return;
   }
   if (agendaOpen && ev.target.closest("[data-today]")) { scrollToToday(); return; }
-  if (ev.target.closest("[data-otherdl]")) {
-    otherDeadlines = !otherDeadlines;
-    render();
-    return;
-  }
   if (ev.target.closest("[data-showall]")) {
     picked = null;
     render();
