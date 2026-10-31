@@ -205,11 +205,11 @@ const isClosed = (e) => !e.dl && e.dls.length > 0 && e.dls.every(dlPassed);
 
 /* ---------- State ---------- */
 /* The bottom bar. RM, CRS, MW, JAM and CE: all on at first; the first tap narrows to that one, later taps add
-   or remove. Other, the flag and ⊘ (closed applications) are plain on/off switches, all off at first. The flag shows the deadlines of
+   or remove. Other, the flag and ⊘ (closed applications) are plain on/off switches; only the flag starts on. The flag shows the deadlines of
    the categories that are on; deadlines of Other events belong to Other and come with it. */
 let picked = null;     // the main categories the reader picked, or null for all of them
 let otherOn = false;
-let deadlinesOn = false;
+let deadlinesOn = true;
 let closedOn = false; // ⊘: events whose applications have closed, for the categories that are on
 const catOn = (k) => (k === "other" ? otherOn : picked ? picked.has(k) : true);
 const shows = (e) => catOn(e.cat) && (!e.dl || e.cat === "other" || deadlinesOn) && (closedOn || !isClosed(e));
