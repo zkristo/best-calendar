@@ -197,12 +197,14 @@ const dlPassed = (d) => (d.allDay ? d.eDay < TODAY : d.s.abs < nowAbs());
 const isClosed = (e) => !e.dl && e.dls.length > 0 && e.dls.every(dlPassed);
 
 /* ---------- State ---------- */
-/* The bottom bar: one button per category, then the flag, which holds every deadline whatever its event.
-   A deadline still wears its event's colour. */
-const DEFAULT_CATS = new Set(["rm", "course", "mw", "jam", "ce", "dl"]); // Other starts switched off
-let picked = null;          // the categories the reader picked, or null for the default set
-const catOn = (k) => (picked ? picked.has(k) : DEFAULT_CATS.has(k));
-const filterKey = (e) => (e.dl ? "dl" : e.cat);
+/* The bottom bar. RM, CRS, MW, JAM and CE: all on at first; the first tap narrows to that one, later taps add
+   or remove. Other and the flag are plain on/off switches, both off at first. The flag shows the deadlines of
+   the categories that are on; deadlines of Other events belong to Other and come with it. */
+let picked = null;     // the main categories the reader picked, or null for all of them
+let otherOn = false;
+let deadlinesOn = false;
+const catOn = (k) => (k === "other" ? otherOn : picked ? picked.has(k) : true);
+const shows = (e) => catOn(e.cat) && (!e.dl || e.cat === "other" || deadlinesOn);
 const todayInfo = info(TODAY);
 /* Pages of the grid: page 0 is six weeks starting this week, so nothing past fills the screen; pages 1, 2, …
    are whole months after that. There is no going back past this week. */
@@ -215,7 +217,7 @@ const pageOf = (day) => { const i = info(day); return day < WEEK0 + 42 ? 0 : i.y
 const pageHash = () => { if (!page) return ""; const { y, m } = pageMonth(page); return `#${y}-${pad(m + 1)}`; };
 // past events stay off the calendar (the agenda can still show them on request)
 const visible = (withPast = false) => EVENTS.filter((e) =>
-  (withPast || e.eDay >= TODAY) && catOn(filterKey(e)));
+  (withPast || e.eDay >= TODAY) && shows(e));
 
 const hashMonth = /^#(\d{4})-(\d{2})$/.exec(location.hash);
 if (hashMonth && +hashMonth[2] >= 1 && +hashMonth[2] <= 12) {
@@ -862,7 +864,7 @@ function renderFilters() {
     Object.entries(CATS).map(([k, c]) =>
       `<button class="fchip tag-${k}" type="button" data-cat="${k}" aria-pressed="${catOn(k)}" title="${c.label}">${c.short || c.label}${c.short ? `<span class="vh"> (${c.label})</span>` : ""}</button>`
     ).join("") +
-    `<button class="fchip dl-chip" type="button" data-cat="dl" aria-pressed="${catOn("dl")}" title="Deadlines">${svg("flag", 15)}<span class="vh">Deadlines</span></button>`;
+    `<button class="fchip dl-chip" type="button" data-cat="dl" aria-pressed="${deadlinesOn}" title="Deadlines">${svg("flag", 15)}<span class="vh">Deadlines</span></button>`;
 }
 function render() {
   renderFilters();
@@ -882,7 +884,9 @@ document.addEventListener("click", (ev) => {
   const chip = ev.target.closest("[data-cat]");
   if (chip) {
     const k = chip.dataset.cat;
-    if (!picked) picked = new Set([k]); // the first tap narrows to that one
+    if (k === "dl") deadlinesOn = !deadlinesOn;
+    else if (k === "other") otherOn = !otherOn;
+    else if (!picked) picked = new Set([k]); // the first tap narrows to that one
     else if (picked.has(k)) { picked.delete(k); if (!picked.size) picked = null; }
     else picked.add(k); // later taps add more
     render();
