@@ -178,6 +178,12 @@ function linkDeadlines(all) {
 const dlShort = (t) => (t.includes(":") ? t.slice(t.indexOf(":") + 1).trim() : t);
 const catLabel = (e) => (e.dl ? `Deadline · ${CATS[e.cat].label}` : CATS[e.cat].label);
 const feeText = (f) => (/^free$/i.test(f) ? "Free" : `Fee ${f}`);
+// a fee given as a range shows as its average: "€34–50" → "€42"
+function feeOf(e) {
+  if (!e.fee) return "";
+  const m = /^(\D*?)(\d+(?:\.\d+)?)\s?[–-]\s?(\d+(?:\.\d+)?)(.*)$/.exec(e.fee);
+  return m ? `${m[1]}${Math.round((+m[2] + +m[3]) / 2)}${m[4]}` : e.fee;
+}
 
 /* What a bar says: tag, city, fee, then the trip price. "Hørsholm, Denmark" → "Hørsholm". */
 function shortCity(e) {
@@ -272,7 +278,7 @@ function tripLine(e, t, icon) {
   const a = firstTimed(t.out)?.a, b = lastTimed(t.back)?.b;
   const fee = feeRange(e);
   const sum = fee && fee[1] > 0
-    ? `<span class="ev-sum">= ${fee[0] === fee[1] ? euro(fee[0] + t.total) : `${euro(fee[0] + t.total)}–${euro(fee[1] + t.total)}`}</span>` : "";
+    ? `<span class="ev-sum">= ${euro(Math.round((fee[0] + fee[1]) / 2) + t.total)}</span>` : "";
   return `<span class="ev-trip">${svg(icon, 14)}${a && b ? `<span>${fmtRange(a.day, b.day)}</span>` : ""}${priceTag(t.total)}${sum}</span>`;
 }
 const dlKind = (d) => (d.title.includes(":") ? d.title.slice(0, d.title.indexOf(":")) : d.title);
@@ -289,7 +295,7 @@ function evRow(e) {
   const meta = [
     when && `<span>${when}</span>`,
     place && `<span>${svg("pin", 14)}${esc(place)}</span>`,
-    e.fee && `<span>${esc(feeText(e.fee))}</span>`,
+    e.fee && `<span>${esc(feeText(feeOf(e)))}</span>`,
   ].filter(Boolean);
   // a deadline points at its event; an event lists the deadlines still ahead (tap one to open it)
   const links = e.dl
@@ -486,13 +492,13 @@ function barText(e) {
   }
   const fare = tripFare(e), tier = tierOf(fare), city = shortCity(e), mode = FLIGHTS[e.id]?.mode;
   if (isClosed(e)) {
-    const words = [`<b>${esc(tagOf(e))}</b>`, city && esc(city), e.fee && esc(e.fee)].filter(Boolean).join("&ensp;");
+    const words = [`<b>${esc(tagOf(e))}</b>`, city && esc(city), e.fee && esc(feeOf(e))].filter(Boolean).join("&ensp;");
     return `<b class="mi-closed">Closed</b><span class="x">${words}</span>`;
   }
   return [
     `<b>${esc(tagOf(e))}</b>`,
     city && `<span>${esc(city)}</span>`,
-    e.fee && `<span class="mi-fee">${esc(e.fee)}</span>`,
+    e.fee && `<span class="mi-fee">${esc(feeOf(e))}</span>`,
     fare != null && `<span class="mi-p${tier ? " tier-" + tier : ""}">${svg(mode === "bus" ? "bus" : "plane", 11)}€${Math.round(fare)}</span>`,
   ].filter(Boolean).join("");
 }
@@ -503,7 +509,7 @@ function monthItem(it, w0) {
   const contL = e.sDay < w0 + it.a, contR = e.eDay > w0 + it.b;
   const pos = `grid-column:${it.a + 1}/${it.b + 2};grid-row:${it.lane + 1}`;
   const when = e.allDay ? fmtDay(e.sDay) : `${fmtDay(e.sDay)} ${fmtTime(e.s.min)}`;
-  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}${isClosed(e) ? ", applications closed" : ""}: ${e.title}, ${when}${e.fee ? `, ${feeText(e.fee).toLowerCase()}` : ""}` +
+  const label = `${catLabel(e)}${e.cancelled ? ", cancelled" : ""}${isClosed(e) ? ", applications closed" : ""}: ${e.title}, ${when}${e.fee ? `, ${feeText(feeOf(e)).toLowerCase()}` : ""}` +
     `${fare != null ? `, trip ${euro(fare)}${tier ? ` (${TIER_WORD[tier]})` : ""}` : ""}`;
   const cls = ["mi", `tag-${e.cat}`, e.dl && "dl", contL && "cont-l", contR && "cont-r", e.cancelled && "is-cancelled", isClosed(e) && "is-closed"].filter(Boolean).join(" ");
   return `<button class="${cls}" type="button" style="${pos}" data-id="${esc(e.id)}" aria-label="${esc(label)}"><span class="mi-run"><span class="mi-txt">${barText(e)}</span></span></button>`;
@@ -760,6 +766,7 @@ function openEvent(id) {
   const e = BY_ID[id];
   if (!e) return;
   sheetDay = null;
+  drawer.classList.remove("is-day");
   lastFocus = document.activeElement;
   const L = e.location;
   let where = "";
@@ -769,7 +776,7 @@ function openEvent(id) {
     const maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent([L.name, L.address, L.city].filter(Boolean).join(", "));
     where = `<div><dt class="lbl">Where</dt><dd><span>${esc(L.name)}</span>${sub ? `<span class="muted">${esc(sub)}</span>` : ""}${online ? "" : `<a href="${esc(maps)}" target="_blank" rel="noopener">Open in Maps ${svg("ext", 14)}</a>`}</dd></div>`;
   }
-  const fee = e.fee ? `<div><dt class="lbl">Fee</dt><dd>${esc(e.fee)}</dd></div>` : "";
+  const fee = e.fee ? `<div><dt class="lbl">Fee</dt><dd>${esc(feeOf(e))}${feeOf(e) !== e.fee ? `<span class="muted">average of ${esc(e.fee)}</span>` : ""}</dd></div>` : "";
   const url = e.url ? safeUrl(e.url) : null;
   const link = url ? `<div><dt class="lbl">Link</dt><dd><a href="${esc(url.href)}" target="_blank" rel="noopener">Open link ${svg("ext", 14)}</a><span class="muted">${esc(url.hostname)}</span></dd></div>` : "";
   const linked = e.dl && e.forEv
@@ -806,6 +813,7 @@ function openDay(day) {
   const fresh = drawer.hidden;
   if (fresh) lastFocus = document.activeElement;
   sheetDay = day;
+  drawer.classList.add("is-day"); // a day sheet keeps one size from day to day (CSS)
   const items = onDay(visible(), day);
   document.getElementById("dr-body").innerHTML = `<section class="day-sheet">
     <h2 class="day-title" id="tk-title">${fmtDayLong(day)}${day === TODAY ? "<small>Today</small>" : ""}</h2>

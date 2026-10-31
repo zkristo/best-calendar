@@ -290,6 +290,8 @@ button { font: inherit; color: inherit; }
 .drawer.open, .scrim.open { opacity: 1; transform: none; }
 @media (max-width: 640px) {
   .drawer { top: auto; left: 0; width: 100%; max-height: 88%; border-radius: 16px 16px 0 0; transform: translateY(24px); padding-top: 10px; }
+  /* a day sheet is one size whatever the day holds: room for about four events, more scroll */
+  .drawer.is-day { height: min(88%, 660px); }
   .drawer::before { content: ""; display: block; width: 40px; height: 4px; border-radius: 4px; background: var(--line); margin: 0 auto 10px; }
 }
 .dr-bar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
