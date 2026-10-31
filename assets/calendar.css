@@ -96,7 +96,12 @@ button { font: inherit; color: inherit; }
   padding: calc(env(safe-area-inset-top, 0px) + 12px) 20px calc(var(--safe-b) + var(--bar-h) + var(--peek));
 }
 .wrap > * { min-width: 0; }
-#view { min-height: 0; overflow: auto; }
+#view { min-height: 0; overflow: hidden auto; position: relative; touch-action: pan-y; }
+/* the page sliding in beside the current one: the next month, the next day */
+.peer { position: absolute; top: 0; left: 0; width: 100%; }
+#view > .mgrid.peer { height: 100%; }
+#dr-body { position: relative; }
+.drawer.is-day { overflow-x: hidden; touch-action: pan-y; }
 
 /* ---------- Header ---------- */
 .top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }

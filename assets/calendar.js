@@ -343,11 +343,24 @@ function weekBars(evs, w0, lanes) {
   }
   return { bars, hidden };
 }
+function monthTitle(pg) {
+  const pm = pg ? pageMonth(pg) : null, g0 = pageStart(pg), a = info(g0), z = info(g0 + 41);
+  return pm ? `${MON[pm.m].toUpperCase()} ${pm.y}`
+    : a.m === z.m ? `${MON[a.m].toUpperCase()} ${a.y}` : `${MON[a.m].toUpperCase()} – ${MON[z.m].toUpperCase()} ${z.y}`;
+}
+const setTitle = () => { document.getElementById("top-nav").innerHTML = `<h2 aria-live="polite">${monthTitle(page)}</h2>`; };
 function renderMonth() {
   const view = document.getElementById("view");
   linkOn = null;
-  const pm = page ? pageMonth(page) : null; // null: the rolling first page
-  const g0 = pageStart(page);
+  monthSlides.finish();
+  setTitle();
+  view.innerHTML = "";
+  monthGrid(page, view);
+}
+/* Page pg of the grid, put into host (so it can be measured) and filled: as many lanes as fit, "+N" for the rest. */
+function monthGrid(pg, host) {
+  const pm = pg ? pageMonth(pg) : null; // null: the rolling first page
+  const g0 = pageStart(pg);
   let weeks = "";
   for (let w = 0; w < 6; w++) {
     let days = "";
@@ -360,12 +373,11 @@ function renderMonth() {
     weeks += `<div class="mw"><div class="mw-days">${days}</div><div class="mw-items"></div></div>`;
   }
   const wd = WD.map((n) => `<span><span class="long">${n}</span><span class="short">${n[0]}</span></span>`).join("");
-  const a = info(g0), z = info(g0 + 41);
-  const title = pm ? `${MON[pm.m].toUpperCase()} ${pm.y}`
-    : a.m === z.m ? `${MON[a.m].toUpperCase()} ${a.y}` : `${MON[a.m].toUpperCase()} – ${MON[z.m].toUpperCase()} ${z.y}`;
-  document.getElementById("top-nav").innerHTML = `<h2 aria-live="polite">${title}</h2>`;
-  view.innerHTML = `<div class="mgrid"><div class="m-wd">${wd}</div>${weeks}</div>`;
-  const grid = view.querySelector(".mgrid"), rows = view.querySelectorAll(".mw-items");
+  const tmp = document.createElement("div");
+  tmp.innerHTML = `<div class="mgrid"><div class="m-wd">${wd}</div>${weeks}</div>`;
+  const grid = tmp.firstElementChild;
+  host.append(grid);
+  const rows = grid.querySelectorAll(".mw-items");
   const h = rows[0].clientHeight, gap = parseFloat(getComputedStyle(rows[0]).rowGap) || 0;
   const lane = Math.max(12, Math.min(parseFloat(getComputedStyle(grid).getPropertyValue("--lane")) || 21, Math.floor((h + gap) / 4) - gap));
   grid.style.setProperty("--lane", `${lane}px`);
@@ -382,7 +394,8 @@ function renderMonth() {
       days[c].setAttribute("aria-label", `${days[c].getAttribute("aria-label")}, ${n} more`);
     });
   });
-  fitTickers(view);
+  fitTickers(grid);
+  return grid;
 }
 
 /* Pointing at a bar (or tabbing to it) links an event with its deadlines: they stay lit and get a ring,
@@ -766,6 +779,7 @@ function openEvent(id) {
   const e = BY_ID[id];
   if (!e) return;
   sheetDay = null;
+  daySlides.finish();
   drawer.classList.remove("is-day");
   lastFocus = document.activeElement;
   const L = e.location;
@@ -813,19 +827,18 @@ function openDay(day) {
   const fresh = drawer.hidden;
   if (fresh) lastFocus = document.activeElement;
   sheetDay = day;
+  daySlides.finish();
   drawer.classList.add("is-day"); // a day sheet keeps one size from day to day (CSS)
-  const items = onDay(visible(), day);
-  document.getElementById("dr-body").innerHTML = `<section class="day-sheet">
-    <h2 class="day-title" id="tk-title">${fmtDayLong(day)}${day === TODAY ? "<small>Today</small>" : ""}</h2>
-    ${items.length ? `<div class="ev-list">${items.map((e) => evRow(e)).join("")}</div>` : `<p class="m-legend">Nothing on this day.</p>`}
-  </section>`;
+  document.getElementById("dr-body").innerHTML = dayHtml(day, true);
   if (fresh) showDrawer();
   else drawer.scrollTop = 0;
 }
-function stepDay(delta) {
-  const d = sheetDay + delta, g0 = pageStart(page);
-  if (d < g0 || d > g0 + 41) goMonth(pageOf(d) - page); // keep the grid behind on a page showing this day
-  openDay(d);
+function dayHtml(day, current) { // only the day showing carries the id the dialog is labelled by
+  const items = onDay(visible(), day);
+  return `<section class="day-sheet">
+    <h2 class="day-title"${current ? ' id="tk-title"' : ""}>${fmtDayLong(day)}${day === TODAY ? "<small>Today</small>" : ""}</h2>
+    ${items.length ? `<div class="ev-list">${items.map((e) => evRow(e)).join("")}</div>` : `<p class="m-legend">Nothing on this day.</p>`}
+  </section>`;
 }
 function fitBars(root) {
   for (const bar of root.querySelectorAll(".tl-bar")) {
@@ -936,13 +949,13 @@ document.addEventListener("keydown", (ev) => {
     return;
   }
   if (!drawer.hidden && sheetDay !== null && (ev.key === "ArrowLeft" || ev.key === "ArrowRight")) {
-    stepDay(ev.key === "ArrowLeft" ? -1 : 1);
+    daySlides.go(ev.key === "ArrowLeft" ? -1 : 1);
     return;
   }
   if (!drawer.hidden || !loaded || agendaOpen || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   if (ev.target.closest && ev.target.closest("input, textarea, select, [contenteditable]")) return;
-  if (ev.key === "ArrowLeft") goMonth(-1);
-  if (ev.key === "ArrowRight") goMonth(1);
+  if (ev.key === "ArrowLeft") monthSlides.go(-1);
+  if (ev.key === "ArrowRight") monthSlides.go(1);
 });
 
 async function loadFlights() {
@@ -995,6 +1008,111 @@ addEventListener("resize", () => { clearTimeout(refit); refit = setTimeout(refit
 document.fonts?.ready.then(refitMonth);
 
 const viewEl = document.getElementById("view");
+
+/* Slides: dragging sideways moves the page with the finger and brings the next one in beside it, like
+   swiping photos. Let go past a third of the width, or flick, and it turns; otherwise it springs back.
+   Keys and the wheel slide the same way. Reduced motion turns pages without moving them. */
+function slides(host, { current, make, turn, enabled = () => true }) {
+  const GAP = 16, MS = 280;
+  let drag = null, run = null;
+  const place = (el, x, ms) => {
+    el.style.transition = ms ? `transform ${ms}ms cubic-bezier(0.2, 0.8, 0.2, 1)` : "";
+    el.style.transform = x ? `translateX(${x}px)` : "";
+  };
+  function finish() { // end the slide that is running, at once
+    if (!run) return;
+    const r = run;
+    run = null;
+    clearTimeout(r.timer);
+    if (r.go) { r.cur.remove(); r.peer.classList.remove("peer"); place(r.peer, 0, 0); turn(r.dir, r.peer); }
+    else { r.peer?.remove(); place(r.cur, 0, 0); }
+  }
+  function settle(cur, peer, dir, go, dx = 0) {
+    const w = host.clientWidth + GAP;
+    run = { cur, peer, dir, go };
+    if (calm.matches) { finish(); return; }
+    const ms = Math.round(MS * Math.max(0.45, 1 - Math.abs(dx) / w)); // the further the finger went, the less is left to do
+    run.timer = setTimeout(finish, ms + 40);
+    place(cur, go ? -dir * w : 0, ms);
+    if (peer) place(peer, go ? 0 : dir * w, ms);
+  }
+  function peerFor(dir) {
+    const el = make(dir);
+    if (el) { el.classList.add("peer"); place(el, dir * (host.clientWidth + GAP), 0); }
+    return el;
+  }
+  host.addEventListener("touchstart", (ev) => {
+    finish();
+    drag = ev.touches.length === 1 && enabled()
+      ? { x0: ev.touches[0].clientX, y0: ev.touches[0].clientY, t0: performance.now(), axis: null, dir: 0, dx: 0, peer: null, cur: current() }
+      : null;
+  }, { passive: true });
+  host.addEventListener("touchmove", (ev) => {
+    if (!drag || !drag.cur) return;
+    const dx = ev.touches[0].clientX - drag.x0, dy = ev.touches[0].clientY - drag.y0;
+    if (!drag.axis) {
+      if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+      drag.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+    }
+    if (drag.axis !== "x") return;
+    if (ev.cancelable) ev.preventDefault();
+    if (calm.matches) return;
+    const dir = dx < 0 ? 1 : -1;
+    if (dir !== drag.dir) { drag.peer?.remove(); drag.dir = dir; drag.peer = peerFor(dir); }
+    drag.dx = drag.peer ? dx : dx / 4; // nothing that way: it gives a little and springs back
+    place(drag.cur, drag.dx, 0);
+    if (drag.peer) place(drag.peer, drag.dx + dir * (host.clientWidth + GAP), 0);
+  }, { passive: false });
+  const end = (ev) => {
+    const d = drag;
+    drag = null;
+    if (!d || d.axis !== "x" || !d.cur) return;
+    const t = ev.changedTouches && ev.changedTouches[0];
+    const dx = t ? t.clientX - d.x0 : 0, dir = dx < 0 ? 1 : -1;
+    const fast = Math.abs(dx) > 30 && Math.abs(dx) / (performance.now() - d.t0) > 0.4;
+    const far = Math.abs(dx) > (calm.matches ? 60 : host.clientWidth / 3);
+    if (calm.matches) { if (ev.type === "touchend" && (far || fast)) go(dir); return; }
+    settle(d.cur, d.peer, d.dir, ev.type === "touchend" && !!d.peer && dir === d.dir && (far || fast), d.dx);
+  };
+  host.addEventListener("touchend", end);
+  host.addEventListener("touchcancel", end);
+  function go(dir) { // turn one page without a finger
+    finish();
+    const cur = current();
+    if (!cur || !enabled()) return;
+    const peer = peerFor(dir);
+    if (!peer) return;
+    peer.getBoundingClientRect(); // start from where peerFor put it
+    settle(cur, peer, dir, true);
+  }
+  return { go, finish };
+}
+const monthSlides = slides(viewEl, {
+  current: () => viewEl.querySelector(".mgrid:not(.peer)"),
+  make: (dir) => (page + dir < 0 ? null : monthGrid(page + dir, viewEl)),
+  turn: (dir) => {
+    page += dir;
+    linkOn = null;
+    setTitle();
+    try { history.replaceState(null, "", pageHash() || location.pathname); } catch {}
+  },
+});
+const drBody = document.getElementById("dr-body");
+const daySlides = slides(drBody, {
+  enabled: () => !drawer.hidden && sheetDay !== null,
+  current: () => drBody.querySelector(".day-sheet:not(.peer)"),
+  make: (dir) => {
+    drBody.insertAdjacentHTML("beforeend", dayHtml(sheetDay + dir, false));
+    return drBody.lastElementChild;
+  },
+  turn: (dir, el) => {
+    const d = sheetDay + dir, g0 = pageStart(page);
+    if (d < g0 || d > g0 + 41) goMonth(pageOf(d) - page); // keep the grid behind on a page showing this day
+    sheetDay = d;
+    el.querySelector(".day-title").id = "tk-title";
+    drawer.scrollTop = 0;
+  },
+});
 // mouse wheel or trackpad over the grid turns the month (the grid itself never scrolls)
 let wheelSum = 0, wheelLock = 0, wheelLast = 0;
 viewEl.addEventListener("wheel", (ev) => {
@@ -1006,7 +1124,7 @@ viewEl.addEventListener("wheel", (ev) => {
   wheelLast = now;
   const px = ev.deltaMode === 1 ? 40 : ev.deltaMode === 2 ? 800 : 1; // lines or pages, on some mice
   wheelSum += (Math.abs(ev.deltaX) > Math.abs(ev.deltaY) ? ev.deltaX : ev.deltaY) * px;
-  if (Math.abs(wheelSum) >= 50) { goMonth(wheelSum > 0 ? 1 : -1); wheelSum = 0; wheelLock = now + 400; }
+  if (Math.abs(wheelSum) >= 50) { monthSlides.go(wheelSum > 0 ? 1 : -1); wheelSum = 0; wheelLock = now + 400; }
 }, { passive: false });
 
 /* Swipes: sideways on the grid changes month and on a day sheet changes day; up from the grid or the
@@ -1024,10 +1142,7 @@ function onSwipe(el, go) {
     else if (Math.abs(dy) > 50 && Math.abs(dy) > 2 * Math.abs(dx)) go(dy < 0 ? "up" : "down");
   }, { passive: true });
 }
-onSwipe(viewEl, (dir) => {
-  if (dir === "left" || dir === "right") goMonth(dir === "left" ? 1 : -1);
-  else if (dir === "up") setAgenda(true);
-});
+onSwipe(viewEl, (dir) => { if (dir === "up") setAgenda(true); });
 onSwipe(document.querySelector(".catbar"), (dir) => { if (dir === "up" || dir === "down") setAgenda(dir === "up"); });
 let agAtTop = true;
 agendaEl.addEventListener("touchstart", () => { agAtTop = agScroll.scrollTop <= 0; }, { passive: true });
@@ -1035,6 +1150,5 @@ onSwipe(agendaEl, (dir) => {
   if (dir === "up" && !agendaOpen) setAgenda(true);
   if (dir === "down" && agAtTop) setAgenda(false);
 });
-onSwipe(drawer, (dir) => { if (sheetDay !== null && (dir === "left" || dir === "right")) stepDay(dir === "left" ? 1 : -1); });
 load();
 setInterval(() => { if (drawer.hidden) load(); }, REFRESH_MS);
