@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T17:00+01:00",
+  "updatedAt": "2026-10-31T20:00+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -988,6 +988,23 @@
       }
     },
     {
+      "id": "g-1a1928ddee0a4c2e-2",
+      "title": "Apply for the LTSP Drafting SIM",
+      "tag": "deadline",
+      "start": "2026-11-06T23:59+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/tSuaiLA5Hn3HeeWV7",
+      "description": "Application form for the LTSP 2027–2030 Drafting SIM in Thessaloniki (11–17 December); travel reimbursement can be requested in the form.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] Re: [Call][LTSPC] Join the Drafting SIM in Thessaloniki! | DL: Fr, 6/11 @ 23:59 CET",
+        "receivedAt": "2026-10-31T10:17+01:00",
+        "messageId": "1a1928ddee0a4c2e"
+      }
+    },
+    {
       "id": "g-1a132419ac4eb0a9-2",
       "title": "Applications close: Motivational Weekend Barcelona",
       "tag": "deadline",
@@ -1250,6 +1267,29 @@
         "subject": "[BEST International] [CALL][ALPINE JAM] Torino is calling upon YOU!!!",
         "receivedAt": "2026-09-24T12:47+02:00",
         "messageId": "1a0d3071ca38f137"
+      }
+    },
+    {
+      "id": "g-1a1928ddee0a4c2e-1",
+      "title": "LTSP Drafting SIM 2026 – Thessaloniki",
+      "tag": "meeting",
+      "start": "2026-12-11",
+      "end": "2026-12-17",
+      "location": {
+        "name": "Thessaloniki, Greece",
+        "city": "Thessaloniki"
+      },
+      "airports": [
+        "SKG"
+      ],
+      "description": "Seven-day event hosted by LBG Thessaloniki where participants write the BEST Long-Term Strategic Plan 2027–2030 (arrival 11 December, work 12–16 December, departure 17 December). No participation fee; hosting and meals included. Partial travel reimbursement can be requested in the application.",
+      "fee": "free",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] Re: [Call][LTSPC] Join the Drafting SIM in Thessaloniki! | DL: Fr, 6/11 @ 23:59 CET",
+        "receivedAt": "2026-10-31T10:17+01:00",
+        "messageId": "1a1928ddee0a4c2e"
       }
     },
     {
