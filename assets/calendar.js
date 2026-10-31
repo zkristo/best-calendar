@@ -5,7 +5,8 @@
    Event times are local to the event, with their UTC offset, the way the emails state them. */
 
 const DATA_URL = "data/events.json";
-const FLIGHTS_URL = "data/flights.json"; // cheapest trips from Zagreb, written by the sync routine (optional)
+const FLIGHTS_URL = "data/flights.json"; // cheapest trips from Zagreb, written by the prices workflow (optional)
+const STATE_URL = "data/sync-state.json"; // when the nightly routine last checked Gmail (optional)
 const REFRESH_MS = 10 * 60 * 1000;
 
 const TAGS = {
@@ -111,7 +112,8 @@ let EVENTS = [];
 let BY_ID = {};
 let FLIGHTS = {};          // event id → cheapest trips from Zagreb (data/flights.json)
 let flightsOrigin = "Zagreb";
-let updatedAt = null;
+let updatedAt = null;      // when an email last changed the calendar
+let checkedAt = null;      // when the routine last looked for new emails, changes or not
 let loaded = false;
 
 function prepare(raw) {
@@ -822,13 +824,11 @@ function statusHtml() {
   const parts = [];
   const fresh = EVENTS.filter((e) => e.isNew).length;
   if (fresh) parts.push(`<span class="new">New</span><span><strong>${fresh} ${fresh === 1 ? "event" : "events"}</strong> added in the last day</span>`);
-  if (updatedAt) {
-    const t = Date.parse(updatedAt);
-    const abs = Number.isNaN(t) ? parseWhen(updatedAt)?.abs : Math.floor(t / 60000);
-    if (abs != null) parts.push(`<span>Updated from email ${ago(abs)}</span>`);
-  } else if (loaded) {
-    parts.push(`<span>Waiting for the first email sync</span>`);
-  }
+  const absOf = (s) => { const t = Date.parse(s); return Number.isNaN(t) ? parseWhen(s)?.abs : Math.floor(t / 60000); };
+  const checked = checkedAt ? absOf(checkedAt) : null, changed = updatedAt ? absOf(updatedAt) : null;
+  if (checked != null) parts.push(`<span>Checked for new emails ${ago(checked)}</span>`);
+  if (changed != null && (checked == null || checked - changed > 60)) parts.push(`<span>· last change ${ago(changed)}</span>`);
+  if (checked == null && changed == null && loaded) parts.push(`<span>Waiting for the first email sync</span>`);
   return parts.length ? `<p class="status">${parts.join("")}</p>` : "";
 }
 function renderFilters() {
@@ -924,13 +924,22 @@ async function loadFlights() {
   }
 }
 
+async function loadState() {
+  try {
+    const res = await fetch(STATE_URL, { cache: "no-store" });
+    if (res.ok) checkedAt = (await res.json())?.lastCheckedAt || null;
+  } catch {
+    // optional: without it the site shows when the calendar last changed
+  }
+}
 async function load() {
   try {
-    const flights = loadFlights();
+    const flights = loadFlights(), state = loadState();
     const res = await fetch(DATA_URL, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     await flights;
+    await state;
     EVENTS = prepare(Array.isArray(data.events) ? data.events : []);
     BY_ID = Object.fromEntries(EVENTS.map((e) => [e.id, e]));
     computeTiers();

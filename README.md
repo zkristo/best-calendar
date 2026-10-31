@@ -13,7 +13,7 @@ A public month calendar of BEST International events and application deadlines. 
 | --- | --- |
 | `index.html`, `assets/` | The site: month grid, type filters, list of the selected day's events, event details |
 | `data/events.json` | All events, in the shape described below |
-| `data/sync-state.json` | Which emails have already been read, so none is processed twice |
+| `data/sync-state.json` | Which emails have already been read, so none is processed twice, and when Gmail was last checked (the site shows it) |
 | `data/flights.json` | The cheapest trips from Zagreb to each upcoming event; written by the workflow, never by hand |
 | `scripts/validate-events.mjs` | Checks the data files; the routine runs it before every push |
 | `.claude/skills/sync-events/` | The steps the nightly routine follows |
