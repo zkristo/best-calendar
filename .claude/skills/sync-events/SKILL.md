@@ -17,6 +17,7 @@ The calendar site (`index.html`) shows whatever is in `data/events.json`. This s
   - Calls write "CET" or "CEST" loosely. Use whichever offset is actually in force on that date: 23:00 on 15 October is `+02:00`, and 23:00 on 25 October is `+01:00`.
   - A deadline with no time zone from a Greek, Romanian or Turkish group can use that country's offset.
 - **First run window:** if `lastCheckedAt` is null, read the last 45 days.
+- **"Now"** is the real current time. Get it from the shell with `TZ=Europe/Zagreb date +%Y-%m-%dT%H:%M%:z` (e.g. `2026-11-01T00:04+01:00`) whenever a step says "now". Never estimate it from email times or the conversation: the site shows it as "Checked for new emails …".
 
 ## The email format
 
@@ -38,7 +39,9 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
 
 ## Steps
 
-1. **Read the state.** Open `data/sync-state.json` (`lastCheckedAt`, `processed`) and `data/events.json`.
+1. **Start on `main` and read the state.**
+   - Run `git fetch origin main && git checkout -B main origin/main` before changing anything, so every edit and commit happens on `main`. Don't commit on the session's own `claude/…` branch: the end-of-session check would then push that branch to GitHub as a copy, and one would pile up every night.
+   - Open `data/sync-state.json` (`lastCheckedAt`, `processed`) and `data/events.json`.
 
 2. **Search Gmail.**
    - Run the query above. Set the date 2 days before `lastCheckedAt`, so nothing at the boundary is missed.
@@ -114,7 +117,7 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
 9. **Commit and push to `main`.**
    - There is always something to commit: at least `lastCheckedAt`.
    - Commit message: `Sync events from Gmail (N new, M updated)`, `Sync events from Gmail (no events in K emails)` when only the state changed, or `Check Gmail: no new emails` when nothing new arrived.
-   - Push with `git push origin HEAD:main`. On a network error, retry up to 4 times with waits of 2, 4, 8 and 16 seconds. If the push is rejected because `main` moved, run `git pull --rebase origin main`, validate again, then push.
+   - You are on `main` (step 1). Push with `git push origin main`. Push no other branch. On a network error, retry up to 4 times with waits of 2, 4, 8 and 16 seconds. If the push is rejected because `main` moved, run `git pull --rebase origin main`, validate again, then push.
 
 10. **Report.** If nothing new arrived, report "No new emails" and that the check was recorded. Otherwise list the emails read and the events added, updated or cancelled, each with title, date and tag. Mention anything you were unsure about.
 
