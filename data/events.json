@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T00:04+01:00",
+  "updatedAt": "2026-11-03T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1051,6 +1051,24 @@
         "subject": "[BEST International] [LTSP Creation] Promote External Survey to Shape the Future of BEST! | DL: 09/11 @ 23:59 CET",
         "receivedAt": "2026-10-27T10:11+01:00",
         "messageId": "1a17d62d24846fbd"
+      }
+    },
+    {
+      "id": "g-1a19e4006c1b16fb-1",
+      "title": "Order deadline: LBG Istanbul merch lighter",
+      "tag": "deadline",
+      "start": "2026-11-11T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "Last day to order the official LBG Istanbul lighter (merch) for 2 €. Order via the online form; no shipping, cash payment and pickup at the nearest BEST event.",
+      "url": "https://forms.gle/Sxp3HCGvYctij2WQ6",
+      "fee": "€2",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [MERCH][LBG ISTANBUL] PAPA SMURF LIGHTER is HERE!!!",
+        "receivedAt": "2026-11-02T22:52+01:00",
+        "messageId": "1a19e4006c1b16fb"
       }
     },
     {
