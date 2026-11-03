@@ -90,6 +90,9 @@ Field names vary: `#What❓`, `# WHO:`, `#DL`, `#ddl`, `#How`, `#Application`.
    - `description`: one or two neutral, factual sentences: who it's for, the fee, and how to apply.
      - Leave out jokes, innuendo and party slogans; calls are often written that way.
      - No personal data: no names of individual organisers, phone numbers, email addresses, IBANs or payment handles.
+   - `lbg`: for events, the Local BEST Group hosting it, by its city name as BEST writes it: `"Barcelona"`, `"Ghent"`, `"Ekaterinburg"`.
+     - Take it from the call ("LBG Barcelona is inviting you…", "[LBG Copenhagen]", "hosted by LBG Ghent", the signature), not from the venue: Barcelona's MW is held in Olot, but `lbg` is `"Barcelona"`.
+     - One host only, the main organiser. Leave it out for international or online events with no hosting LBG (General Assembly, info calls), national ones (RoJAM by BEST Romania), and deadlines.
    - `fee`: the participation fee as a short label for the calendar, e.g. `"€65"`, `"€34–50"`, `"€18/night"` or `"free"`.
      - The main fee for crashers or guests from other LBGs. Leave out optional extras such as the alcohol fee; the description can mention them.
      - Euros only. For another currency, use the euro amount the email gives ("300 kr (about 40 €)" → `"€40"`); if it gives none, leave `fee` out.

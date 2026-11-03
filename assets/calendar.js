@@ -198,6 +198,8 @@ function shortName(e) { // Other events have no tag, so their own name leads: "(
   const ab = /\(([^\s()]{2,10})\)/.exec(e.title);
   return ab ? ab[1] : e.title.split(/\s[–—-]\s|:\s|\s\(/)[0].trim();
 }
+// the name a bar shows after its tag: the LBG hosting the event ("MW Barcelona", held in Olot), else the city
+const placeOf = (e) => e.lbg || shortCity(e);
 const tagOf = (e) => CATS[e.cat].short || shortName(e);
 // every deadline for the event has passed: applications are closed
 const dlPassed = (d) => (d.allDay ? d.eDay < TODAY : d.s.abs < nowAbs());
@@ -511,10 +513,10 @@ const tripFare = (e) => (e.cancelled || isClosed(e) ? null : FLIGHTS[e.id]?.best
 function barText(e) {
   if (e.dl) { // a deadline names the event it belongs to, in that event's colour
     const f = e.forEv;
-    const what = f ? [`<b>${esc(tagOf(f))}</b>`, shortCity(f) && `<span>${esc(shortCity(f))}</span>`] : [`<span>${esc(dlShort(e.title))}</span>`];
+    const what = f ? [`<b>${esc(tagOf(f))}</b>`, placeOf(f) && `<span>${esc(placeOf(f))}</span>`] : [`<span>${esc(dlShort(e.title))}</span>`];
     return svg("flag", 11) + what.filter(Boolean).join("");
   }
-  const fare = tripFare(e), tier = tierOf(fare), city = shortCity(e), mode = FLIGHTS[e.id]?.mode;
+  const fare = tripFare(e), tier = tierOf(fare), city = placeOf(e), mode = FLIGHTS[e.id]?.mode;
   if (isClosed(e)) {
     const words = [`<b>${esc(tagOf(e))}</b>`, city && esc(city), e.fee && esc(feeOf(e))].filter(Boolean).join("&ensp;");
     return `${svg("ban", 11)}<span class="x">${words}</span>`;

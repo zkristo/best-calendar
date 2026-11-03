@@ -48,6 +48,7 @@ The sync never re-adds an event from an email it has already read, so you can sa
   "start": "2026-10-29",            // a plain date for all-day, or local time with offset "2026-10-13T23:00+02:00"
   "end": "2026-11-01",              // same formats, or null; for plain dates it is the last day (inclusive)
   "location": { "name": "Camping Golden Sunset", "city": "Patras, Greece" },  // or { "name": "Online" } or null
+  "lbg": "Patras",                  // optional, the hosting LBG; the calendar's bars show it instead of the city
   "airports": ["ATH", "GPA"],       // optional, nearest airports for travel prices (events abroad only)
   "bus": "Ljubljana",               // optional, instead of airports: FlixBus city for events a bus ride away
   "url": "https://forms.gle/…",     // optional, the public application form only

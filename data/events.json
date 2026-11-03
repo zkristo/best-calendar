@@ -318,6 +318,7 @@
         "address": "Bjerget 2",
         "city": "Hørsholm, Denmark"
       },
+      "lbg": "Copenhagen",
       "url": "https://forms.gle/msrm7mGLLsPcXUdd7",
       "description": "Training sessions, an international evening, cantus and team building with LBG Copenhagen. Fee 300 kr (about 40 €); everyone who applies is accepted.",
       "fee": "€40",
@@ -469,6 +470,7 @@
       "location": {
         "name": "Gdańsk, Poland"
       },
+      "lbg": "Gdańsk",
       "airports": [
         "GDN"
       ],
@@ -491,6 +493,7 @@
         "name": "Skopje",
         "city": "Skopje, North Macedonia"
       },
+      "lbg": "Skopje",
       "airports": [
         "SKP"
       ],
@@ -547,6 +550,7 @@
         "name": "Chamrousse",
         "city": "near Grenoble, France"
       },
+      "lbg": "Lyon",
       "airports": [
         "GNB",
         "LYS",
@@ -658,6 +662,7 @@
         "name": "De Ruischaard",
         "city": "Leisele, Belgium"
       },
+      "lbg": "Ghent",
       "airports": [
         "BRU",
         "CRL",
@@ -683,6 +688,7 @@
         "name": "Dresso",
         "city": "Warsaw, Poland"
       },
+      "lbg": "Warsaw",
       "airports": [
         "WAW",
         "WMI"
@@ -756,6 +762,7 @@
       "location": {
         "name": "Tallinn, Estonia"
       },
+      "lbg": "Tallinn",
       "airports": [
         "TLL"
       ],
@@ -778,6 +785,7 @@
         "name": "Camping Golden Sunset",
         "city": "Patras, Greece"
       },
+      "lbg": "Patras",
       "airports": [
         "ATH",
         "GPA"
@@ -802,6 +810,7 @@
         "name": "Palhaça",
         "city": "Aveiro, Portugal"
       },
+      "lbg": "Lisbon",
       "airports": [
         "OPO"
       ],
@@ -896,6 +905,7 @@
         "name": "LBG Ljubljana",
         "city": "Ljubljana, Slovenia"
       },
+      "lbg": "Ljubljana",
       "bus": "Ljubljana",
       "description": "Cultural exchange hosted by LBG Ljubljana, open to crashers. Fee 130 €.",
       "fee": "€130",
@@ -950,6 +960,7 @@
       "location": {
         "name": "Athens, Greece"
       },
+      "lbg": "Athens",
       "airports": [
         "ATH"
       ],
@@ -972,6 +983,7 @@
         "name": "Albergue de dominicas",
         "city": "Valladolid"
       },
+      "lbg": "Valladolid",
       "airports": [
         "MAD",
         "VLL"
@@ -1132,6 +1144,7 @@
         "address": "Petőfi Sándor u. 4, 2021",
         "city": "Tahitótfalu"
       },
+      "lbg": "Budapest",
       "bus": "Budapest",
       "description": "Autumn Motivational Weekend by LBG Budapest on the Danube, open to guests from other LBGs. Fee 60 € + 8 € alcohol fee, covering 2 nights, meals, drinks and trainings; the group meets in Budapest and travels together.",
       "fee": "€60",
@@ -1154,6 +1167,7 @@
         "name": "Warsaw University of Technology",
         "city": "Warsaw, Poland"
       },
+      "lbg": "Warsaw",
       "airports": [
         "WAW",
         "WMI"
@@ -1179,6 +1193,7 @@
         "name": "Cottage near Ekaterinburg",
         "city": "Ekaterinburg, Russia"
       },
+      "lbg": "Ekaterinburg",
       "airports": [
         "SVX"
       ],
@@ -1247,6 +1262,7 @@
         "address": "1, 17810 Olot, Girona",
         "city": "Olot, Spain"
       },
+      "lbg": "Barcelona",
       "airports": [
         "GRO",
         "BCN"
@@ -1272,6 +1288,7 @@
         "name": "In the Alps near Torino",
         "city": "Italy"
       },
+      "lbg": "Torino",
       "airports": [
         "TRN",
         "MXP"
@@ -1297,6 +1314,7 @@
         "name": "Thessaloniki, Greece",
         "city": "Thessaloniki"
       },
+      "lbg": "Thessaloniki",
       "airports": [
         "SKG"
       ],
@@ -1320,6 +1338,7 @@
         "name": "Sanat Hostel (Taksim)",
         "city": "Istanbul, Türkiye"
       },
+      "lbg": "Istanbul",
       "airports": [
         "IST",
         "SAW"
