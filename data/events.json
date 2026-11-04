@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T00:04+01:00",
+  "updatedAt": "2026-11-05T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -952,6 +952,23 @@
       }
     },
     {
+      "id": "g-1a17704414d8afeb-1",
+      "title": "Apply to the Doctors Team 2026/27",
+      "tag": "deadline",
+      "start": "2026-11-05T23:59+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeTDaHn6nbfhTUxELdNk1xtUwJj41xrOP13xKnoTIf1LNwIpg/viewform?usp=dialog",
+      "description": "Call for members of the Doctors Team, which guides and supports Local BEST Groups. Apply through the application form; an interview may follow.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [Call][Doctors] Apply to be a part of the Doctors Team! | DL: 05.11.2026 23:59 CEST",
+        "receivedAt": "2026-10-26T08:00+01:00",
+        "messageId": "1a17704414d8afeb"
+      }
+    },
+    {
       "id": "g-1a116a49dbf51ff9-1",
       "title": "aRM 2026 – Region Tomato (The Redfather)",
       "tag": "meeting",
@@ -1098,6 +1115,22 @@
         "subject": "[BEST International] [Call][LAB] Host a pilot event to launch a new Service! | DL: 13/11 @ 23:59 CET",
         "receivedAt": "2026-10-16T08:00+02:00",
         "messageId": "1a1436055b58d433"
+      }
+    },
+    {
+      "id": "g-1a1928dc76ec908a-1",
+      "title": "Apply to the BCC Team: Website Developer & Activities Responsible",
+      "tag": "deadline",
+      "start": "2026-11-13T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "BEST Career Centre is looking for 2 new members: a Website Developer and an Activities Responsible. Apply by email with a motivation letter as a PDF.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [BCC][Call] Be a part of our Team for 2026/27! | DL: November 13th, 23:59 CET",
+        "receivedAt": "2026-10-31T12:03+01:00",
+        "messageId": "1a1928dc76ec908a"
       }
     },
     {
