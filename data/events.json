@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T00:04+01:00",
+  "updatedAt": "2026-11-06T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -918,23 +918,6 @@
       }
     },
     {
-      "id": "g-1a0ce0969bdc7ccb-2",
-      "title": "Applications close: MW Budapest",
-      "tag": "deadline",
-      "start": "2026-11-04T23:59+01:00",
-      "end": null,
-      "location": null,
-      "description": "Apply via the form for the Autumn Motivational Weekend in Tahitótfalu, Hungary (20–22 November). Fee 60 € + 8 € alcohol fee.",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb International list",
-        "subject": "[BEST International] [Call][jMW] LBG Budapest looking for a partner LBG for a jMW👀",
-        "receivedAt": "2026-09-23T13:31+02:00",
-        "messageId": "1a0ce0969bdc7ccb"
-      },
-      "url": "https://forms.gle/WpvdpdHnXm1gWuxb6"
-    },
-    {
       "id": "g-1a0c2eedd87e39ba-2",
       "title": "Delegate applications close: aGA26",
       "tag": "deadline",
@@ -1049,6 +1032,23 @@
         "receivedAt": "2026-10-13T00:34+02:00",
         "messageId": "1a132419ac4eb0a9"
       }
+    },
+    {
+      "id": "g-1a0ce0969bdc7ccb-2",
+      "title": "Applications close: MW Budapest",
+      "tag": "deadline",
+      "start": "2026-11-08T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "Apply via the form for the Autumn Motivational Weekend in Tahitótfalu, Hungary (20–22 November). Fee 60 € + 8 € alcohol fee. Deadline extended; a few spots are left.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][jMW] LBG Budapest looking for a partner LBG for a jMW👀",
+        "receivedAt": "2026-09-23T13:31+02:00",
+        "messageId": "1a0ce0969bdc7ccb"
+      },
+      "url": "https://forms.gle/WpvdpdHnXm1gWuxb6"
     },
     {
       "id": "g-1a157e3d185ada38-1",
