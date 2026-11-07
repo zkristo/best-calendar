@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T00:04+01:00",
+  "updatedAt": "2026-11-08T00:03+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1312,6 +1312,23 @@
       }
     },
     {
+      "id": "g-1a1b5fad9abab3a2-2",
+      "title": "Applications close: bePLAYER 9.5 (Rome)",
+      "tag": "deadline",
+      "start": "2026-11-30T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Application deadline for the bePLAYER 9.5 Motivational Weekend in Rome (4–6 December). Apply via the form.",
+      "status": "confirmed",
+      "url": "https://forms.gle/oJvSz62ixcC44qWS9",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][MoWe][LBG Rome] The BESTsignal is on! bePLAYER 9.5 is calling!",
+        "receivedAt": "2026-11-07T13:27+01:00",
+        "messageId": "1a1b5fad9abab3a2"
+      }
+    },
+    {
       "id": "g-1a0d3071ca38f137-1",
       "title": "Alpine Jam 2026 – Tied Up to the Middle Ages",
       "tag": "social",
@@ -1335,6 +1352,32 @@
         "subject": "[BEST International] [CALL][ALPINE JAM] Torino is calling upon YOU!!!",
         "receivedAt": "2026-09-24T12:47+02:00",
         "messageId": "1a0d3071ca38f137"
+      }
+    },
+    {
+      "id": "g-1a1b5fad9abab3a2-1",
+      "title": "bePLAYER 9.5 – Motivational Weekend Rome",
+      "tag": "course",
+      "start": "2026-12-04",
+      "end": "2026-12-06",
+      "location": {
+        "name": "Base Orso Scout",
+        "city": "Cave (near Rome), Italy"
+      },
+      "lbg": "Rome",
+      "airports": [
+        "FCO",
+        "CIA"
+      ],
+      "description": "Motivational Weekend hosted by LBG Rome with trainings and/or knowledge transfers, cultural events and parties. Fee €45, transportation not included. Apply via the form.",
+      "fee": "€45",
+      "status": "confirmed",
+      "url": "https://forms.gle/oJvSz62ixcC44qWS9",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][MoWe][LBG Rome] The BESTsignal is on! bePLAYER 9.5 is calling!",
+        "receivedAt": "2026-11-07T13:27+01:00",
+        "messageId": "1a1b5fad9abab3a2"
       }
     },
     {
