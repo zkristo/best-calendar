@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T00:03+01:00",
+  "updatedAt": "2026-11-09T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1242,6 +1242,40 @@
       }
     },
     {
+      "id": "g-1a1bae094cc3aa68-2",
+      "title": "Applications close: La MoWe Nostra (Milan)",
+      "tag": "deadline",
+      "start": "2026-11-21",
+      "end": null,
+      "location": null,
+      "description": "Application deadline for the Milan Motivational Weekend (11–13 December). Apply via the form.",
+      "status": "confirmed",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdIWqce_t69rn9lHbA67W9kkzIBhIMY5peLOjco9tyZFze1TQ/viewform?usp=dialog",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW][LBG Milan] La MoWe Nostra [Dec 11th - 13th]",
+        "receivedAt": "2026-11-08T12:16+01:00",
+        "messageId": "1a1bae094cc3aa68"
+      }
+    },
+    {
+      "id": "g-1a1bbb789ec802ef-1",
+      "title": "Apply to host a BEST Symposium on Education (BSE) 2027",
+      "tag": "deadline",
+      "start": "2026-11-23",
+      "end": null,
+      "location": null,
+      "description": "Call from EduID for LBGs to host one of three BEST Symposia on Education in summer 2027. Apply via the form.",
+      "status": "confirmed",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScJewjnW8lIJneqRH9WYMMixpycgDEYnNwZ-l7K8YzofMIFlQ/viewform?usp=sharing&ouid=117359131211042698401",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [EduID][Call] Host a BSE to Make Impact on Education in 2027!",
+        "receivedAt": "2026-11-08T11:30+01:00",
+        "messageId": "1a1bbb789ec802ef"
+      }
+    },
+    {
       "id": "g-1a059568f97a5a84-1",
       "title": "RoJAM 2026 – The Mystery Jam",
       "tag": "social",
@@ -1402,6 +1436,33 @@
         "subject": "[BEST International] [Board XXVIII] [Board] Re: [Call][LTSPC] Join the Drafting SIM in Thessaloniki! | DL: Fr, 6/11 @ 23:59 CET",
         "receivedAt": "2026-10-31T10:17+01:00",
         "messageId": "1a1928ddee0a4c2e"
+      }
+    },
+    {
+      "id": "g-1a1bae094cc3aa68-1",
+      "title": "La MoWe Nostra – Motivational Weekend Milan",
+      "tag": "course",
+      "start": "2026-12-11",
+      "end": "2026-12-13",
+      "location": {
+        "name": "Eno, mountains above Vobarno",
+        "city": "Vobarno (BS), Italy"
+      },
+      "lbg": "Milan",
+      "airports": [
+        "BGY",
+        "VRN",
+        "MXP"
+      ],
+      "description": "Mafia-themed Motivational Weekend hosted by LBG Milan. Fee €68; acceptance confirmed by 24 November. Apply via the form.",
+      "fee": "€68",
+      "status": "confirmed",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdIWqce_t69rn9lHbA67W9kkzIBhIMY5peLOjco9tyZFze1TQ/viewform?usp=dialog",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW][LBG Milan] La MoWe Nostra [Dec 11th - 13th]",
+        "receivedAt": "2026-11-08T12:16+01:00",
+        "messageId": "1a1bae094cc3aa68"
       }
     },
     {
