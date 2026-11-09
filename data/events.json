@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T00:04+01:00",
+  "updatedAt": "2026-11-10T00:03+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1017,23 +1017,6 @@
       }
     },
     {
-      "id": "g-1a132419ac4eb0a9-2",
-      "title": "Applications close: Motivational Weekend Barcelona",
-      "tag": "deadline",
-      "start": "2026-11-08T23:00+01:00",
-      "end": null,
-      "location": null,
-      "description": "Last day to apply as a guest for the Motivational Weekend in Olot (27–29 November). Spots are limited by venue capacity; apply via the online form.",
-      "url": "https://forms.gle/oJVMqXAdEcQ2Z8rS8",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb International list",
-        "subject": "[BEST International] [CALL][MW] LBG Barcelona is inviting you to BEST High: Motivation Weekend 2026! 🖤",
-        "receivedAt": "2026-10-13T00:34+02:00",
-        "messageId": "1a132419ac4eb0a9"
-      }
-    },
-    {
       "id": "g-1a0ce0969bdc7ccb-2",
       "title": "Applications close: MW Budapest",
       "tag": "deadline",
@@ -1051,22 +1034,6 @@
       "url": "https://forms.gle/WpvdpdHnXm1gWuxb6"
     },
     {
-      "id": "g-1a157e3d185ada38-1",
-      "title": "Apply to host Board Winter Meeting",
-      "tag": "deadline",
-      "start": "2026-11-08T23:59+01:00",
-      "end": null,
-      "location": null,
-      "description": "LBGs can apply to host the International Board's Winter Meeting (7 people, 4 days, between 19 December and 12 January). Apply on the BEST internal platform and by email.",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb International list",
-        "subject": "[BEST International] [Call][IE][BWM] We are looking for Board Winter Meeting host | DL: 08/11",
-        "receivedAt": "2026-10-19T19:00+02:00",
-        "messageId": "1a157e3d185ada38"
-      }
-    },
-    {
       "id": "g-1a17d62d24846fbd-1",
       "title": "LTSP survey promotion closes",
       "tag": "deadline",
@@ -1080,6 +1047,22 @@
         "subject": "[BEST International] [LTSP Creation] Promote External Survey to Shape the Future of BEST! | DL: 09/11 @ 23:59 CET",
         "receivedAt": "2026-10-27T10:11+01:00",
         "messageId": "1a17d62d24846fbd"
+      }
+    },
+    {
+      "id": "g-1a157e3d185ada38-1",
+      "title": "Apply to host Board Winter Meeting",
+      "tag": "deadline",
+      "start": "2026-11-10T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "LBGs can apply to host the International Board's Winter Meeting (7 people, 4 days, between 19 December and 12 January). Deadline extended from 8 November. Apply on the BEST internal platform and by email.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][IE][BWM] We are looking for Board Winter Meeting host | DL: 08/11",
+        "receivedAt": "2026-10-19T19:00+02:00",
+        "messageId": "1a157e3d185ada38"
       }
     },
     {
@@ -1131,6 +1114,23 @@
         "subject": "[BEST International] [Board XXVIII] [Board] [BCC][Call] Be a part of our Team for 2026/27! | DL: November 13th, 23:59 CET",
         "receivedAt": "2026-10-31T12:03+01:00",
         "messageId": "1a1928dc76ec908a"
+      }
+    },
+    {
+      "id": "g-1a132419ac4eb0a9-2",
+      "title": "Applications close: Motivational Weekend Barcelona",
+      "tag": "deadline",
+      "start": "2026-11-15T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Last day (extended from 8 November) to apply as a guest for the Motivational Weekend in Olot (27–29 November). Spots are limited by venue capacity; apply via the online form.",
+      "url": "https://forms.gle/oJVMqXAdEcQ2Z8rS8",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW] LBG Barcelona is inviting you to BEST High: Motivation Weekend 2026! 🖤",
+        "receivedAt": "2026-10-13T00:34+02:00",
+        "messageId": "1a132419ac4eb0a9"
       }
     },
     {
