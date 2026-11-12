@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T00:03+01:00",
+  "updatedAt": "2026-11-13T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1134,6 +1134,23 @@
       }
     },
     {
+      "id": "g-1a1cf8141249d6d5-2",
+      "title": "Crasher applications close: aMW Porto",
+      "tag": "deadline",
+      "start": "2026-11-16T00:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "Last day to apply as a crasher for LBG Porto’s Autumn Motivational Weekend in Barcelos (20–22 November). The deadline is Sunday 15 November 23:59 Portuguese time (WET); apply via the online form.",
+      "url": "https://forms.gle/tBw4AKLYGeXwFDbz7",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][aMW’26][Crashers] LBG Porto is looking for Crashers",
+        "receivedAt": "2026-11-12T12:24+01:00",
+        "messageId": "1a1cf8141249d6d5"
+      }
+    },
+    {
       "id": "g-1a17d65979162e75-1",
       "title": "Apply to host BAESTIEMEC 2027",
       "tag": "deadline",
@@ -1239,6 +1256,31 @@
         "subject": "[BEST International] [CALL][aMW'26][LBG Eka UrFU] Motivational Weekend",
         "receivedAt": "2026-10-12T16:37+02:00",
         "messageId": "1a1308ca02c8a9bb"
+      }
+    },
+    {
+      "id": "g-1a1cf8141249d6d5-1",
+      "title": "Autumn Motivational Weekend Porto 2026 – Las Vegas",
+      "tag": "course",
+      "start": "2026-11-20",
+      "end": "2026-11-22",
+      "location": {
+        "name": "Casa no Vilarejo de Roma",
+        "city": "Barcelos, Portugal"
+      },
+      "lbg": "Porto",
+      "airports": [
+        "OPO"
+      ],
+      "description": "Autumn Motivational Weekend by LBG Porto at a rural house in Barcelos, with a Las Vegas theme. Crasher fee 32 €, adjusted for those attending only part of it; LBG Porto members have priority and registrations are confirmed by the organisers. Apply via the online form.",
+      "fee": "€32",
+      "url": "https://forms.gle/tBw4AKLYGeXwFDbz7",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][aMW’26][Crashers] LBG Porto is looking for Crashers",
+        "receivedAt": "2026-11-12T12:24+01:00",
+        "messageId": "1a1cf8141249d6d5"
       }
     },
     {
