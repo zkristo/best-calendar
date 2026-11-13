@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-13T00:04+01:00",
+  "updatedAt": "2026-11-14T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -127,23 +127,6 @@
         "subject": "[BEST International] [Call][Crashers][joint aRM’26 Gdansk] Crash Camp Wawanakwa!",
         "receivedAt": "2026-09-07T12:05+02:00",
         "messageId": "1a07b5481fe8ac52"
-      }
-    },
-    {
-      "id": "g-1a059568f97a5a84-2",
-      "title": "Registration closes: RoJAM 2026",
-      "tag": "deadline",
-      "start": "2026-09-14T23:59+03:00",
-      "end": null,
-      "location": null,
-      "url": "https://forms.gle/9jJWJ9Mr9WwwoRJY7",
-      "description": "Sign-up form for RoJAM 2026 in Bran, Romania (27–30 November).",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb International list",
-        "subject": "[BEST International] [CALL][JAM] Zoinks!? Apply to RoJAM 2026",
-        "receivedAt": "2026-08-31T21:40+02:00",
-        "messageId": "1a059568f97a5a84"
       }
     },
     {
@@ -1117,6 +1100,23 @@
       }
     },
     {
+      "id": "g-1a1d5da69541e546-1",
+      "title": "Merch orders close: RoJAM 2026",
+      "tag": "deadline",
+      "start": "2026-11-15T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/4ki5axXEtZctckJY6",
+      "description": "Last day to order RoJAM 2026 merchandise via the merch form.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][JAM] Mystery JAM 2 - the Electric Boogaloo",
+        "receivedAt": "2026-11-13T18:00+01:00",
+        "messageId": "1a1d5da69541e546"
+      }
+    },
+    {
       "id": "g-1a132419ac4eb0a9-2",
       "title": "Applications close: Motivational Weekend Barcelona",
       "tag": "deadline",
@@ -1164,6 +1164,23 @@
         "subject": "[BEST International] [Call][BAESTIEMEC] We are looking for host for an amazing event that brings together 4 NGOs - BAESTIEMEC! | DL: 17/11 @ 23:00 CEST",
         "receivedAt": "2026-10-27T13:45+01:00",
         "messageId": "1a17d65979162e75"
+      }
+    },
+    {
+      "id": "g-1a1d6296c83cf259-2",
+      "title": "Applications close: aMW Novi Sad",
+      "tag": "deadline",
+      "start": "2026-11-17T23:59+01:00",
+      "end": null,
+      "location": null,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeGHlZXeQERdH34pWte32Zzyp-Tvrbk6LxKK4GjCoU7AQcrFw/viewform?usp=dialog",
+      "description": "Last day to apply for LBG Novi Sad's Autumn Motivational Weekend near Beočin (21–22 November). Apply via the online form.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW] All Aboard the Hogwarts Express! Next Stop: aMW in Novi Sad⚡️🏰",
+        "receivedAt": "2026-11-13T19:26+01:00",
+        "messageId": "1a1d6296c83cf259"
       }
     },
     {
@@ -1284,6 +1301,39 @@
       }
     },
     {
+      "id": "g-1a059568f97a5a84-2",
+      "title": "Registration closes: RoJAM 2026",
+      "tag": "deadline",
+      "start": "2026-11-20T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/wvfPcg9ynne1AbJY8",
+      "description": "Extended international call: sign-up form for RoJAM 2026 in Bran, Romania (27–30 November), open to anyone with no motivation letter needed. Payment is due by 20 November or in cash on location.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][JAM] Mystery JAM 2 - the Electric Boogaloo",
+        "receivedAt": "2026-11-13T18:00+01:00",
+        "messageId": "1a1d5da69541e546"
+      }
+    },
+    {
+      "id": "g-1a1d6b9d533362bd-2",
+      "title": "Extra participant applications close: Cultural Exchange Patras",
+      "tag": "deadline",
+      "start": "2026-11-20T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Last day to apply as an extra participant for LBG Patras's Cultural Exchange (17–21 December). Apply by email with a video, presentation or letter.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][CE][Extra] LBG Patras is calling for amazing EXTRA Participants",
+        "receivedAt": "2026-11-13T22:04+01:00",
+        "messageId": "1a1d6b9d533362bd"
+      }
+    },
+    {
       "id": "g-1a1bae094cc3aa68-2",
       "title": "Applications close: La MoWe Nostra (Milan)",
       "tag": "deadline",
@@ -1298,6 +1348,29 @@
         "subject": "[BEST International] [CALL][MW][LBG Milan] La MoWe Nostra [Dec 11th - 13th]",
         "receivedAt": "2026-11-08T12:16+01:00",
         "messageId": "1a1bae094cc3aa68"
+      }
+    },
+    {
+      "id": "g-1a1d6296c83cf259-1",
+      "title": "Autumn Motivational Weekend Novi Sad 2026 – Hogwarts",
+      "tag": "course",
+      "start": "2026-11-21",
+      "end": "2026-11-22",
+      "location": {
+        "name": "House near Beočin",
+        "city": "Beočin, Serbia"
+      },
+      "lbg": "Novi Sad",
+      "bus": "Novi Sad",
+      "description": "Autumn Motivational Weekend by LBG Novi Sad at a house near Beočin, with a Harry Potter theme: workshops and trainings by day, social programme in the evening. Fee 25 €, paid in cash on arrival; places are limited and selected participants are notified by email. Apply via the online form.",
+      "fee": "€25",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeGHlZXeQERdH34pWte32Zzyp-Tvrbk6LxKK4GjCoU7AQcrFw/viewform?usp=dialog",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [CALL][MW] All Aboard the Hogwarts Express! Next Stop: aMW in Novi Sad⚡️🏰",
+        "receivedAt": "2026-11-13T19:26+01:00",
+        "messageId": "1a1d6296c83cf259"
       }
     },
     {
@@ -1331,8 +1404,8 @@
         "OTP",
         "SBZ"
       ],
-      "url": "https://forms.gle/9jJWJ9Mr9WwwoRJY7",
-      "description": "Romanian JAM with a limited number of spots for international BESTies. 18 € per night plus a 2 € deposit per night.",
+      "url": "https://forms.gle/wvfPcg9ynne1AbJY8",
+      "description": "Romanian JAM, open to international BESTies through an extended call. 18 € per night plus a 2 € deposit per night.",
       "fee": "€18/night",
       "status": "confirmed",
       "source": {
@@ -1505,6 +1578,31 @@
         "subject": "[BEST International] [CALL][MW][LBG Milan] La MoWe Nostra [Dec 11th - 13th]",
         "receivedAt": "2026-11-08T12:16+01:00",
         "messageId": "1a1bae094cc3aa68"
+      }
+    },
+    {
+      "id": "g-1a1d6b9d533362bd-1",
+      "title": "Cultural Exchange Patras 2026",
+      "tag": "social",
+      "start": "2026-12-17",
+      "end": "2026-12-21",
+      "location": {
+        "name": "Patras & Kalavrita",
+        "city": "Patras, Greece"
+      },
+      "lbg": "Patras",
+      "airports": [
+        "ATH",
+        "GPA"
+      ],
+      "description": "Five-day Cultural Exchange hosted by LBG Patras in Patras and the mountain town of Kalavrita, with BESTies from Istanbul Yildiz and Coimbra; this call is for extra participants. Fee 95 € (accommodation, food and transport between Patras and Kalavrita) plus an optional 10 € alcohol fee. Apply by email with a video, presentation or letter.",
+      "fee": "€95",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][CE][Extra] LBG Patras is calling for amazing EXTRA Participants",
+        "receivedAt": "2026-11-13T22:04+01:00",
+        "messageId": "1a1d6b9d533362bd"
       }
     },
     {
