@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14T00:04+01:00",
+  "updatedAt": "2026-11-15T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1371,6 +1371,24 @@
         "subject": "[BEST International] [CALL][MW] All Aboard the Hogwarts Express! Next Stop: aMW in Novi Sad⚡️🏰",
         "receivedAt": "2026-11-13T19:26+01:00",
         "messageId": "1a1d6296c83cf259"
+      }
+    },
+    {
+      "id": "g-1a1dbf9ad991f5c9-1",
+      "title": "EduID public meeting: BSEs and the proposed EIP topic",
+      "tag": "other",
+      "start": "2026-11-21T15:00+01:00",
+      "end": "2026-11-21T17:00+01:00",
+      "location": {
+        "name": "Online"
+      },
+      "description": "Public online meeting of the Educational Involvement Department about hosting BEST Symposia on Education (BSE) in summer 2027 and the proposed EIP 2026–2028 topic. Open to all LBGs; the call link is in the email. The email writes the time as 15:00–17:00 \"CEST\".",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [EduID][Call] Host a BSE to Make Impact on Education in 2027!",
+        "receivedAt": "2026-11-14T22:11+01:00",
+        "messageId": "1a1dbf9ad991f5c9"
       }
     },
     {
