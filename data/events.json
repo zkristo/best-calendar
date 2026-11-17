@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T00:04+01:00",
+  "updatedAt": "2026-11-18T00:03+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1084,22 +1084,6 @@
       }
     },
     {
-      "id": "g-1a1928dc76ec908a-1",
-      "title": "Apply to the BCC Team: Website Developer & Activities Responsible",
-      "tag": "deadline",
-      "start": "2026-11-13T23:59+01:00",
-      "end": null,
-      "location": null,
-      "description": "BEST Career Centre is looking for 2 new members: a Website Developer and an Activities Responsible. Apply by email with a motivation letter as a PDF.",
-      "status": "confirmed",
-      "source": {
-        "from": "BEST Zagreb Board",
-        "subject": "[BEST International] [Board XXVIII] [Board] [BCC][Call] Be a part of our Team for 2026/27! | DL: November 13th, 23:59 CET",
-        "receivedAt": "2026-10-31T12:03+01:00",
-        "messageId": "1a1928dc76ec908a"
-      }
-    },
-    {
       "id": "g-1a1d5da69541e546-1",
       "title": "Merch orders close: RoJAM 2026",
       "tag": "deadline",
@@ -1164,6 +1148,22 @@
         "subject": "[BEST International] [Call][BAESTIEMEC] We are looking for host for an amazing event that brings together 4 NGOs - BAESTIEMEC! | DL: 17/11 @ 23:00 CEST",
         "receivedAt": "2026-10-27T13:45+01:00",
         "messageId": "1a17d65979162e75"
+      }
+    },
+    {
+      "id": "g-1a1928dc76ec908a-1",
+      "title": "Apply to the BCC Team: Website Developer & Activities Responsible",
+      "tag": "deadline",
+      "start": "2026-11-17T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "BEST Career Centre is looking for 2 new members: a Website Developer and an Activities Responsible. The deadline was extended to 17 November for the Activities Responsible role. Apply by email with a motivation letter as a PDF.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board XXVIII] [Board] [BCC][Call] Be a part of our Team for 2026/27! | DL: November 13th, 23:59 CET",
+        "receivedAt": "2026-10-31T12:03+01:00",
+        "messageId": "1a1928dc76ec908a"
       }
     },
     {
@@ -1493,6 +1493,22 @@
         "subject": "[BEST International] [Call][MoWe][LBG Rome] The BESTsignal is on! bePLAYER 9.5 is calling!",
         "receivedAt": "2026-11-07T13:27+01:00",
         "messageId": "1a1b5fad9abab3a2"
+      }
+    },
+    {
+      "id": "g-1a1eb40398973100-1",
+      "title": "Apply to host Branding SIM 2027",
+      "tag": "deadline",
+      "start": "2026-12-01T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "LBGs can apply to host the Branding SIM, a 5–6 day event for about 15–18 participants working on branding for LAB, EIP and Advocacy, planned for early January (around 3–8 January). Apply on the BEST internal platform and by email.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][IE][Branding SIM] We are looking for Hosts for Branding SIM! | DL:01/12 @ 23:59 CET",
+        "receivedAt": "2026-11-17T21:41+01:00",
+        "messageId": "1a1eb40398973100"
       }
     },
     {
