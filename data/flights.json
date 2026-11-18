@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-17T06:13+01:00",
+ "updatedAt": "2026-11-18T05:40+01:00",
  "origin": "Zagreb",
  "events": {
   "g-1a059568f97a5a84-1": {
@@ -9,16 +9,16 @@
    "back": "2026-11-30",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:11+01:00",
+   "searchedAt": "2026-11-18T05:38+01:00",
    "best": [
     {
-     "total": 142.93,
+     "total": 135.37,
      "nights": 3,
      "out": {
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 51.94,
+      "total": 52.38,
       "wait": "5h15 at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -28,7 +28,7 @@
         "to": "Budapest Airport",
         "dep": "2026-11-26T23:59",
         "arr": "2026-11-27T04:50",
-        "price": 18.48,
+        "price": 18.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=26.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -47,7 +47,7 @@
         "arr": "2026-11-27T12:55",
         "approxArrival": false,
         "minutes": 105,
-        "price": 33.46,
+        "price": 33.4,
         "carriers": [
          "Wizz Air"
         ],
@@ -61,7 +61,7 @@
       "airport": "MLA",
       "airportName": "Malta International",
       "viaFlight": true,
-      "total": 90.99,
+      "total": 82.99,
       "wait": "6h50 connection in MLA (separate tickets)",
       "overnight": false,
       "steps": [
@@ -76,7 +76,7 @@
         "arr": "2026-11-30T12:40",
         "approxArrival": false,
         "minutes": 145,
-        "price": 43.99,
+        "price": 30.99,
         "carriers": [
          "Ryanair"
         ],
@@ -95,13 +95,13 @@
         "arr": "2026-11-30T21:25",
         "approxArrival": false,
         "minutes": 115,
-        "price": 39.0,
+        "price": 44.0,
         "carriers": [
          "Ryanair"
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/jv3jj4n"
+        "url": "https://kiwi.com/u/uqkmj4u"
        },
        {
         "kind": "transfer",
@@ -113,13 +113,13 @@
      }
     },
     {
-     "total": 143.9,
+     "total": 146.36,
      "nights": 3,
      "out": {
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 51.94,
+      "total": 52.38,
       "wait": "5h15 at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -129,7 +129,7 @@
         "to": "Budapest Airport",
         "dep": "2026-11-26T23:59",
         "arr": "2026-11-27T04:50",
-        "price": 18.48,
+        "price": 18.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=26.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -148,97 +148,7 @@
         "arr": "2026-11-27T12:55",
         "approxArrival": false,
         "minutes": 105,
-        "price": 33.46,
-        "carriers": [
-         "Wizz Air"
-        ],
-        "via": [],
-        "source": "wizz",
-        "url": "https://wizzair.com/en-gb/booking/select-flight/BUD/OTP/2026-11-27/null/1/0/0/null"
-       }
-      ]
-     },
-     "back": {
-      "airport": "VCE",
-      "airportName": "Venice Marco Polo",
-      "viaFlight": false,
-      "total": 91.96,
-      "wait": "bus leaves 6h26 after landing",
-      "overnight": false,
-      "steps": [
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "OTP",
-        "to": "VCE",
-        "fromName": "OTP",
-        "toName": "VCE",
-        "dep": "2026-11-30T06:15",
-        "arr": "2026-11-30T08:13",
-        "approxArrival": true,
-        "minutes": 118,
-        "price": 68.98,
-        "carriers": [
-         "Wizz Air"
-        ],
-        "via": [],
-        "source": "wizz",
-        "url": "https://wizzair.com/en-gb/booking/select-flight/OTP/VCE/2026-11-30/null/1/0/0/null"
-       },
-       {
-        "kind": "bus",
-        "from": "Venice (Airport VCE)",
-        "to": "Zagreb",
-        "dep": "2026-11-30T14:40",
-        "arr": "2026-11-30T21:00",
-        "price": 22.98,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=30.11.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 5,
-         "price": 0
-        }
-       }
-      ]
-     }
-    },
-    {
-     "total": 145.92,
-     "nights": 3,
-     "out": {
-      "airport": "BUD",
-      "airportName": "Budapest",
-      "viaFlight": false,
-      "total": 51.94,
-      "wait": "5h15 at the airport before take-off · 🌙 overnight wait",
-      "overnight": true,
-      "steps": [
-       {
-        "kind": "bus",
-        "from": "Zagreb",
-        "to": "Budapest Airport",
-        "dep": "2026-11-26T23:59",
-        "arr": "2026-11-27T04:50",
-        "price": 18.48,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=26.11.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 5,
-         "price": 0
-        }
-       },
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "BUD",
-        "to": "OTP",
-        "fromName": "BUD",
-        "toName": "OTP",
-        "dep": "2026-11-27T10:10",
-        "arr": "2026-11-27T12:55",
-        "approxArrival": false,
-        "minutes": 105,
-        "price": 33.46,
+        "price": 33.4,
         "carriers": [
          "Wizz Air"
         ],
@@ -273,7 +183,7 @@
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/fg8mq4"
+        "url": "https://kiwi.com/u/yyjymd9"
        },
        {
         "kind": "bus",
@@ -291,16 +201,106 @@
        }
       ]
      }
+    },
+    {
+     "total": 148.09,
+     "nights": 3,
+     "out": {
+      "airport": "BUD",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "total": 52.38,
+      "wait": "5h15 at the airport before take-off · 🌙 overnight wait",
+      "overnight": true,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Budapest Airport",
+        "dep": "2026-11-26T23:59",
+        "arr": "2026-11-27T04:50",
+        "price": 18.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=26.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BUD",
+        "to": "OTP",
+        "fromName": "BUD",
+        "toName": "OTP",
+        "dep": "2026-11-27T10:10",
+        "arr": "2026-11-27T12:55",
+        "approxArrival": false,
+        "minutes": 105,
+        "price": 33.4,
+        "carriers": [
+         "Wizz Air"
+        ],
+        "via": [],
+        "source": "wizz",
+        "url": "https://wizzair.com/en-gb/booking/select-flight/BUD/OTP/2026-11-27/null/1/0/0/null"
+       }
+      ]
+     },
+     "back": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 95.71,
+      "wait": "bus leaves 6h26 after landing",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "OTP",
+        "to": "VCE",
+        "fromName": "OTP",
+        "toName": "VCE",
+        "dep": "2026-11-30T06:15",
+        "arr": "2026-11-30T08:13",
+        "approxArrival": true,
+        "minutes": 118,
+        "price": 72.73,
+        "carriers": [
+         "Wizz Air"
+        ],
+        "via": [],
+        "source": "wizz",
+        "url": "https://wizzair.com/en-gb/booking/select-flight/OTP/VCE/2026-11-30/null/1/0/0/null"
+       },
+       {
+        "kind": "bus",
+        "from": "Venice (Airport VCE)",
+        "to": "Zagreb",
+        "dep": "2026-11-30T14:40",
+        "arr": "2026-11-30T21:00",
+        "price": 22.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=30.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       }
+      ]
+     }
     }
    ],
    "alternative": {
-    "total": 105.51,
+    "total": 115.31,
     "nights": 4,
     "out": {
      "airport": "BUD",
      "airportName": "Budapest",
      "viaFlight": false,
-     "total": 51.94,
+     "total": 52.38,
      "wait": "5h15 at the airport before take-off · 🌙 overnight wait",
      "overnight": true,
      "steps": [
@@ -310,7 +310,7 @@
        "to": "Budapest Airport",
        "dep": "2026-11-26T23:59",
        "arr": "2026-11-27T04:50",
-       "price": 18.48,
+       "price": 18.98,
        "changes": 0,
        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=26.11.2026&adult=1&_locale=en",
        "transfer": {
@@ -329,7 +329,7 @@
        "arr": "2026-11-27T12:55",
        "approxArrival": false,
        "minutes": 105,
-       "price": 33.46,
+       "price": 33.4,
        "carriers": [
         "Wizz Air"
        ],
@@ -343,7 +343,7 @@
      "airport": "VCE",
      "airportName": "Venice Marco Polo",
      "viaFlight": false,
-     "total": 53.57,
+     "total": 62.93,
      "wait": "bus leaves 6h26 after landing",
      "overnight": false,
      "steps": [
@@ -358,7 +358,7 @@
        "arr": "2026-12-01T08:13",
        "approxArrival": true,
        "minutes": 118,
-       "price": 31.59,
+       "price": 40.95,
        "carriers": [
         "Wizz Air"
        ],
@@ -384,54 +384,54 @@
     },
     "arriveShift": 0,
     "leaveShift": 1,
-    "saving": 37.42
+    "saving": 20.06
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-11-26",
      "back": "2026-11-29",
-     "total": 164.67
+     "total": 195.59
     },
     {
      "out": "2026-11-26",
      "back": "2026-11-30",
-     "total": 157.96
+     "total": 160.58
     },
     {
      "out": "2026-11-26",
      "back": "2026-12-01",
-     "total": 120.54
+     "total": 140.52
     },
     {
      "out": "2026-11-27",
      "back": "2026-11-29",
-     "total": 149.64
+     "total": 170.38
     },
     {
      "out": "2026-11-27",
      "back": "2026-11-30",
-     "total": 142.93
+     "total": 135.37
     },
     {
      "out": "2026-11-27",
      "back": "2026-12-01",
-     "total": 105.51
+     "total": 115.31
     },
     {
      "out": "2026-11-28",
      "back": "2026-11-29",
-     "total": 180.67
+     "total": 196.97
     },
     {
      "out": "2026-11-28",
      "back": "2026-11-30",
-     "total": 173.96
+     "total": 161.96
     },
     {
      "out": "2026-11-28",
      "back": "2026-12-01",
-     "total": 136.54
+     "total": 141.9
     }
    ],
    "warnings": []
@@ -443,10 +443,10 @@
    "back": "2026-11-22",
    "format": 3,
    "mode": "bus",
-   "searchedAt": "2026-11-17T06:10+01:00",
+   "searchedAt": "2026-11-18T05:37+01:00",
    "best": [
     {
-     "total": 54.96,
+     "total": 55.96,
      "nights": 2,
      "out": {
       "airport": "Budapest",
@@ -475,7 +475,7 @@
       "airportName": "Budapest",
       "viaFlight": false,
       "mode": "bus",
-      "total": 28.98,
+      "total": 29.98,
       "wait": null,
       "overnight": false,
       "steps": [
@@ -485,7 +485,7 @@
         "to": "Zagreb",
         "dep": "2026-11-22T15:50",
         "arr": "2026-11-22T21:20",
-        "price": 28.98,
+        "price": 29.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
         "transfer": null
@@ -494,55 +494,7 @@
      }
     },
     {
-     "total": 54.96,
-     "nights": 2,
-     "out": {
-      "airport": "Budapest",
-      "airportName": "Budapest",
-      "viaFlight": false,
-      "mode": "bus",
-      "total": 25.98,
-      "wait": null,
-      "overnight": false,
-      "steps": [
-       {
-        "kind": "bus",
-        "from": "Zagreb",
-        "to": "Budapest Kelenföld",
-        "dep": "2026-11-20T08:30",
-        "arr": "2026-11-20T14:00",
-        "price": 25.98,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=20.11.2026&adult=1&_locale=en",
-        "transfer": null
-       }
-      ]
-     },
-     "back": {
-      "airport": "Budapest",
-      "airportName": "Budapest",
-      "viaFlight": false,
-      "mode": "bus",
-      "total": 28.98,
-      "wait": null,
-      "overnight": false,
-      "steps": [
-       {
-        "kind": "bus",
-        "from": "Budapest Kelenföld",
-        "to": "Zagreb",
-        "dep": "2026-11-22T15:50",
-        "arr": "2026-11-22T21:20",
-        "price": 28.98,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
-        "transfer": null
-       }
-      ]
-     }
-    },
-    {
-     "total": 54.96,
+     "total": 55.96,
      "nights": 2,
      "out": {
       "airport": "Budapest",
@@ -571,7 +523,7 @@
       "airportName": "Budapest",
       "viaFlight": false,
       "mode": "bus",
-      "total": 28.98,
+      "total": 29.98,
       "wait": null,
       "overnight": false,
       "steps": [
@@ -581,7 +533,55 @@
         "to": "Zagreb",
         "dep": "2026-11-22T15:50",
         "arr": "2026-11-22T21:20",
-        "price": 28.98,
+        "price": 29.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     }
+    },
+    {
+     "total": 55.96,
+     "nights": 2,
+     "out": {
+      "airport": "Budapest",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 25.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Budapest Kelenföld",
+        "dep": "2026-11-20T17:05",
+        "arr": "2026-11-20T21:00",
+        "price": 25.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=20.11.2026&adult=1&_locale=en",
+        "transfer": null
+       }
+      ]
+     },
+     "back": {
+      "airport": "Budapest",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "mode": "bus",
+      "total": 29.98,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Budapest Kelenföld",
+        "to": "Zagreb",
+        "dep": "2026-11-22T15:50",
+        "arr": "2026-11-22T21:20",
+        "price": 29.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
         "transfer": null
@@ -591,7 +591,7 @@
     }
    ],
    "alternative": {
-    "total": 43.96,
+    "total": 44.46,
     "nights": 2,
     "out": {
      "airport": "Budapest",
@@ -620,7 +620,7 @@
      "airportName": "Budapest",
      "viaFlight": false,
      "mode": "bus",
-     "total": 20.48,
+     "total": 20.98,
      "wait": null,
      "overnight": false,
      "steps": [
@@ -630,7 +630,7 @@
        "to": "Zagreb",
        "dep": "2026-11-23T15:50",
        "arr": "2026-11-23T21:20",
-       "price": 20.48,
+       "price": 20.98,
        "changes": 0,
        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=23.11.2026&adult=1&_locale=en",
        "transfer": null
@@ -639,69 +639,69 @@
     },
     "arriveShift": 1,
     "leaveShift": 1,
-    "saving": 11.0
+    "saving": 11.5
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-11-18",
      "back": "2026-11-21",
-     "total": 53.96
+     "total": 57.96
     },
     {
      "out": "2026-11-18",
      "back": "2026-11-22",
-     "total": 55.46
+     "total": 59.46
     },
     {
      "out": "2026-11-18",
+     "back": "2026-11-23",
+     "total": 52.96
+    },
+    {
+     "out": "2026-11-19",
+     "back": "2026-11-21",
+     "total": 54.46
+    },
+    {
+     "out": "2026-11-19",
+     "back": "2026-11-22",
+     "total": 55.96
+    },
+    {
+     "out": "2026-11-19",
      "back": "2026-11-23",
      "total": 49.46
     },
     {
-     "out": "2026-11-19",
+     "out": "2026-11-20",
      "back": "2026-11-21",
+     "total": 51.96
+    },
+    {
+     "out": "2026-11-20",
+     "back": "2026-11-22",
+     "total": 53.46
+    },
+    {
+     "out": "2026-11-20",
+     "back": "2026-11-23",
+     "total": 46.96
+    },
+    {
+     "out": "2026-11-21",
+     "back": "2026-11-21",
+     "total": 49.46
+    },
+    {
+     "out": "2026-11-21",
+     "back": "2026-11-22",
      "total": 50.96
     },
     {
-     "out": "2026-11-19",
-     "back": "2026-11-22",
-     "total": 52.46
-    },
-    {
-     "out": "2026-11-19",
-     "back": "2026-11-23",
-     "total": 46.46
-    },
-    {
-     "out": "2026-11-20",
-     "back": "2026-11-21",
-     "total": 50.96
-    },
-    {
-     "out": "2026-11-20",
-     "back": "2026-11-22",
-     "total": 52.46
-    },
-    {
-     "out": "2026-11-20",
-     "back": "2026-11-23",
-     "total": 46.46
-    },
-    {
-     "out": "2026-11-21",
-     "back": "2026-11-21",
-     "total": 48.46
-    },
-    {
-     "out": "2026-11-21",
-     "back": "2026-11-22",
-     "total": 49.96
-    },
-    {
      "out": "2026-11-21",
      "back": "2026-11-23",
-     "total": 43.96
+     "total": 44.46
     }
    ],
    "warnings": []
@@ -713,16 +713,16 @@
    "back": "2026-12-06",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:12+01:00",
+   "searchedAt": "2026-11-18T05:39+01:00",
    "best": [
     {
-     "total": 129.65,
+     "total": 124.46,
      "nights": 3,
      "out": {
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 43.48,
+      "total": 42.48,
       "wait": "2h05 at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -751,13 +751,106 @@
         "arr": "2026-12-03T08:55",
         "approxArrival": false,
         "minutes": 115,
-        "price": 25.0,
+        "price": 24.0,
         "carriers": [
          "Wizz Air"
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/6p3mpf"
+        "url": "https://kiwi.com/u/ucfk4x6"
+       }
+      ]
+     },
+     "back": {
+      "airport": "TRS",
+      "airportName": "Trieste",
+      "viaFlight": false,
+      "total": 81.98,
+      "wait": "bus leaves 3h after landing",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "MXP",
+        "to": "TRS",
+        "fromName": "Milan–Malpensa",
+        "toName": "Trieste – Friuli Venezia Giulia",
+        "dep": "2026-12-06T06:15",
+        "arr": "2026-12-06T14:05",
+        "approxArrival": false,
+        "minutes": 470,
+        "price": 54.0,
+        "carriers": [
+         "Wizz Air Malta",
+         "Ryanair"
+        ],
+        "via": [
+         "SUF"
+        ],
+        "source": "kiwi",
+        "url": "https://kiwi.com/u/hqmwdxg"
+       },
+       {
+        "kind": "bus",
+        "from": "Trieste (Autostazione)",
+        "to": "Zagreb",
+        "dep": "2026-12-06T17:05",
+        "arr": "2026-12-06T21:00",
+        "price": 22.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de9f2f-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=06.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 50,
+         "price": 5
+        }
+       }
+      ]
+     }
+    },
+    {
+     "total": 128.65,
+     "nights": 3,
+     "out": {
+      "airport": "BUD",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "total": 42.48,
+      "wait": "2h05 at the airport before take-off · 🌙 overnight wait",
+      "overnight": true,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Budapest Airport",
+        "dep": "2026-12-02T23:59",
+        "arr": "2026-12-03T04:50",
+        "price": 18.48,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=02.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BUD",
+        "to": "TRN",
+        "fromName": "Budapest Ferenc Liszt International",
+        "toName": "Turin",
+        "dep": "2026-12-03T07:00",
+        "arr": "2026-12-03T08:55",
+        "approxArrival": false,
+        "minutes": 115,
+        "price": 24.0,
+        "carriers": [
+         "Wizz Air"
+        ],
+        "via": [],
+        "source": "kiwi",
+        "url": "https://kiwi.com/u/ucfk4x6"
        }
       ]
      },
@@ -806,13 +899,13 @@
      }
     },
     {
-     "total": 131.14,
+     "total": 130.06,
      "nights": 3,
      "out": {
       "airport": "VIE",
       "airportName": "Vienna",
       "viaFlight": false,
-      "total": 44.97,
+      "total": 48.08,
       "wait": "2h10 at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -841,7 +934,7 @@
         "arr": "2026-12-03T07:35",
         "approxArrival": false,
         "minutes": 90,
-        "price": 17.99,
+        "price": 21.1,
         "carriers": [
          "Ryanair"
         ],
@@ -852,134 +945,47 @@
       ]
      },
      "back": {
-      "airport": "VIE",
-      "airportName": "Vienna",
+      "airport": "TRS",
+      "airportName": "Trieste",
       "viaFlight": false,
-      "total": 86.17,
-      "wait": "bus leaves 5h10 after landing · 🌙 overnight wait",
-      "overnight": true,
-      "steps": [
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "MXP",
-        "to": "VIE",
-        "fromName": "Milan–Malpensa",
-        "toName": "Vienna International Airport",
-        "dep": "2026-12-06T21:20",
-        "arr": "2026-12-06T22:50",
-        "approxArrival": false,
-        "minutes": 90,
-        "price": 54.69,
-        "carriers": [
-         "Ryanair"
-        ],
-        "via": [],
-        "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-06&isReturn=false&originIata=MXP&destinationIata=VIE"
-       },
-       {
-        "kind": "bus",
-        "from": "Vienna Erdberg (VIB)",
-        "to": "Zagreb",
-        "dep": "2026-12-07T04:00",
-        "arr": "2026-12-07T09:15",
-        "price": 26.98,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40de1f31-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=07.12.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 40,
-         "price": 4.5
-        }
-       }
-      ]
-     }
-    },
-    {
-     "total": 133.91,
-     "nights": 3,
-     "out": {
-      "airport": "BUD",
-      "airportName": "Budapest",
-      "viaFlight": false,
-      "total": 43.48,
-      "wait": "2h05 at the airport before take-off · 🌙 overnight wait",
-      "overnight": true,
-      "steps": [
-       {
-        "kind": "bus",
-        "from": "Zagreb",
-        "to": "Budapest Airport",
-        "dep": "2026-12-02T23:59",
-        "arr": "2026-12-03T04:50",
-        "price": 18.48,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=02.12.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 5,
-         "price": 0
-        }
-       },
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "BUD",
-        "to": "TRN",
-        "fromName": "Budapest Ferenc Liszt International",
-        "toName": "Turin",
-        "dep": "2026-12-03T07:00",
-        "arr": "2026-12-03T08:55",
-        "approxArrival": false,
-        "minutes": 115,
-        "price": 25.0,
-        "carriers": [
-         "Wizz Air"
-        ],
-        "via": [],
-        "source": "kiwi",
-        "url": "https://kiwi.com/u/6p3mpf"
-       }
-      ]
-     },
-     "back": {
-      "airport": "BTS",
-      "airportName": "Bratislava",
-      "viaFlight": false,
-      "total": 90.43,
-      "wait": "bus leaves 6h30 after landing",
+      "total": 81.98,
+      "wait": "bus leaves 3h after landing",
       "overnight": false,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
         "from": "MXP",
-        "to": "BTS",
-        "fromName": "MXP",
-        "toName": "BTS",
-        "dep": "2026-12-06T14:00",
-        "arr": "2026-12-06T15:30",
+        "to": "TRS",
+        "fromName": "Milan–Malpensa",
+        "toName": "Trieste – Friuli Venezia Giulia",
+        "dep": "2026-12-06T06:15",
+        "arr": "2026-12-06T14:05",
         "approxArrival": false,
-        "minutes": null,
-        "price": 61.95,
+        "minutes": 470,
+        "price": 54.0,
         "carriers": [
+         "Wizz Air Malta",
          "Ryanair"
         ],
-        "via": [],
-        "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-06&isReturn=false&originIata=MXP&destinationIata=BTS"
+        "via": [
+         "SUF"
+        ],
+        "source": "kiwi",
+        "url": "https://kiwi.com/u/hqmwdxg"
        },
        {
         "kind": "bus",
-        "from": "Bratislava (bus station Mlynské Nivy)",
+        "from": "Trieste (Autostazione)",
         "to": "Zagreb",
-        "dep": "2026-12-06T22:00",
-        "arr": "2026-12-07T04:05",
-        "price": 26.98,
+        "dep": "2026-12-06T17:05",
+        "arr": "2026-12-06T21:00",
+        "price": 22.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40de54de-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=06.12.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40de9f2f-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=06.12.2026&adult=1&_locale=en",
         "transfer": {
-         "minutes": 35,
-         "price": 1.5
+         "minutes": 50,
+         "price": 5
         }
        }
       ]
@@ -987,13 +993,13 @@
     }
    ],
    "alternative": {
-    "total": 93.46,
+    "total": 90.45,
     "nights": 3,
     "out": {
      "airport": "BUD",
      "airportName": "Budapest",
      "viaFlight": false,
-     "total": 42.48,
+     "total": 41.48,
      "wait": "3h30 at the airport before take-off · 🌙 overnight wait",
      "overnight": true,
      "steps": [
@@ -1022,13 +1028,13 @@
        "arr": "2026-12-04T10:10",
        "approxArrival": false,
        "minutes": 105,
-       "price": 24.0,
+       "price": 23.0,
        "carriers": [
         "Wizz Air Malta"
        ],
        "via": [],
        "source": "kiwi",
-       "url": "https://kiwi.com/u/9cfvgy"
+       "url": "https://kiwi.com/u/qcmcmgy"
       }
      ]
     },
@@ -1036,8 +1042,8 @@
      "airport": "BUD",
      "airportName": "Budapest",
      "viaFlight": false,
-     "total": 50.98,
-     "wait": "bus leaves 6h35 after landing",
+     "total": 48.97,
+     "wait": "bus leaves 2h after landing",
      "overnight": false,
      "steps": [
       {
@@ -1047,25 +1053,25 @@
        "to": "BUD",
        "fromName": "Milan–Malpensa",
        "toName": "Budapest Ferenc Liszt International",
-       "dep": "2026-12-07T06:10",
-       "arr": "2026-12-07T07:50",
+       "dep": "2026-12-07T12:10",
+       "arr": "2026-12-07T13:50",
        "approxArrival": false,
        "minutes": 100,
-       "price": 23.0,
+       "price": 22.99,
        "carriers": [
         "Wizz Air Malta"
        ],
        "via": [],
-       "source": "kiwi",
-       "url": "https://kiwi.com/u/8r85tyk"
+       "source": "wizz",
+       "url": "https://wizzair.com/en-gb/booking/select-flight/MXP/BUD/2026-12-07/null/1/0/0/null"
       },
       {
        "kind": "bus",
-       "from": "Budapest Mexikói út",
+       "from": "Budapest Kelenföld",
        "to": "Zagreb",
-       "dep": "2026-12-07T14:25",
-       "arr": "2026-12-07T20:00",
-       "price": 21.98,
+       "dep": "2026-12-07T15:50",
+       "arr": "2026-12-07T21:20",
+       "price": 19.98,
        "changes": 0,
        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=07.12.2026&adult=1&_locale=en",
        "transfer": {
@@ -1077,70 +1083,71 @@
     },
     "arriveShift": 1,
     "leaveShift": 1,
-    "saving": 36.19
+    "saving": 34.01
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-12-02",
      "back": "2026-12-05",
-     "total": 122.23
+     "total": 118.28
     },
     {
      "out": "2026-12-02",
      "back": "2026-12-06",
-     "total": 147.87
+     "total": 142.46
     },
     {
      "out": "2026-12-02",
      "back": "2026-12-07",
-     "total": 112.68
+     "total": 109.45
     },
     {
      "out": "2026-12-03",
      "back": "2026-12-05",
-     "total": 104.01
+     "total": 100.28
     },
     {
      "out": "2026-12-03",
      "back": "2026-12-06",
-     "total": 129.65
+     "total": 124.46
     },
     {
      "out": "2026-12-03",
      "back": "2026-12-07",
-     "total": 94.46
+     "total": 91.45
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-05",
-     "total": 103.01
+     "total": 99.28
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-06",
-     "total": 128.65
+     "total": 123.46
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-07",
-     "total": 93.46
+     "total": 90.45
     }
    ],
    "warnings": [
-    "Flight search SPU→TRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search OSI→TRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→LJU failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→GRZ failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→TRS failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→VCE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→BTS failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→TSF failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→BEG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→ZAD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→SPU failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search TRN,MXP→OSI failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Wizz Air direct prices unavailable for 6 route(s) (BUD→MXP, BUD→TRN, FCO→TRN, MXP→BUD, TRN→BUD, …); Kiwi prices used there."
+    "Flight search STN→TRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search NRN→TRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BVA→TRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→BVA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FCO→TRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search WMI→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search TRN,MXP→MLA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search MLA→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search TRN,MXP→FCO failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search TRN,MXP→WMI failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search TRN,MXP→BVA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FCO→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BVA→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later."
    ]
   },
   "g-1a1029406d87e7fc-1": {
@@ -1150,217 +1157,203 @@
    "back": "2026-12-31",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:13+01:00",
+   "searchedAt": "2026-11-18T05:40+01:00",
    "best": [
     {
-     "total": 291.96,
+     "total": 240.96,
      "nights": 2,
      "out": {
-      "airport": "LJU",
-      "airportName": "Ljubljana",
+      "airport": "BUD",
+      "airportName": "Budapest",
       "viaFlight": false,
-      "total": 145.48,
-      "wait": "3h at the airport before take-off",
-      "overnight": false,
+      "total": 146.98,
+      "wait": "6h40 at the airport before take-off · 🌙 overnight wait",
+      "overnight": true,
       "steps": [
        {
         "kind": "bus",
         "from": "Zagreb",
-        "to": "Ljubljana",
-        "dep": "2026-12-29T07:30",
-        "arr": "2026-12-29T09:40",
-        "price": 15.48,
+        "to": "Budapest Népliget",
+        "dep": "2026-12-28T18:50",
+        "arr": "2026-12-28T23:10",
+        "price": 35.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=29.12.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=28.12.2026&adult=1&_locale=en",
         "transfer": {
-         "minutes": 50,
-         "price": 5
+         "minutes": 60,
+         "price": 6
         }
        },
        {
         "kind": "flight",
         "hop": false,
-        "from": "LJU",
+        "from": "BUD",
         "to": "SAW",
-        "fromName": "Ljubljana Jože Pučnik",
+        "fromName": "Budapest Ferenc Liszt International",
         "toName": "Sabiha Gökçen International",
-        "dep": "2026-12-29T13:30",
-        "arr": "2026-12-29T21:00",
+        "dep": "2026-12-29T06:50",
+        "arr": "2026-12-29T22:00",
         "approxArrival": false,
-        "minutes": 330,
-        "price": 125.0,
+        "minutes": 790,
+        "price": 105.0,
         "carriers": [
          "Wizz Air",
-         "Pegasus"
+         "AJet"
         ],
         "via": [
-         "SKP"
+         "ESB"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/wfwwh6f"
+        "url": "https://kiwi.com/u/hnmsd5s"
        }
       ]
      },
      "back": {
-      "airport": "BTS",
-      "airportName": "Bratislava",
+      "airport": "VIE",
+      "airportName": "Vienna",
       "viaFlight": false,
-      "total": 146.48,
-      "wait": "bus leaves 1h20 after landing",
+      "total": 93.98,
+      "wait": "bus leaves 1h05 after landing",
       "overnight": false,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
         "from": "SAW",
-        "to": "BTS",
+        "to": "VIE",
         "fromName": "Sabiha Gökçen International",
-        "toName": "Bratislava Airport",
-        "dep": "2026-12-31T11:25",
-        "arr": "2026-12-31T20:40",
+        "toName": "Vienna International Airport",
+        "dep": "2026-12-31T13:30",
+        "arr": "2026-12-31T13:50",
         "approxArrival": false,
-        "minutes": 675,
-        "price": 106.0,
+        "minutes": 140,
+        "price": 59.0,
         "carriers": [
-         "Pegasus",
-         "Wizz Air"
+         "Pegasus"
         ],
-        "via": [
-         "PRN"
-        ],
+        "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/7sthwr2"
+        "url": "https://kiwi.com/u/ucq22v"
        },
        {
         "kind": "bus",
-        "from": "Bratislava (bus station Mlynské Nivy)",
+        "from": "Vienna Airport",
         "to": "Zagreb",
-        "dep": "2026-12-31T22:00",
-        "arr": "2027-01-01T04:05",
-        "price": 38.98,
+        "dep": "2026-12-31T14:55",
+        "arr": "2026-12-31T20:40",
+        "price": 34.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40de54de-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=31.12.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40df34e5-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=31.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       }
+      ]
+     }
+    },
+    {
+     "total": 244.46,
+     "nights": 2,
+     "out": {
+      "airport": "BTS",
+      "airportName": "Bratislava",
+      "viaFlight": false,
+      "total": 150.48,
+      "wait": "5h at the airport before take-off",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Bratislava (bus station Mlynské Nivy)",
+        "dep": "2026-12-29T01:45",
+        "arr": "2026-12-29T08:25",
+        "price": 36.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de54de-8646-11e6-9066-549f350fcb0c&rideDate=29.12.2026&adult=1&_locale=en",
         "transfer": {
          "minutes": 35,
          "price": 1.5
         }
-       }
-      ]
-     }
-    },
-    {
-     "total": 295.13,
-     "nights": 2,
-     "out": {
-      "airport": "LJU",
-      "airportName": "Ljubljana",
-      "viaFlight": false,
-      "total": 145.48,
-      "wait": "3h at the airport before take-off",
-      "overnight": false,
-      "steps": [
-       {
-        "kind": "bus",
-        "from": "Zagreb",
-        "to": "Ljubljana",
-        "dep": "2026-12-29T07:30",
-        "arr": "2026-12-29T09:40",
-        "price": 15.48,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=29.12.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 50,
-         "price": 5
-        }
        },
        {
         "kind": "flight",
         "hop": false,
-        "from": "LJU",
+        "from": "BTS",
         "to": "SAW",
-        "fromName": "Ljubljana Jože Pučnik",
+        "fromName": "Bratislava Airport",
         "toName": "Sabiha Gökçen International",
-        "dep": "2026-12-29T13:30",
-        "arr": "2026-12-29T21:00",
+        "dep": "2026-12-29T14:00",
+        "arr": "2026-12-29T22:00",
         "approxArrival": false,
-        "minutes": 330,
-        "price": 125.0,
+        "minutes": 360,
+        "price": 112.0,
         "carriers": [
          "Wizz Air",
          "Pegasus"
         ],
         "via": [
-         "SKP"
+         "TIA"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/wfwwh6f"
+        "url": "https://kiwi.com/u/tydkm8"
        }
       ]
      },
      "back": {
-      "airport": "FCO",
-      "airportName": "Leonardo da Vinci–Fiumicino Airport",
-      "viaFlight": true,
-      "total": 149.65,
-      "wait": "4h10 connection in FCO (separate tickets)",
+      "airport": "VIE",
+      "airportName": "Vienna",
+      "viaFlight": false,
+      "total": 93.98,
+      "wait": "bus leaves 1h05 after landing",
       "overnight": false,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
         "from": "SAW",
-        "to": "FCO",
+        "to": "VIE",
         "fromName": "Sabiha Gökçen International",
-        "toName": "Leonardo da Vinci–Fiumicino Airport",
-        "dep": "2026-12-31T11:20",
-        "arr": "2026-12-31T12:10",
+        "toName": "Vienna International Airport",
+        "dep": "2026-12-31T13:30",
+        "arr": "2026-12-31T13:50",
         "approxArrival": false,
-        "minutes": 170,
-        "price": 107.0,
+        "minutes": 140,
+        "price": 59.0,
         "carriers": [
-         "AJet"
+         "Pegasus"
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/scgumw"
+        "url": "https://kiwi.com/u/ucq22v"
        },
        {
-        "kind": "flight",
-        "hop": true,
-        "from": "FCO",
-        "to": "ZAG",
-        "fromName": "Leonardo da Vinci–Fiumicino Airport",
-        "toName": "Zagreb",
-        "dep": "2026-12-31T16:20",
-        "arr": "2026-12-31T17:45",
-        "approxArrival": false,
-        "minutes": 85,
-        "price": 34.65,
-        "carriers": [
-         "Ryanair"
-        ],
-        "via": [],
-        "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-31&isReturn=false&originIata=FCO&destinationIata=ZAG"
-       },
-       {
-        "kind": "transfer",
-        "text": "Zagreb airport → home",
-        "minutes": 45,
-        "price": 8
+        "kind": "bus",
+        "from": "Vienna Airport",
+        "to": "Zagreb",
+        "dep": "2026-12-31T14:55",
+        "arr": "2026-12-31T20:40",
+        "price": 34.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40df34e5-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=31.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
        }
       ]
      }
     },
     {
-     "total": 307.48,
+     "total": 250.43,
      "nights": 2,
      "out": {
-      "airport": "ZAG",
-      "airportName": "Zagreb",
-      "viaFlight": false,
-      "total": 161.0,
-      "wait": null,
+      "airport": "BGY",
+      "airportName": "Milan Bergamo International Airport",
+      "viaFlight": true,
+      "total": 156.45,
+      "wait": "3h45 connection in BGY (separate tickets)",
       "overnight": false,
       "steps": [
        {
@@ -1371,70 +1364,86 @@
        },
        {
         "kind": "flight",
-        "hop": false,
+        "hop": true,
         "from": "ZAG",
-        "to": "SAW",
+        "to": "BGY",
         "fromName": "Zagreb",
+        "toName": "Milan Bergamo International Airport",
+        "dep": "2026-12-29T08:00",
+        "arr": "2026-12-29T09:15",
+        "approxArrival": false,
+        "minutes": 75,
+        "price": 25.45,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-29&isReturn=false&originIata=ZAG&destinationIata=BGY"
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BGY",
+        "to": "SAW",
+        "fromName": "Milan Bergamo International Airport",
         "toName": "Sabiha Gökçen International",
-        "dep": "2026-12-29T07:20",
+        "dep": "2026-12-29T13:00",
         "arr": "2026-12-29T22:00",
         "approxArrival": false,
-        "minutes": 760,
-        "price": 153.0,
+        "minutes": 420,
+        "price": 123.0,
         "carriers": [
-         "Ryanair",
-         "AJet"
+         "Wizz Air Malta",
+         "Pegasus"
         ],
         "via": [
-         "NRN"
+         "TIA"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/6n2nrym"
+        "url": "https://kiwi.com/u/ntv62uw"
        }
       ]
      },
      "back": {
-      "airport": "BTS",
-      "airportName": "Bratislava",
+      "airport": "VIE",
+      "airportName": "Vienna",
       "viaFlight": false,
-      "total": 146.48,
-      "wait": "bus leaves 1h20 after landing",
+      "total": 93.98,
+      "wait": "bus leaves 1h05 after landing",
       "overnight": false,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
         "from": "SAW",
-        "to": "BTS",
+        "to": "VIE",
         "fromName": "Sabiha Gökçen International",
-        "toName": "Bratislava Airport",
-        "dep": "2026-12-31T11:25",
-        "arr": "2026-12-31T20:40",
+        "toName": "Vienna International Airport",
+        "dep": "2026-12-31T13:30",
+        "arr": "2026-12-31T13:50",
         "approxArrival": false,
-        "minutes": 675,
-        "price": 106.0,
+        "minutes": 140,
+        "price": 59.0,
         "carriers": [
-         "Pegasus",
-         "Wizz Air"
+         "Pegasus"
         ],
-        "via": [
-         "PRN"
-        ],
+        "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/7sthwr2"
+        "url": "https://kiwi.com/u/ucq22v"
        },
        {
         "kind": "bus",
-        "from": "Bratislava (bus station Mlynské Nivy)",
+        "from": "Vienna Airport",
         "to": "Zagreb",
-        "dep": "2026-12-31T22:00",
-        "arr": "2027-01-01T04:05",
-        "price": 38.98,
+        "dep": "2026-12-31T14:55",
+        "arr": "2026-12-31T20:40",
+        "price": 34.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40de54de-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=31.12.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40df34e5-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=31.12.2026&adult=1&_locale=en",
         "transfer": {
-         "minutes": 35,
-         "price": 1.5
+         "minutes": 5,
+         "price": 0
         }
        }
       ]
@@ -1442,25 +1451,25 @@
     }
    ],
    "alternative": {
-    "total": 252.46,
-    "nights": 1,
+    "total": 189.45,
+    "nights": 2,
     "out": {
-     "airport": "TRS",
-     "airportName": "Trieste",
+     "airport": "LJU",
+     "airportName": "Ljubljana",
      "viaFlight": false,
-     "total": 136.98,
-     "wait": "5h05 at the airport before take-off",
+     "total": 101.48,
+     "wait": "2h05 at the airport before take-off",
      "overnight": false,
      "steps": [
       {
        "kind": "bus",
        "from": "Zagreb",
-       "to": "Trieste (Autostazione)",
-       "dep": "2026-12-28T07:30",
-       "arr": "2026-12-28T11:30",
-       "price": 32.98,
+       "to": "Ljubljana",
+       "dep": "2026-12-30T07:30",
+       "arr": "2026-12-30T09:40",
+       "price": 15.48,
        "changes": 0,
-       "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de9f2f-8646-11e6-9066-549f350fcb0c&rideDate=28.12.2026&adult=1&_locale=en",
+       "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de8044-8646-11e6-9066-549f350fcb0c&rideDate=30.12.2026&adult=1&_locale=en",
        "transfer": {
         "minutes": 50,
         "price": 5
@@ -1469,140 +1478,150 @@
       {
        "kind": "flight",
        "hop": false,
-       "from": "TRS",
+       "from": "LJU",
        "to": "SAW",
-       "fromName": "Trieste – Friuli Venezia Giulia",
+       "fromName": "Ljubljana Jože Pučnik",
        "toName": "Sabiha Gökçen International",
-       "dep": "2026-12-28T17:25",
-       "arr": "2026-12-29T17:15",
+       "dep": "2026-12-30T12:35",
+       "arr": "2026-12-30T16:50",
        "approxArrival": false,
-       "minutes": 1310,
-       "price": 99.0,
-       "carriers": [
-        "Wizz Air Malta",
-        "AJet"
-       ],
-       "via": [
-        "TIA"
-       ],
-       "source": "kiwi",
-       "url": "https://kiwi.com/u/xr6v3m"
-      }
-     ]
-    },
-    "back": {
-     "airport": "BTS",
-     "airportName": "Bratislava",
-     "viaFlight": false,
-     "total": 115.48,
-     "wait": "bus leaves 1h50 after landing",
-     "overnight": false,
-     "steps": [
-      {
-       "kind": "flight",
-       "hop": false,
-       "from": "SAW",
-       "to": "BTS",
-       "fromName": "Sabiha Gökçen International",
-       "toName": "Bratislava Airport",
-       "dep": "2026-12-30T11:55",
-       "arr": "2026-12-30T12:05",
-       "approxArrival": false,
-       "minutes": 130,
-       "price": 76.0,
+       "minutes": 135,
+       "price": 81.0,
        "carriers": [
         "Pegasus"
        ],
        "via": [],
        "source": "kiwi",
-       "url": "https://kiwi.com/u/2bs6xk"
+       "url": "https://kiwi.com/u/yn4454g"
+      }
+     ]
+    },
+    "back": {
+     "airport": "BUD",
+     "airportName": "Budapest",
+     "viaFlight": false,
+     "total": 87.97,
+     "wait": "bus leaves 3h41 after landing",
+     "overnight": false,
+     "steps": [
+      {
+       "kind": "flight",
+       "hop": false,
+       "from": "IST",
+       "to": "BUD",
+       "fromName": "IST",
+       "toName": "BUD",
+       "dep": "2027-01-01T09:55",
+       "arr": "2027-01-01T11:48",
+       "approxArrival": true,
+       "minutes": 113,
+       "price": 49.99,
+       "carriers": [
+        "Wizz Air"
+       ],
+       "via": [],
+       "source": "wizz",
+       "url": "https://wizzair.com/en-gb/booking/select-flight/IST/BUD/2027-01-01/null/1/0/0/null"
       },
       {
        "kind": "bus",
-       "from": "Bratislava (bus station Mlynské Nivy)",
+       "from": "Budapest Népliget",
        "to": "Zagreb",
-       "dep": "2026-12-30T13:55",
-       "arr": "2026-12-30T20:40",
-       "price": 37.98,
+       "dep": "2027-01-01T15:30",
+       "arr": "2027-01-01T21:20",
+       "price": 31.98,
        "changes": 0,
-       "url": "https://shop.flixbus.com/search?departureCity=40de54de-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=30.12.2026&adult=1&_locale=en",
+       "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=01.01.2027&adult=1&_locale=en",
        "transfer": {
-        "minutes": 35,
-        "price": 1.5
+        "minutes": 60,
+        "price": 6
        }
       }
      ]
     },
-    "arriveShift": 0,
-    "leaveShift": -1,
-    "saving": 39.5
+    "arriveShift": 1,
+    "leaveShift": 1,
+    "saving": 51.51
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-12-28",
      "back": "2026-12-30",
-     "total": 252.46
+     "total": 244.46
     },
     {
      "out": "2026-12-28",
      "back": "2026-12-31",
-     "total": 283.46
+     "total": 243.46
     },
     {
      "out": "2026-12-28",
      "back": "2027-01-01",
-     "total": 298.45
+     "total": 237.45
     },
     {
      "out": "2026-12-29",
      "back": "2026-12-30",
-     "total": 260.96
+     "total": 241.96
     },
     {
      "out": "2026-12-29",
      "back": "2026-12-31",
-     "total": 291.96
+     "total": 240.96
     },
     {
      "out": "2026-12-29",
      "back": "2027-01-01",
-     "total": 306.95
+     "total": 234.95
     },
     {
      "out": "2026-12-30",
      "back": "2026-12-30",
-     "total": 289.96
+     "total": 246.96
     },
     {
      "out": "2026-12-30",
      "back": "2026-12-31",
-     "total": 272.96
+     "total": 195.46
     },
     {
      "out": "2026-12-30",
      "back": "2027-01-01",
-     "total": 287.95
+     "total": 189.45
     }
    ],
    "warnings": [
     "Flight search GRZ→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search BTS→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search BUD→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search TRS→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search TSF→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search VIE→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search BEG→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search ZAD→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search IST,SAW→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search IST,SAW→LJU failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search OSI→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAD→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→GRZ failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search IST,SAW→TRS failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search IST,SAW→TSF failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search IST,SAW→VCE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search IST,SAW→VIE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search IST,SAW→BUD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→TSF failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→BTS failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search IST,SAW→BEG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search IST,SAW→SPU failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→ZAD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→BUD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search IST,SAW→OSI failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Wizz Air direct prices unavailable for 2 route(s) (BUD→IST, IST→BUD); Kiwi prices used there."
+    "Flight search ZAG→FMM failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FMM→IST,SAW failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→BGY failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→CRL failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search CRL→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→BVA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search STN→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search MLA→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BVA→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search IST,SAW→FCO failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FCO→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later."
    ]
   },
   "g-1a11d18b85ee747c-1": {
@@ -1612,118 +1631,28 @@
    "back": "2026-11-22",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:10+01:00",
+   "searchedAt": "2026-11-18T05:38+01:00",
    "best": [
     {
-     "total": 152.6,
+     "total": 153.44,
      "nights": 2,
      "out": {
-      "airport": "BTS",
-      "airportName": "Bratislava",
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
       "viaFlight": false,
-      "total": 71.71,
-      "wait": "4h10 at the airport before take-off",
-      "overnight": false,
+      "total": 73.97,
+      "wait": "6h15 at the airport before take-off · 🌙 overnight wait",
+      "overnight": true,
       "steps": [
        {
         "kind": "bus",
         "from": "Zagreb",
-        "to": "Bratislava (Airport)",
-        "dep": "2026-11-20T08:35",
-        "arr": "2026-11-20T16:35",
-        "price": 41.97,
-        "changes": 1,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=358d7179-0a70-4694-8d26-bd2e084be1ed&rideDate=20.11.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 5,
-         "price": 0
-        }
-       },
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "BTS",
-        "to": "WMI",
-        "fromName": "Bratislava Airport",
-        "toName": "Warsaw Modlin",
-        "dep": "2026-11-20T20:50",
-        "arr": "2026-11-20T22:15",
-        "approxArrival": false,
-        "minutes": 85,
-        "price": 29.74,
-        "carriers": [
-         "Ryanair"
-        ],
-        "via": [],
-        "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-20&isReturn=false&originIata=BTS&destinationIata=WMI"
-       }
-      ]
-     },
-     "back": {
-      "airport": "BUD",
-      "airportName": "Budapest",
-      "viaFlight": false,
-      "total": 80.89,
-      "wait": "bus leaves 6h35 after landing",
-      "overnight": false,
-      "steps": [
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "WMI",
-        "to": "BUD",
-        "fromName": "Warsaw Modlin",
-        "toName": "Budapest Ferenc Liszt International",
-        "dep": "2026-11-22T16:00",
-        "arr": "2026-11-22T17:20",
-        "approxArrival": false,
-        "minutes": 80,
-        "price": 48.41,
-        "carriers": [
-         "Ryanair"
-        ],
-        "via": [],
-        "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-22&isReturn=false&originIata=WMI&destinationIata=BUD"
-       },
-       {
-        "kind": "bus",
-        "from": "Budapest Mexikói út",
-        "to": "Zagreb",
-        "dep": "2026-11-22T23:55",
-        "arr": "2026-11-23T05:45",
-        "price": 26.48,
+        "to": "Venice (Airport VCE)",
+        "dep": "2026-11-19T18:00",
+        "arr": "2026-11-19T23:55",
+        "price": 27.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 60,
-         "price": 6
-        }
-       }
-      ]
-     }
-    },
-    {
-     "total": 153.68,
-     "nights": 2,
-     "out": {
-      "airport": "BTS",
-      "airportName": "Bratislava",
-      "viaFlight": false,
-      "total": 71.71,
-      "wait": "4h10 at the airport before take-off",
-      "overnight": false,
-      "steps": [
-       {
-        "kind": "bus",
-        "from": "Zagreb",
-        "to": "Bratislava (Airport)",
-        "dep": "2026-11-20T08:35",
-        "arr": "2026-11-20T16:35",
-        "price": 41.97,
-        "changes": 1,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=358d7179-0a70-4694-8d26-bd2e084be1ed&rideDate=20.11.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=19.11.2026&adult=1&_locale=en",
         "transfer": {
          "minutes": 5,
          "price": 0
@@ -1732,21 +1661,21 @@
        {
         "kind": "flight",
         "hop": false,
-        "from": "BTS",
-        "to": "WMI",
-        "fromName": "Bratislava Airport",
-        "toName": "Warsaw Modlin",
-        "dep": "2026-11-20T20:50",
-        "arr": "2026-11-20T22:15",
+        "from": "VCE",
+        "to": "WAW",
+        "fromName": "Venice Marco Polo",
+        "toName": "Warsaw Chopin",
+        "dep": "2026-11-20T06:15",
+        "arr": "2026-11-20T08:05",
         "approxArrival": false,
-        "minutes": 85,
-        "price": 29.74,
+        "minutes": 110,
+        "price": 45.99,
         "carriers": [
-         "Ryanair"
+         "Wizz Air Malta"
         ],
         "via": [],
-        "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-20&isReturn=false&originIata=BTS&destinationIata=WMI"
+        "source": "wizz",
+        "url": "https://wizzair.com/en-gb/booking/select-flight/VCE/WAW/2026-11-20/null/1/0/0/null"
        }
       ]
      },
@@ -1754,7 +1683,7 @@
       "airport": "TSF",
       "airportName": "Treviso",
       "viaFlight": false,
-      "total": 81.97,
+      "total": 79.47,
       "wait": "bus leaves 4h30 after landing",
       "overnight": false,
       "steps": [
@@ -1769,7 +1698,7 @@
         "arr": "2026-11-22T13:00",
         "approxArrival": false,
         "minutes": 115,
-        "price": 33.99,
+        "price": 30.99,
         "carriers": [
          "Ryanair"
         ],
@@ -1783,7 +1712,7 @@
         "to": "Zagreb",
         "dep": "2026-11-22T17:30",
         "arr": "2026-11-22T23:55",
-        "price": 47.98,
+        "price": 48.48,
         "changes": 1,
         "url": "https://shop.flixbus.com/search?departureCity=0f3e7731-1464-463f-897f-019f79155692&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -1795,13 +1724,13 @@
      }
     },
     {
-     "total": 154.36,
+     "total": 157.41,
      "nights": 2,
      "out": {
       "airport": "VCE",
       "airportName": "Venice Marco Polo",
       "viaFlight": false,
-      "total": 73.47,
+      "total": 73.97,
       "wait": "6h15 at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -1811,7 +1740,7 @@
         "to": "Venice (Airport VCE)",
         "dep": "2026-11-19T18:00",
         "arr": "2026-11-19T23:55",
-        "price": 27.48,
+        "price": 27.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=19.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -1844,36 +1773,36 @@
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 80.89,
-      "wait": "bus leaves 6h35 after landing",
+      "total": 83.44,
+      "wait": "bus leaves 6h after landing",
       "overnight": false,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
-        "from": "WMI",
+        "from": "WAW",
         "to": "BUD",
-        "fromName": "Warsaw Modlin",
+        "fromName": "Warsaw Chopin",
         "toName": "Budapest Ferenc Liszt International",
-        "dep": "2026-11-22T16:00",
-        "arr": "2026-11-22T17:20",
+        "dep": "2026-11-22T08:10",
+        "arr": "2026-11-22T09:30",
         "approxArrival": false,
         "minutes": 80,
-        "price": 48.41,
+        "price": 47.46,
         "carriers": [
-         "Ryanair"
+         "Wizz Air"
         ],
         "via": [],
-        "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-22&isReturn=false&originIata=WMI&destinationIata=BUD"
+        "source": "wizz",
+        "url": "https://wizzair.com/en-gb/booking/select-flight/WAW/BUD/2026-11-22/null/1/0/0/null"
        },
        {
         "kind": "bus",
-        "from": "Budapest Mexikói út",
+        "from": "Budapest Népliget",
         "to": "Zagreb",
-        "dep": "2026-11-22T23:55",
-        "arr": "2026-11-23T05:45",
-        "price": 26.48,
+        "dep": "2026-11-22T15:30",
+        "arr": "2026-11-22T21:20",
+        "price": 29.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -1883,16 +1812,106 @@
        }
       ]
      }
+    },
+    {
+     "total": 158.08,
+     "nights": 2,
+     "out": {
+      "airport": "BTS",
+      "airportName": "Bratislava",
+      "viaFlight": false,
+      "total": 78.61,
+      "wait": "4h10 at the airport before take-off",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Bratislava (Airport)",
+        "dep": "2026-11-20T08:35",
+        "arr": "2026-11-20T16:35",
+        "price": 41.97,
+        "changes": 1,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=358d7179-0a70-4694-8d26-bd2e084be1ed&rideDate=20.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BTS",
+        "to": "WMI",
+        "fromName": "Bratislava Airport",
+        "toName": "Warsaw Modlin",
+        "dep": "2026-11-20T20:50",
+        "arr": "2026-11-20T22:15",
+        "approxArrival": false,
+        "minutes": 85,
+        "price": 36.64,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-20&isReturn=false&originIata=BTS&destinationIata=WMI"
+       }
+      ]
+     },
+     "back": {
+      "airport": "TSF",
+      "airportName": "Treviso",
+      "viaFlight": false,
+      "total": 79.47,
+      "wait": "bus leaves 4h30 after landing",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "WMI",
+        "to": "TSF",
+        "fromName": "Warsaw Modlin",
+        "toName": "Treviso",
+        "dep": "2026-11-22T11:05",
+        "arr": "2026-11-22T13:00",
+        "approxArrival": false,
+        "minutes": 115,
+        "price": 30.99,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-22&isReturn=false&originIata=WMI&destinationIata=TSF"
+       },
+       {
+        "kind": "bus",
+        "from": "Treviso - Airport Canova",
+        "to": "Zagreb",
+        "dep": "2026-11-22T17:30",
+        "arr": "2026-11-22T23:55",
+        "price": 48.48,
+        "changes": 1,
+        "url": "https://shop.flixbus.com/search?departureCity=0f3e7731-1464-463f-897f-019f79155692&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       }
+      ]
+     }
     }
    ],
    "alternative": {
-    "total": 91.46,
+    "total": 95.44,
     "nights": 2,
     "out": {
      "airport": "BTS",
      "airportName": "Bratislava",
      "viaFlight": false,
-     "total": 49.47,
+     "total": 47.47,
      "wait": "3h25 at the airport before take-off",
      "overnight": false,
      "steps": [
@@ -1902,7 +1921,7 @@
        "to": "Bratislava (bus station Mlynské Nivy)",
        "dep": "2026-11-21T01:45",
        "arr": "2026-11-21T08:25",
-       "price": 32.98,
+       "price": 30.98,
        "changes": 0,
        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de54de-8646-11e6-9066-549f350fcb0c&rideDate=21.11.2026&adult=1&_locale=en",
        "transfer": {
@@ -1932,90 +1951,98 @@
      ]
     },
     "back": {
-     "airport": "ZAG",
-     "airportName": "Zagreb",
+     "airport": "VCE",
+     "airportName": "Venice Marco Polo",
      "viaFlight": false,
-     "total": 41.99,
-     "wait": null,
-     "overnight": false,
+     "total": 47.97,
+     "wait": "bus leaves 4h55 after landing · 🌙 overnight wait",
+     "overnight": true,
      "steps": [
       {
        "kind": "flight",
        "hop": false,
-       "from": "WMI",
-       "to": "ZAG",
-       "fromName": "Warsaw Modlin",
-       "toName": "Zagreb",
-       "dep": "2026-11-23T07:10",
-       "arr": "2026-11-23T08:50",
+       "from": "WAW",
+       "to": "VCE",
+       "fromName": "Warsaw Chopin",
+       "toName": "Venice Marco Polo",
+       "dep": "2026-11-23T18:55",
+       "arr": "2026-11-23T20:55",
        "approxArrival": false,
-       "minutes": 100,
-       "price": 33.99,
+       "minutes": 120,
+       "price": 16.99,
        "carriers": [
         "Ryanair"
        ],
        "via": [],
        "source": "ryanair",
-       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-23&isReturn=false&originIata=WMI&destinationIata=ZAG"
+       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-23&isReturn=false&originIata=WAW&destinationIata=VCE"
       },
       {
-       "kind": "transfer",
-       "text": "Zagreb airport → home",
-       "minutes": 45,
-       "price": 8
+       "kind": "bus",
+       "from": "Venice Mestre (Stazione FS)",
+       "to": "Zagreb",
+       "dep": "2026-11-24T01:50",
+       "arr": "2026-11-24T07:40",
+       "price": 20.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=40dea03b-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=23.11.2026&adult=1&_locale=en",
+       "transfer": {
+        "minutes": 30,
+        "price": 10
+       }
       }
      ]
     },
     "arriveShift": 1,
     "leaveShift": 1,
-    "saving": 61.14
+    "saving": 58.0
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-11-19",
      "back": "2026-11-21",
-     "total": 137.93
+     "total": 154.93
     },
     {
      "out": "2026-11-19",
      "back": "2026-11-22",
-     "total": 169.35
+     "total": 172.93
     },
     {
      "out": "2026-11-19",
      "back": "2026-11-23",
-     "total": 130.45
+     "total": 141.43
     },
     {
      "out": "2026-11-20",
      "back": "2026-11-21",
-     "total": 121.18
+     "total": 135.44
     },
     {
      "out": "2026-11-20",
      "back": "2026-11-22",
-     "total": 152.6
+     "total": 153.44
     },
     {
      "out": "2026-11-20",
      "back": "2026-11-23",
-     "total": 113.7
+     "total": 121.94
     },
     {
      "out": "2026-11-21",
      "back": "2026-11-21",
-     "total": 108.44
+     "total": 119.95
     },
     {
      "out": "2026-11-21",
      "back": "2026-11-22",
-     "total": 130.36
+     "total": 126.94
     },
     {
      "out": "2026-11-21",
      "back": "2026-11-23",
-     "total": 91.46
+     "total": 95.44
     }
    ],
    "warnings": []
@@ -2027,7 +2054,7 @@
    "back": "2026-11-22",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:10+01:00",
+   "searchedAt": "2026-11-18T05:38+01:00",
    "best": [],
    "alternative": null,
    "baseline": null,
@@ -2044,16 +2071,16 @@
    "back": "2026-11-29",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:12+01:00",
+   "searchedAt": "2026-11-18T05:39+01:00",
    "best": [
     {
-     "total": 107.95,
+     "total": 105.44,
      "nights": 2,
      "out": {
       "airport": "BTS",
       "airportName": "Bratislava",
       "viaFlight": false,
-      "total": 61.97,
+      "total": 58.96,
       "wait": "5h at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -2082,13 +2109,13 @@
         "arr": "2026-11-27T08:35",
         "approxArrival": false,
         "minutes": 150,
-        "price": 28.0,
+        "price": 24.99,
         "carriers": [
          "Ryanair"
         ],
         "via": [],
-        "source": "kiwi",
-        "url": "https://kiwi.com/u/3kuk6d"
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-27&isReturn=false&originIata=BTS&destinationIata=BCN"
        }
       ]
      },
@@ -2096,7 +2123,7 @@
       "airport": "VCE",
       "airportName": "Venice Marco Polo",
       "viaFlight": false,
-      "total": 45.98,
+      "total": 46.48,
       "wait": "bus leaves 5h30 after landing",
       "overnight": false,
       "steps": [
@@ -2117,7 +2144,7 @@
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/4pywbf"
+        "url": "https://kiwi.com/u/qm9qjj"
        },
        {
         "kind": "bus",
@@ -2125,7 +2152,7 @@
         "to": "Zagreb",
         "dep": "2026-11-29T14:40",
         "arr": "2026-11-29T21:00",
-        "price": 24.98,
+        "price": 25.48,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=29.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -2137,13 +2164,13 @@
      }
     },
     {
-     "total": 111.45,
+     "total": 108.95,
      "nights": 2,
      "out": {
       "airport": "VCE",
       "airportName": "Venice Marco Polo",
       "viaFlight": false,
-      "total": 65.47,
+      "total": 62.47,
       "wait": "5h55 at the airport before take-off",
       "overnight": false,
       "steps": [
@@ -2153,7 +2180,7 @@
         "to": "Venice (Airport VCE)",
         "dep": "2026-11-27T07:30",
         "arr": "2026-11-27T13:45",
-        "price": 25.48,
+        "price": 26.48,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=27.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -2172,7 +2199,7 @@
         "arr": "2026-11-27T21:45",
         "approxArrival": false,
         "minutes": 120,
-        "price": 39.99,
+        "price": 35.99,
         "carriers": [
          "Wizz Air Malta"
         ],
@@ -2186,7 +2213,7 @@
       "airport": "VCE",
       "airportName": "Venice Marco Polo",
       "viaFlight": false,
-      "total": 45.98,
+      "total": 46.48,
       "wait": "bus leaves 5h30 after landing",
       "overnight": false,
       "steps": [
@@ -2207,7 +2234,7 @@
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/4pywbf"
+        "url": "https://kiwi.com/u/qm9qjj"
        },
        {
         "kind": "bus",
@@ -2215,7 +2242,7 @@
         "to": "Zagreb",
         "dep": "2026-11-29T14:40",
         "arr": "2026-11-29T21:00",
-        "price": 24.98,
+        "price": 25.48,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=29.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -2227,7 +2254,7 @@
      }
     },
     {
-     "total": 116.96,
+     "total": 117.46,
      "nights": 2,
      "out": {
       "airport": "TRS",
@@ -2276,7 +2303,7 @@
       "airport": "VCE",
       "airportName": "Venice Marco Polo",
       "viaFlight": false,
-      "total": 45.98,
+      "total": 46.48,
       "wait": "bus leaves 5h30 after landing",
       "overnight": false,
       "steps": [
@@ -2297,7 +2324,7 @@
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/4pywbf"
+        "url": "https://kiwi.com/u/qm9qjj"
        },
        {
         "kind": "bus",
@@ -2305,7 +2332,7 @@
         "to": "Zagreb",
         "dep": "2026-11-29T14:40",
         "arr": "2026-11-29T21:00",
-        "price": 24.98,
+        "price": 25.48,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=29.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -2318,13 +2345,13 @@
     }
    ],
    "alternative": {
-    "total": 93.95,
+    "total": 94.53,
     "nights": 1,
     "out": {
      "airport": "TRS",
      "airportName": "Trieste",
      "viaFlight": false,
-     "total": 47.97,
+     "total": 48.05,
      "wait": "2h50 at the airport before take-off",
      "overnight": false,
      "steps": [
@@ -2353,7 +2380,7 @@
        "arr": "2026-11-28T17:05",
        "approxArrival": false,
        "minutes": 115,
-       "price": 19.99,
+       "price": 20.07,
        "carriers": [
         "Ryanair"
        ],
@@ -2367,7 +2394,7 @@
      "airport": "VCE",
      "airportName": "Venice Marco Polo",
      "viaFlight": false,
-     "total": 45.98,
+     "total": 46.48,
      "wait": "bus leaves 5h30 after landing",
      "overnight": false,
      "steps": [
@@ -2388,7 +2415,7 @@
        ],
        "via": [],
        "source": "kiwi",
-       "url": "https://kiwi.com/u/4pywbf"
+       "url": "https://kiwi.com/u/qm9qjj"
       },
       {
        "kind": "bus",
@@ -2396,7 +2423,7 @@
        "to": "Zagreb",
        "dep": "2026-11-29T14:40",
        "arr": "2026-11-29T21:00",
-       "price": 24.98,
+       "price": 25.48,
        "changes": 0,
        "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=29.11.2026&adult=1&_locale=en",
        "transfer": {
@@ -2408,54 +2435,54 @@
     },
     "arriveShift": 1,
     "leaveShift": 0,
-    "saving": 14.0
+    "saving": 10.91
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-11-26",
      "back": "2026-11-28",
-     "total": 111.65
+     "total": 124.47
     },
     {
      "out": "2026-11-26",
      "back": "2026-11-29",
-     "total": 104.95
+     "total": 118.48
     },
     {
      "out": "2026-11-26",
      "back": "2026-11-30",
-     "total": 108.94
+     "total": 122.5
     },
     {
      "out": "2026-11-27",
      "back": "2026-11-28",
-     "total": 114.65
+     "total": 111.43
     },
     {
      "out": "2026-11-27",
      "back": "2026-11-29",
-     "total": 107.95
+     "total": 105.44
     },
     {
      "out": "2026-11-27",
      "back": "2026-11-30",
-     "total": 111.94
+     "total": 109.46
     },
     {
      "out": "2026-11-28",
      "back": "2026-11-28",
-     "total": 100.65
+     "total": 100.52
     },
     {
      "out": "2026-11-28",
      "back": "2026-11-29",
-     "total": 93.95
+     "total": 94.53
     },
     {
      "out": "2026-11-28",
      "back": "2026-11-30",
-     "total": 97.94
+     "total": 98.55
     }
    ],
    "warnings": []
@@ -2467,16 +2494,16 @@
    "back": "2026-12-17",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:13+01:00",
+   "searchedAt": "2026-11-18T05:40+01:00",
    "best": [
     {
-     "total": 187.45,
+     "total": 162.04,
      "nights": 6,
      "out": {
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 95.97,
+      "total": 70.56,
       "wait": "4h55 at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -2499,13 +2526,13 @@
         "hop": false,
         "from": "BUD",
         "to": "SKG",
-        "fromName": "Budapest Ferenc Liszt International",
-        "toName": "Thessaloniki International Airport Macedonia",
+        "fromName": "BUD",
+        "toName": "SKG",
         "dep": "2026-12-11T09:50",
         "arr": "2026-12-11T12:25",
         "approxArrival": false,
-        "minutes": 95,
-        "price": 77.99,
+        "minutes": null,
+        "price": 52.58,
         "carriers": [
          "Ryanair"
         ],
@@ -2542,7 +2569,7 @@
          "BEG"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/m7k6u92"
+        "url": "https://kiwi.com/u/4d8jn4"
        },
        {
         "kind": "bus",
@@ -2562,13 +2589,13 @@
      }
     },
     {
-     "total": 204.97,
+     "total": 186.54,
      "nights": 6,
      "out": {
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 95.97,
+      "total": 70.56,
       "wait": "4h55 at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -2591,13 +2618,13 @@
         "hop": false,
         "from": "BUD",
         "to": "SKG",
-        "fromName": "Budapest Ferenc Liszt International",
-        "toName": "Thessaloniki International Airport Macedonia",
+        "fromName": "BUD",
+        "toName": "SKG",
         "dep": "2026-12-11T09:50",
         "arr": "2026-12-11T12:25",
         "approxArrival": false,
-        "minutes": 95,
-        "price": 77.99,
+        "minutes": null,
+        "price": 52.58,
         "carriers": [
          "Ryanair"
         ],
@@ -2608,25 +2635,25 @@
       ]
      },
      "back": {
-      "airport": "ZAG",
-      "airportName": "Zagreb",
+      "airport": "SPU",
+      "airportName": "Split",
       "viaFlight": false,
-      "total": 109.0,
-      "wait": null,
+      "total": 115.98,
+      "wait": "bus leaves 1h30 after landing",
       "overnight": false,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
         "from": "SKG",
-        "to": "ZAG",
+        "to": "SPU",
         "fromName": "Thessaloniki International Airport Macedonia",
-        "toName": "Zagreb",
+        "toName": "Split",
         "dep": "2026-12-17T16:10",
-        "arr": "2026-12-18T09:00",
+        "arr": "2026-12-18T14:35",
         "approxArrival": false,
-        "minutes": 1070,
-        "price": 101.0,
+        "minutes": 1405,
+        "price": 94.0,
         "carriers": [
          "Air Serbia"
         ],
@@ -2634,25 +2661,33 @@
          "BEG"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/4v65vz"
+        "url": "https://kiwi.com/u/uqp4yr"
        },
        {
-        "kind": "transfer",
-        "text": "Zagreb airport → home",
-        "minutes": 45,
-        "price": 8
+        "kind": "bus",
+        "from": "Split Airport",
+        "to": "Zagreb",
+        "dep": "2026-12-18T16:05",
+        "arr": "2026-12-18T22:35",
+        "price": 21.98,
+        "changes": 1,
+        "url": "https://shop.flixbus.com/search?departureCity=6500bc00-20be-4007-9536-6ad3e13d3476&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=18.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
        }
       ]
      }
     },
     {
-     "total": 210.7,
+     "total": 203.58,
      "nights": 6,
      "out": {
       "airport": "BTS",
       "airportName": "Bratislava",
       "viaFlight": false,
-      "total": 119.22,
+      "total": 112.1,
       "wait": "2h25 at the airport before take-off",
       "overnight": false,
       "steps": [
@@ -2662,7 +2697,7 @@
         "to": "Bratislava (bus station Mlynské Nivy)",
         "dep": "2026-12-11T01:45",
         "arr": "2026-12-11T08:25",
-        "price": 26.98,
+        "price": 28.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de54de-8646-11e6-9066-549f350fcb0c&rideDate=11.12.2026&adult=1&_locale=en",
         "transfer": {
@@ -2675,13 +2710,13 @@
         "hop": false,
         "from": "BTS",
         "to": "SKG",
-        "fromName": "Bratislava Airport",
-        "toName": "Thessaloniki International Airport Macedonia",
+        "fromName": "BTS",
+        "toName": "SKG",
         "dep": "2026-12-11T11:25",
         "arr": "2026-12-11T14:10",
         "approxArrival": false,
-        "minutes": 105,
-        "price": 90.74,
+        "minutes": null,
+        "price": 81.62,
         "carriers": [
          "Ryanair"
         ],
@@ -2718,7 +2753,7 @@
          "BEG"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/m7k6u92"
+        "url": "https://kiwi.com/u/4d8jn4"
        },
        {
         "kind": "bus",
@@ -2739,42 +2774,48 @@
     }
    ],
    "alternative": {
-    "total": 182.48,
-    "nights": 6,
+    "total": 163.54,
+    "nights": 7,
     "out": {
-     "airport": "ZAG",
-     "airportName": "Zagreb",
+     "airport": "BUD",
+     "airportName": "Budapest",
      "viaFlight": false,
-     "total": 91.0,
-     "wait": null,
-     "overnight": false,
+     "total": 70.56,
+     "wait": "4h55 at the airport before take-off · 🌙 overnight wait",
+     "overnight": true,
      "steps": [
       {
-       "kind": "transfer",
-       "text": "Home → Zagreb airport",
-       "minutes": 45,
-       "price": 8
+       "kind": "bus",
+       "from": "Zagreb",
+       "to": "Budapest Airport",
+       "dep": "2026-12-10T23:59",
+       "arr": "2026-12-11T04:50",
+       "price": 17.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=10.12.2026&adult=1&_locale=en",
+       "transfer": {
+        "minutes": 5,
+        "price": 0
+       }
       },
       {
        "kind": "flight",
        "hop": false,
-       "from": "ZAG",
+       "from": "BUD",
        "to": "SKG",
-       "fromName": "Zagreb",
-       "toName": "Thessaloniki International Airport Macedonia",
-       "dep": "2026-12-10T18:10",
-       "arr": "2026-12-11T08:55",
+       "fromName": "BUD",
+       "toName": "SKG",
+       "dep": "2026-12-11T09:50",
+       "arr": "2026-12-11T12:25",
        "approxArrival": false,
-       "minutes": 825,
-       "price": 83.0,
+       "minutes": null,
+       "price": 52.58,
        "carriers": [
         "Ryanair"
        ],
-       "via": [
-        "FCO"
-       ],
-       "source": "kiwi",
-       "url": "https://kiwi.com/u/qqfg37"
+       "via": [],
+       "source": "ryanair",
+       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-11&isReturn=false&originIata=BUD&destinationIata=SKG"
       }
      ]
     },
@@ -2782,7 +2823,7 @@
      "airport": "LJU",
      "airportName": "Ljubljana",
      "viaFlight": false,
-     "total": 91.48,
+     "total": 92.98,
      "wait": "bus leaves 2h after landing",
      "overnight": false,
      "steps": [
@@ -2793,10 +2834,10 @@
        "to": "LJU",
        "fromName": "Thessaloniki International Airport Macedonia",
        "toName": "Ljubljana Jože Pučnik",
-       "dep": "2026-12-17T16:10",
-       "arr": "2026-12-17T19:55",
+       "dep": "2026-12-18T16:05",
+       "arr": "2026-12-18T19:55",
        "approxArrival": false,
-       "minutes": 285,
+       "minutes": 290,
        "price": 75.0,
        "carriers": [
         "Air Serbia"
@@ -2805,17 +2846,17 @@
         "BEG"
        ],
        "source": "kiwi",
-       "url": "https://kiwi.com/u/m7k6u92"
+       "url": "https://kiwi.com/u/8fdbjs"
       },
       {
        "kind": "bus",
        "from": "Ljubljana",
        "to": "Zagreb",
-       "dep": "2026-12-17T21:55",
-       "arr": "2026-12-17T23:55",
-       "price": 11.48,
+       "dep": "2026-12-18T21:55",
+       "arr": "2026-12-18T23:55",
+       "price": 12.98,
        "changes": 0,
-       "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=17.12.2026&adult=1&_locale=en",
+       "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=18.12.2026&adult=1&_locale=en",
        "transfer": {
         "minutes": 50,
         "price": 5
@@ -2824,67 +2865,93 @@
      ]
     },
     "arriveShift": 0,
-    "leaveShift": 0,
-    "saving": 4.97
+    "leaveShift": 1,
+    "saving": -1.5
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-12-10",
      "back": "2026-12-16",
-     "total": 192.0
+     "total": 230.46
     },
     {
      "out": "2026-12-10",
      "back": "2026-12-17",
-     "total": 182.48
+     "total": 194.96
     },
     {
      "out": "2026-12-10",
      "back": "2026-12-18",
-     "total": 198.47
+     "total": 196.46
     },
     {
      "out": "2026-12-11",
      "back": "2026-12-16",
-     "total": 195.48
+     "total": 197.54
     },
     {
      "out": "2026-12-11",
      "back": "2026-12-17",
-     "total": 185.96
+     "total": 162.04
     },
     {
      "out": "2026-12-11",
      "back": "2026-12-18",
-     "total": 201.95
+     "total": 163.54
     },
     {
      "out": "2026-12-12",
      "back": "2026-12-16",
-     "total": 196.47
+     "total": 235.45
     },
     {
      "out": "2026-12-12",
      "back": "2026-12-17",
-     "total": 186.95
+     "total": 199.95
     },
     {
      "out": "2026-12-12",
      "back": "2026-12-18",
-     "total": 202.94
+     "total": 201.45
     }
    ],
    "warnings": [
+    "Flight search ZAG→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search GRZ→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search VCE→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search TSF→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BTS→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAD→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BUD→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search SKG→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search OSI→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search SKG→GRZ failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BEG→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search SKG→TRS failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search SKG→TSF failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search SKG→BUD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search SKG→VIE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search SKG→BTS failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search SKG→BEG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search SKG→ZAD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search SKG→SPU failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search SKG→VCE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search SKG→OSI failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Wizz Air direct prices unavailable for 2 route(s) (BUD→SKG, SKG→BUD); Kiwi prices used there."
+    "Flight search BSL→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→FCO failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→BSL failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FCO→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search NRN→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→MLA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search MLA→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→STN failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→FKB failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FKB→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→PFO failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search PFO→SKG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search SKG→MLA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search MLA→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search SKG→FCO failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FCO→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later."
    ]
   },
   "g-1a1b5fad9abab3a2-1": {
@@ -2894,16 +2961,16 @@
    "back": "2026-12-06",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:12+01:00",
+   "searchedAt": "2026-11-18T05:40+01:00",
    "best": [
     {
-     "total": 123.4,
+     "total": 124.95,
      "nights": 2,
      "out": {
       "airport": "ZAG",
       "airportName": "Zagreb",
       "viaFlight": false,
-      "total": 48.44,
+      "total": 43.99,
       "wait": null,
       "overnight": false,
       "steps": [
@@ -2924,7 +2991,7 @@
         "arr": "2026-12-04T18:25",
         "approxArrival": false,
         "minutes": 85,
-        "price": 40.44,
+        "price": 35.99,
         "carriers": [
          "Ryanair"
         ],
@@ -2938,7 +3005,7 @@
       "airport": "BTS",
       "airportName": "Bratislava",
       "viaFlight": false,
-      "total": 74.96,
+      "total": 80.96,
       "wait": "bus leaves 4h35 after landing · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -2953,7 +3020,7 @@
         "arr": "2026-12-06T23:10",
         "approxArrival": false,
         "minutes": 105,
-        "price": 39.99,
+        "price": 45.99,
         "carriers": [
          "Wizz Air"
         ],
@@ -2979,13 +3046,13 @@
      }
     },
     {
-     "total": 127.26,
+     "total": 140.34,
      "nights": 2,
      "out": {
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 52.3,
+      "total": 59.38,
       "wait": "5h55 at the airport before take-off · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -3014,7 +3081,7 @@
         "arr": "2026-12-04T07:55",
         "approxArrival": false,
         "minutes": 110,
-        "price": 26.32,
+        "price": 33.4,
         "carriers": [
          "Wizz Air"
         ],
@@ -3028,7 +3095,7 @@
       "airport": "BTS",
       "airportName": "Bratislava",
       "viaFlight": false,
-      "total": 74.96,
+      "total": 80.96,
       "wait": "bus leaves 4h35 after landing · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -3043,7 +3110,7 @@
         "arr": "2026-12-06T23:10",
         "approxArrival": false,
         "minutes": 105,
-        "price": 39.99,
+        "price": 45.99,
         "carriers": [
          "Wizz Air"
         ],
@@ -3069,90 +3136,82 @@
      }
     },
     {
-     "total": 140.66,
+     "total": 140.96,
      "nights": 2,
      "out": {
-      "airport": "BTS",
-      "airportName": "Bratislava",
+      "airport": "ZAG",
+      "airportName": "Zagreb",
       "viaFlight": false,
-      "total": 65.7,
-      "wait": "4h at the airport before take-off",
+      "total": 43.99,
+      "wait": null,
       "overnight": false,
       "steps": [
        {
-        "kind": "bus",
-        "from": "Zagreb",
-        "to": "Bratislava (bus station Mlynské Nivy)",
-        "dep": "2026-12-04T01:45",
-        "arr": "2026-12-04T08:25",
-        "price": 25.98,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de54de-8646-11e6-9066-549f350fcb0c&rideDate=04.12.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 35,
-         "price": 1.5
-        }
+        "kind": "transfer",
+        "text": "Home → Zagreb airport",
+        "minutes": 45,
+        "price": 8
        },
        {
         "kind": "flight",
         "hop": false,
-        "from": "BTS",
-        "to": "CIA",
-        "fromName": "Bratislava Airport",
-        "toName": "Ciampino–G. B. Pastine International",
-        "dep": "2026-12-04T13:00",
-        "arr": "2026-12-04T14:40",
+        "from": "ZAG",
+        "to": "FCO",
+        "fromName": "Zagreb",
+        "toName": "Leonardo da Vinci–Fiumicino Airport",
+        "dep": "2026-12-04T17:00",
+        "arr": "2026-12-04T18:25",
         "approxArrival": false,
-        "minutes": 100,
-        "price": 38.22,
+        "minutes": 85,
+        "price": 35.99,
         "carriers": [
          "Ryanair"
         ],
         "via": [],
         "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-04&isReturn=false&originIata=BTS&destinationIata=CIA"
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-04&isReturn=false&originIata=ZAG&destinationIata=FCO"
        }
       ]
      },
      "back": {
-      "airport": "BTS",
-      "airportName": "Bratislava",
+      "airport": "BEG",
+      "airportName": "Belgrade",
       "viaFlight": false,
-      "total": 74.96,
-      "wait": "bus leaves 4h35 after landing · 🌙 overnight wait",
+      "total": 96.97,
+      "wait": "bus leaves 4h48 after landing · 🌙 overnight wait",
       "overnight": true,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
         "from": "FCO",
-        "to": "BTS",
-        "fromName": "Leonardo da Vinci–Fiumicino Airport",
-        "toName": "Bratislava Airport",
-        "dep": "2026-12-06T21:25",
-        "arr": "2026-12-06T23:10",
-        "approxArrival": false,
-        "minutes": 105,
-        "price": 39.99,
+        "to": "BEG",
+        "fromName": "FCO",
+        "toName": "BEG",
+        "dep": "2026-12-06T18:10",
+        "arr": "2026-12-06T19:41",
+        "approxArrival": true,
+        "minutes": 91,
+        "price": 69.99,
         "carriers": [
          "Wizz Air"
         ],
         "via": [],
         "source": "wizz",
-        "url": "https://wizzair.com/en-gb/booking/select-flight/FCO/BTS/2026-12-06/null/1/0/0/null"
+        "url": "https://wizzair.com/en-gb/booking/select-flight/FCO/BEG/2026-12-06/null/1/0/0/null"
        },
        {
         "kind": "bus",
-        "from": "Bratislava (Airport)",
+        "from": "Belgrade AS",
         "to": "Zagreb",
-        "dep": "2026-12-07T03:45",
-        "arr": "2026-12-07T12:00",
-        "price": 34.97,
-        "changes": 1,
-        "url": "https://shop.flixbus.com/search?departureCity=358d7179-0a70-4694-8d26-bd2e084be1ed&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=06.12.2026&adult=1&_locale=en",
+        "dep": "2026-12-07T00:30",
+        "arr": "2026-12-07T06:00",
+        "price": 23.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=340bdce6-7eb1-4c50-bd1e-fd43485cdfef&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=06.12.2026&adult=1&_locale=en",
         "transfer": {
-         "minutes": 5,
-         "price": 0
+         "minutes": 45,
+         "price": 3
         }
        }
       ]
@@ -3160,13 +3219,13 @@
     }
    ],
    "alternative": {
-    "total": 72.21,
+    "total": 86.08,
     "nights": 0,
     "out": {
      "airport": "ZAG",
      "airportName": "Zagreb",
      "viaFlight": false,
-     "total": 25.99,
+     "total": 31.99,
      "wait": null,
      "overnight": false,
      "steps": [
@@ -3187,7 +3246,7 @@
        "arr": "2026-12-05T19:55",
        "approxArrival": false,
        "minutes": 85,
-       "price": 17.99,
+       "price": 23.99,
        "carriers": [
         "Ryanair"
        ],
@@ -3201,7 +3260,7 @@
      "airport": "ZAG",
      "airportName": "Zagreb",
      "viaFlight": false,
-     "total": 46.22,
+     "total": 54.09,
      "wait": null,
      "overnight": false,
      "steps": [
@@ -3216,7 +3275,7 @@
        "arr": "2026-12-05T21:55",
        "approxArrival": false,
        "minutes": 85,
-       "price": 38.22,
+       "price": 46.09,
        "carriers": [
         "Ryanair"
        ],
@@ -3234,66 +3293,70 @@
     },
     "arriveShift": 1,
     "leaveShift": -1,
-    "saving": 51.19
+    "saving": 38.87
    },
-   "baseline": 168.44,
+   "baseline": 171.99,
    "grid": [
     {
      "out": "2026-12-03",
      "back": "2026-12-05",
-     "total": 92.21
+     "total": 101.56
     },
     {
      "out": "2026-12-03",
      "back": "2026-12-06",
-     "total": 120.95
+     "total": 128.43
     },
     {
      "out": "2026-12-03",
      "back": "2026-12-07",
-     "total": 104.96
+     "total": 110.44
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-05",
-     "total": 94.66
+     "total": 98.08
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-06",
-     "total": 123.4
+     "total": 124.95
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-07",
-     "total": 107.41
+     "total": 106.96
     },
     {
      "out": "2026-12-05",
      "back": "2026-12-05",
-     "total": 72.21
+     "total": 86.08
     },
     {
      "out": "2026-12-05",
      "back": "2026-12-06",
-     "total": 100.95
+     "total": 112.95
     },
     {
      "out": "2026-12-05",
      "back": "2026-12-07",
-     "total": 84.96
+     "total": 94.96
     }
    ],
    "warnings": [
+    "Flight search FCO,CIA→VIE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FCO,CIA→BEG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search FCO,CIA→SPU failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search ZAG→CRL failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search ZAG→DUB failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search DUB→FCO,CIA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search PFO→FCO,CIA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FCO,CIA→ZAD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BSL→FCO,CIA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search ZAG→AGP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search AGP→FCO,CIA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→BGY failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search DUB→FCO,CIA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY→FCO,CIA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→NRN failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search NRN→FCO,CIA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search ZAG→NRN failed: Kiwi search error: Rate limit exceeded. Please try again later."
+    "Flight search PFO→FCO,CIA failed: Kiwi search error: Rate limit exceeded. Please try again later."
    ]
   },
   "g-1a1bae094cc3aa68-1": {
@@ -3303,16 +3366,90 @@
    "back": "2026-12-13",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:13+01:00",
+   "searchedAt": "2026-11-18T05:40+01:00",
    "best": [
     {
-     "total": 76.45,
+     "total": 82.25,
+     "nights": 2,
+     "out": {
+      "airport": "ZAG",
+      "airportName": "Zagreb",
+      "viaFlight": false,
+      "total": 48.26,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "transfer",
+        "text": "Home → Zagreb airport",
+        "minutes": 45,
+        "price": 8
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "ZAG",
+        "to": "BGY",
+        "fromName": "Zagreb",
+        "toName": "Milan Bergamo International Airport",
+        "dep": "2026-12-11T07:30",
+        "arr": "2026-12-11T08:45",
+        "approxArrival": false,
+        "minutes": 75,
+        "price": 40.26,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-11&isReturn=false&originIata=ZAG&destinationIata=BGY"
+       }
+      ]
+     },
+     "back": {
+      "airport": "ZAG",
+      "airportName": "Zagreb",
+      "viaFlight": false,
+      "total": 33.99,
+      "wait": null,
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BGY",
+        "to": "ZAG",
+        "fromName": "Milan Bergamo International Airport",
+        "toName": "Zagreb",
+        "dep": "2026-12-13T12:45",
+        "arr": "2026-12-13T14:00",
+        "approxArrival": false,
+        "minutes": 75,
+        "price": 25.99,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-13&isReturn=false&originIata=BGY&destinationIata=ZAG"
+       },
+       {
+        "kind": "transfer",
+        "text": "Zagreb airport → home",
+        "minutes": 45,
+        "price": 8
+       }
+      ]
+     }
+    },
+    {
+     "total": 83.45,
      "nights": 2,
      "out": {
       "airport": "BTS",
       "airportName": "Bratislava",
       "viaFlight": false,
-      "total": 46.46,
+      "total": 49.46,
       "wait": "2h10 at the airport before take-off",
       "overnight": false,
       "steps": [
@@ -3322,7 +3459,7 @@
         "to": "Bratislava (Airport)",
         "dep": "2026-12-11T08:35",
         "arr": "2026-12-11T16:35",
-        "price": 31.47,
+        "price": 34.47,
         "changes": 1,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=358d7179-0a70-4694-8d26-bd2e084be1ed&rideDate=11.12.2026&adult=1&_locale=en",
         "transfer": {
@@ -3355,7 +3492,7 @@
       "airport": "ZAG",
       "airportName": "Zagreb",
       "viaFlight": false,
-      "total": 29.99,
+      "total": 33.99,
       "wait": null,
       "overnight": false,
       "steps": [
@@ -3370,7 +3507,7 @@
         "arr": "2026-12-13T14:00",
         "approxArrival": false,
         "minutes": 75,
-        "price": 21.99,
+        "price": 25.99,
         "carriers": [
          "Ryanair"
         ],
@@ -3388,13 +3525,13 @@
      }
     },
     {
-     "total": 88.98,
+     "total": 87.23,
      "nights": 2,
      "out": {
       "airport": "ZAG",
       "airportName": "Zagreb",
       "viaFlight": false,
-      "total": 58.99,
+      "total": 48.26,
       "wait": null,
       "overnight": false,
       "steps": [
@@ -3415,7 +3552,7 @@
         "arr": "2026-12-11T08:45",
         "approxArrival": false,
         "minutes": 75,
-        "price": 50.99,
+        "price": 40.26,
         "carriers": [
          "Ryanair"
         ],
@@ -3426,132 +3563,58 @@
       ]
      },
      "back": {
-      "airport": "ZAG",
-      "airportName": "Zagreb",
+      "airport": "BUD",
+      "airportName": "Budapest",
       "viaFlight": false,
-      "total": 29.99,
-      "wait": null,
-      "overnight": false,
+      "total": 38.97,
+      "wait": "bus leaves 1h after landing · 🌙 overnight wait",
+      "overnight": true,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
-        "from": "BGY",
-        "to": "ZAG",
-        "fromName": "Milan Bergamo International Airport",
-        "toName": "Zagreb",
-        "dep": "2026-12-13T12:45",
-        "arr": "2026-12-13T14:00",
+        "from": "MXP",
+        "to": "BUD",
+        "fromName": "MXP",
+        "toName": "BUD",
+        "dep": "2026-12-13T22:15",
+        "arr": "2026-12-13T23:55",
         "approxArrival": false,
-        "minutes": 75,
-        "price": 21.99,
+        "minutes": null,
+        "price": 16.99,
         "carriers": [
          "Ryanair"
         ],
         "via": [],
         "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-13&isReturn=false&originIata=BGY&destinationIata=ZAG"
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-13&isReturn=false&originIata=MXP&destinationIata=BUD"
        },
        {
-        "kind": "transfer",
-        "text": "Zagreb airport → home",
-        "minutes": 45,
-        "price": 8
-       }
-      ]
-     }
-    },
-    {
-     "total": 89.97,
-     "nights": 2,
-     "out": {
-      "airport": "BUD",
-      "airportName": "Budapest",
-      "viaFlight": false,
-      "total": 59.98,
-      "wait": "3h30 at the airport before take-off · 🌙 overnight wait",
-      "overnight": true,
-      "steps": [
-       {
         "kind": "bus",
-        "from": "Zagreb",
-        "to": "Budapest Airport",
-        "dep": "2026-12-10T23:59",
-        "arr": "2026-12-11T04:50",
-        "price": 17.98,
+        "from": "Budapest Airport",
+        "to": "Zagreb",
+        "dep": "2026-12-14T00:55",
+        "arr": "2026-12-14T05:45",
+        "price": 21.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=07a78aaa-755f-4071-bb35-739b1fc741e6&rideDate=10.12.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=07a78aaa-755f-4071-bb35-739b1fc741e6&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=13.12.2026&adult=1&_locale=en",
         "transfer": {
          "minutes": 5,
          "price": 0
         }
-       },
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "BUD",
-        "to": "MXP",
-        "fromName": "Budapest Ferenc Liszt International",
-        "toName": "Milan–Malpensa",
-        "dep": "2026-12-11T08:25",
-        "arr": "2026-12-11T10:10",
-        "approxArrival": false,
-        "minutes": 105,
-        "price": 42.0,
-        "carriers": [
-         "Wizz Air Malta"
-        ],
-        "via": [],
-        "source": "kiwi",
-        "url": "https://kiwi.com/u/gfvhu2x"
-       }
-      ]
-     },
-     "back": {
-      "airport": "ZAG",
-      "airportName": "Zagreb",
-      "viaFlight": false,
-      "total": 29.99,
-      "wait": null,
-      "overnight": false,
-      "steps": [
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "BGY",
-        "to": "ZAG",
-        "fromName": "Milan Bergamo International Airport",
-        "toName": "Zagreb",
-        "dep": "2026-12-13T12:45",
-        "arr": "2026-12-13T14:00",
-        "approxArrival": false,
-        "minutes": 75,
-        "price": 21.99,
-        "carriers": [
-         "Ryanair"
-        ],
-        "via": [],
-        "source": "ryanair",
-        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-13&isReturn=false&originIata=BGY&destinationIata=ZAG"
-       },
-       {
-        "kind": "transfer",
-        "text": "Zagreb airport → home",
-        "minutes": 45,
-        "price": 8
        }
       ]
      }
     }
    ],
    "alternative": {
-    "total": 76.45,
+    "total": 83.55,
     "nights": 1,
     "out": {
      "airport": "BTS",
      "airportName": "Bratislava",
      "viaFlight": false,
-     "total": 46.46,
+     "total": 49.56,
      "wait": "4h10 at the airport before take-off · 🌙 overnight wait",
      "overnight": true,
      "steps": [
@@ -3561,7 +3624,7 @@
        "to": "Bratislava (Airport)",
        "dep": "2026-12-11T18:30",
        "arr": "2026-12-12T02:35",
-       "price": 31.47,
+       "price": 31.97,
        "changes": 1,
        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=358d7179-0a70-4694-8d26-bd2e084be1ed&rideDate=11.12.2026&adult=1&_locale=en",
        "transfer": {
@@ -3580,7 +3643,7 @@
        "arr": "2026-12-12T08:25",
        "approxArrival": false,
        "minutes": 95,
-       "price": 14.99,
+       "price": 17.59,
        "carriers": [
         "Ryanair"
        ],
@@ -3594,7 +3657,7 @@
      "airport": "ZAG",
      "airportName": "Zagreb",
      "viaFlight": false,
-     "total": 29.99,
+     "total": 33.99,
      "wait": null,
      "overnight": false,
      "steps": [
@@ -3609,7 +3672,7 @@
        "arr": "2026-12-13T14:00",
        "approxArrival": false,
        "minutes": 75,
-       "price": 21.99,
+       "price": 25.99,
        "carriers": [
         "Ryanair"
        ],
@@ -3627,9 +3690,9 @@
     },
     "arriveShift": 1,
     "leaveShift": 0,
-    "saving": 0.0
+    "saving": -1.3
    },
-   "baseline": 88.98,
+   "baseline": 82.25,
    "grid": [
     {
      "out": "2026-12-10",
@@ -3639,54 +3702,71 @@
     {
      "out": "2026-12-10",
      "back": "2026-12-13",
-     "total": 87.96
+     "total": 89.96
     },
     {
      "out": "2026-12-10",
      "back": "2026-12-14",
-     "total": 95.44
+     "total": 93.08
     },
     {
      "out": "2026-12-11",
      "back": "2026-12-12",
-     "total": 80.45
+     "total": 84.25
     },
     {
      "out": "2026-12-11",
      "back": "2026-12-13",
-     "total": 76.45
+     "total": 82.25
     },
     {
      "out": "2026-12-11",
      "back": "2026-12-14",
-     "total": 83.93
+     "total": 85.37
     },
     {
      "out": "2026-12-12",
      "back": "2026-12-12",
-     "total": 80.45
+     "total": 85.55
     },
     {
      "out": "2026-12-12",
      "back": "2026-12-13",
-     "total": 76.45
+     "total": 83.55
     },
     {
      "out": "2026-12-12",
      "back": "2026-12-14",
-     "total": 83.93
+     "total": 86.67
     }
    ],
    "warnings": [
-    "Flight search BGY,VRN,MXP→VIE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BUD→BGY,VRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAD→BGY,VRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search SPU→BGY,VRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search OSI→BGY,VRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→LJU failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→TRS failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→VCE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→GRZ failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→TSF failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search BGY,VRN,MXP→BUD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→VIE failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search BGY,VRN,MXP→BEG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
     "Flight search BGY,VRN,MXP→SPU failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search BGY,VRN,MXP→OSI failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search BGY,VRN,MXP→ALC failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search ALC→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Flight search BGY,VRN,MXP→AGP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
-    "Wizz Air direct prices unavailable for 7 route(s) (BEG→BGY, BGY→BEG, BGY→WMI, BUD→MXP, MXP→AGP, …); Kiwi prices used there."
+    "Flight search BGY,VRN,MXP→ZAD failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→MLA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search STN→BGY,VRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search ZAG→STN failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FKB→BGY,VRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search PFO→BGY,VRN,MXP failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search MLA→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→WMI failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→MLA failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search WMI→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→FCO failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search FCO→ZAG failed: Kiwi search error: Rate limit exceeded. Please try again later.",
+    "Flight search BGY,VRN,MXP→ALC failed: Kiwi search error: Rate limit exceeded. Please try again later."
    ]
   },
   "g-1a1cf8141249d6d5-1": {
@@ -3696,28 +3776,28 @@
    "back": "2026-11-22",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:10+01:00",
+   "searchedAt": "2026-11-18T05:38+01:00",
    "best": [
     {
-     "total": 181.44,
+     "total": 201.94,
      "nights": 2,
      "out": {
       "airport": "VIE",
       "airportName": "Vienna",
       "viaFlight": false,
-      "total": 74.47,
-      "wait": "7h at the airport before take-off · 🌙 overnight wait",
-      "overnight": true,
+      "total": 71.47,
+      "wait": "4h30 at the airport before take-off",
+      "overnight": false,
       "steps": [
        {
         "kind": "bus",
         "from": "Zagreb",
         "to": "Vienna Erdberg (VIB)",
-        "dep": "2026-11-19T23:30",
-        "arr": "2026-11-20T04:35",
-        "price": 26.98,
+        "dep": "2026-11-20T01:45",
+        "arr": "2026-11-20T07:05",
+        "price": 31.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de1f31-8646-11e6-9066-549f350fcb0c&rideDate=19.11.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de1f31-8646-11e6-9066-549f350fcb0c&rideDate=20.11.2026&adult=1&_locale=en",
         "transfer": {
          "minutes": 40,
          "price": 4.5
@@ -3734,7 +3814,7 @@
         "arr": "2026-11-20T14:40",
         "approxArrival": false,
         "minutes": 205,
-        "price": 42.99,
+        "price": 34.99,
         "carriers": [
          "Ryanair"
         ],
@@ -3748,7 +3828,7 @@
       "airport": "TSF",
       "airportName": "Treviso",
       "viaFlight": false,
-      "total": 106.97,
+      "total": 130.47,
       "wait": "bus leaves 6h40 after landing",
       "overnight": false,
       "steps": [
@@ -3763,7 +3843,7 @@
         "arr": "2026-11-22T10:50",
         "approxArrival": false,
         "minutes": 160,
-        "price": 58.99,
+        "price": 81.99,
         "carriers": [
          "Ryanair"
         ],
@@ -3777,7 +3857,7 @@
         "to": "Zagreb",
         "dep": "2026-11-22T17:30",
         "arr": "2026-11-22T23:55",
-        "price": 47.98,
+        "price": 48.48,
         "changes": 1,
         "url": "https://shop.flixbus.com/search?departureCity=0f3e7731-1464-463f-897f-019f79155692&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -3789,7 +3869,7 @@
      }
     },
     {
-     "total": 191.94,
+     "total": 215.44,
      "nights": 2,
      "out": {
       "airport": "TSF",
@@ -3838,7 +3918,7 @@
       "airport": "TSF",
       "airportName": "Treviso",
       "viaFlight": false,
-      "total": 106.97,
+      "total": 130.47,
       "wait": "bus leaves 6h40 after landing",
       "overnight": false,
       "steps": [
@@ -3853,7 +3933,7 @@
         "arr": "2026-11-22T10:50",
         "approxArrival": false,
         "minutes": 160,
-        "price": 58.99,
+        "price": 81.99,
         "carriers": [
          "Ryanair"
         ],
@@ -3867,7 +3947,7 @@
         "to": "Zagreb",
         "dep": "2026-11-22T17:30",
         "arr": "2026-11-22T23:55",
-        "price": 47.98,
+        "price": 48.48,
         "changes": 1,
         "url": "https://shop.flixbus.com/search?departureCity=0f3e7731-1464-463f-897f-019f79155692&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
         "transfer": {
@@ -3879,25 +3959,25 @@
      }
     },
     {
-     "total": 225.47,
+     "total": 246.45,
      "nights": 2,
      "out": {
       "airport": "VIE",
       "airportName": "Vienna",
       "viaFlight": false,
-      "total": 74.47,
-      "wait": "7h at the airport before take-off · 🌙 overnight wait",
-      "overnight": true,
+      "total": 71.47,
+      "wait": "4h30 at the airport before take-off",
+      "overnight": false,
       "steps": [
        {
         "kind": "bus",
         "from": "Zagreb",
         "to": "Vienna Erdberg (VIB)",
-        "dep": "2026-11-19T23:30",
-        "arr": "2026-11-20T04:35",
-        "price": 26.98,
+        "dep": "2026-11-20T01:45",
+        "arr": "2026-11-20T07:05",
+        "price": 31.98,
         "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de1f31-8646-11e6-9066-549f350fcb0c&rideDate=19.11.2026&adult=1&_locale=en",
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de1f31-8646-11e6-9066-549f350fcb0c&rideDate=20.11.2026&adult=1&_locale=en",
         "transfer": {
          "minutes": 40,
          "price": 4.5
@@ -3914,7 +3994,7 @@
         "arr": "2026-11-20T14:40",
         "approxArrival": false,
         "minutes": 205,
-        "price": 42.99,
+        "price": 34.99,
         "carriers": [
          "Ryanair"
         ],
@@ -3925,52 +4005,62 @@
       ]
      },
      "back": {
-      "airport": "ZAG",
-      "airportName": "Zagreb",
+      "airport": "LJU",
+      "airportName": "Ljubljana",
       "viaFlight": false,
-      "total": 151.0,
-      "wait": null,
-      "overnight": false,
+      "total": 174.98,
+      "wait": "bus leaves 4h05 after landing · 🌙 overnight wait",
+      "overnight": true,
       "steps": [
        {
         "kind": "flight",
         "hop": false,
         "from": "OPO",
-        "to": "ZAG",
+        "to": "LJU",
         "fromName": "Porto",
-        "toName": "Zagreb",
-        "dep": "2026-11-22T14:15",
-        "arr": "2026-11-23T08:50",
+        "toName": "Ljubljana Jože Pučnik",
+        "dep": "2026-11-22T07:00",
+        "arr": "2026-11-22T20:30",
         "approxArrival": false,
-        "minutes": 1055,
-        "price": 143.0,
+        "minutes": 750,
+        "price": 157.0,
         "carriers": [
-         "Ryanair"
+         "TAP Portugal",
+         "Vueling"
         ],
         "via": [
-         "WAW"
+         "LIS",
+         "BCN"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/u6jptbb"
+        "url": "https://kiwi.com/u/rppc5s"
        },
        {
-        "kind": "transfer",
-        "text": "Zagreb airport → home",
-        "minutes": 45,
-        "price": 8
+        "kind": "bus",
+        "from": "Ljubljana",
+        "to": "Zagreb",
+        "dep": "2026-11-23T00:35",
+        "arr": "2026-11-23T03:00",
+        "price": 12.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40de8044-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 50,
+         "price": 5
+        }
        }
       ]
      }
     }
    ],
    "alternative": {
-    "total": 173.44,
-    "nights": 1,
+    "total": 196.47,
+    "nights": 2,
     "out": {
      "airport": "VIE",
      "airportName": "Vienna",
      "viaFlight": false,
-     "total": 66.47,
+     "total": 67.47,
      "wait": "3h35 at the airport before take-off",
      "overnight": false,
      "steps": [
@@ -3980,7 +4070,7 @@
        "to": "Vienna Erdberg (VIB)",
        "dep": "2026-11-21T12:00",
        "arr": "2026-11-21T17:15",
-       "price": 26.98,
+       "price": 27.98,
        "changes": 0,
        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de1f31-8646-11e6-9066-549f350fcb0c&rideDate=21.11.2026&adult=1&_locale=en",
        "transfer": {
@@ -4010,98 +4100,93 @@
      ]
     },
     "back": {
-     "airport": "TSF",
-     "airportName": "Treviso",
+     "airport": "ZAG",
+     "airportName": "Zagreb",
      "viaFlight": false,
-     "total": 106.97,
-     "wait": "bus leaves 6h40 after landing",
+     "total": 129.0,
+     "wait": null,
      "overnight": false,
      "steps": [
       {
        "kind": "flight",
        "hop": false,
        "from": "OPO",
-       "to": "TSF",
+       "to": "ZAG",
        "fromName": "Porto",
-       "toName": "Treviso",
-       "dep": "2026-11-22T07:10",
-       "arr": "2026-11-22T10:50",
+       "toName": "Zagreb",
+       "dep": "2026-11-23T19:55",
+       "arr": "2026-11-24T10:55",
        "approxArrival": false,
-       "minutes": 160,
-       "price": 58.99,
+       "minutes": 840,
+       "price": 121.0,
        "carriers": [
+        "Wizz Air Malta",
         "Ryanair"
        ],
-       "via": [],
-       "source": "ryanair",
-       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-11-22&isReturn=false&originIata=OPO&destinationIata=TSF"
+       "via": [
+        "MXP"
+       ],
+       "source": "kiwi",
+       "url": "https://kiwi.com/u/swkq79x"
       },
       {
-       "kind": "bus",
-       "from": "Treviso - Airport Canova",
-       "to": "Zagreb",
-       "dep": "2026-11-22T17:30",
-       "arr": "2026-11-22T23:55",
-       "price": 47.98,
-       "changes": 1,
-       "url": "https://shop.flixbus.com/search?departureCity=0f3e7731-1464-463f-897f-019f79155692&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.11.2026&adult=1&_locale=en",
-       "transfer": {
-        "minutes": 5,
-        "price": 0
-       }
+       "kind": "transfer",
+       "text": "Zagreb airport → home",
+       "minutes": 45,
+       "price": 8
       }
      ]
     },
     "arriveShift": 1,
-    "leaveShift": 0,
-    "saving": 8.0
+    "leaveShift": 1,
+    "saving": 5.47
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-11-19",
      "back": "2026-11-21",
-     "total": 251.45
+     "total": 257.95
     },
     {
      "out": "2026-11-19",
      "back": "2026-11-22",
-     "total": 235.44
+     "total": 261.44
     },
     {
      "out": "2026-11-19",
      "back": "2026-11-23",
-     "total": 241.47
+     "total": 259.97
     },
     {
      "out": "2026-11-20",
      "back": "2026-11-21",
-     "total": 197.45
+     "total": 198.45
     },
     {
      "out": "2026-11-20",
      "back": "2026-11-22",
-     "total": 181.44
+     "total": 201.94
     },
     {
      "out": "2026-11-20",
      "back": "2026-11-23",
-     "total": 187.47
+     "total": 200.47
     },
     {
      "out": "2026-11-21",
      "back": "2026-11-21",
-     "total": 239.95
+     "total": 252.45
     },
     {
      "out": "2026-11-21",
      "back": "2026-11-22",
-     "total": 173.44
+     "total": 197.94
     },
     {
      "out": "2026-11-21",
      "back": "2026-11-23",
-     "total": 179.47
+     "total": 196.47
     }
    ],
    "warnings": []
@@ -4113,7 +4198,7 @@
    "back": "2026-11-22",
    "format": 3,
    "mode": "bus",
-   "searchedAt": "2026-11-17T06:10+01:00",
+   "searchedAt": "2026-11-18T05:38+01:00",
    "best": [
     {
      "total": 71.98,
@@ -4164,14 +4249,14 @@
      }
     },
     {
-     "total": 73.6,
+     "total": 75.6,
      "nights": 1,
      "out": {
       "airport": "Novi Sad",
       "airportName": "Novi Sad",
       "viaFlight": false,
       "mode": "bus",
-      "total": 37.61,
+      "total": 39.61,
       "wait": null,
       "overnight": false,
       "steps": [
@@ -4181,7 +4266,7 @@
         "to": "Novi Sad MAS",
         "dep": "2026-11-21T14:00",
         "arr": "2026-11-21T21:25",
-        "price": 37.61,
+        "price": 39.61,
         "changes": 1,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=62e6ac45-558a-4036-8c8e-7a11046003c3&rideDate=21.11.2026&adult=1&_locale=en",
         "transfer": null
@@ -4268,7 +4353,7 @@
     {
      "out": "2026-11-19",
      "back": "2026-11-21",
-     "total": 100.41
+     "total": 100.71
     },
     {
      "out": "2026-11-19",
@@ -4283,7 +4368,7 @@
     {
      "out": "2026-11-20",
      "back": "2026-11-21",
-     "total": 85.41
+     "total": 85.71
     },
     {
      "out": "2026-11-20",
@@ -4298,7 +4383,7 @@
     {
      "out": "2026-11-21",
      "back": "2026-11-21",
-     "total": 76.6
+     "total": 78.6
     },
     {
      "out": "2026-11-21",
@@ -4313,7 +4398,7 @@
     {
      "out": "2026-11-22",
      "back": "2026-11-22",
-     "total": 82.22
+     "total": 89.22
     },
     {
      "out": "2026-11-22",
@@ -4330,16 +4415,16 @@
    "back": "2026-12-21",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-17T06:11+01:00",
+   "searchedAt": "2026-11-18T05:39+01:00",
    "best": [
     {
-     "total": 127.95,
+     "total": 124.95,
      "nights": 4,
      "out": {
       "airport": "MLA",
       "airportName": "Malta International",
       "viaFlight": true,
-      "total": 73.98,
+      "total": 70.98,
       "wait": "6h25 connection in MLA (separate tickets) · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -4379,7 +4464,7 @@
         "arr": "2026-12-17T08:55",
         "approxArrival": false,
         "minutes": 95,
-        "price": 50.99,
+        "price": 47.99,
         "carriers": [
          "Ryanair"
         ],
@@ -4475,7 +4560,7 @@
         ],
         "via": [],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/2qdf9nf"
+        "url": "https://kiwi.com/u/6rwpwcm"
        }
       ]
      },
@@ -4524,13 +4609,13 @@
      }
     },
     {
-     "total": 148.44,
+     "total": 145.44,
      "nights": 4,
      "out": {
       "airport": "MLA",
       "airportName": "Malta International",
       "viaFlight": true,
-      "total": 73.98,
+      "total": 70.98,
       "wait": "6h25 connection in MLA (separate tickets) · 🌙 overnight wait",
       "overnight": true,
       "steps": [
@@ -4570,7 +4655,7 @@
         "arr": "2026-12-17T08:55",
         "approxArrival": false,
         "minutes": 95,
-        "price": 50.99,
+        "price": 47.99,
         "carriers": [
          "Ryanair"
         ],
@@ -4716,14 +4801,14 @@
     },
     "arriveShift": -1,
     "leaveShift": 0,
-    "saving": 9.51
+    "saving": 6.51
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-12-16",
      "back": "2026-12-20",
-     "total": 139.44
+     "total": 137.44
     },
     {
      "out": "2026-12-16",
@@ -4733,37 +4818,37 @@
     {
      "out": "2026-12-16",
      "back": "2026-12-22",
-     "total": 144.94
+     "total": 136.94
     },
     {
      "out": "2026-12-17",
      "back": "2026-12-20",
-     "total": 148.95
+     "total": 143.95
     },
     {
      "out": "2026-12-17",
      "back": "2026-12-21",
-     "total": 127.95
+     "total": 124.95
     },
     {
      "out": "2026-12-17",
      "back": "2026-12-22",
-     "total": 154.45
+     "total": 143.45
     },
     {
      "out": "2026-12-18",
      "back": "2026-12-20",
-     "total": 144.8
+     "total": 142.74
     },
     {
      "out": "2026-12-18",
      "back": "2026-12-21",
-     "total": 123.8
+     "total": 123.74
     },
     {
      "out": "2026-12-18",
      "back": "2026-12-22",
-     "total": 150.3
+     "total": 142.24
     }
    ],
    "warnings": []
