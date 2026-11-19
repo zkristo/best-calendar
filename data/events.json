@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T00:03+01:00",
+  "updatedAt": "2026-11-20T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1392,6 +1392,23 @@
       }
     },
     {
+      "id": "g-1a1e8fb1f00f491c-1",
+      "title": "Give feedback on the current BEST website",
+      "tag": "deadline",
+      "start": "2026-11-22",
+      "end": null,
+      "location": null,
+      "description": "The NewPWS project team, which is building a new BEST website, asks BESTies for feedback on the current website. Fill in the form.",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSd3I-fQRfzF7P4A_acitAWqg1U2qFfUvKOCAMpGoAYPkgfxEw/viewform",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb Board",
+        "subject": "[BEST International] [Board] [NewPWS] Provide feedback to current BEST Website | DL: 22.11.",
+        "receivedAt": "2026-11-17T11:08+01:00",
+        "messageId": "1a1e8fb1f00f491c"
+      }
+    },
+    {
       "id": "g-1a1bbb789ec802ef-1",
       "title": "Apply to host a BEST Symposium on Education (BSE) 2027",
       "tag": "deadline",
@@ -1406,6 +1423,23 @@
         "subject": "[BEST International] [EduID][Call] Host a BSE to Make Impact on Education in 2027!",
         "receivedAt": "2026-11-08T11:30+01:00",
         "messageId": "1a1bbb789ec802ef"
+      }
+    },
+    {
+      "id": "g-1a1f54a33fff07cc-2",
+      "title": "Attendance registration closes: BEST Gdańsk Birthday Party",
+      "tag": "deadline",
+      "start": "2026-11-26",
+      "end": null,
+      "location": null,
+      "description": "Last day to register attendance for LBG Gdańsk's 23rd birthday party on 4 December. Register via the form.",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSew1OT61JY-ocgJCajoM8s4GxKuCtoh1vRjaMw412fWEGjRXQ/viewform",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][BEST Gdansk] XXIII BIRTHDAY PARTY OF BEST GDAŃSK",
+        "receivedAt": "2026-11-19T20:30+01:00",
+        "messageId": "1a1f54a33fff07cc"
       }
     },
     {
@@ -1561,6 +1595,48 @@
         "subject": "[BEST International] [Call][MoWe][LBG Rome] The BESTsignal is on! bePLAYER 9.5 is calling!",
         "receivedAt": "2026-11-07T13:27+01:00",
         "messageId": "1a1b5fad9abab3a2"
+      }
+    },
+    {
+      "id": "g-1a1f54a33fff07cc-1",
+      "title": "BEST Gdańsk 23rd Birthday Party",
+      "tag": "social",
+      "start": "2026-12-04",
+      "end": null,
+      "location": {
+        "name": "Gdańsk city centre",
+        "city": "Gdańsk, Poland"
+      },
+      "lbg": "Gdańsk",
+      "airports": [
+        "GDN"
+      ],
+      "description": "LBG Gdańsk celebrates its 23rd birthday with a party open to BESTies from all LBGs; spots are limited and an old-Hollywood dress code applies. Instead of a fee, guests bring a bottle of their choice; register attendance via the form.",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSew1OT61JY-ocgJCajoM8s4GxKuCtoh1vRjaMw412fWEGjRXQ/viewform",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][BEST Gdansk] XXIII BIRTHDAY PARTY OF BEST GDAŃSK",
+        "receivedAt": "2026-11-19T20:30+01:00",
+        "messageId": "1a1f54a33fff07cc"
+      }
+    },
+    {
+      "id": "g-1a1f30d8c44592f4-1",
+      "title": "aGA26 VA threads close",
+      "tag": "deadline",
+      "start": "2026-12-05T23:00+01:00",
+      "end": null,
+      "location": {
+        "name": "Online"
+      },
+      "description": "The VA forum threads for questions, debate and statements on the aGA26 proposals and reports are open until this time. Access is through the BEST internal VA forum.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Announcement][aGA26] VA threads are open!",
+        "receivedAt": "2026-11-19T02:21+01:00",
+        "messageId": "1a1f30d8c44592f4"
       }
     },
     {
