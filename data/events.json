@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T00:04+01:00",
+  "updatedAt": "2026-11-22T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1637,6 +1637,22 @@
         "subject": "[BEST International] [Announcement][aGA26] VA threads are open!",
         "receivedAt": "2026-11-19T02:21+01:00",
         "messageId": "1a1f30d8c44592f4"
+      }
+    },
+    {
+      "id": "g-1a1ff219732da44d-1",
+      "title": "VA proposal submission closes",
+      "tag": "deadline",
+      "start": "2026-12-05T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Deadline for LBGs and international bodies to submit proposals for the new Virtual Assembly session, drafted on the official template and sent by email to the VA Speakers. Discussion and voting deadlines will follow.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Announcement][VA] A New VA Session is coming! Submit your proposals by December 5th",
+        "receivedAt": "2026-11-21T17:55+01:00",
+        "messageId": "1a1ff219732da44d"
       }
     },
     {
