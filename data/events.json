@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T00:04+01:00",
+  "updatedAt": "2026-11-24T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1510,6 +1510,23 @@
         "subject": "[BEST International] [CALL][MW] LBG Barcelona is inviting you to BEST High: Motivation Weekend 2026! 🖤",
         "receivedAt": "2026-10-13T00:34+02:00",
         "messageId": "1a132419ac4eb0a9"
+      }
+    },
+    {
+      "id": "g-1a209b28014dcb3d-1",
+      "title": "Crasher registration closes: RoJAM 2026",
+      "tag": "deadline",
+      "start": "2026-11-27T23:59+02:00",
+      "end": null,
+      "location": null,
+      "url": "https://forms.gle/iLTo7Fw9AGmHgaH98",
+      "description": "Crasher call for RoJAM 2026 in Bran, Romania (27–30 November), open to anyone. Crashers pay 5 € (30 lei) per night as a deposit, by transfer or in cash at check-in, and arrange their own room; sign up via the form.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Fwd: [CALL][JAM] Mystery JAM Crashers Call",
+        "receivedAt": "2026-11-23T19:36+01:00",
+        "messageId": "1a209b28014dcb3d"
       }
     },
     {
