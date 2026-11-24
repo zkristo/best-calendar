@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T00:04+01:00",
+  "updatedAt": "2026-11-25T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1412,10 +1412,10 @@
       "id": "g-1a1bbb789ec802ef-1",
       "title": "Apply to host a BEST Symposium on Education (BSE) 2027",
       "tag": "deadline",
-      "start": "2026-11-23",
+      "start": "2026-11-26",
       "end": null,
       "location": null,
-      "description": "Call from EduID for LBGs to host one of three BEST Symposia on Education in summer 2027. Apply via the form.",
+      "description": "Call from EduID for LBGs to host one of three BEST Symposia on Education in summer 2027. Deadline extended from 23 to 26 November. Apply via the form.",
       "status": "confirmed",
       "url": "https://docs.google.com/forms/d/e/1FAIpQLScJewjnW8lIJneqRH9WYMMixpycgDEYnNwZ-l7K8YzofMIFlQ/viewform?usp=sharing&ouid=117359131211042698401",
       "source": {
@@ -1527,6 +1527,22 @@
         "subject": "[BEST International] Fwd: [CALL][JAM] Mystery JAM Crashers Call",
         "receivedAt": "2026-11-23T19:36+01:00",
         "messageId": "1a209b28014dcb3d"
+      }
+    },
+    {
+      "id": "g-1a20c920e050ebb7-2",
+      "title": "Crasher applications close: CE Patras weekend trip",
+      "tag": "deadline",
+      "start": "2026-11-29T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Deadline for crashers for LBG Patras's Cultural Exchange weekend trip to Kalavrita (18–21 December). Apply by email with a video or presentation.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][CE][Crashers] LBG Patras is calling for Crashers for our CE Weekend Trip!",
+        "receivedAt": "2026-11-24T09:00+01:00",
+        "messageId": "1a20c920e050ebb7"
       }
     },
     {
@@ -1746,6 +1762,31 @@
         "subject": "[BEST International] [Call][CE][Extra] LBG Patras is calling for amazing EXTRA Participants",
         "receivedAt": "2026-11-13T22:04+01:00",
         "messageId": "1a1d6b9d533362bd"
+      }
+    },
+    {
+      "id": "g-1a20c920e050ebb7-1",
+      "title": "Cultural Exchange Patras – Weekend Trip to Kalavrita (crashers)",
+      "tag": "social",
+      "start": "2026-12-18",
+      "end": "2026-12-21",
+      "location": {
+        "name": "Kalavrita",
+        "city": "Kalavrita, Greece"
+      },
+      "lbg": "Patras",
+      "airports": [
+        "GPA",
+        "ATH"
+      ],
+      "description": "Four-day crasher weekend trip of LBG Patras's Cultural Exchange in the winter village of Kalavrita, with BESTies from Greece, Istanbul Yildiz and Coimbra. Fee 70 € (accommodation and food) plus an optional 10 € alcohol fee. Apply by email with a video or presentation.",
+      "fee": "€70",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][CE][Crashers] LBG Patras is calling for Crashers for our CE Weekend Trip!",
+        "receivedAt": "2026-11-24T09:00+01:00",
+        "messageId": "1a20c920e050ebb7"
       }
     },
     {
