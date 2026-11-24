@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-24T08:04+01:00",
+ "updatedAt": "2026-11-25T00:05+01:00",
  "origin": "Zagreb",
  "events": {
   "g-1a059568f97a5a84-1": {
@@ -3810,6 +3810,459 @@
    ],
    "warnings": [
     "Wizz Air direct prices unavailable for 6 route(s) (AGP→GDN, BUD→GDN, FCO→GDN, GDN→BUD, GDN→SPU, …); Kiwi prices used there."
+   ]
+  },
+  "g-1a20c920e050ebb7-1": {
+   "title": "Cultural Exchange Patras – Weekend Trip to Kalavrita (crashers)",
+   "destination": "GPA,ATH",
+   "out": "2026-12-18",
+   "back": "2026-12-21",
+   "format": 3,
+   "mode": "flight",
+   "searchedAt": "2026-11-25T00:05+01:00",
+   "best": [
+    {
+     "total": 123.35,
+     "nights": 3,
+     "out": {
+      "airport": "BTS",
+      "airportName": "Bratislava",
+      "viaFlight": false,
+      "total": 66.48,
+      "wait": "3h at the airport before take-off",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Bratislava (bus station Mlynské Nivy)",
+        "dep": "2026-12-18T06:30",
+        "arr": "2026-12-18T12:50",
+        "price": 29.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de54de-8646-11e6-9066-549f350fcb0c&rideDate=18.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 35,
+         "price": 1.5
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BTS",
+        "to": "ATH",
+        "fromName": "Bratislava Airport",
+        "toName": "Athens International",
+        "dep": "2026-12-18T16:25",
+        "arr": "2026-12-18T19:35",
+        "approxArrival": false,
+        "minutes": 130,
+        "price": 35.0,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-18&isReturn=false&originIata=BTS&destinationIata=ATH"
+       }
+      ]
+     },
+     "back": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 56.87,
+      "wait": "bus leaves 6h after landing · 🌙 overnight wait",
+      "overnight": true,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "ATH",
+        "to": "VCE",
+        "fromName": "Athens International",
+        "toName": "Venice Marco Polo",
+        "dep": "2026-12-21T23:45",
+        "arr": "2026-12-22T01:05",
+        "approxArrival": false,
+        "minutes": 140,
+        "price": 21.89,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-21&isReturn=false&originIata=ATH&destinationIata=VCE"
+       },
+       {
+        "kind": "bus",
+        "from": "Venice (Airport VCE)",
+        "to": "Zagreb",
+        "dep": "2026-12-22T07:05",
+        "arr": "2026-12-22T12:50",
+        "price": 34.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       }
+      ]
+     }
+    },
+    {
+     "total": 130.85,
+     "nights": 3,
+     "out": {
+      "airport": "BUD",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "total": 73.98,
+      "wait": "5h45 at the airport before take-off · 🌙 overnight wait",
+      "overnight": true,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Budapest Népliget",
+        "dep": "2026-12-17T18:50",
+        "arr": "2026-12-17T23:10",
+        "price": 25.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=17.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 60,
+         "price": 6
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BUD",
+        "to": "ATH",
+        "fromName": "Budapest Ferenc Liszt International",
+        "toName": "Athens International",
+        "dep": "2026-12-18T05:55",
+        "arr": "2026-12-18T08:55",
+        "approxArrival": false,
+        "minutes": 120,
+        "price": 42.0,
+        "carriers": [
+         "Wizz Air"
+        ],
+        "via": [],
+        "source": "kiwi",
+        "url": "https://kiwi.com/u/dhnfkws59s"
+       }
+      ]
+     },
+     "back": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 56.87,
+      "wait": "bus leaves 6h after landing · 🌙 overnight wait",
+      "overnight": true,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "ATH",
+        "to": "VCE",
+        "fromName": "Athens International",
+        "toName": "Venice Marco Polo",
+        "dep": "2026-12-21T23:45",
+        "arr": "2026-12-22T01:05",
+        "approxArrival": false,
+        "minutes": 140,
+        "price": 21.89,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-21&isReturn=false&originIata=ATH&destinationIata=VCE"
+       },
+       {
+        "kind": "bus",
+        "from": "Venice (Airport VCE)",
+        "to": "Zagreb",
+        "dep": "2026-12-22T07:05",
+        "arr": "2026-12-22T12:50",
+        "price": 34.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       }
+      ]
+     }
+    },
+    {
+     "total": 135.84,
+     "nights": 3,
+     "out": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 78.97,
+      "wait": "5h15 at the airport before take-off",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Venice (Airport VCE)",
+        "dep": "2026-12-18T07:30",
+        "arr": "2026-12-18T13:45",
+        "price": 32.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=18.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "VCE",
+        "to": "ATH",
+        "fromName": "Venice Marco Polo",
+        "toName": "Athens International",
+        "dep": "2026-12-18T19:05",
+        "arr": "2026-12-18T22:20",
+        "approxArrival": false,
+        "minutes": 135,
+        "price": 45.99,
+        "carriers": [
+         "Wizz Air Malta"
+        ],
+        "via": [],
+        "source": "wizz",
+        "url": "https://wizzair.com/en-gb/booking/select-flight/VCE/ATH/2026-12-18/null/1/0/0/null"
+       }
+      ]
+     },
+     "back": {
+      "airport": "VCE",
+      "airportName": "Venice Marco Polo",
+      "viaFlight": false,
+      "total": 56.87,
+      "wait": "bus leaves 6h after landing · 🌙 overnight wait",
+      "overnight": true,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "ATH",
+        "to": "VCE",
+        "fromName": "Athens International",
+        "toName": "Venice Marco Polo",
+        "dep": "2026-12-21T23:45",
+        "arr": "2026-12-22T01:05",
+        "approxArrival": false,
+        "minutes": 140,
+        "price": 21.89,
+        "carriers": [
+         "Ryanair"
+        ],
+        "via": [],
+        "source": "ryanair",
+        "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-21&isReturn=false&originIata=ATH&destinationIata=VCE"
+       },
+       {
+        "kind": "bus",
+        "from": "Venice (Airport VCE)",
+        "to": "Zagreb",
+        "dep": "2026-12-22T07:05",
+        "arr": "2026-12-22T12:50",
+        "price": 34.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 5,
+         "price": 0
+        }
+       }
+      ]
+     }
+    }
+   ],
+   "alternative": {
+    "total": 121.59,
+    "nights": 2,
+    "out": {
+     "airport": "VCE",
+     "airportName": "Venice Marco Polo",
+     "viaFlight": false,
+     "total": 64.72,
+     "wait": "5h55 at the airport before take-off",
+     "overnight": false,
+     "steps": [
+      {
+       "kind": "bus",
+       "from": "Zagreb",
+       "to": "Venice (Airport VCE)",
+       "dep": "2026-12-19T07:30",
+       "arr": "2026-12-19T13:45",
+       "price": 31.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=b2a6981d-00be-40c6-9141-57e4977b409f&rideDate=19.12.2026&adult=1&_locale=en",
+       "transfer": {
+        "minutes": 5,
+        "price": 0
+       }
+      },
+      {
+       "kind": "flight",
+       "hop": false,
+       "from": "VCE",
+       "to": "ATH",
+       "fromName": "Venice Marco Polo",
+       "toName": "Athens International",
+       "dep": "2026-12-19T19:45",
+       "arr": "2026-12-19T22:55",
+       "approxArrival": false,
+       "minutes": 130,
+       "price": 32.74,
+       "carriers": [
+        "Ryanair"
+       ],
+       "via": [],
+       "source": "ryanair",
+       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-19&isReturn=false&originIata=VCE&destinationIata=ATH"
+      }
+     ]
+    },
+    "back": {
+     "airport": "VCE",
+     "airportName": "Venice Marco Polo",
+     "viaFlight": false,
+     "total": 56.87,
+     "wait": "bus leaves 6h after landing · 🌙 overnight wait",
+     "overnight": true,
+     "steps": [
+      {
+       "kind": "flight",
+       "hop": false,
+       "from": "ATH",
+       "to": "VCE",
+       "fromName": "Athens International",
+       "toName": "Venice Marco Polo",
+       "dep": "2026-12-21T23:45",
+       "arr": "2026-12-22T01:05",
+       "approxArrival": false,
+       "minutes": 140,
+       "price": 21.89,
+       "carriers": [
+        "Ryanair"
+       ],
+       "via": [],
+       "source": "ryanair",
+       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-21&isReturn=false&originIata=ATH&destinationIata=VCE"
+      },
+      {
+       "kind": "bus",
+       "from": "Venice (Airport VCE)",
+       "to": "Zagreb",
+       "dep": "2026-12-22T07:05",
+       "arr": "2026-12-22T12:50",
+       "price": 34.98,
+       "changes": 0,
+       "url": "https://shop.flixbus.com/search?departureCity=b2a6981d-00be-40c6-9141-57e4977b409f&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=22.12.2026&adult=1&_locale=en",
+       "transfer": {
+        "minutes": 5,
+        "price": 0
+       }
+      }
+     ]
+    },
+    "arriveShift": 1,
+    "leaveShift": 0,
+    "saving": 1.76
+   },
+   "baseline": null,
+   "grid": [
+    {
+     "out": "2026-12-17",
+     "back": "2026-12-20",
+     "total": 139.95
+    },
+    {
+     "out": "2026-12-17",
+     "back": "2026-12-21",
+     "total": 123.85
+    },
+    {
+     "out": "2026-12-17",
+     "back": "2026-12-22",
+     "total": 149.45
+    },
+    {
+     "out": "2026-12-18",
+     "back": "2026-12-20",
+     "total": 139.45
+    },
+    {
+     "out": "2026-12-18",
+     "back": "2026-12-21",
+     "total": 123.35
+    },
+    {
+     "out": "2026-12-18",
+     "back": "2026-12-22",
+     "total": 148.95
+    },
+    {
+     "out": "2026-12-19",
+     "back": "2026-12-20",
+     "total": 137.69
+    },
+    {
+     "out": "2026-12-19",
+     "back": "2026-12-21",
+     "total": 121.59
+    },
+    {
+     "out": "2026-12-19",
+     "back": "2026-12-22",
+     "total": 147.19
+    }
+   ],
+   "warnings": [
+    "Flight search AGP→ZAG failed: Kiwi search error: Something went wrong.",
+    "Flight search GPA,ATH→FCO failed: Kiwi search error: Something went wrong.",
+    "Flight search GPA,ATH→AGP failed: Kiwi search error: Something went wrong.",
+    "Flight search WMI→ZAG failed: Kiwi search error: Something went wrong.",
+    "Flight search FCO→ZAG failed: Kiwi search error: Something went wrong.",
+    "Flight search GPA,ATH→ACE failed: Kiwi search error: Something went wrong.",
+    "Flight search ACE→ZAG failed: Kiwi search error: Something went wrong.",
+    "Flight search GPA,ATH→MLA failed: Kiwi search error: Something went wrong.",
+    "Flight search GPA,ATH→WMI failed: Kiwi search error: Something went wrong.",
+    "Flight search MLA→ZAG failed: Kiwi search error: Something went wrong.",
+    "Flight search GPA,ATH→ALC failed: Kiwi search error: Something went wrong.",
+    "Flight search GPA,ATH→BGY failed: Kiwi search error: Something went wrong.",
+    "Flight search ALC→ZAG failed: Kiwi search error: Something went wrong.",
+    "Flight search FKB→GPA,ATH failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→FKB failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→FMM failed: Kiwi search error: Something went wrong.",
+    "Flight search BGY→ZAG failed: Kiwi search error: Something went wrong.",
+    "Flight search FMM→GPA,ATH failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→BSL failed: Kiwi search error: Something went wrong.",
+    "Flight search BSL→GPA,ATH failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→NRN failed: Kiwi search error: Something went wrong.",
+    "Flight search NRN→GPA,ATH failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→MLA failed: Kiwi search error: Something went wrong.",
+    "Flight search MLA→GPA,ATH failed: Kiwi search error: Something went wrong.",
+    "Flight search CRL→GPA,ATH failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→PFO failed: Kiwi search error: Something went wrong.",
+    "Flight search PFO→GPA,ATH failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→GOT failed: Kiwi search error: Something went wrong.",
+    "Flight search GOT→GPA,ATH failed: Kiwi search error: Something went wrong."
    ]
   }
  }
