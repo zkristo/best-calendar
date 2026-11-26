@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T00:04+01:00",
+  "updatedAt": "2026-11-26T20:43+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1429,10 +1429,10 @@
       "id": "g-1a1f54a33fff07cc-2",
       "title": "Attendance registration closes: BEST Gdańsk Birthday Party",
       "tag": "deadline",
-      "start": "2026-11-26",
+      "start": "2026-11-27",
       "end": null,
       "location": null,
-      "description": "Last day to register attendance for LBG Gdańsk's 23rd birthday party on 4 December. Register via the form.",
+      "description": "Extended deadline: last day to register attendance for LBG Gdańsk's 23rd birthday party on 4 December. Register via the form.",
       "url": "https://docs.google.com/forms/d/e/1FAIpQLSew1OT61JY-ocgJCajoM8s4GxKuCtoh1vRjaMw412fWEGjRXQ/viewform",
       "status": "confirmed",
       "source": {
@@ -1530,6 +1530,23 @@
       }
     },
     {
+      "id": "g-1a2150ca97684909-2",
+      "title": "Crasher applications close: aMW Lisbon",
+      "tag": "deadline",
+      "start": "2026-11-28",
+      "end": null,
+      "location": null,
+      "description": "Last day for crashers to apply to the Autumn Motivational Weekend hosted by LBG Lisbon (4–6 December). Apply via the form.",
+      "url": "https://forms.gle/iD3fHeFtMrVrB4h49",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][aMW26][Crashers] LBG Lisbon",
+        "receivedAt": "2026-11-26T00:30+01:00",
+        "messageId": "1a2150ca97684909"
+      }
+    },
+    {
       "id": "g-1a20c920e050ebb7-2",
       "title": "Crasher applications close: CE Patras weekend trip",
       "tag": "deadline",
@@ -1543,6 +1560,22 @@
         "subject": "[BEST International] [Call][CE][Crashers] LBG Patras is calling for Crashers for our CE Weekend Trip!",
         "receivedAt": "2026-11-24T09:00+01:00",
         "messageId": "1a20c920e050ebb7"
+      }
+    },
+    {
+      "id": "g-1a218371a4bc73d0-1",
+      "title": "Crasher applications close: Cultural Exchange Patras (Kalavrita)",
+      "tag": "deadline",
+      "start": "2026-11-29T23:00+01:00",
+      "end": null,
+      "location": null,
+      "description": "Deadline to apply as a crasher for LBG Patras's Cultural Exchange weekend trip to Kalavrita (18–21 December). Apply by email with a video or presentation.",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] Re: [Call][CE][Crashers] LBG Patras is calling for Crashers for our CE Weekend Trip!",
+        "receivedAt": "2026-11-26T15:16+01:00",
+        "messageId": "1a218371a4bc73d0"
       }
     },
     {
@@ -1652,6 +1685,31 @@
         "subject": "[BEST International] [Call][BEST Gdansk] XXIII BIRTHDAY PARTY OF BEST GDAŃSK",
         "receivedAt": "2026-11-19T20:30+01:00",
         "messageId": "1a1f54a33fff07cc"
+      }
+    },
+    {
+      "id": "g-1a2150ca97684909-1",
+      "title": "Autumn Motivational Weekend Lisbon 2026",
+      "tag": "course",
+      "start": "2026-12-04",
+      "end": "2026-12-06",
+      "location": {
+        "name": "Monte da Calmaria",
+        "city": "Lavre, Portugal"
+      },
+      "lbg": "Lisbon",
+      "airports": [
+        "LIS"
+      ],
+      "description": "Autumn Motivational Weekend hosted by LBG Lisbon, open to crashers. Fee 33 €; bring sleeping bag and mat, tent if possible, and warm clothing. Apply via the form.",
+      "fee": "€33",
+      "url": "https://forms.gle/iD3fHeFtMrVrB4h49",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Call][aMW26][Crashers] LBG Lisbon",
+        "receivedAt": "2026-11-26T00:30+01:00",
+        "messageId": "1a2150ca97684909"
       }
     },
     {
