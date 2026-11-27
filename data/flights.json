@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-27T06:15+01:00",
+ "updatedAt": "2026-11-28T00:05+01:00",
  "origin": "Zagreb",
  "events": {
   "g-1a0d3071ca38f137-1": {
@@ -3388,16 +3388,16 @@
    "back": "2026-12-06",
    "format": 3,
    "mode": "flight",
-   "searchedAt": "2026-11-26T20:44+01:00",
+   "searchedAt": "2026-11-28T00:05+01:00",
    "best": [
     {
-     "total": 245.66,
+     "total": 242.46,
      "nights": 2,
      "out": {
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 122.68,
+      "total": 118.98,
       "wait": "2h14 at the airport before take-off",
       "overnight": false,
       "steps": [
@@ -3407,7 +3407,7 @@
         "to": "Budapest Népliget",
         "dep": "2026-12-04T07:30",
         "arr": "2026-12-04T12:46",
-        "price": 53.98,
+        "price": 47.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=04.12.2026&adult=1&_locale=en",
         "transfer": {
@@ -3426,13 +3426,13 @@
         "arr": "2026-12-04T19:00",
         "approxArrival": false,
         "minutes": 240,
-        "price": 62.7,
+        "price": 65.0,
         "carriers": [
          "Wizz Air"
         ],
         "via": [],
-        "source": "wizz",
-        "url": "https://wizzair.com/en-gb/booking/select-flight/BUD/LIS/2026-12-04/null/1/0/0/null"
+        "source": "kiwi",
+        "url": "https://kiwi.com/u/sc93xt2v28"
        }
       ]
      },
@@ -3440,7 +3440,7 @@
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 122.98,
+      "total": 123.48,
       "wait": "bus leaves 6h35 after landing",
       "overnight": false,
       "steps": [
@@ -3464,7 +3464,7 @@
          "MXP"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/sh67p7tny9"
+        "url": "https://kiwi.com/u/qt86y4skt9"
        },
        {
         "kind": "bus",
@@ -3472,7 +3472,7 @@
         "to": "Zagreb",
         "dep": "2026-12-07T14:25",
         "arr": "2026-12-07T20:00",
-        "price": 22.98,
+        "price": 23.48,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40de6527-8646-11e6-9066-549f350fcb0c&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=07.12.2026&adult=1&_locale=en",
         "transfer": {
@@ -3484,13 +3484,13 @@
      }
     },
     {
-     "total": 256.66,
+     "total": 250.96,
      "nights": 2,
      "out": {
       "airport": "BUD",
       "airportName": "Budapest",
       "viaFlight": false,
-      "total": 122.68,
+      "total": 118.98,
       "wait": "2h14 at the airport before take-off",
       "overnight": false,
       "steps": [
@@ -3500,7 +3500,7 @@
         "to": "Budapest Népliget",
         "dep": "2026-12-04T07:30",
         "arr": "2026-12-04T12:46",
-        "price": 53.98,
+        "price": 47.98,
         "changes": 0,
         "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=04.12.2026&adult=1&_locale=en",
         "transfer": {
@@ -3519,13 +3519,106 @@
         "arr": "2026-12-04T19:00",
         "approxArrival": false,
         "minutes": 240,
-        "price": 62.7,
+        "price": 65.0,
         "carriers": [
          "Wizz Air"
         ],
         "via": [],
-        "source": "wizz",
-        "url": "https://wizzair.com/en-gb/booking/select-flight/BUD/LIS/2026-12-04/null/1/0/0/null"
+        "source": "kiwi",
+        "url": "https://kiwi.com/u/sc93xt2v28"
+       }
+      ]
+     },
+     "back": {
+      "airport": "BEG",
+      "airportName": "Belgrade",
+      "viaFlight": false,
+      "total": 131.98,
+      "wait": "bus leaves 4h45 after landing",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "LIS",
+        "to": "BEG",
+        "fromName": "Lisbon Portela",
+        "toName": "Belgrade Nikola Tesla",
+        "dep": "2026-12-06T19:00",
+        "arr": "2026-12-07T11:30",
+        "approxArrival": false,
+        "minutes": 930,
+        "price": 105.0,
+        "carriers": [
+         "Transavia",
+         "Wizz Air"
+        ],
+        "via": [
+         "EIN"
+        ],
+        "source": "kiwi",
+        "url": "https://kiwi.com/u/u2t4g6twt9"
+       },
+       {
+        "kind": "bus",
+        "from": "Belgrade AS",
+        "to": "Zagreb",
+        "dep": "2026-12-07T16:15",
+        "arr": "2026-12-07T21:45",
+        "price": 23.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=340bdce6-7eb1-4c50-bd1e-fd43485cdfef&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=07.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 45,
+         "price": 3
+        }
+       }
+      ]
+     }
+    },
+    {
+     "total": 255.96,
+     "nights": 2,
+     "out": {
+      "airport": "BUD",
+      "airportName": "Budapest",
+      "viaFlight": false,
+      "total": 118.98,
+      "wait": "2h14 at the airport before take-off",
+      "overnight": false,
+      "steps": [
+       {
+        "kind": "bus",
+        "from": "Zagreb",
+        "to": "Budapest Népliget",
+        "dep": "2026-12-04T07:30",
+        "arr": "2026-12-04T12:46",
+        "price": 47.98,
+        "changes": 0,
+        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=04.12.2026&adult=1&_locale=en",
+        "transfer": {
+         "minutes": 60,
+         "price": 6
+        }
+       },
+       {
+        "kind": "flight",
+        "hop": false,
+        "from": "BUD",
+        "to": "LIS",
+        "fromName": "Budapest Ferenc Liszt International",
+        "toName": "Lisbon Portela",
+        "dep": "2026-12-04T16:00",
+        "arr": "2026-12-04T19:00",
+        "approxArrival": false,
+        "minutes": 240,
+        "price": 65.0,
+        "carriers": [
+         "Wizz Air"
+        ],
+        "via": [],
+        "source": "kiwi",
+        "url": "https://kiwi.com/u/sc93xt2v28"
        }
       ]
      },
@@ -3533,7 +3626,7 @@
       "airport": "TRS",
       "airportName": "Trieste",
       "viaFlight": false,
-      "total": 133.98,
+      "total": 136.98,
       "wait": "bus leaves 3h05 after landing",
       "overnight": false,
       "steps": [
@@ -3548,7 +3641,7 @@
         "arr": "2026-12-07T08:30",
         "approxArrival": false,
         "minutes": 950,
-        "price": 113.0,
+        "price": 116.0,
         "carriers": [
          "Ryanair"
         ],
@@ -3556,7 +3649,7 @@
          "BCN"
         ],
         "source": "kiwi",
-        "url": "https://kiwi.com/u/wy68umgmfh"
+        "url": "https://kiwi.com/u/njbugccv3r"
        },
        {
         "kind": "bus",
@@ -3574,110 +3667,17 @@
        }
       ]
      }
-    },
-    {
-     "total": 263.66,
-     "nights": 2,
-     "out": {
-      "airport": "BUD",
-      "airportName": "Budapest",
-      "viaFlight": false,
-      "total": 122.68,
-      "wait": "2h14 at the airport before take-off",
-      "overnight": false,
-      "steps": [
-       {
-        "kind": "bus",
-        "from": "Zagreb",
-        "to": "Budapest Népliget",
-        "dep": "2026-12-04T07:30",
-        "arr": "2026-12-04T12:46",
-        "price": 53.98,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=40dea87d-8646-11e6-9066-549f350fcb0c&arrivalCity=40de6527-8646-11e6-9066-549f350fcb0c&rideDate=04.12.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 60,
-         "price": 6
-        }
-       },
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "BUD",
-        "to": "LIS",
-        "fromName": "Budapest Ferenc Liszt International",
-        "toName": "Lisbon Portela",
-        "dep": "2026-12-04T16:00",
-        "arr": "2026-12-04T19:00",
-        "approxArrival": false,
-        "minutes": 240,
-        "price": 62.7,
-        "carriers": [
-         "Wizz Air"
-        ],
-        "via": [],
-        "source": "wizz",
-        "url": "https://wizzair.com/en-gb/booking/select-flight/BUD/LIS/2026-12-04/null/1/0/0/null"
-       }
-      ]
-     },
-     "back": {
-      "airport": "BEG",
-      "airportName": "Belgrade",
-      "viaFlight": false,
-      "total": 140.98,
-      "wait": "bus leaves 6h20 after landing · 🌙 overnight wait",
-      "overnight": true,
-      "steps": [
-       {
-        "kind": "flight",
-        "hop": false,
-        "from": "LIS",
-        "to": "BEG",
-        "fromName": "Lisbon Portela",
-        "toName": "Belgrade Nikola Tesla",
-        "dep": "2026-12-06T06:10",
-        "arr": "2026-12-07T01:10",
-        "approxArrival": false,
-        "minutes": 1080,
-        "price": 114.0,
-        "carriers": [
-         "easyJet",
-         "Wizz Air"
-        ],
-        "via": [
-         "BCN"
-        ],
-        "source": "kiwi",
-        "url": "https://kiwi.com/u/qfyf4tndsw"
-       },
-       {
-        "kind": "bus",
-        "from": "Belgrade AS",
-        "to": "Zagreb",
-        "dep": "2026-12-07T07:30",
-        "arr": "2026-12-07T13:00",
-        "price": 23.98,
-        "changes": 0,
-        "url": "https://shop.flixbus.com/search?departureCity=340bdce6-7eb1-4c50-bd1e-fd43485cdfef&arrivalCity=40dea87d-8646-11e6-9066-549f350fcb0c&rideDate=07.12.2026&adult=1&_locale=en",
-        "transfer": {
-         "minutes": 45,
-         "price": 3
-        }
-       }
-      ]
-     }
     }
    ],
    "alternative": {
-    "total": 193.04,
-    "nights": 4,
+    "total": 185.04,
+    "nights": 2,
     "out": {
-     "airport": "MLA",
-     "airportName": "Malta International",
+     "airport": "WMI",
+     "airportName": "WMI",
      "viaFlight": true,
-     "total": 86.58,
-     "wait": "6h20 connection in MLA (separate tickets)",
+     "total": 78.58,
+     "wait": "4h20 connection in WMI (separate tickets)",
      "overnight": false,
      "steps": [
       {
@@ -3690,39 +3690,39 @@
        "kind": "flight",
        "hop": true,
        "from": "ZAG",
-       "to": "MLA",
-       "fromName": "Zagreb",
-       "toName": "Malta International",
-       "dep": "2026-12-03T08:45",
-       "arr": "2026-12-03T10:45",
+       "to": "WMI",
+       "fromName": "ZAG",
+       "toName": "WMI",
+       "dep": "2026-12-05T09:25",
+       "arr": "2026-12-05T11:05",
        "approxArrival": false,
-       "minutes": 120,
-       "price": 35.59,
+       "minutes": null,
+       "price": 33.59,
        "carriers": [
         "Ryanair"
        ],
        "via": [],
        "source": "ryanair",
-       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-03&isReturn=false&originIata=ZAG&destinationIata=MLA"
+       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-05&isReturn=false&originIata=ZAG&destinationIata=WMI"
       },
       {
        "kind": "flight",
        "hop": false,
-       "from": "MLA",
+       "from": "WMI",
        "to": "LIS",
-       "fromName": "MLA",
+       "fromName": "WMI",
        "toName": "LIS",
-       "dep": "2026-12-03T17:05",
-       "arr": "2026-12-03T19:35",
+       "dep": "2026-12-05T15:25",
+       "arr": "2026-12-05T18:45",
        "approxArrival": false,
        "minutes": null,
-       "price": 42.99,
+       "price": 36.99,
        "carriers": [
         "Ryanair"
        ],
        "via": [],
        "source": "ryanair",
-       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-03&isReturn=false&originIata=MLA&destinationIata=LIS"
+       "url": "https://www.ryanair.com/gb/en/trip/flights/select?adults=1&teens=0&children=0&infants=0&dateOut=2026-12-05&isReturn=false&originIata=WMI&destinationIata=LIS"
       }
      ]
     },
@@ -3769,73 +3769,73 @@
       }
      ]
     },
-    "arriveShift": -1,
+    "arriveShift": 1,
     "leaveShift": 1,
-    "saving": 52.62
+    "saving": 57.42
    },
    "baseline": null,
    "grid": [
     {
      "out": "2026-12-03",
      "back": "2026-12-05",
-     "total": 215.56
-    },
-    {
-     "out": "2026-12-03",
-     "back": "2026-12-06",
      "total": 209.56
     },
     {
      "out": "2026-12-03",
+     "back": "2026-12-06",
+     "total": 208.06
+    },
+    {
+     "out": "2026-12-03",
      "back": "2026-12-07",
-     "total": 193.04
+     "total": 191.04
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-05",
-     "total": 251.66
+     "total": 243.96
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-06",
-     "total": 245.66
+     "total": 242.46
     },
     {
      "out": "2026-12-04",
      "back": "2026-12-07",
-     "total": 229.14
+     "total": 225.44
     },
     {
      "out": "2026-12-05",
      "back": "2026-12-05",
-     "total": 219.97
+     "total": 211.58
     },
     {
      "out": "2026-12-05",
      "back": "2026-12-06",
-     "total": 213.97
+     "total": 202.06
     },
     {
      "out": "2026-12-05",
      "back": "2026-12-07",
-     "total": 197.45
+     "total": 185.04
     }
    ],
    "warnings": [
-    "Flight search FCO→LIS failed: Kiwi search error: Something went wrong.",
-    "Flight search MLA→LIS failed: Kiwi search error: Something went wrong.",
-    "Flight search ZAG→BSL failed: Kiwi search error: Something went wrong.",
-    "Flight search BSL→LIS failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→AGP failed: Kiwi search error: Something went wrong.",
+    "Flight search AGP→LIS failed: Kiwi search error: Something went wrong.",
+    "Flight search LIS→DUB failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→MLA failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→DUB failed: Kiwi search error: Something went wrong.",
+    "Flight search DUB→LIS failed: Kiwi search error: Something went wrong.",
+    "Flight search ZAG→FCO failed: Kiwi search error: Something went wrong.",
     "Flight search ZAG→WMI failed: Kiwi search error: Something went wrong.",
     "Flight search WMI→LIS failed: Kiwi search error: Something went wrong.",
-    "Flight search LIS→WMI failed: Kiwi search error: Something went wrong.",
-    "Flight search LIS→MLA failed: Kiwi search error: Something went wrong.",
-    "Flight search WMI→ZAG failed: Kiwi search error: Something went wrong.",
-    "Flight search FCO→ZAG failed: Kiwi search error: Something went wrong.",
-    "Flight search MLA→ZAG failed: Kiwi search error: Something went wrong.",
-    "Flight search LIS→DUB failed: Kiwi search error: Something went wrong.",
-    "Flight search DUB→ZAG failed: Kiwi search error: Something went wrong.",
-    "Flight search LIS→FCO failed: Kiwi search error: Something went wrong."
+    "Flight search ZAG→BSL failed: Kiwi search error: Something went wrong.",
+    "Flight search MLA→LIS failed: Kiwi search error: Something went wrong.",
+    "Flight search BSL→LIS failed: Kiwi search error: Something went wrong.",
+    "Flight search PFO→LIS failed: Kiwi search error: Something went wrong.",
+    "Flight search FCO→LIS failed: Kiwi search error: Something went wrong."
    ]
   }
  }
