@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-26T20:43+01:00",
+  "updatedAt": "2026-11-28T00:04+01:00",
   "events": [
     {
       "id": "g-1a05749f727dd5d2-1",
@@ -1635,6 +1635,23 @@
         "subject": "[BEST International] [CALL][ALPINE JAM] Torino is calling upon YOU!!!",
         "receivedAt": "2026-09-24T12:47+02:00",
         "messageId": "1a0d3071ca38f137"
+      }
+    },
+    {
+      "id": "g-1a21df48c656e46c-1",
+      "title": "Order merch: SCARLET Vol. XVI",
+      "tag": "deadline",
+      "start": "2026-12-03T23:59+01:00",
+      "end": null,
+      "location": null,
+      "description": "Merch order form for participants of SCARLET Vol. XVI (T-shirt €12, sweatshirt €22, boxers €5, lighter €1); cash payment on site. The email states 2025 for the year, which looks like a typo for 2026.",
+      "url": "https://forms.gle/tN3cB12zvT12k1ZTA",
+      "status": "confirmed",
+      "source": {
+        "from": "BEST Zagreb International list",
+        "subject": "[BEST International] [Merch Call][SCARLET Vol. VXI] Time to Gear Up for SCARLET!",
+        "receivedAt": "2026-11-27T18:00+01:00",
+        "messageId": "1a21df48c656e46c"
       }
     },
     {
